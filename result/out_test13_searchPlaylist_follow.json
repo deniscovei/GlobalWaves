@@ -1,0 +1,94 @@
+[ null, {
+  "command" : "search",
+  "timestamp" : 170,
+  "user" : "bob35",
+  "message" : "Search returned 5 results",
+  "results" : [ "Start Me Up", "Black Dog", "Paint It Black", "Gimme Shelter", "Bohemian Rhapsody" ]
+}, {
+  "command" : "select",
+  "timestamp" : 190,
+  "user" : "bob35",
+  "message" : "Successfully selected Start Me Up."
+}, null, null, {
+  "command" : "select",
+  "timestamp" : 290,
+  "user" : "bob35",
+  "message" : "Successfully selected Start Me Up."
+}, null, null, {
+  "command" : "search",
+  "timestamp" : 370,
+  "user" : "bob35",
+  "message" : "Search returned 5 results",
+  "results" : [ "Start Me Up", "Black Dog", "Paint It Black", "Gimme Shelter", "Bohemian Rhapsody" ]
+}, {
+  "command" : "select",
+  "timestamp" : 390,
+  "user" : "bob35",
+  "message" : "Successfully selected Start Me Up."
+}, null, null, null, {
+  "command" : "search",
+  "timestamp" : 470,
+  "user" : "bob35",
+  "message" : "Search returned 5 results",
+  "results" : [ "Start Me Up", "Black Dog", "Paint It Black", "Gimme Shelter", "Bohemian Rhapsody" ]
+}, {
+  "command" : "select",
+  "timestamp" : 490,
+  "user" : "bob35",
+  "message" : "Successfully selected Start Me Up."
+}, null, null, {
+  "command" : "search",
+  "timestamp" : 570,
+  "user" : "bob35",
+  "message" : "Search returned 5 results",
+  "results" : [ "Start Me Up", "Black Dog", "Paint It Black", "Gimme Shelter", "Bohemian Rhapsody" ]
+}, {
+  "command" : "select",
+  "timestamp" : 590,
+  "user" : "bob35",
+  "message" : "Successfully selected Start Me Up."
+}, null, null, null, {
+  "command" : "search",
+  "timestamp" : 870,
+  "user" : "carol19",
+  "message" : "Search returned 5 results",
+  "results" : [ "Start Me Up", "Black Dog", "Paint It Black", "Gimme Shelter", "Bohemian Rhapsody" ]
+}, {
+  "command" : "select",
+  "timestamp" : 890,
+  "user" : "carol19",
+  "message" : "Successfully selected Start Me Up."
+}, null, null, {
+  "command" : "search",
+  "timestamp" : 1000,
+  "user" : "carol19",
+  "message" : "Search returned 0 results",
+  "results" : [ ]
+}, {
+  "command" : "select",
+  "timestamp" : 1010,
+  "user" : "carol19",
+  "message" : "Please conduct a search before making a selection."
+}, null, null, null, null, null, {
+  "command" : "search",
+  "timestamp" : 1200,
+  "user" : "david27",
+  "message" : "Search returned 0 results",
+  "results" : [ ]
+}, {
+  "command" : "select",
+  "timestamp" : 1210,
+  "user" : "david27",
+  "message" : "Please conduct a search before making a selection."
+}, null, {
+  "command" : "search",
+  "timestamp" : 1300,
+  "user" : "emily30",
+  "message" : "Search returned 0 results",
+  "results" : [ ]
+}, {
+  "command" : "select",
+  "timestamp" : 1310,
+  "user" : "emily30",
+  "message" : "Please conduct a search before making a selection."
+}, null, null, null, null, null, null ]

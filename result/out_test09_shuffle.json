@@ -1,0 +1,89 @@
+[ null, {
+  "command" : "search",
+  "timestamp" : 170,
+  "user" : "bob35",
+  "message" : "Search returned 1 results",
+  "results" : [ "Nothing Else Matters" ]
+}, {
+  "command" : "select",
+  "timestamp" : 190,
+  "user" : "bob35",
+  "message" : "Successfully selected Nothing Else Matters."
+}, null, null, {
+  "command" : "search",
+  "timestamp" : 270,
+  "user" : "bob35",
+  "message" : "Search returned 1 results",
+  "results" : [ "Crazy" ]
+}, {
+  "command" : "select",
+  "timestamp" : 290,
+  "user" : "bob35",
+  "message" : "Successfully selected Crazy."
+}, null, null, {
+  "command" : "search",
+  "timestamp" : 370,
+  "user" : "bob35",
+  "message" : "Search returned 1 results",
+  "results" : [ "Elevate" ]
+}, {
+  "command" : "select",
+  "timestamp" : 390,
+  "user" : "bob35",
+  "message" : "Successfully selected Elevate."
+}, null, null, {
+  "command" : "search",
+  "timestamp" : 445,
+  "user" : "bob35",
+  "message" : "Search returned 1 results",
+  "results" : [ "I Don't Wanna Live Forever" ]
+}, {
+  "command" : "select",
+  "timestamp" : 450,
+  "user" : "bob35",
+  "message" : "Successfully selected I Don't Wanna Live Forever."
+}, null, null, {
+  "command" : "search",
+  "timestamp" : 500,
+  "user" : "bob35",
+  "message" : "Search returned 1 results",
+  "results" : [ "Hustle Hard" ]
+}, {
+  "command" : "select",
+  "timestamp" : 510,
+  "user" : "bob35",
+  "message" : "Successfully selected Hustle Hard."
+}, null, null, {
+  "command" : "search",
+  "timestamp" : 590,
+  "user" : "bob35",
+  "message" : "Search returned 1 results",
+  "results" : [ "Begin Again" ]
+}, {
+  "command" : "select",
+  "timestamp" : 650,
+  "user" : "bob35",
+  "message" : "Successfully selected Begin Again."
+}, null, null, {
+  "command" : "search",
+  "timestamp" : 700,
+  "user" : "bob35",
+  "message" : "Search returned 0 results",
+  "results" : [ ]
+}, {
+  "command" : "select",
+  "timestamp" : 710,
+  "user" : "bob35",
+  "message" : "Please conduct a search before making a selection."
+}, null, null, null, null, null, null, null, null, null, null, {
+  "command" : "search",
+  "timestamp" : 2351,
+  "user" : "bob35",
+  "message" : "Search returned 0 results",
+  "results" : [ ]
+}, {
+  "command" : "select",
+  "timestamp" : 2352,
+  "user" : "bob35",
+  "message" : "Please conduct a search before making a selection."
+}, null, null, null, null, null ]

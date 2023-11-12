@@ -1,0 +1,63 @@
+[ null, {
+  "command" : "search",
+  "timestamp" : 3215,
+  "user" : "emily30",
+  "message" : "Search returned 5 results",
+  "results" : [ "Shape of You", "Dream On", "Black Dog", "Sad But True", "Maps" ]
+}, {
+  "command" : "select",
+  "timestamp" : 3260,
+  "user" : "emily30",
+  "message" : "Successfully selected Shape of You."
+}, null, null, null, null, {
+  "command" : "search",
+  "timestamp" : 3315,
+  "user" : "emily30",
+  "message" : "Search returned 2 results",
+  "results" : [ "TED Talks Daily", "TED-Ed: Lessons Worth Sharing" ]
+}, null, {
+  "command" : "search",
+  "timestamp" : 3375,
+  "user" : "emily30",
+  "message" : "Search returned 0 results",
+  "results" : [ ]
+}, null, {
+  "command" : "search",
+  "timestamp" : 3415,
+  "user" : "emily30",
+  "message" : "Search returned 5 results",
+  "results" : [ "The Man", "Delicate", "Love Story", "Blank Space", "Begin Again" ]
+}, null, {
+  "command" : "select",
+  "timestamp" : 3560,
+  "user" : "emily30",
+  "message" : "Successfully selected The Man."
+}, null, null, {
+  "command" : "search",
+  "timestamp" : 3815,
+  "user" : "emily30",
+  "message" : "Search returned 3 results",
+  "results" : [ "Shape of You", "Happier", "Castle on the Hill" ]
+}, {
+  "command" : "select",
+  "timestamp" : 3860,
+  "user" : "emily30",
+  "message" : "Successfully selected Shape of You."
+}, null, null, {
+  "command" : "search",
+  "timestamp" : 4015,
+  "user" : "emily30",
+  "message" : "Search returned 0 results",
+  "results" : [ ]
+}, {
+  "command" : "select",
+  "timestamp" : 4060,
+  "user" : "emily30",
+  "message" : "Please conduct a search before making a selection."
+}, null, null, null, {
+  "command" : "search",
+  "timestamp" : 4295,
+  "user" : "emily30",
+  "message" : "Search returned 0 results",
+  "results" : [ ]
+}, null, null ]

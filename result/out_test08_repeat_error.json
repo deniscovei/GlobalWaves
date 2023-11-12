@@ -1,0 +1,40 @@
+[ {
+  "command" : "search",
+  "timestamp" : 1000,
+  "user" : "emily30",
+  "message" : "Search returned 4 results",
+  "results" : [ "The Unforgiven", "Sad But True", "Nothing Else Matters", "Enter Sandman" ]
+}, null, {
+  "command" : "select",
+  "timestamp" : 1100,
+  "user" : "emily30",
+  "message" : "Successfully selected The Unforgiven."
+}, null, null, null, null, null, null, null, null, {
+  "command" : "search",
+  "timestamp" : 2245,
+  "user" : "emily30",
+  "message" : "Search returned 0 results",
+  "results" : [ ]
+}, null, null, null, null, {
+  "command" : "search",
+  "timestamp" : 3170,
+  "user" : "emily30",
+  "message" : "Search returned 1 results",
+  "results" : [ "99 Problems" ]
+}, {
+  "command" : "select",
+  "timestamp" : 3190,
+  "user" : "emily30",
+  "message" : "Successfully selected 99 Problems."
+}, null, null, null, null, {
+  "command" : "search",
+  "timestamp" : 3260,
+  "user" : "emily30",
+  "message" : "Search returned 0 results",
+  "results" : [ ]
+}, null, {
+  "command" : "select",
+  "timestamp" : 3290,
+  "user" : "emily30",
+  "message" : "Please conduct a search before making a selection."
+}, null, null, null, null, null, null, null ]

@@ -1,0 +1,111 @@
+[ null, {
+  "command" : "search",
+  "timestamp" : 170,
+  "user" : "bob35",
+  "message" : "Search returned 3 results",
+  "results" : [ "Bohemian Rhapsody", "We Will Rock You", "Radio Ga Ga" ]
+}, {
+  "command" : "select",
+  "timestamp" : 190,
+  "user" : "bob35",
+  "message" : "Successfully selected Bohemian Rhapsody."
+}, null, null, null, null, {
+  "command" : "search",
+  "timestamp" : 270,
+  "user" : "carol19",
+  "message" : "Search returned 3 results",
+  "results" : [ "Freedom", "Happy", "Freedom" ]
+}, {
+  "command" : "select",
+  "timestamp" : 290,
+  "user" : "carol19",
+  "message" : "Successfully selected Freedom."
+}, null, null, null, {
+  "command" : "search",
+  "timestamp" : 370,
+  "user" : "carol19",
+  "message" : "Search returned 3 results",
+  "results" : [ "Bohemian Rhapsody", "We Will Rock You", "Radio Ga Ga" ]
+}, {
+  "command" : "select",
+  "timestamp" : 390,
+  "user" : "carol19",
+  "message" : "Successfully selected Bohemian Rhapsody."
+}, null, null, {
+  "command" : "search",
+  "timestamp" : 470,
+  "user" : "carol19",
+  "message" : "Search returned 2 results",
+  "results" : [ "Angie", "Nothing Else Matters" ]
+}, {
+  "command" : "select",
+  "timestamp" : 490,
+  "user" : "carol19",
+  "message" : "Successfully selected Angie."
+}, null, null, {
+  "command" : "search",
+  "timestamp" : 770,
+  "user" : "carol19",
+  "message" : "Search returned 3 results",
+  "results" : [ "Freedom", "Happy", "Freedom" ]
+}, {
+  "command" : "select",
+  "timestamp" : 790,
+  "user" : "carol19",
+  "message" : "Successfully selected Freedom."
+}, null, null, null, null, {
+  "command" : "search",
+  "timestamp" : 1170,
+  "user" : "david27",
+  "message" : "Search returned 2 results",
+  "results" : [ "Angie", "Nothing Else Matters" ]
+}, {
+  "command" : "select",
+  "timestamp" : 1190,
+  "user" : "david27",
+  "message" : "Successfully selected Angie."
+}, null, null, null, null, {
+  "command" : "search",
+  "timestamp" : 2170,
+  "user" : "emily30",
+  "message" : "Search returned 3 results",
+  "results" : [ "Bohemian Rhapsody", "We Will Rock You", "Radio Ga Ga" ]
+}, {
+  "command" : "select",
+  "timestamp" : 2190,
+  "user" : "emily30",
+  "message" : "Successfully selected Bohemian Rhapsody."
+}, null, null, null, null, null, {
+  "command" : "search",
+  "timestamp" : 2460,
+  "user" : "emily30",
+  "message" : "Search returned 0 results",
+  "results" : [ ]
+}, {
+  "command" : "select",
+  "timestamp" : 2490,
+  "user" : "emily30",
+  "message" : "Please conduct a search before making a selection."
+}, null, null, {
+  "command" : "search",
+  "timestamp" : 2565,
+  "user" : "bob35",
+  "message" : "Search returned 0 results",
+  "results" : [ ]
+}, {
+  "command" : "select",
+  "timestamp" : 2580,
+  "user" : "bob35",
+  "message" : "Please conduct a search before making a selection."
+}, null, {
+  "command" : "search",
+  "timestamp" : 2765,
+  "user" : "david27",
+  "message" : "Search returned 0 results",
+  "results" : [ ]
+}, {
+  "command" : "select",
+  "timestamp" : 2810,
+  "user" : "david27",
+  "message" : "Please conduct a search before making a selection."
+}, null, null, null, null, null ]

@@ -1,0 +1,78 @@
+[ {
+  "command" : "search",
+  "timestamp" : 10,
+  "user" : "alice22",
+  "message" : "Search returned 1 results",
+  "results" : [ "Dream Chaser" ]
+}, {
+  "command" : "select",
+  "timestamp" : 15,
+  "user" : "alice22",
+  "message" : "Successfully selected Dream Chaser."
+}, null, null, null, null, null, null, null, null, null, {
+  "command" : "search",
+  "timestamp" : 1006,
+  "user" : "alice22",
+  "message" : "Search returned 1 results",
+  "results" : [ "99 Problems" ]
+}, {
+  "command" : "select",
+  "timestamp" : 1007,
+  "user" : "alice22",
+  "message" : "Successfully selected 99 Problems."
+}, null, null, {
+  "command" : "search",
+  "timestamp" : 1010,
+  "user" : "alice22",
+  "message" : "Search returned 1 results",
+  "results" : [ "Hustle Hard" ]
+}, {
+  "command" : "select",
+  "timestamp" : 1011,
+  "user" : "alice22",
+  "message" : "Successfully selected Hustle Hard."
+}, null, null, {
+  "command" : "search",
+  "timestamp" : 1014,
+  "user" : "alice22",
+  "message" : "Search returned 1 results",
+  "results" : [ "Butterfly Effect" ]
+}, {
+  "command" : "select",
+  "timestamp" : 1015,
+  "user" : "alice22",
+  "message" : "Successfully selected Butterfly Effect."
+}, null, null, {
+  "command" : "search",
+  "timestamp" : 1018,
+  "user" : "alice22",
+  "message" : "Search returned 1 results",
+  "results" : [ "Moves Like Jagger" ]
+}, {
+  "command" : "select",
+  "timestamp" : 1019,
+  "user" : "alice22",
+  "message" : "Successfully selected Moves Like Jagger."
+}, null, null, {
+  "command" : "search",
+  "timestamp" : 1022,
+  "user" : "alice22",
+  "message" : "Search returned 1 results",
+  "results" : [ "Dream Chaser" ]
+}, {
+  "command" : "select",
+  "timestamp" : 1023,
+  "user" : "alice22",
+  "message" : "Successfully selected Dream Chaser."
+}, null, null, {
+  "command" : "search",
+  "timestamp" : 1026,
+  "user" : "alice22",
+  "message" : "Search returned 0 results",
+  "results" : [ ]
+}, {
+  "command" : "select",
+  "timestamp" : 1027,
+  "user" : "alice22",
+  "message" : "Please conduct a search before making a selection."
+}, null, null, null, null, null, null, null, null, null, null, null ]

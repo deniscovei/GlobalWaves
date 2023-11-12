@@ -1,0 +1,78 @@
+[ null, {
+  "command" : "search",
+  "timestamp" : 100,
+  "user" : "bob35",
+  "message" : "Search returned 1 results",
+  "results" : [ "TED Talks Daily" ]
+}, {
+  "command" : "select",
+  "timestamp" : 110,
+  "user" : "bob35",
+  "message" : "Successfully selected TED Talks Daily."
+}, null, null, {
+  "command" : "search",
+  "timestamp" : 200,
+  "user" : "bob35",
+  "message" : "Search returned 1 results",
+  "results" : [ "Blank Space" ]
+}, {
+  "command" : "select",
+  "timestamp" : 210,
+  "user" : "bob35",
+  "message" : "Successfully selected Blank Space."
+}, null, null, {
+  "command" : "search",
+  "timestamp" : 250,
+  "user" : "bob35",
+  "message" : "Search returned 1 results",
+  "results" : [ "Whole Lotta Love" ]
+}, {
+  "command" : "select",
+  "timestamp" : 260,
+  "user" : "bob35",
+  "message" : "Successfully selected Whole Lotta Love."
+}, null, null, {
+  "command" : "search",
+  "timestamp" : 400,
+  "user" : "bob35",
+  "message" : "Search returned 1 results",
+  "results" : [ "I Don't Wanna Live Forever" ]
+}, {
+  "command" : "select",
+  "timestamp" : 410,
+  "user" : "bob35",
+  "message" : "Successfully selected I Don't Wanna Live Forever."
+}, null, null, {
+  "command" : "search",
+  "timestamp" : 500,
+  "user" : "bob35",
+  "message" : "Search returned 1 results",
+  "results" : [ "Kings Dead" ]
+}, {
+  "command" : "select",
+  "timestamp" : 510,
+  "user" : "bob35",
+  "message" : "Successfully selected Kings Dead."
+}, null, null, {
+  "command" : "search",
+  "timestamp" : 550,
+  "user" : "bob35",
+  "message" : "Search returned 1 results",
+  "results" : [ "Thinking Out Loud" ]
+}, {
+  "command" : "select",
+  "timestamp" : 560,
+  "user" : "bob35",
+  "message" : "Successfully selected Thinking Out Loud."
+}, null, null, null, {
+  "command" : "search",
+  "timestamp" : 3110,
+  "user" : "bob35",
+  "message" : "Search returned 0 results",
+  "results" : [ ]
+}, null, {
+  "command" : "select",
+  "timestamp" : 3130,
+  "user" : "bob35",
+  "message" : "Please conduct a search before making a selection."
+}, null, null, null, null, null, null, null, null, null, null, null ]
