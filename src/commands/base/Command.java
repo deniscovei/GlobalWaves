@@ -1,17 +1,19 @@
-package CommandTypes;
+package commands.base;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import commands.derived.input.attributes.Stats;
 import lombok.Getter;
 
 import java.util.ArrayList;
 
 @Getter
 public abstract class Command {
-    protected String command;
-    protected Integer timestamp;
+    protected String command = null;
+    protected int timestamp = 0;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    protected Stats stats = null;
 
     public Command() {
-        this.command = null;
-        this.timestamp = null;
     }
 
     public Command(final String command, final Integer timestamp) {
@@ -25,5 +27,9 @@ public abstract class Command {
 
     public final void setTimestamp(final Integer timestamp) {
         this.timestamp = timestamp;
+    }
+
+    public final void setStats(final Stats stats) {
+        this.stats = stats;
     }
 }

@@ -2,69 +2,99 @@
   "command" : "search",
   "timestamp" : 100,
   "user" : "bob35",
-  "message" : "Search returned 1 results",
-  "results" : [ "TED Talks Daily" ]
+  "message" : "Search returned 5 results",
+  "results" : [ "TED Talks Daily", "TED Talks Daily", "TED Talks Daily", "TED Talks Daily", "TED Talks Daily" ]
 }, {
   "command" : "select",
   "timestamp" : 110,
   "user" : "bob35",
   "message" : "Successfully selected TED Talks Daily."
-}, null, null, {
+}, {
+  "command" : "load",
+  "timestamp" : 115,
+  "user" : "bob35",
+  "message" : "Playback loaded successfully."
+}, null, {
   "command" : "search",
   "timestamp" : 200,
   "user" : "bob35",
-  "message" : "Search returned 1 results",
-  "results" : [ "Blank Space" ]
+  "message" : "Search returned 5 results",
+  "results" : [ "Blank Space", "Blank Space", "Blank Space", "Blank Space", "Blank Space" ]
 }, {
   "command" : "select",
   "timestamp" : 210,
   "user" : "bob35",
   "message" : "Successfully selected Blank Space."
-}, null, null, {
+}, {
+  "command" : "load",
+  "timestamp" : 213,
+  "user" : "bob35",
+  "message" : "Playback loaded successfully."
+}, null, {
   "command" : "search",
   "timestamp" : 250,
   "user" : "bob35",
-  "message" : "Search returned 1 results",
-  "results" : [ "Whole Lotta Love" ]
+  "message" : "Search returned 5 results",
+  "results" : [ "Whole Lotta Love", "Whole Lotta Love", "Whole Lotta Love", "Whole Lotta Love", "Whole Lotta Love" ]
 }, {
   "command" : "select",
   "timestamp" : 260,
   "user" : "bob35",
   "message" : "Successfully selected Whole Lotta Love."
-}, null, null, {
+}, {
+  "command" : "load",
+  "timestamp" : 263,
+  "user" : "bob35",
+  "message" : "Playback loaded successfully."
+}, null, {
   "command" : "search",
   "timestamp" : 400,
   "user" : "bob35",
-  "message" : "Search returned 1 results",
-  "results" : [ "I Don't Wanna Live Forever" ]
+  "message" : "Search returned 5 results",
+  "results" : [ "I Don't Wanna Live Forever", "I Don't Wanna Live Forever", "I Don't Wanna Live Forever", "I Don't Wanna Live Forever", "I Don't Wanna Live Forever" ]
 }, {
   "command" : "select",
   "timestamp" : 410,
   "user" : "bob35",
   "message" : "Successfully selected I Don't Wanna Live Forever."
-}, null, null, {
+}, {
+  "command" : "load",
+  "timestamp" : 415,
+  "user" : "bob35",
+  "message" : "Playback loaded successfully."
+}, null, {
   "command" : "search",
   "timestamp" : 500,
   "user" : "bob35",
-  "message" : "Search returned 1 results",
-  "results" : [ "Kings Dead" ]
+  "message" : "Search returned 5 results",
+  "results" : [ "Kings Dead", "Kings Dead", "Kings Dead", "Kings Dead", "Kings Dead" ]
 }, {
   "command" : "select",
   "timestamp" : 510,
   "user" : "bob35",
   "message" : "Successfully selected Kings Dead."
-}, null, null, {
+}, {
+  "command" : "load",
+  "timestamp" : 513,
+  "user" : "bob35",
+  "message" : "Playback loaded successfully."
+}, null, {
   "command" : "search",
   "timestamp" : 550,
   "user" : "bob35",
-  "message" : "Search returned 1 results",
-  "results" : [ "Thinking Out Loud" ]
+  "message" : "Search returned 5 results",
+  "results" : [ "Thinking Out Loud", "Thinking Out Loud", "Thinking Out Loud", "Thinking Out Loud", "Thinking Out Loud" ]
 }, {
   "command" : "select",
   "timestamp" : 560,
   "user" : "bob35",
   "message" : "Successfully selected Thinking Out Loud."
-}, null, null, null, {
+}, {
+  "command" : "load",
+  "timestamp" : 563,
+  "user" : "bob35",
+  "message" : "Playback loaded successfully."
+}, null, null, {
   "command" : "search",
   "timestamp" : 3110,
   "user" : "bob35",
@@ -75,4 +105,9 @@
   "timestamp" : 3130,
   "user" : "bob35",
   "message" : "Please conduct a search before making a selection."
-}, null, null, null, null, null, null, null, null, null, null, null ]
+}, {
+  "command" : "load",
+  "timestamp" : 3140,
+  "user" : "bob35",
+  "message" : "Playback loaded successfully."
+}, null, null, null, null, null, null, null, null, null, null ]

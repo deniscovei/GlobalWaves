@@ -9,7 +9,12 @@
   "timestamp" : 190,
   "user" : "bob35",
   "message" : "Successfully selected Start Me Up."
-}, null, null, {
+}, {
+  "command" : "load",
+  "timestamp" : 195,
+  "user" : "bob35",
+  "message" : "Playback loaded successfully."
+}, null, {
   "command" : "search",
   "timestamp" : 270,
   "user" : "bob35",
@@ -20,7 +25,12 @@
   "timestamp" : 290,
   "user" : "bob35",
   "message" : "Please conduct a search before making a selection."
-}, null, null, {
+}, {
+  "command" : "load",
+  "timestamp" : 295,
+  "user" : "bob35",
+  "message" : "Playback loaded successfully."
+}, null, {
   "command" : "search",
   "timestamp" : 370,
   "user" : "bob35",
@@ -31,7 +41,12 @@
   "timestamp" : 390,
   "user" : "bob35",
   "message" : "Successfully selected Stairway to Heaven."
-}, null, null, {
+}, {
+  "command" : "load",
+  "timestamp" : 420,
+  "user" : "bob35",
+  "message" : "Playback loaded successfully."
+}, null, {
   "command" : "search",
   "timestamp" : 440,
   "user" : "bob35",
@@ -42,7 +57,12 @@
   "timestamp" : 445,
   "user" : "bob35",
   "message" : "Successfully selected Under Pressure."
-}, null, null, null, {
+}, {
+  "command" : "load",
+  "timestamp" : 446,
+  "user" : "bob35",
+  "message" : "Playback loaded successfully."
+}, null, null, {
   "command" : "search",
   "timestamp" : 500,
   "user" : "bob35",
@@ -53,26 +73,41 @@
   "timestamp" : 510,
   "user" : "bob35",
   "message" : "Please conduct a search before making a selection."
-}, null, null, null, null, null, null, null, null, null, {
+}, {
+  "command" : "load",
+  "timestamp" : 650,
+  "user" : "bob35",
+  "message" : "Playback loaded successfully."
+}, null, null, null, null, null, null, null, null, {
   "command" : "search",
   "timestamp" : 800,
   "user" : "bob35",
-  "message" : "Search returned 1 results",
-  "results" : [ "How I Built This" ]
+  "message" : "Search returned 5 results",
+  "results" : [ "How I Built This", "How I Built This", "How I Built This", "How I Built This", "How I Built This" ]
 }, {
   "command" : "select",
   "timestamp" : 890,
   "user" : "bob35",
   "message" : "Successfully selected How I Built This."
-}, null, null, null, null, {
+}, {
+  "command" : "load",
+  "timestamp" : 900,
+  "user" : "bob35",
+  "message" : "Playback loaded successfully."
+}, null, null, null, {
   "command" : "search",
   "timestamp" : 1198,
   "user" : "bob35",
-  "message" : "Search returned 1 results",
-  "results" : [ "How I Built This" ]
+  "message" : "Search returned 5 results",
+  "results" : [ "How I Built This", "How I Built This", "How I Built This", "How I Built This", "How I Built This" ]
 }, {
   "command" : "select",
   "timestamp" : 1199,
   "user" : "bob35",
   "message" : "Successfully selected How I Built This."
-}, null, null, null, null ]
+}, {
+  "command" : "load",
+  "timestamp" : 1200,
+  "user" : "bob35",
+  "message" : "Playback loaded successfully."
+}, null, null, null ]

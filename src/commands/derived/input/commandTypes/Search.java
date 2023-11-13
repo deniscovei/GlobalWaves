@@ -1,44 +1,39 @@
-package CommandTypes.input;
+package commands.derived.input.commandTypes;
 
-import fileio.input.LibraryInput;
-import fileio.input.PodcastInput;
-import fileio.input.SongInput;
-import CommandTypes.output.OutputCommand;
-import lombok.Getter;
+import commands.derived.input.inputCommand.InputCommand;
+import commands.derived.input.attributes.Filters;
+import data.database.Database;
+import data.entities.audio.base.AudioFile;
+import data.entities.audio.derived.Podcast;
+import data.entities.audio.derived.Song;
+import commands.derived.output.OutputCommand;
 
 import java.util.ArrayList;
 
 public final class Search {
     private static final int resCountMax = 5;
-    @Getter
-    private static ArrayList<String> results = new ArrayList<>();
 
-
-    public static void setResults(ArrayList<String> results) {
-        Search.results.addAll(results);
-    }
-
-    public static OutputCommand action(InputCommand inputCommand, LibraryInput library) {
-        results.clear();
-        OutputCommand outputCommand = new OutputCommand(inputCommand.getCommand(), inputCommand.getUsername(),
-                inputCommand.getTimestamp(), true, true);
+    public static OutputCommand action(InputCommand inputCommand) {
+        ArrayList<AudioFile> searchResults = Database.getInstance().findUser(inputCommand.getUsername()).getSearchResults();
+        searchResults.clear();
 
         switch (inputCommand.getType()) {
             case "song":
-                for (SongInput song : library.getSongs()) {
+                ArrayList <Song> songs = Database.getInstance().getSongs();
+                for (Song song : songs) {
                     if (checkSongFilters(song, inputCommand.getFilters(), inputCommand)) {
-                        results.add(song.getName());
-                        if (results.size() == resCountMax) {
+                        searchResults.add(song);
+                        if (searchResults.size() == resCountMax) {
                             break;
                         }
                     }
                 }
                 break;
             case "podcast":
-                for (PodcastInput podcast : library.getPodcasts()) {
+                for (Podcast podcast : Database.getInstance().getPodcasts()) {
                     if (checkPodcastFilters(podcast, inputCommand.getFilters(), inputCommand)) {
-                        results.add(podcast.getName());
-                        if (results.size() == resCountMax) {
+                        searchResults.add(podcast);
+                        if (searchResults.size() == resCountMax) {
                             break;
                         }
                     }
@@ -46,12 +41,11 @@ public final class Search {
                 break;
         }
 
-        outputCommand.setMessage("Search returned " + results.size() + " results");
-        outputCommand.setResults(results);
-        return outputCommand;
+        return new OutputCommand(inputCommand, "Search returned " + searchResults.size() + " results",
+                                 AudioFile.getNameList(searchResults));
     }
 
-    private static boolean checkSongFilters(SongInput song, Filter filters, InputCommand inputCommand) {
+    private static boolean checkSongFilters(Song song, Filters filters, InputCommand inputCommand) {
         return filterSongByName(song, filters.getName(), inputCommand) &&
                 filterSongByAlbum(song, filters.getAlbum(), inputCommand) &&
                 filterSongByTags(song, filters.getTags(), inputCommand) &&
@@ -61,7 +55,7 @@ public final class Search {
                 filterSongByArtist(song, filters.getArtist(), inputCommand);
     }
 
-    private static boolean filterSongByName(SongInput song, String searchedSong, InputCommand inputCommand) {
+    private static boolean filterSongByName(Song song, String searchedSong, InputCommand inputCommand) {
         if (inputCommand.getFilters().getName() != null) {
             return song.getName().startsWith(searchedSong);
         } else {
@@ -69,7 +63,7 @@ public final class Search {
         }
     }
 
-    private static boolean filterSongByAlbum(SongInput song, String searchedAlbum, InputCommand inputCommand) {
+    private static boolean filterSongByAlbum(Song song, String searchedAlbum, InputCommand inputCommand) {
         if (inputCommand.getFilters().getAlbum() != null) {
             return song.getAlbum().equals(searchedAlbum);
         } else {
@@ -77,7 +71,7 @@ public final class Search {
         }
     }
 
-    private static boolean filterSongByTags(SongInput song, ArrayList<String> searchedTags, InputCommand inputCommand) {
+    private static boolean filterSongByTags(Song song, ArrayList<String> searchedTags, InputCommand inputCommand) {
         if (!inputCommand.getFilters().getTags().isEmpty()) {
             return song.getTags().containsAll(searchedTags);
         } else {
@@ -85,7 +79,7 @@ public final class Search {
         }
     }
 
-    private static boolean filterSongByLyrics(SongInput song, String searchedLyrics, InputCommand inputCommand) {
+    private static boolean filterSongByLyrics(Song song, String searchedLyrics, InputCommand inputCommand) {
         if (inputCommand.getFilters().getLyrics() != null) {
             return song.getLyrics().contains(searchedLyrics);
         } else {
@@ -93,7 +87,7 @@ public final class Search {
         }
     }
 
-    private static boolean filterSongByGenre(SongInput song, String searchedGenre, InputCommand inputCommand) {
+    private static boolean filterSongByGenre(Song song, String searchedGenre, InputCommand inputCommand) {
         if (inputCommand.getFilters().getGenre() != null) {
             return song.getGenre().toLowerCase().equals(searchedGenre);
         } else {
@@ -101,7 +95,7 @@ public final class Search {
         }
     }
 
-    private static boolean filterSongByReleaseYear(SongInput song, String searchedReleaseYear, InputCommand inputCommand) {
+    private static boolean filterSongByReleaseYear(Song song, String searchedReleaseYear, InputCommand inputCommand) {
         if (inputCommand.getFilters().getReleaseYear() != null) {
             int comparator = searchedReleaseYear.charAt(0) == '>' ? 1 : -1;
             int searchedYear = Integer.parseInt(searchedReleaseYear.substring(1));
@@ -111,7 +105,7 @@ public final class Search {
         }
     }
 
-    private static boolean filterSongByArtist(SongInput song, String searchedArtist, InputCommand inputCommand) {
+    private static boolean filterSongByArtist(Song song, String searchedArtist, InputCommand inputCommand) {
         if (inputCommand.getFilters().getArtist() != null) {
             return song.getArtist().equals(searchedArtist);
         } else {
@@ -119,12 +113,12 @@ public final class Search {
         }
     }
 
-    private static boolean checkPodcastFilters(PodcastInput podcast, Filter filters, InputCommand inputCommand) {
+    private static boolean checkPodcastFilters(Podcast podcast, Filters filters, InputCommand inputCommand) {
         return filterPodcastByName(podcast, filters.getName(), inputCommand) &&
                 filterPodcastByOwner(podcast, filters.getOwner(), inputCommand);
     }
 
-    private static boolean filterPodcastByName(PodcastInput podcast, String searchedPodcast, InputCommand inputCommand) {
+    private static boolean filterPodcastByName(Podcast podcast, String searchedPodcast, InputCommand inputCommand) {
         if (inputCommand.getFilters().getName() != null) {
             return podcast.getName().startsWith(searchedPodcast);
         } else {
@@ -132,7 +126,7 @@ public final class Search {
         }
     }
 
-    private static boolean filterPodcastByOwner(PodcastInput podcast, String searchedOwner, InputCommand inputCommand) {
+    private static boolean filterPodcastByOwner(Podcast podcast, String searchedOwner, InputCommand inputCommand) {
         if (inputCommand.getFilters().getOwner() != null) {
             return podcast.getOwner().equals(searchedOwner);
         } else {

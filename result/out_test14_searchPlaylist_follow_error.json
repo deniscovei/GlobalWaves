@@ -2,14 +2,19 @@
   "command" : "search",
   "timestamp" : 170,
   "user" : "bob35",
-  "message" : "Search returned 4 results",
-  "results" : [ "Stairway to Heaven", "Black Dog", "Whole Lotta Love", "Good Times Bad Times" ]
+  "message" : "Search returned 5 results",
+  "results" : [ "Stairway to Heaven", "Black Dog", "Whole Lotta Love", "Good Times Bad Times", "Stairway to Heaven" ]
 }, {
   "command" : "select",
   "timestamp" : 190,
   "user" : "bob35",
   "message" : "Successfully selected Stairway to Heaven."
-}, null, null, null, {
+}, {
+  "command" : "load",
+  "timestamp" : 200,
+  "user" : "bob35",
+  "message" : "Playback loaded successfully."
+}, null, null, {
   "command" : "search",
   "timestamp" : 470,
   "user" : "bob35",
@@ -20,7 +25,12 @@
   "timestamp" : 490,
   "user" : "bob35",
   "message" : "Successfully selected Shape of You."
-}, null, null, {
+}, {
+  "command" : "load",
+  "timestamp" : 500,
+  "user" : "bob35",
+  "message" : "Playback loaded successfully."
+}, null, {
   "command" : "search",
   "timestamp" : 570,
   "user" : "bob35",
@@ -31,7 +41,12 @@
   "timestamp" : 590,
   "user" : "bob35",
   "message" : "Please conduct a search before making a selection."
-}, null, null, null, {
+}, {
+  "command" : "load",
+  "timestamp" : 600,
+  "user" : "bob35",
+  "message" : "Playback loaded successfully."
+}, null, null, {
   "command" : "search",
   "timestamp" : 870,
   "user" : "carol19",
@@ -42,12 +57,17 @@
   "timestamp" : 890,
   "user" : "carol19",
   "message" : "Successfully selected Shape of You."
-}, null, null, {
+}, {
+  "command" : "load",
+  "timestamp" : 900,
+  "user" : "carol19",
+  "message" : "Playback loaded successfully."
+}, null, {
   "command" : "search",
   "timestamp" : 1000,
   "user" : "emily30",
-  "message" : "Search returned 1 results",
-  "results" : [ "The Michelle Obama Podcast" ]
+  "message" : "Search returned 5 results",
+  "results" : [ "The Michelle Obama Podcast", "The Michelle Obama Podcast", "The Michelle Obama Podcast", "The Michelle Obama Podcast", "The Michelle Obama Podcast" ]
 }, {
   "command" : "select",
   "timestamp" : 1190,
@@ -57,8 +77,8 @@
   "command" : "search",
   "timestamp" : 1270,
   "user" : "carol19",
-  "message" : "Search returned 1 results",
-  "results" : [ "The Man" ]
+  "message" : "Search returned 5 results",
+  "results" : [ "The Man", "The Man", "The Man", "The Man", "The Man" ]
 }, {
   "command" : "select",
   "timestamp" : 1290,

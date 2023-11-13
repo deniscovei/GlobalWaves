@@ -2,25 +2,35 @@
   "command" : "search",
   "timestamp" : 170,
   "user" : "emily30",
-  "message" : "Search returned 1 results",
-  "results" : [ "Going Bad" ]
+  "message" : "Search returned 5 results",
+  "results" : [ "Going Bad", "Going Bad", "Going Bad", "Going Bad", "Going Bad" ]
 }, {
   "command" : "select",
   "timestamp" : 190,
   "user" : "emily30",
   "message" : "Successfully selected Going Bad."
-}, null, null, {
+}, {
+  "command" : "load",
+  "timestamp" : 195,
+  "user" : "emily30",
+  "message" : "Playback loaded successfully."
+}, null, {
   "command" : "search",
   "timestamp" : 270,
   "user" : "emily30",
-  "message" : "Search returned 1 results",
-  "results" : [ "Swimming Pools (Drank)" ]
+  "message" : "Search returned 5 results",
+  "results" : [ "Swimming Pools (Drank)", "Swimming Pools (Drank)", "Swimming Pools (Drank)", "Swimming Pools (Drank)", "Swimming Pools (Drank)" ]
 }, {
   "command" : "select",
   "timestamp" : 290,
   "user" : "emily30",
   "message" : "Successfully selected Swimming Pools (Drank)."
-}, null, null, {
+}, {
+  "command" : "load",
+  "timestamp" : 300,
+  "user" : "emily30",
+  "message" : "Playback loaded successfully."
+}, null, {
   "command" : "search",
   "timestamp" : 1000,
   "user" : "emily30",
@@ -31,26 +41,41 @@
   "timestamp" : 1190,
   "user" : "emily30",
   "message" : "Please conduct a search before making a selection."
-}, null, null, null, null, null, null, null, null, {
+}, {
+  "command" : "load",
+  "timestamp" : 1195,
+  "user" : "emily30",
+  "message" : "Playback loaded successfully."
+}, null, null, null, null, null, null, null, {
   "command" : "search",
   "timestamp" : 2000,
   "user" : "emily30",
-  "message" : "Search returned 2 results",
-  "results" : [ "The Daily", "The Daily Show With Trevor Noah" ]
+  "message" : "Search returned 5 results",
+  "results" : [ "The Daily", "The Daily Show With Trevor Noah", "The Daily", "The Daily Show With Trevor Noah", "The Daily" ]
 }, null, {
   "command" : "select",
   "timestamp" : 2190,
   "user" : "emily30",
   "message" : "Successfully selected The Daily."
-}, null, null, null, null, null, null, {
+}, {
+  "command" : "load",
+  "timestamp" : 2200,
+  "user" : "emily30",
+  "message" : "Playback loaded successfully."
+}, null, null, null, null, null, {
   "command" : "search",
   "timestamp" : 4200,
   "user" : "emily30",
-  "message" : "Search returned 3 results",
-  "results" : [ "DNA.", "Championships", "99 Problems" ]
+  "message" : "Search returned 5 results",
+  "results" : [ "DNA.", "Championships", "99 Problems", "DNA.", "Championships" ]
 }, {
   "command" : "select",
   "timestamp" : 4220,
   "user" : "emily30",
   "message" : "Successfully selected Championships."
-}, null, null, null, null ]
+}, null, null, {
+  "command" : "load",
+  "timestamp" : 4350,
+  "user" : "emily30",
+  "message" : "Playback loaded successfully."
+}, null ]

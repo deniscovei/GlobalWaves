@@ -2,11 +2,26 @@
   "command" : "search",
   "timestamp" : 10,
   "user" : "alice22",
-  "message" : "Search returned 1 results",
-  "results" : [ "Shape of You" ]
+  "message" : "Search returned 2 results",
+  "results" : [ "Shape of You", "Shape of You" ]
 }, {
   "command" : "select",
   "timestamp" : 15,
   "user" : "alice22",
   "message" : "Successfully selected Shape of You."
-}, null, null, null, null, null, null, null, null, null ]
+}, {
+  "command" : "load",
+  "timestamp" : 20,
+  "user" : "alice22",
+  "message" : "Playback loaded successfully."
+}, null, {
+  "command" : "playPause",
+  "timestamp" : 30,
+  "user" : "alice22",
+  "message" : "Please load a source before attempting to pause or resume playback."
+}, null, null, {
+  "command" : "playPause",
+  "timestamp" : 45,
+  "user" : "alice22",
+  "message" : "Please load a source before attempting to pause or resume playback."
+}, null, null, null ]

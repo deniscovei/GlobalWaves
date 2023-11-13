@@ -9,12 +9,22 @@
   "timestamp" : 190,
   "user" : "bob35",
   "message" : "Successfully selected Start Me Up."
-}, null, null, {
+}, {
+  "command" : "load",
+  "timestamp" : 200,
+  "user" : "bob35",
+  "message" : "Playback loaded successfully."
+}, null, {
   "command" : "select",
   "timestamp" : 290,
   "user" : "bob35",
   "message" : "Successfully selected Start Me Up."
-}, null, null, {
+}, {
+  "command" : "load",
+  "timestamp" : 300,
+  "user" : "bob35",
+  "message" : "Playback loaded successfully."
+}, null, {
   "command" : "search",
   "timestamp" : 370,
   "user" : "bob35",
@@ -25,7 +35,12 @@
   "timestamp" : 390,
   "user" : "bob35",
   "message" : "Successfully selected Start Me Up."
-}, null, null, null, {
+}, {
+  "command" : "load",
+  "timestamp" : 400,
+  "user" : "bob35",
+  "message" : "Playback loaded successfully."
+}, null, null, {
   "command" : "search",
   "timestamp" : 470,
   "user" : "bob35",
@@ -36,7 +51,12 @@
   "timestamp" : 490,
   "user" : "bob35",
   "message" : "Successfully selected Start Me Up."
-}, null, null, {
+}, {
+  "command" : "load",
+  "timestamp" : 500,
+  "user" : "bob35",
+  "message" : "Playback loaded successfully."
+}, null, {
   "command" : "search",
   "timestamp" : 570,
   "user" : "bob35",
@@ -47,7 +67,12 @@
   "timestamp" : 590,
   "user" : "bob35",
   "message" : "Successfully selected Start Me Up."
-}, null, null, null, {
+}, {
+  "command" : "load",
+  "timestamp" : 600,
+  "user" : "bob35",
+  "message" : "Playback loaded successfully."
+}, null, null, {
   "command" : "search",
   "timestamp" : 870,
   "user" : "carol19",
@@ -58,7 +83,12 @@
   "timestamp" : 890,
   "user" : "carol19",
   "message" : "Successfully selected Start Me Up."
-}, null, null, {
+}, {
+  "command" : "load",
+  "timestamp" : 900,
+  "user" : "carol19",
+  "message" : "Playback loaded successfully."
+}, null, {
   "command" : "search",
   "timestamp" : 1000,
   "user" : "carol19",

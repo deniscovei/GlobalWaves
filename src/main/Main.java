@@ -1,12 +1,13 @@
 package main;
 
-import CommandTypes.input.InputCommand;
+import commands.derived.input.inputCommand.InputCommand;
 import checker.Checker;
 import checker.CheckerConstants;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.node.ArrayNode;
+import data.database.Database;
 import fileio.input.LibraryInput;
 
 import java.io.File;
@@ -74,12 +75,15 @@ public final class Main {
         ObjectMapper objectMapper = new ObjectMapper();
         LibraryInput library = objectMapper.readValue(new File(LIBRARY_PATH), LibraryInput.class);
 
+        // upload the library to the database
+        Database.getInstance().upload(library);
+
         ArrayNode outputs = objectMapper.createArrayNode();
 
         String inputPath = CheckerConstants.TESTS_PATH + filePathInput;
         ArrayList <InputCommand> commandsInput = objectMapper.readValue(new File(inputPath), new TypeReference<>() {});
         for (InputCommand inputCommand : commandsInput) {
-            outputs.add(objectMapper.valueToTree(inputCommand.action(library)));
+            outputs.add(objectMapper.valueToTree(inputCommand.action()));
         }
 
         ObjectWriter objectWriter = objectMapper.writerWithDefaultPrettyPrinter();

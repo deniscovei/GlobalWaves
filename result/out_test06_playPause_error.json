@@ -9,41 +9,76 @@
   "timestamp" : 3260,
   "user" : "emily30",
   "message" : "Successfully selected Shape of You."
-}, null, null, null, null, {
+}, {
+  "command" : "load",
+  "timestamp" : 3265,
+  "user" : "emily30",
+  "message" : "Playback loaded successfully."
+}, null, {
+  "command" : "load",
+  "timestamp" : 3285,
+  "user" : "emily30",
+  "message" : "Playback loaded successfully."
+}, null, {
   "command" : "search",
   "timestamp" : 3315,
   "user" : "emily30",
-  "message" : "Search returned 2 results",
-  "results" : [ "TED Talks Daily", "TED-Ed: Lessons Worth Sharing" ]
-}, null, {
+  "message" : "Search returned 5 results",
+  "results" : [ "TED Talks Daily", "TED-Ed: Lessons Worth Sharing", "TED Talks Daily", "TED-Ed: Lessons Worth Sharing", "TED Talks Daily" ]
+}, {
+  "command" : "load",
+  "timestamp" : 3345,
+  "user" : "emily30",
+  "message" : "Playback loaded successfully."
+}, {
   "command" : "search",
   "timestamp" : 3375,
   "user" : "emily30",
   "message" : "Search returned 0 results",
   "results" : [ ]
-}, null, {
+}, {
+  "command" : "load",
+  "timestamp" : 3385,
+  "user" : "emily30",
+  "message" : "Playback loaded successfully."
+}, {
   "command" : "search",
   "timestamp" : 3415,
   "user" : "emily30",
   "message" : "Search returned 5 results",
   "results" : [ "The Man", "Delicate", "Love Story", "Blank Space", "Begin Again" ]
-}, null, {
+}, {
+  "command" : "load",
+  "timestamp" : 3545,
+  "user" : "emily30",
+  "message" : "Playback loaded successfully."
+}, {
   "command" : "select",
   "timestamp" : 3560,
   "user" : "emily30",
   "message" : "Successfully selected The Man."
-}, null, null, {
+}, {
+  "command" : "load",
+  "timestamp" : 3745,
+  "user" : "emily30",
+  "message" : "Playback loaded successfully."
+}, null, {
   "command" : "search",
   "timestamp" : 3815,
   "user" : "emily30",
-  "message" : "Search returned 3 results",
-  "results" : [ "Shape of You", "Happier", "Castle on the Hill" ]
+  "message" : "Search returned 5 results",
+  "results" : [ "Shape of You", "Happier", "Castle on the Hill", "Shape of You", "Happier" ]
 }, {
   "command" : "select",
   "timestamp" : 3860,
   "user" : "emily30",
   "message" : "Successfully selected Shape of You."
-}, null, null, {
+}, {
+  "command" : "load",
+  "timestamp" : 3945,
+  "user" : "emily30",
+  "message" : "Playback loaded successfully."
+}, null, {
   "command" : "search",
   "timestamp" : 4015,
   "user" : "emily30",
@@ -54,10 +89,25 @@
   "timestamp" : 4060,
   "user" : "emily30",
   "message" : "Please conduct a search before making a selection."
-}, null, null, null, {
+}, {
+  "command" : "load",
+  "timestamp" : 4105,
+  "user" : "emily30",
+  "message" : "Playback loaded successfully."
+}, null, {
+  "command" : "load",
+  "timestamp" : 4245,
+  "user" : "emily30",
+  "message" : "Playback loaded successfully."
+}, {
   "command" : "search",
   "timestamp" : 4295,
   "user" : "emily30",
   "message" : "Search returned 0 results",
   "results" : [ ]
-}, null, null ]
+}, {
+  "command" : "load",
+  "timestamp" : 4325,
+  "user" : "emily30",
+  "message" : "Playback loaded successfully."
+}, null ]
