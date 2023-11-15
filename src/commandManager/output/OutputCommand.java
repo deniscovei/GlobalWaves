@@ -1,20 +1,22 @@
-package commands.derived.output;
+package commandManager.output;
 
-import commands.base.Command;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import commands.derived.input.attributes.Stats;
-import commands.derived.input.inputCommand.InputCommand;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import commandManager.Command;
+import commandManager.input.attributes.Stats;
+import commandManager.input.InputCommand;
+import data.entities.audio.File;
 import lombok.Getter;
 
 import java.util.ArrayList;
 
 @Getter
+@JsonPropertyOrder({ "command", "user", "timestamp", "message", "results", "stats"})
 public class OutputCommand extends Command {
-    private String user;
-    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private final String user;
     private String message = null;
-    @JsonInclude(JsonInclude.Include.NON_NULL)
     private ArrayList<String> results = null;
+    private ArrayList<Object> result = null;
+    private Stats stats = null;
 
     public OutputCommand(InputCommand inputCommand) {
         super(inputCommand.getCommand(), inputCommand.getTimestamp());
@@ -26,9 +28,19 @@ public class OutputCommand extends Command {
         this.message = message;
     }
 
+    public OutputCommand(InputCommand inputCommand, final ArrayList<String> results) {
+        this(inputCommand);
+        this.results = results;
+    }
+
     public OutputCommand(InputCommand inputCommand, final String message, final ArrayList<String> results) {
         this(inputCommand, message);
         this.results = results;
+    }
+
+    public OutputCommand(InputCommand inputCommand, final ArrayList<Object> result, Object garbage) {
+        this(inputCommand);
+        this.result = result;
     }
 
     public OutputCommand(InputCommand inputCommand, final Stats stats) {
@@ -44,7 +56,15 @@ public class OutputCommand extends Command {
         this.results.addAll(results);
     }
 
-    public void addResult(String result) {
-        this.results.add(result);
+    public void addResult(File result) {
+        this.result.add(result);
+    }
+
+    public void setResult(ArrayList<Object> result) {
+        this.result = result;
+    }
+
+    public final void setStats(final Stats stats) {
+        this.stats = stats;
     }
 }

@@ -1,23 +1,27 @@
-package data.entities.audio.base;
+package data.entities.audio.audioFiles;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import data.entities.audio.File;
 import lombok.Getter;
 
 import java.util.ArrayList;
 
+@JsonIgnoreProperties({"duration", "startTimestamp", "pauseTimestamp", "offset", "playing"})
 @Getter
-public abstract class AudioFile {
-    protected String name = null;
+public abstract class AudioFile extends File {
     protected int duration = 0;
     protected int startTimestamp = -1;
     protected int pauseTimestamp = -1;
     protected int offset = 0;
+    @JsonIgnore
     protected boolean playing = false;
 
     public AudioFile() {
     }
 
     public AudioFile(String name) {
-        this.name = name;
+        super(name);
     }
 
     public AudioFile(String name, int duration) {
@@ -33,9 +37,9 @@ public abstract class AudioFile {
         this.duration = duration;
     }
 
-    public static ArrayList <String> getNameList(ArrayList <AudioFile> audioFiles) {
+    public static ArrayList <String> getFileNames(ArrayList <File> audioFiles) {
         ArrayList <String> nameList = new ArrayList<>();
-        for (AudioFile audioFile : audioFiles) {
+        for (File audioFile : audioFiles) {
             nameList.add(audioFile.getName());
         }
         return nameList;
@@ -57,17 +61,16 @@ public abstract class AudioFile {
         this.playing = playing;
     }
 
-    public boolean isPlaying() {
-        return playing;
-    }
-
     public boolean hasStarted() {
         return startTimestamp != -1;
     }
 
     public void play(int timestamp) {
-        if (!hasStarted())
+        if (!hasStarted()) {
             setStartTimestamp(timestamp);
+        } else {
+            setOffset(getOffset() - timestamp + getPauseTimestamp());
+        }
         setPlaying(true);
     }
 

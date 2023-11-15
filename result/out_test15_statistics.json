@@ -1,146 +1,246 @@
-[ null, {
+[ {
+  "command" : "createPlaylist",
+  "user" : "bob35",
+  "timestamp" : 150,
+  "message" : "A playlist with the same name already exists."
+}, {
   "command" : "search",
+  "user" : "bob35",
   "timestamp" : 170,
-  "user" : "bob35",
-  "message" : "Search returned 5 results",
-  "results" : [ "Bohemian Rhapsody", "We Will Rock You", "Radio Ga Ga", "Bohemian Rhapsody", "We Will Rock You" ]
+  "message" : "Search returned 3 results",
+  "results" : [ "Bohemian Rhapsody", "We Will Rock You", "Radio Ga Ga" ]
 }, {
   "command" : "select",
+  "user" : "bob35",
   "timestamp" : 190,
-  "user" : "bob35",
   "message" : "Successfully selected Bohemian Rhapsody."
 }, {
   "command" : "load",
+  "user" : "bob35",
   "timestamp" : 200,
-  "user" : "bob35",
   "message" : "Playback loaded successfully."
-}, null, null, null, {
+}, {
+  "command" : "like",
+  "user" : "bob35",
+  "timestamp" : 205,
+  "message" : "Like registered successfully."
+}, {
+  "command" : "addRemoveInPlaylist",
+  "user" : "bob35",
+  "timestamp" : 240,
+  "message" : "Successfully added to playlist."
+}, {
+  "command" : "createPlaylist",
+  "user" : "carol19",
+  "timestamp" : 250,
+  "message" : "Playlist created successfully."
+}, {
   "command" : "search",
+  "user" : "carol19",
   "timestamp" : 270,
-  "user" : "carol19",
-  "message" : "Search returned 5 results",
-  "results" : [ "Freedom", "Happy", "Freedom", "Freedom", "Happy" ]
+  "message" : "Search returned 3 results",
+  "results" : [ "Freedom", "Happy", "Freedom" ]
 }, {
   "command" : "select",
+  "user" : "carol19",
   "timestamp" : 290,
-  "user" : "carol19",
   "message" : "Successfully selected Freedom."
 }, {
   "command" : "load",
+  "user" : "carol19",
   "timestamp" : 300,
-  "user" : "carol19",
   "message" : "Playback loaded successfully."
-}, null, null, {
-  "command" : "search",
-  "timestamp" : 370,
+}, {
+  "command" : "like",
   "user" : "carol19",
-  "message" : "Search returned 5 results",
-  "results" : [ "Bohemian Rhapsody", "We Will Rock You", "Radio Ga Ga", "Bohemian Rhapsody", "We Will Rock You" ]
+  "timestamp" : 305,
+  "message" : "Like registered successfully."
+}, {
+  "command" : "addRemoveInPlaylist",
+  "user" : "carol19",
+  "timestamp" : 340,
+  "message" : "Successfully removed from playlist."
+}, {
+  "command" : "search",
+  "user" : "carol19",
+  "timestamp" : 370,
+  "message" : "Search returned 3 results",
+  "results" : [ "Bohemian Rhapsody", "We Will Rock You", "Radio Ga Ga" ]
 }, {
   "command" : "select",
-  "timestamp" : 390,
   "user" : "carol19",
+  "timestamp" : 390,
   "message" : "Successfully selected Bohemian Rhapsody."
 }, {
   "command" : "load",
+  "user" : "carol19",
   "timestamp" : 400,
-  "user" : "carol19",
   "message" : "Playback loaded successfully."
-}, null, {
-  "command" : "search",
-  "timestamp" : 470,
+}, {
+  "command" : "like",
   "user" : "carol19",
-  "message" : "Search returned 5 results",
-  "results" : [ "Angie", "Nothing Else Matters", "Angie", "Nothing Else Matters", "Angie" ]
+  "timestamp" : 405,
+  "message" : "Like registered successfully."
+}, {
+  "command" : "search",
+  "user" : "carol19",
+  "timestamp" : 470,
+  "message" : "Search returned 2 results",
+  "results" : [ "Angie", "Nothing Else Matters" ]
 }, {
   "command" : "select",
-  "timestamp" : 490,
   "user" : "carol19",
+  "timestamp" : 490,
   "message" : "Successfully selected Angie."
 }, {
   "command" : "load",
+  "user" : "carol19",
   "timestamp" : 500,
-  "user" : "carol19",
   "message" : "Playback loaded successfully."
-}, null, {
-  "command" : "search",
-  "timestamp" : 770,
+}, {
+  "command" : "addRemoveInPlaylist",
   "user" : "carol19",
-  "message" : "Search returned 5 results",
-  "results" : [ "Freedom", "Happy", "Freedom", "Freedom", "Happy" ]
+  "timestamp" : 540,
+  "message" : "Successfully added to playlist."
+}, {
+  "command" : "search",
+  "user" : "carol19",
+  "timestamp" : 770,
+  "message" : "Search returned 3 results",
+  "results" : [ "Freedom", "Happy", "Freedom" ]
 }, {
   "command" : "select",
-  "timestamp" : 790,
   "user" : "carol19",
+  "timestamp" : 790,
   "message" : "Successfully selected Freedom."
 }, {
   "command" : "load",
-  "timestamp" : 800,
   "user" : "carol19",
+  "timestamp" : 800,
   "message" : "Playback loaded successfully."
-}, null, null, null, {
-  "command" : "search",
-  "timestamp" : 1170,
+}, {
+  "command" : "like",
+  "user" : "carol19",
+  "timestamp" : 805,
+  "message" : "Unlike registered successfully."
+}, {
+  "command" : "showPreferredSongs",
+  "user" : "carol19",
+  "timestamp" : 1000,
+  "result" : [ "Bohemian Rhapsody" ]
+}, {
+  "command" : "createPlaylist",
   "user" : "david27",
-  "message" : "Search returned 5 results",
-  "results" : [ "Angie", "Nothing Else Matters", "Angie", "Nothing Else Matters", "Angie" ]
+  "timestamp" : 1150,
+  "message" : "Playlist created successfully."
+}, {
+  "command" : "search",
+  "user" : "david27",
+  "timestamp" : 1170,
+  "message" : "Search returned 2 results",
+  "results" : [ "Angie", "Nothing Else Matters" ]
 }, {
   "command" : "select",
-  "timestamp" : 1190,
   "user" : "david27",
+  "timestamp" : 1190,
   "message" : "Successfully selected Angie."
 }, {
   "command" : "load",
-  "timestamp" : 1200,
   "user" : "david27",
+  "timestamp" : 1200,
   "message" : "Playback loaded successfully."
-}, null, null, null, {
-  "command" : "search",
-  "timestamp" : 2170,
+}, {
+  "command" : "like",
+  "user" : "david27",
+  "timestamp" : 1205,
+  "message" : "Like registered successfully."
+}, {
+  "command" : "addRemoveInPlaylist",
+  "user" : "david27",
+  "timestamp" : 1240,
+  "message" : "Successfully removed from playlist."
+}, {
+  "command" : "createPlaylist",
   "user" : "emily30",
-  "message" : "Search returned 5 results",
-  "results" : [ "Bohemian Rhapsody", "We Will Rock You", "Radio Ga Ga", "Bohemian Rhapsody", "We Will Rock You" ]
+  "timestamp" : 2150,
+  "message" : "Playlist created successfully."
+}, {
+  "command" : "search",
+  "user" : "emily30",
+  "timestamp" : 2170,
+  "message" : "Search returned 3 results",
+  "results" : [ "Bohemian Rhapsody", "We Will Rock You", "Radio Ga Ga" ]
 }, {
   "command" : "select",
-  "timestamp" : 2190,
   "user" : "emily30",
+  "timestamp" : 2190,
   "message" : "Successfully selected Bohemian Rhapsody."
 }, {
   "command" : "load",
+  "user" : "emily30",
   "timestamp" : 2295,
-  "user" : "emily30",
   "message" : "Playback loaded successfully."
-}, null, null, null, null, {
-  "command" : "search",
-  "timestamp" : 2460,
+}, {
+  "command" : "showPreferredSongs",
   "user" : "emily30",
-  "message" : "Search returned 0 results",
-  "results" : [ ]
+  "timestamp" : 2300,
+  "result" : [ ]
+}, {
+  "command" : "like",
+  "user" : "emily30",
+  "timestamp" : 2350,
+  "message" : "Like registered successfully."
+}, {
+  "command" : "addRemoveInPlaylist",
+  "user" : "emily30",
+  "timestamp" : 2370,
+  "message" : "Successfully removed from playlist."
+}, {
+  "command" : "showPreferredSongs",
+  "user" : "emily30",
+  "timestamp" : 2400,
+  "result" : [ "Bohemian Rhapsody" ]
+}, {
+  "command" : "search",
+  "user" : "emily30",
+  "timestamp" : 2460,
+  "message" : "Search returned 1 results",
+  "results" : [ "My first playlist" ]
 }, {
   "command" : "select",
-  "timestamp" : 2490,
   "user" : "emily30",
-  "message" : "Please conduct a search before making a selection."
+  "timestamp" : 2490,
+  "message" : "Successfully selected My first playlist."
 }, null, null, {
   "command" : "search",
-  "timestamp" : 2565,
   "user" : "bob35",
-  "message" : "Search returned 0 results",
-  "results" : [ ]
+  "timestamp" : 2565,
+  "message" : "Search returned 2 results",
+  "results" : [ "The best", "Just for fun" ]
 }, {
   "command" : "select",
-  "timestamp" : 2580,
   "user" : "bob35",
-  "message" : "Please conduct a search before making a selection."
+  "timestamp" : 2580,
+  "message" : "Successfully selected The best."
 }, null, {
   "command" : "search",
-  "timestamp" : 2765,
   "user" : "david27",
-  "message" : "Search returned 0 results",
-  "results" : [ ]
+  "timestamp" : 2765,
+  "message" : "Search returned 2 results",
+  "results" : [ "The best", "Just for fun" ]
 }, {
   "command" : "select",
-  "timestamp" : 2810,
   "user" : "david27",
-  "message" : "Please conduct a search before making a selection."
-}, null, null, null, null, null ]
+  "timestamp" : 2810,
+  "message" : "Successfully selected The best."
+}, null, null, {
+  "command" : "showPreferredSongs",
+  "user" : "bob35",
+  "timestamp" : 3100,
+  "result" : [ "Bohemian Rhapsody" ]
+}, {
+  "command" : "showPreferredSongs",
+  "user" : "carol19",
+  "timestamp" : 3200,
+  "result" : [ "Bohemian Rhapsody" ]
+}, null ]

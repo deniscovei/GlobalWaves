@@ -1,6 +1,7 @@
-package data.entities.audio.derived;
+package data.entities.audio.audioFiles;
 
-import data.entities.audio.base.AudioFile;
+import data.entities.audio.audioFiles.AudioFile;
+import data.entities.user.User;
 import fileio.input.SongInput;
 import lombok.Getter;
 
@@ -8,12 +9,13 @@ import java.util.ArrayList;
 
 @Getter
 public class Song extends AudioFile {
-    private String album;
+    private String album = null;
     private ArrayList<String> tags = new ArrayList<>();
-    private String lyrics;
-    private String genre;
-    private Integer releaseYear;
-    private String artist;
+    private String lyrics = null;
+    private String genre = null;
+    private Integer releaseYear = null;
+    private String artist = null;
+    private final ArrayList <User> userWhoLiked = new ArrayList<>();
 
     public Song() {
     }
@@ -54,5 +56,13 @@ public class Song extends AudioFile {
 
     public void setArtist(final String artist) {
         this.artist = artist;
+    }
+
+    public void registerLike(final User user) {
+        userWhoLiked.add(user);
+    }
+
+    public void registerUnlike(final User user) {
+        userWhoLiked.remove(user);
     }
 }

@@ -1,9 +1,11 @@
-package data.entities.audio.derived;
+package data.entities.audio.audioFiles;
 
-import data.entities.audio.base.AudioFile;
+import data.entities.audio.audioFiles.AudioFile;
 import fileio.input.EpisodeInput;
 import lombok.Getter;
+import lombok.Setter;
 
+@Setter
 @Getter
 public class Episode extends AudioFile {
     private String description;
@@ -14,9 +16,5 @@ public class Episode extends AudioFile {
     public Episode(EpisodeInput episode) {
         super(episode.getName(), episode.getDuration());
         this.description = episode.getDescription();
-    }
-
-    public void setDescription(final String description) {
-        this.description = description;
     }
 }

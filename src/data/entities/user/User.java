@@ -1,19 +1,24 @@
 package data.entities.user;
 
-import data.entities.audio.base.AudioFile;
+import data.entities.audio.File;
+import data.entities.audio.audioCollections.Playlist;
+import data.entities.audio.audioFiles.Song;
 import fileio.input.UserInput;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.util.ArrayList;
 
+@Setter
 @Getter
 public class User {
     private String username = null;
     private int age = 0;
     private String city = null;
-    private final ArrayList<AudioFile> searchResults = new ArrayList<>();
-    private AudioFile selection = null;
+    private ArrayList<File> searchResults = new ArrayList<>();
+    private File selection = null;
     boolean loaded = false;
+    private final ArrayList<Song> prefferedSongs = new ArrayList<>();
 
     public User() {
     }
@@ -31,40 +36,28 @@ public class User {
     }
 
     public User(final String username, final int age, final String city,
-                final ArrayList<AudioFile> searchResults) {
+                final ArrayList<File> searchResults) {
         this(username, age, city);
-        this.searchResults.addAll(searchResults);
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public void setSearchResults(ArrayList<AudioFile> searchResults) {
-        this.searchResults.addAll(searchResults);
-    }
-
-    public void setSelection(AudioFile selection) {
-        this.selection = selection;
-    }
-
-    public void setLoaded(boolean loaded) {
-        this.loaded = loaded;
+        this.searchResults = searchResults;
     }
 
     public void loadAudioFile() {
         setLoaded(true);
     }
 
+    public void unloadAudioFile() {
+        setLoaded(false);
+    }
+
     public boolean hasLoadedAudioFile() {
         return loaded;
+    }
+
+    public void like(final Song song) {
+        prefferedSongs.add(song);
+    }
+
+    public void unlike(final Song song) {
+        prefferedSongs.remove(song);
     }
 }

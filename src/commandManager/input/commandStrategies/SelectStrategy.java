@@ -1,18 +1,19 @@
-package commands.derived.input.commandTypes;
+package commandManager.input.commandStrategies;
 
-import commands.derived.input.inputCommand.InputCommand;
-import data.database.Database;
+import commandManager.input.InputCommand;
+import data.Database;
+import data.entities.audio.File;
 import data.entities.user.User;
-import commands.derived.output.OutputCommand;
-import data.entities.audio.base.AudioFile;
-import lombok.Getter;
+import commandManager.output.OutputCommand;
+import data.entities.audio.audioFiles.AudioFile;
 
 import java.util.ArrayList;
 
-public final class Select {
-    public static OutputCommand action(InputCommand inputCommand, int itemNumber) {
+public final class SelectStrategy implements CommandStrategy {
+    public OutputCommand action(InputCommand inputCommand) {
         User user = Database.getInstance().findUser(inputCommand.getUsername());
-        ArrayList<AudioFile> searchResults = user.getSearchResults();
+        int itemNumber = inputCommand.getItemNumber();
+        ArrayList<File> searchResults = user.getSearchResults();
         String message;
 
         int searchResultsIndex = itemNumber - 1;

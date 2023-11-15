@@ -1,113 +1,237 @@
-[ null, {
-  "command" : "search",
-  "timestamp" : 100,
+[ {
+  "command" : "createPlaylist",
   "user" : "bob35",
-  "message" : "Search returned 5 results",
-  "results" : [ "TED Talks Daily", "TED Talks Daily", "TED Talks Daily", "TED Talks Daily", "TED Talks Daily" ]
+  "timestamp" : 50,
+  "message" : "Playlist created successfully."
+}, {
+  "command" : "search",
+  "user" : "bob35",
+  "timestamp" : 100,
+  "message" : "Search returned 1 results",
+  "results" : [ "TED Talks Daily" ]
 }, {
   "command" : "select",
-  "timestamp" : 110,
   "user" : "bob35",
+  "timestamp" : 110,
   "message" : "Successfully selected TED Talks Daily."
 }, {
   "command" : "load",
-  "timestamp" : 115,
   "user" : "bob35",
+  "timestamp" : 115,
   "message" : "Playback loaded successfully."
 }, null, {
   "command" : "search",
-  "timestamp" : 200,
   "user" : "bob35",
-  "message" : "Search returned 5 results",
-  "results" : [ "Blank Space", "Blank Space", "Blank Space", "Blank Space", "Blank Space" ]
+  "timestamp" : 200,
+  "message" : "Search returned 1 results",
+  "results" : [ "Blank Space" ]
 }, {
   "command" : "select",
-  "timestamp" : 210,
   "user" : "bob35",
+  "timestamp" : 210,
   "message" : "Successfully selected Blank Space."
 }, {
   "command" : "load",
+  "user" : "bob35",
   "timestamp" : 213,
-  "user" : "bob35",
   "message" : "Playback loaded successfully."
-}, null, {
-  "command" : "search",
-  "timestamp" : 250,
+}, {
+  "command" : "addRemoveInPlaylist",
   "user" : "bob35",
-  "message" : "Search returned 5 results",
-  "results" : [ "Whole Lotta Love", "Whole Lotta Love", "Whole Lotta Love", "Whole Lotta Love", "Whole Lotta Love" ]
+  "timestamp" : 215,
+  "message" : "Successfully added to playlist."
+}, {
+  "command" : "search",
+  "user" : "bob35",
+  "timestamp" : 250,
+  "message" : "Search returned 1 results",
+  "results" : [ "Whole Lotta Love" ]
 }, {
   "command" : "select",
-  "timestamp" : 260,
   "user" : "bob35",
+  "timestamp" : 260,
   "message" : "Successfully selected Whole Lotta Love."
 }, {
   "command" : "load",
+  "user" : "bob35",
   "timestamp" : 263,
-  "user" : "bob35",
   "message" : "Playback loaded successfully."
-}, null, {
-  "command" : "search",
-  "timestamp" : 400,
+}, {
+  "command" : "addRemoveInPlaylist",
   "user" : "bob35",
-  "message" : "Search returned 5 results",
-  "results" : [ "I Don't Wanna Live Forever", "I Don't Wanna Live Forever", "I Don't Wanna Live Forever", "I Don't Wanna Live Forever", "I Don't Wanna Live Forever" ]
+  "timestamp" : 265,
+  "message" : "Successfully added to playlist."
+}, {
+  "command" : "search",
+  "user" : "bob35",
+  "timestamp" : 400,
+  "message" : "Search returned 1 results",
+  "results" : [ "I Don't Wanna Live Forever" ]
 }, {
   "command" : "select",
-  "timestamp" : 410,
   "user" : "bob35",
+  "timestamp" : 410,
   "message" : "Successfully selected I Don't Wanna Live Forever."
 }, {
   "command" : "load",
-  "timestamp" : 415,
   "user" : "bob35",
+  "timestamp" : 415,
   "message" : "Playback loaded successfully."
 }, null, {
   "command" : "search",
-  "timestamp" : 500,
   "user" : "bob35",
-  "message" : "Search returned 5 results",
-  "results" : [ "Kings Dead", "Kings Dead", "Kings Dead", "Kings Dead", "Kings Dead" ]
+  "timestamp" : 500,
+  "message" : "Search returned 1 results",
+  "results" : [ "Kings Dead" ]
 }, {
   "command" : "select",
-  "timestamp" : 510,
   "user" : "bob35",
+  "timestamp" : 510,
   "message" : "Successfully selected Kings Dead."
 }, {
   "command" : "load",
+  "user" : "bob35",
   "timestamp" : 513,
-  "user" : "bob35",
   "message" : "Playback loaded successfully."
-}, null, {
-  "command" : "search",
-  "timestamp" : 550,
+}, {
+  "command" : "addRemoveInPlaylist",
   "user" : "bob35",
-  "message" : "Search returned 5 results",
-  "results" : [ "Thinking Out Loud", "Thinking Out Loud", "Thinking Out Loud", "Thinking Out Loud", "Thinking Out Loud" ]
+  "timestamp" : 515,
+  "message" : "Successfully added to playlist."
+}, {
+  "command" : "search",
+  "user" : "bob35",
+  "timestamp" : 550,
+  "message" : "Search returned 1 results",
+  "results" : [ "Thinking Out Loud" ]
 }, {
   "command" : "select",
-  "timestamp" : 560,
   "user" : "bob35",
+  "timestamp" : 560,
   "message" : "Successfully selected Thinking Out Loud."
 }, {
   "command" : "load",
+  "user" : "bob35",
   "timestamp" : 563,
-  "user" : "bob35",
   "message" : "Playback loaded successfully."
-}, null, null, {
-  "command" : "search",
-  "timestamp" : 3110,
+}, {
+  "command" : "addRemoveInPlaylist",
   "user" : "bob35",
-  "message" : "Search returned 0 results",
-  "results" : [ ]
+  "timestamp" : 565,
+  "message" : "Successfully added to playlist."
+}, {
+  "command" : "status",
+  "user" : "bob35",
+  "timestamp" : 3100,
+  "stats" : {
+    "name" : "",
+    "remainedTime" : 0,
+    "repeat" : "No Repeat",
+    "shuffle" : false,
+    "paused" : true
+  }
+}, {
+  "command" : "search",
+  "user" : "bob35",
+  "timestamp" : 3110,
+  "message" : "Search returned 1 results",
+  "results" : [ "Colaj" ]
 }, null, {
   "command" : "select",
-  "timestamp" : 3130,
   "user" : "bob35",
-  "message" : "Please conduct a search before making a selection."
+  "timestamp" : 3130,
+  "message" : "Successfully selected Colaj."
 }, {
   "command" : "load",
-  "timestamp" : 3140,
   "user" : "bob35",
+  "timestamp" : 3140,
   "message" : "Playback loaded successfully."
-}, null, null, null, null, null, null, null, null, null, null ]
+}, {
+  "command" : "status",
+  "user" : "bob35",
+  "timestamp" : 3150,
+  "stats" : {
+    "name" : "",
+    "remainedTime" : 0,
+    "repeat" : "No Repeat",
+    "shuffle" : false,
+    "paused" : true
+  }
+}, {
+  "command" : "status",
+  "user" : "bob35",
+  "timestamp" : 3200,
+  "stats" : {
+    "name" : "",
+    "remainedTime" : 0,
+    "repeat" : "No Repeat",
+    "shuffle" : false,
+    "paused" : true
+  }
+}, {
+  "command" : "status",
+  "user" : "bob35",
+  "timestamp" : 3250,
+  "stats" : {
+    "name" : "",
+    "remainedTime" : 0,
+    "repeat" : "No Repeat",
+    "shuffle" : false,
+    "paused" : true
+  }
+}, null, {
+  "command" : "status",
+  "user" : "bob35",
+  "timestamp" : 3270,
+  "stats" : {
+    "name" : "",
+    "remainedTime" : 0,
+    "repeat" : "No Repeat",
+    "shuffle" : false,
+    "paused" : true
+  }
+}, {
+  "command" : "status",
+  "user" : "bob35",
+  "timestamp" : 3320,
+  "stats" : {
+    "name" : "",
+    "remainedTime" : 0,
+    "repeat" : "No Repeat",
+    "shuffle" : false,
+    "paused" : true
+  }
+}, {
+  "command" : "status",
+  "user" : "bob35",
+  "timestamp" : 3370,
+  "stats" : {
+    "name" : "",
+    "remainedTime" : 0,
+    "repeat" : "No Repeat",
+    "shuffle" : false,
+    "paused" : true
+  }
+}, null, {
+  "command" : "status",
+  "user" : "bob35",
+  "timestamp" : 3690,
+  "stats" : {
+    "name" : "",
+    "remainedTime" : 0,
+    "repeat" : "No Repeat",
+    "shuffle" : false,
+    "paused" : true
+  }
+}, {
+  "command" : "status",
+  "user" : "bob35",
+  "timestamp" : 3740,
+  "stats" : {
+    "name" : "",
+    "remainedTime" : 0,
+    "repeat" : "No Repeat",
+    "shuffle" : false,
+    "paused" : true
+  }
+} ]

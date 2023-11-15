@@ -1,25 +1,31 @@
-package commands.derived.input.commandTypes;
+package commandManager.input.commandStrategies;
 
-import commands.derived.input.inputCommand.InputCommand;
-import commands.derived.input.attributes.Filters;
-import data.database.Database;
-import data.entities.audio.base.AudioFile;
-import data.entities.audio.derived.Podcast;
-import data.entities.audio.derived.Song;
-import commands.derived.output.OutputCommand;
+import commandManager.input.InputCommand;
+import commandManager.input.attributes.Filters;
+import data.Database;
+import data.entities.audio.File;
+import data.entities.audio.audioFiles.AudioFile;
+import data.entities.audio.audioCollections.Playlist;
+import data.entities.audio.audioCollections.Podcast;
+import data.entities.audio.audioFiles.Song;
+import commandManager.output.OutputCommand;
+import data.entities.user.User;
 
 import java.util.ArrayList;
 
-public final class Search {
+public final class SearchStrategy implements CommandStrategy {
     private static final int resCountMax = 5;
 
-    public static OutputCommand action(InputCommand inputCommand) {
-        ArrayList<AudioFile> searchResults = Database.getInstance().findUser(inputCommand.getUsername()).getSearchResults();
+    public OutputCommand action(InputCommand inputCommand) {
+        User user = Database.getInstance().findUser(inputCommand.getUsername());
+        ArrayList<File> searchResults = user.getSearchResults();
+
+        user.unloadAudioFile();
         searchResults.clear();
 
         switch (inputCommand.getType()) {
             case "song":
-                ArrayList <Song> songs = Database.getInstance().getSongs();
+                ArrayList<Song> songs = Database.getInstance().getSongs();
                 for (Song song : songs) {
                     if (checkSongFilters(song, inputCommand.getFilters(), inputCommand)) {
                         searchResults.add(song);
@@ -39,10 +45,20 @@ public final class Search {
                     }
                 }
                 break;
+            case "playlist":
+                for (Playlist playlist : Database.getInstance().getPlaylists()) {
+                    if (checkPlaylistFilters(playlist, inputCommand.getFilters(), inputCommand)) {
+                        searchResults.add(playlist);
+                        if (searchResults.size() == resCountMax) {
+                            break;
+                        }
+                    }
+                }
+                break;
         }
 
         return new OutputCommand(inputCommand, "Search returned " + searchResults.size() + " results",
-                                 AudioFile.getNameList(searchResults));
+                AudioFile.getFileNames(searchResults));
     }
 
     private static boolean checkSongFilters(Song song, Filters filters, InputCommand inputCommand) {
@@ -89,7 +105,7 @@ public final class Search {
 
     private static boolean filterSongByGenre(Song song, String searchedGenre, InputCommand inputCommand) {
         if (inputCommand.getFilters().getGenre() != null) {
-            return song.getGenre().toLowerCase().equals(searchedGenre);
+            return song.getGenre().equalsIgnoreCase(searchedGenre);
         } else {
             return true;
         }
@@ -129,6 +145,27 @@ public final class Search {
     private static boolean filterPodcastByOwner(Podcast podcast, String searchedOwner, InputCommand inputCommand) {
         if (inputCommand.getFilters().getOwner() != null) {
             return podcast.getOwner().equals(searchedOwner);
+        } else {
+            return true;
+        }
+    }
+
+    private static boolean checkPlaylistFilters(Playlist playlist, Filters filters, InputCommand inputCommand) {
+        return filterPlaylistByName(playlist, filters.getName(), inputCommand) &&
+                filterPlaylistByOwner(playlist, filters.getOwner(), inputCommand);
+    }
+
+    private static boolean filterPlaylistByName(Playlist playlist, String searchedPlaylist, InputCommand inputCommand) {
+        if (inputCommand.getFilters().getName() != null) {
+            return playlist.getName().startsWith(searchedPlaylist);
+        } else {
+            return true;
+        }
+    }
+
+    private static boolean filterPlaylistByOwner(Playlist playlist, String searchedOwner, InputCommand inputCommand) {
+        if (inputCommand.getFilters().getOwner() != null) {
+            return playlist.getOwner().equals(searchedOwner);
         } else {
             return true;
         }

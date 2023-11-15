@@ -1,13 +1,14 @@
 package main;
 
-import commands.derived.input.inputCommand.InputCommand;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import commandManager.input.InputCommand;
 import checker.Checker;
 import checker.CheckerConstants;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.node.ArrayNode;
-import data.database.Database;
+import data.Database;
 import fileio.input.LibraryInput;
 
 import java.io.File;
@@ -73,10 +74,13 @@ public final class Main {
     public static void action(final String filePathInput,
                               final String filePathOutput) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
         LibraryInput library = objectMapper.readValue(new File(LIBRARY_PATH), LibraryInput.class);
 
         // upload the library to the database
-        Database.getInstance().upload(library);
+        if (!Database.instantiated()) {
+            Database.getInstance().upload(library);
+        }
 
         ArrayNode outputs = objectMapper.createArrayNode();
 

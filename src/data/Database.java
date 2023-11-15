@@ -1,8 +1,8 @@
-package data.database;
+package data;
 
-import data.entities.audio.derived.Playlist;
-import data.entities.audio.derived.Podcast;
-import data.entities.audio.derived.Song;
+import data.entities.audio.audioCollections.Playlist;
+import data.entities.audio.audioCollections.Podcast;
+import data.entities.audio.audioFiles.Song;
 import data.entities.user.User;
 import fileio.input.LibraryInput;
 import fileio.input.PodcastInput;
@@ -30,6 +30,10 @@ public class Database {
         return instance;
     }
 
+    public static boolean instantiated() {
+        return instance != null;
+    }
+
     public User findUser(String username) {
         for (User user : users) {
             if (user.getUsername().equals(username)) {
@@ -37,6 +41,23 @@ public class Database {
             }
         }
         return null;
+    }
+
+    public Playlist findPlaylist(String playlistName) {
+        for (Playlist playlist : playlists) {
+            if (playlist.getName().equals(playlistName)) {
+                return playlist;
+            }
+        }
+        return null;
+    }
+
+    public Playlist findPlaylist(int playlistId) {
+        if (1 <= playlistId && playlistId <= playlists.size()) {
+            return playlists.get(playlistId - 1);
+        } else {
+            return null;
+        }
     }
 
     public void setUsers(final ArrayList <User> users) {
