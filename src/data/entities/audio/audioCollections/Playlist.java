@@ -1,7 +1,10 @@
 package data.entities.audio.audioCollections;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import commandManager.jsonUtils.SongListSerializer;
 import data.entities.audio.audioFiles.AudioFile;
+import data.entities.audio.audioFiles.Song;
 import data.entities.user.User;
 import lombok.Getter;
 
@@ -9,7 +12,8 @@ import java.util.ArrayList;
 
 @Getter
 public class Playlist extends AudioCollection {
-    private ArrayList <String> songs = new ArrayList<>();
+    @JsonSerialize(using = SongListSerializer.class)
+    private ArrayList <Song> songs = new ArrayList<>();
     private String visibility = "public";
     private int followers = 0;
 
@@ -25,7 +29,7 @@ public class Playlist extends AudioCollection {
         this.owner = owner;
     }
 
-    public void setSongs(ArrayList<String> songs) {
+    public void setSongs(ArrayList<Song> songs) {
         this.songs = songs;
     }
 
@@ -45,12 +49,12 @@ public class Playlist extends AudioCollection {
         this.visibility = "private";
     }
 
-    public void addSong(AudioFile song) {
-        songs.add(song.getName());
+    public void addSong(Song song) {
+        songs.add(song);
     }
 
-    public void removeSong(AudioFile song) {
-        songs.remove(song.getName());
+    public void removeSong(Song song) {
+        songs.remove(song);
     }
 
     public void setFollowers(int followers) {

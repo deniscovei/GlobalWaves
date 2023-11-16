@@ -1,7 +1,6 @@
 package data.entities.user;
 
 import data.entities.audio.File;
-import data.entities.audio.audioCollections.Playlist;
 import data.entities.audio.audioFiles.Song;
 import fileio.input.UserInput;
 import lombok.Getter;
@@ -16,6 +15,7 @@ public class User {
     private int age = 0;
     private String city = null;
     private ArrayList<File> searchResults = new ArrayList<>();
+    //private Player player = new Player();
     private File selection = null;
     boolean loaded = false;
     private final ArrayList<Song> prefferedSongs = new ArrayList<>();

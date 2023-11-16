@@ -19,7 +19,7 @@ public final class AddRemoveInPlaylistStrategy implements CommandStrategy {
         } else if (!(user.getSelection() instanceof Song song)) {
             return new OutputCommand(inputCommand, "The loaded source is not a song.");
         } else {
-            if (playlist.getSongs().contains(song.getName())) {
+            if (playlist.getSongs().contains(song)) {
                 playlist.removeSong(song);
                 return new OutputCommand(inputCommand, "Successfully removed from playlist.");
             } else {

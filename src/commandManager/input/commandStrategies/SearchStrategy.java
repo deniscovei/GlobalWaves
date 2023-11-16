@@ -58,7 +58,7 @@ public final class SearchStrategy implements CommandStrategy {
         }
 
         return new OutputCommand(inputCommand, "Search returned " + searchResults.size() + " results",
-                AudioFile.getFileNames(searchResults));
+                                 AudioFile.getFileNames(searchResults));
     }
 
     private static boolean checkSongFilters(Song song, Filters filters, InputCommand inputCommand) {
