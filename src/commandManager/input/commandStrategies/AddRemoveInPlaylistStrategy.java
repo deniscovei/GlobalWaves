@@ -20,12 +20,12 @@ public final class AddRemoveInPlaylistStrategy implements CommandStrategy {
         } else if (playlist == null) {
             message = "The specified playlist does not exist.";
         } else {
-            File selection = user.getSelection();
-            Constants.FileType fileType = selection.getFileType();
+            File loadedFile = user.getLoadedFile();
+            Constants.FileType fileType = loadedFile.getFileType();
             if (!fileType.equals(Constants.FileType.SONG)) {
                 message = "The loaded source is not a song.";
             } else {
-                Song song = (Song) selection;
+                Song song = (Song) loadedFile;
                 if (playlist.getSongs().contains(song)) {
                     playlist.removeSong(song);
                     message = "Successfully removed from playlist.";

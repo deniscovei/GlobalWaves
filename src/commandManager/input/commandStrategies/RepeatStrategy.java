@@ -18,7 +18,7 @@ public class RepeatStrategy implements CommandStrategy {
             System.out.println("timestamp: " + input.getTimestamp());
             System.out.println("Repeat mode is " + user.getPlayer().getRepeatState());
             user.getPlayer().repeat(input.getTimestamp());
-            Constants.FileType fileType = user.getSelection().getFileType();
+            Constants.FileType fileType = user.getLoadedFile().getFileType();
             int repeatState = user.getPlayer().getRepeatState();
             String repeatStateLowerCase = Constants.repeatStateToString(repeatState, fileType).toLowerCase();
             message = "Repeat mode changed to " + repeatStateLowerCase + ".";

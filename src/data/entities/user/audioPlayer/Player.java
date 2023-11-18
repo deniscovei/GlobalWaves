@@ -16,13 +16,6 @@ public class Player {
     private int repeatState = Constants.NO_REPEAT;
     private boolean shuffleActivated = false;
 
-    public File getSelection() {
-        if (currentPlayerFileIndex == -1) {
-            return null;
-        }
-        return playerFiles.get(currentPlayerFileIndex).getOngoingAudioFile();
-    }
-
     public void setSelection(File selection) {
         if (currentPlayerFileIndex == -1) {
             return;

@@ -51,7 +51,17 @@
   "timestamp" : 1000,
   "message" : "Search returned 1 results",
   "results" : [ "My favourite songs" ]
-}, null, null, {
+}, {
+  "command" : "prev",
+  "user" : "emily30",
+  "timestamp" : 1120,
+  "message" : "Please load a source before returning to the previous track."
+}, {
+  "command" : "next",
+  "user" : "emily30",
+  "timestamp" : 1130,
+  "message" : "Please load a source before skipping to the next track."
+}, {
   "command" : "status",
   "user" : "emily30",
   "timestamp" : 1140,
@@ -135,7 +145,7 @@
   "command" : "forward",
   "user" : "emily30",
   "timestamp" : 2120,
-  "message" : "Please select a file to load before skipping forward."
+  "message" : "Please load a source before attempting to forward."
 }, {
   "command" : "select",
   "user" : "emily30",
@@ -198,7 +208,7 @@
   "command" : "forward",
   "user" : "emily30",
   "timestamp" : 4290,
-  "message" : "Please load a source before skipping forward."
+  "message" : "Please load a source before attempting to forward."
 }, {
   "command" : "status",
   "user" : "emily30",
@@ -214,10 +224,10 @@
   "command" : "load",
   "user" : "emily30",
   "timestamp" : 4350,
-  "message" : "Please select a source before attempting to load."
+  "message" : "Playback loaded successfully."
 }, {
   "command" : "backward",
   "user" : "emily30",
   "timestamp" : 4390,
-  "message" : "Please load a source before skipping forward."
+  "message" : "The loaded source is not a podcast."
 } ]

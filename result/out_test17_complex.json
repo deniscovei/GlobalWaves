@@ -109,7 +109,12 @@
   "user" : "alice22",
   "timestamp" : 305,
   "message" : "Please conduct a search before making a selection."
-}, null, {
+}, {
+  "command" : "load",
+  "user" : "alice22",
+  "timestamp" : 310,
+  "message" : "Please select a source before attempting to load."
+}, {
   "command" : "addRemoveInPlaylist",
   "user" : "alice22",
   "timestamp" : 315,
@@ -146,7 +151,12 @@
   "user" : "alice22",
   "timestamp" : 355,
   "message" : "Please conduct a search before making a selection."
-}, null, {
+}, {
+  "command" : "load",
+  "user" : "alice22",
+  "timestamp" : 360,
+  "message" : "Please select a source before attempting to load."
+}, {
   "command" : "addRemoveInPlaylist",
   "user" : "alice22",
   "timestamp" : 365,
@@ -372,7 +382,12 @@
   "user" : "alice22",
   "timestamp" : 630,
   "message" : "Please conduct a search before making a selection."
-}, null, {
+}, {
+  "command" : "load",
+  "user" : "alice22",
+  "timestamp" : 635,
+  "message" : "Please select a source before attempting to load."
+}, {
   "command" : "addRemoveInPlaylist",
   "user" : "alice22",
   "timestamp" : 640,
@@ -409,7 +424,12 @@
   "user" : "alice22",
   "timestamp" : 680,
   "message" : "Please conduct a search before making a selection."
-}, null, {
+}, {
+  "command" : "load",
+  "user" : "alice22",
+  "timestamp" : 685,
+  "message" : "Please select a source before attempting to load."
+}, {
   "command" : "addRemoveInPlaylist",
   "user" : "alice22",
   "timestamp" : 690,
@@ -446,7 +466,12 @@
   "user" : "alice22",
   "timestamp" : 730,
   "message" : "Please conduct a search before making a selection."
-}, null, {
+}, {
+  "command" : "load",
+  "user" : "alice22",
+  "timestamp" : 735,
+  "message" : "Please select a source before attempting to load."
+}, {
   "command" : "addRemoveInPlaylist",
   "user" : "alice22",
   "timestamp" : 740,
@@ -462,7 +487,12 @@
   "user" : "alice22",
   "timestamp" : 755,
   "message" : "Please conduct a search before making a selection."
-}, null, {
+}, {
+  "command" : "load",
+  "user" : "alice22",
+  "timestamp" : 760,
+  "message" : "Please select a source before attempting to load."
+}, {
   "command" : "addRemoveInPlaylist",
   "user" : "alice22",
   "timestamp" : 765,
@@ -604,7 +634,12 @@
   "user" : "bob35",
   "timestamp" : 930,
   "message" : "Please conduct a search before making a selection."
-}, null, {
+}, {
+  "command" : "load",
+  "user" : "bob35",
+  "timestamp" : 935,
+  "message" : "Please select a source before attempting to load."
+}, {
   "command" : "addRemoveInPlaylist",
   "user" : "bob35",
   "timestamp" : 940,
@@ -809,7 +844,12 @@
   "user" : "bob35",
   "timestamp" : 1180,
   "message" : "Please conduct a search before making a selection."
-}, null, {
+}, {
+  "command" : "load",
+  "user" : "bob35",
+  "timestamp" : 1185,
+  "message" : "Please select a source before attempting to load."
+}, {
   "command" : "addRemoveInPlaylist",
   "user" : "bob35",
   "timestamp" : 1190,
@@ -993,7 +1033,12 @@
   "user" : "carol19",
   "timestamp" : 1405,
   "message" : "Please conduct a search before making a selection."
-}, null, {
+}, {
+  "command" : "load",
+  "user" : "carol19",
+  "timestamp" : 1410,
+  "message" : "Please select a source before attempting to load."
+}, {
   "command" : "addRemoveInPlaylist",
   "user" : "carol19",
   "timestamp" : 1415,
@@ -1030,7 +1075,12 @@
   "user" : "carol19",
   "timestamp" : 1455,
   "message" : "The selected ID is too high."
-}, null, {
+}, {
+  "command" : "load",
+  "user" : "carol19",
+  "timestamp" : 1460,
+  "message" : "Please select a source before attempting to load."
+}, {
   "command" : "addRemoveInPlaylist",
   "user" : "carol19",
   "timestamp" : 1465,
@@ -1067,7 +1117,12 @@
   "user" : "carol19",
   "timestamp" : 1505,
   "message" : "Please conduct a search before making a selection."
-}, null, {
+}, {
+  "command" : "load",
+  "user" : "carol19",
+  "timestamp" : 1510,
+  "message" : "Please select a source before attempting to load."
+}, {
   "command" : "addRemoveInPlaylist",
   "user" : "carol19",
   "timestamp" : 1515,
@@ -1167,7 +1222,12 @@
   "user" : "carol19",
   "timestamp" : 1630,
   "message" : "The selected ID is too high."
-}, null, {
+}, {
+  "command" : "load",
+  "user" : "carol19",
+  "timestamp" : 1635,
+  "message" : "Please select a source before attempting to load."
+}, {
   "command" : "addRemoveInPlaylist",
   "user" : "carol19",
   "timestamp" : 1640,
@@ -1393,7 +1453,12 @@
   "user" : "david27",
   "timestamp" : 1905,
   "message" : "Please conduct a search before making a selection."
-}, null, {
+}, {
+  "command" : "load",
+  "user" : "david27",
+  "timestamp" : 1910,
+  "message" : "Please select a source before attempting to load."
+}, {
   "command" : "addRemoveInPlaylist",
   "user" : "david27",
   "timestamp" : 1915,
@@ -1577,7 +1642,12 @@
   "user" : "david27",
   "timestamp" : 2130,
   "message" : "Please conduct a search before making a selection."
-}, null, {
+}, {
+  "command" : "load",
+  "user" : "david27",
+  "timestamp" : 2135,
+  "message" : "Please select a source before attempting to load."
+}, {
   "command" : "addRemoveInPlaylist",
   "user" : "david27",
   "timestamp" : 2140,
@@ -1593,7 +1663,12 @@
   "user" : "david27",
   "timestamp" : 2155,
   "message" : "Please conduct a search before making a selection."
-}, null, {
+}, {
+  "command" : "load",
+  "user" : "david27",
+  "timestamp" : 2160,
+  "message" : "Please select a source before attempting to load."
+}, {
   "command" : "addRemoveInPlaylist",
   "user" : "david27",
   "timestamp" : 2165,
@@ -1609,7 +1684,12 @@
   "user" : "david27",
   "timestamp" : 2180,
   "message" : "Please conduct a search before making a selection."
-}, null, {
+}, {
+  "command" : "load",
+  "user" : "david27",
+  "timestamp" : 2185,
+  "message" : "Please select a source before attempting to load."
+}, {
   "command" : "addRemoveInPlaylist",
   "user" : "david27",
   "timestamp" : 2190,
@@ -1709,7 +1789,12 @@
   "user" : "emily30",
   "timestamp" : 2305,
   "message" : "Please conduct a search before making a selection."
-}, null, {
+}, {
+  "command" : "load",
+  "user" : "emily30",
+  "timestamp" : 2310,
+  "message" : "Please select a source before attempting to load."
+}, {
   "command" : "addRemoveInPlaylist",
   "user" : "emily30",
   "timestamp" : 2315,
@@ -1725,7 +1810,12 @@
   "user" : "emily30",
   "timestamp" : 2330,
   "message" : "Please conduct a search before making a selection."
-}, null, {
+}, {
+  "command" : "load",
+  "user" : "emily30",
+  "timestamp" : 2335,
+  "message" : "Please select a source before attempting to load."
+}, {
   "command" : "addRemoveInPlaylist",
   "user" : "emily30",
   "timestamp" : 2340,
@@ -1804,7 +1894,12 @@
   "user" : "emily30",
   "timestamp" : 2430,
   "message" : "Please conduct a search before making a selection."
-}, null, {
+}, {
+  "command" : "load",
+  "user" : "emily30",
+  "timestamp" : 2435,
+  "message" : "Please select a source before attempting to load."
+}, {
   "command" : "addRemoveInPlaylist",
   "user" : "emily30",
   "timestamp" : 2440,
@@ -1820,7 +1915,12 @@
   "user" : "emily30",
   "timestamp" : 2455,
   "message" : "Please conduct a search before making a selection."
-}, null, {
+}, {
+  "command" : "load",
+  "user" : "emily30",
+  "timestamp" : 2460,
+  "message" : "Please select a source before attempting to load."
+}, {
   "command" : "addRemoveInPlaylist",
   "user" : "emily30",
   "timestamp" : 2465,
@@ -1962,7 +2062,12 @@
   "user" : "emily30",
   "timestamp" : 2630,
   "message" : "Please conduct a search before making a selection."
-}, null, {
+}, {
+  "command" : "load",
+  "user" : "emily30",
+  "timestamp" : 2635,
+  "message" : "Please select a source before attempting to load."
+}, {
   "command" : "addRemoveInPlaylist",
   "user" : "emily30",
   "timestamp" : 2640,
@@ -1978,7 +2083,12 @@
   "user" : "emily30",
   "timestamp" : 2655,
   "message" : "Please conduct a search before making a selection."
-}, null, {
+}, {
+  "command" : "load",
+  "user" : "emily30",
+  "timestamp" : 2660,
+  "message" : "Please select a source before attempting to load."
+}, {
   "command" : "addRemoveInPlaylist",
   "user" : "emily30",
   "timestamp" : 2665,
@@ -1994,7 +2104,12 @@
   "user" : "emily30",
   "timestamp" : 2680,
   "message" : "The selected ID is too high."
-}, null, {
+}, {
+  "command" : "load",
+  "user" : "emily30",
+  "timestamp" : 2685,
+  "message" : "Please select a source before attempting to load."
+}, {
   "command" : "addRemoveInPlaylist",
   "user" : "emily30",
   "timestamp" : 2690,
@@ -2052,7 +2167,12 @@
   "user" : "emily30",
   "timestamp" : 2755,
   "message" : "Please conduct a search before making a selection."
-}, null, {
+}, {
+  "command" : "load",
+  "user" : "emily30",
+  "timestamp" : 2760,
+  "message" : "Please select a source before attempting to load."
+}, {
   "command" : "addRemoveInPlaylist",
   "user" : "emily30",
   "timestamp" : 2765,
@@ -2089,7 +2209,12 @@
   "user" : "frank21",
   "timestamp" : 2805,
   "message" : "Please conduct a search before making a selection."
-}, null, {
+}, {
+  "command" : "load",
+  "user" : "frank21",
+  "timestamp" : 2810,
+  "message" : "Please select a source before attempting to load."
+}, {
   "command" : "addRemoveInPlaylist",
   "user" : "frank21",
   "timestamp" : 2815,
@@ -2105,7 +2230,12 @@
   "user" : "frank21",
   "timestamp" : 2830,
   "message" : "Please conduct a search before making a selection."
-}, null, {
+}, {
+  "command" : "load",
+  "user" : "frank21",
+  "timestamp" : 2835,
+  "message" : "Please select a source before attempting to load."
+}, {
   "command" : "addRemoveInPlaylist",
   "user" : "frank21",
   "timestamp" : 2840,
@@ -2184,7 +2314,12 @@
   "user" : "frank21",
   "timestamp" : 2930,
   "message" : "The selected ID is too high."
-}, null, {
+}, {
+  "command" : "load",
+  "user" : "frank21",
+  "timestamp" : 2935,
+  "message" : "Please select a source before attempting to load."
+}, {
   "command" : "addRemoveInPlaylist",
   "user" : "frank21",
   "timestamp" : 2940,
@@ -2200,7 +2335,12 @@
   "user" : "frank21",
   "timestamp" : 2955,
   "message" : "Please conduct a search before making a selection."
-}, null, {
+}, {
+  "command" : "load",
+  "user" : "frank21",
+  "timestamp" : 2960,
+  "message" : "Please select a source before attempting to load."
+}, {
   "command" : "addRemoveInPlaylist",
   "user" : "frank21",
   "timestamp" : 2965,
@@ -2216,7 +2356,12 @@
   "user" : "frank21",
   "timestamp" : 2980,
   "message" : "Please conduct a search before making a selection."
-}, null, {
+}, {
+  "command" : "load",
+  "user" : "frank21",
+  "timestamp" : 2985,
+  "message" : "Please select a source before attempting to load."
+}, {
   "command" : "addRemoveInPlaylist",
   "user" : "frank21",
   "timestamp" : 2990,
@@ -2295,7 +2440,12 @@
   "user" : "frank21",
   "timestamp" : 3080,
   "message" : "Please conduct a search before making a selection."
-}, null, {
+}, {
+  "command" : "load",
+  "user" : "frank21",
+  "timestamp" : 3085,
+  "message" : "Please select a source before attempting to load."
+}, {
   "command" : "addRemoveInPlaylist",
   "user" : "frank21",
   "timestamp" : 3090,
@@ -2332,7 +2482,12 @@
   "user" : "frank21",
   "timestamp" : 3130,
   "message" : "Please conduct a search before making a selection."
-}, null, {
+}, {
+  "command" : "load",
+  "user" : "frank21",
+  "timestamp" : 3135,
+  "message" : "Please select a source before attempting to load."
+}, {
   "command" : "addRemoveInPlaylist",
   "user" : "frank21",
   "timestamp" : 3140,
@@ -2537,7 +2692,12 @@
   "user" : "grace25",
   "timestamp" : 3380,
   "message" : "Please conduct a search before making a selection."
-}, null, {
+}, {
+  "command" : "load",
+  "user" : "grace25",
+  "timestamp" : 3385,
+  "message" : "Please select a source before attempting to load."
+}, {
   "command" : "addRemoveInPlaylist",
   "user" : "grace25",
   "timestamp" : 3390,
@@ -2574,7 +2734,12 @@
   "user" : "grace25",
   "timestamp" : 3430,
   "message" : "Please conduct a search before making a selection."
-}, null, {
+}, {
+  "command" : "load",
+  "user" : "grace25",
+  "timestamp" : 3435,
+  "message" : "Please select a source before attempting to load."
+}, {
   "command" : "addRemoveInPlaylist",
   "user" : "grace25",
   "timestamp" : 3440,
@@ -2611,7 +2776,12 @@
   "user" : "grace25",
   "timestamp" : 3480,
   "message" : "The selected ID is too high."
-}, null, {
+}, {
+  "command" : "load",
+  "user" : "grace25",
+  "timestamp" : 3485,
+  "message" : "Please select a source before attempting to load."
+}, {
   "command" : "addRemoveInPlaylist",
   "user" : "grace25",
   "timestamp" : 3490,
@@ -2669,7 +2839,12 @@
   "user" : "grace25",
   "timestamp" : 3555,
   "message" : "The selected ID is too high."
-}, null, {
+}, {
+  "command" : "load",
+  "user" : "grace25",
+  "timestamp" : 3560,
+  "message" : "Please select a source before attempting to load."
+}, {
   "command" : "addRemoveInPlaylist",
   "user" : "grace25",
   "timestamp" : 3565,
@@ -2895,7 +3070,12 @@
   "user" : "henry26",
   "timestamp" : 3830,
   "message" : "Please conduct a search before making a selection."
-}, null, {
+}, {
+  "command" : "load",
+  "user" : "henry26",
+  "timestamp" : 3835,
+  "message" : "Please select a source before attempting to load."
+}, {
   "command" : "addRemoveInPlaylist",
   "user" : "henry26",
   "timestamp" : 3840,
@@ -2911,7 +3091,12 @@
   "user" : "henry26",
   "timestamp" : 3855,
   "message" : "Please conduct a search before making a selection."
-}, null, {
+}, {
+  "command" : "load",
+  "user" : "henry26",
+  "timestamp" : 3860,
+  "message" : "Please select a source before attempting to load."
+}, {
   "command" : "addRemoveInPlaylist",
   "user" : "henry26",
   "timestamp" : 3865,
@@ -2927,7 +3112,12 @@
   "user" : "henry26",
   "timestamp" : 3880,
   "message" : "Please conduct a search before making a selection."
-}, null, {
+}, {
+  "command" : "load",
+  "user" : "henry26",
+  "timestamp" : 3885,
+  "message" : "Please select a source before attempting to load."
+}, {
   "command" : "addRemoveInPlaylist",
   "user" : "henry26",
   "timestamp" : 3890,
@@ -3027,7 +3217,12 @@
   "user" : "henry26",
   "timestamp" : 4005,
   "message" : "Please conduct a search before making a selection."
-}, null, {
+}, {
+  "command" : "load",
+  "user" : "henry26",
+  "timestamp" : 4010,
+  "message" : "Please select a source before attempting to load."
+}, {
   "command" : "addRemoveInPlaylist",
   "user" : "henry26",
   "timestamp" : 4015,
@@ -3085,7 +3280,12 @@
   "user" : "henry26",
   "timestamp" : 4080,
   "message" : "Please conduct a search before making a selection."
-}, null, {
+}, {
+  "command" : "load",
+  "user" : "henry26",
+  "timestamp" : 4085,
+  "message" : "Please select a source before attempting to load."
+}, {
   "command" : "addRemoveInPlaylist",
   "user" : "henry26",
   "timestamp" : 4090,
@@ -3143,7 +3343,12 @@
   "user" : "henry26",
   "timestamp" : 4155,
   "message" : "Please conduct a search before making a selection."
-}, null, {
+}, {
+  "command" : "load",
+  "user" : "henry26",
+  "timestamp" : 4160,
+  "message" : "Please select a source before attempting to load."
+}, {
   "command" : "addRemoveInPlaylist",
   "user" : "henry26",
   "timestamp" : 4165,
@@ -3180,7 +3385,12 @@
   "user" : "henry26",
   "timestamp" : 4205,
   "message" : "Please conduct a search before making a selection."
-}, null, {
+}, {
+  "command" : "load",
+  "user" : "henry26",
+  "timestamp" : 4210,
+  "message" : "Please select a source before attempting to load."
+}, {
   "command" : "addRemoveInPlaylist",
   "user" : "henry26",
   "timestamp" : 4215,
@@ -3196,7 +3406,12 @@
   "user" : "henry26",
   "timestamp" : 4230,
   "message" : "Please conduct a search before making a selection."
-}, null, {
+}, {
+  "command" : "load",
+  "user" : "henry26",
+  "timestamp" : 4235,
+  "message" : "Please select a source before attempting to load."
+}, {
   "command" : "addRemoveInPlaylist",
   "user" : "henry26",
   "timestamp" : 4240,
@@ -3527,7 +3742,12 @@
   "user" : "irene33",
   "timestamp" : 4630,
   "message" : "Please conduct a search before making a selection."
-}, null, {
+}, {
+  "command" : "load",
+  "user" : "irene33",
+  "timestamp" : 4635,
+  "message" : "Please select a source before attempting to load."
+}, {
   "command" : "addRemoveInPlaylist",
   "user" : "irene33",
   "timestamp" : 4640,
@@ -3753,7 +3973,12 @@
   "user" : "jack29",
   "timestamp" : 4905,
   "message" : "The selected ID is too high."
-}, null, {
+}, {
+  "command" : "load",
+  "user" : "jack29",
+  "timestamp" : 4910,
+  "message" : "Please select a source before attempting to load."
+}, {
   "command" : "addRemoveInPlaylist",
   "user" : "jack29",
   "timestamp" : 4915,
@@ -3769,7 +3994,12 @@
   "user" : "jack29",
   "timestamp" : 4930,
   "message" : "Please conduct a search before making a selection."
-}, null, {
+}, {
+  "command" : "load",
+  "user" : "jack29",
+  "timestamp" : 4935,
+  "message" : "Please select a source before attempting to load."
+}, {
   "command" : "addRemoveInPlaylist",
   "user" : "jack29",
   "timestamp" : 4940,
@@ -3827,7 +4057,12 @@
   "user" : "jack29",
   "timestamp" : 5005,
   "message" : "Please conduct a search before making a selection."
-}, null, {
+}, {
+  "command" : "load",
+  "user" : "jack29",
+  "timestamp" : 5010,
+  "message" : "Please select a source before attempting to load."
+}, {
   "command" : "addRemoveInPlaylist",
   "user" : "jack29",
   "timestamp" : 5015,
@@ -3906,7 +4141,12 @@
   "user" : "jack29",
   "timestamp" : 5105,
   "message" : "Please conduct a search before making a selection."
-}, null, {
+}, {
+  "command" : "load",
+  "user" : "jack29",
+  "timestamp" : 5110,
+  "message" : "Please select a source before attempting to load."
+}, {
   "command" : "addRemoveInPlaylist",
   "user" : "jack29",
   "timestamp" : 5115,
@@ -4400,7 +4640,12 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, {
+}, {
+  "command" : "prev",
+  "user" : "carol19",
+  "timestamp" : 5510,
+  "message" : "Please load a source before returning to the previous track."
+}, {
   "command" : "status",
   "user" : "carol19",
   "timestamp" : 5510,
@@ -4427,7 +4672,17 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, null, null, {
+}, null, {
+  "command" : "prev",
+  "user" : "emily30",
+  "timestamp" : 5530,
+  "message" : "Please load a source before returning to the previous track."
+}, {
+  "command" : "prev",
+  "user" : "emily30",
+  "timestamp" : 5530,
+  "message" : "Please load a source before returning to the previous track."
+}, {
   "command" : "status",
   "user" : "emily30",
   "timestamp" : 5530,
@@ -4508,7 +4763,12 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, {
+}, {
+  "command" : "next",
+  "user" : "jack29",
+  "timestamp" : 5580,
+  "message" : "Please load a source before skipping to the next track."
+}, {
   "command" : "status",
   "user" : "jack29",
   "timestamp" : 5580,
@@ -4665,7 +4925,12 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, {
+}, {
+  "command" : "prev",
+  "user" : "irene33",
+  "timestamp" : 5670,
+  "message" : "Please load a source before returning to the previous track."
+}, {
   "command" : "status",
   "user" : "irene33",
   "timestamp" : 5670,
@@ -4820,7 +5085,12 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, {
+}, {
+  "command" : "prev",
+  "user" : "irene33",
+  "timestamp" : 5770,
+  "message" : "Please load a source before returning to the previous track."
+}, {
   "command" : "status",
   "user" : "irene33",
   "timestamp" : 5770,
@@ -4929,7 +5199,17 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, null, {
+}, {
+  "command" : "prev",
+  "user" : "emily30",
+  "timestamp" : 5830,
+  "message" : "Please load a source before returning to the previous track."
+}, {
+  "command" : "prev",
+  "user" : "emily30",
+  "timestamp" : 5830,
+  "message" : "Please load a source before returning to the previous track."
+}, {
   "command" : "status",
   "user" : "emily30",
   "timestamp" : 5830,
@@ -4988,7 +5268,12 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, {
+}, {
+  "command" : "prev",
+  "user" : "irene33",
+  "timestamp" : 5870,
+  "message" : "Please load a source before returning to the previous track."
+}, {
   "command" : "status",
   "user" : "irene33",
   "timestamp" : 5870,
@@ -5117,7 +5402,12 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, {
+}, {
+  "command" : "next",
+  "user" : "grace25",
+  "timestamp" : 5950,
+  "message" : "Please load a source before skipping to the next track."
+}, {
   "command" : "status",
   "user" : "grace25",
   "timestamp" : 5950,
@@ -5219,7 +5509,12 @@
     "shuffle" : true,
     "paused" : true
   }
-}, null, {
+}, {
+  "command" : "next",
+  "user" : "carol19",
+  "timestamp" : 6010,
+  "message" : "Please load a source before skipping to the next track."
+}, {
   "command" : "status",
   "user" : "carol19",
   "timestamp" : 6010,
@@ -5262,7 +5557,12 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, {
+}, {
+  "command" : "next",
+  "user" : "frank21",
+  "timestamp" : 6040,
+  "message" : "Please load a source before skipping to the next track."
+}, {
   "command" : "status",
   "user" : "frank21",
   "timestamp" : 6040,
@@ -5273,7 +5573,12 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, {
+}, {
+  "command" : "next",
+  "user" : "grace25",
+  "timestamp" : 6050,
+  "message" : "Please load a source before skipping to the next track."
+}, {
   "command" : "status",
   "user" : "grace25",
   "timestamp" : 6050,
@@ -5306,7 +5611,12 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, null, {
+}, null, {
+  "command" : "prev",
+  "user" : "irene33",
+  "timestamp" : 6070,
+  "message" : "Please load a source before returning to the previous track."
+}, {
   "command" : "status",
   "user" : "irene33",
   "timestamp" : 6070,
@@ -5317,7 +5627,12 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, {
+}, {
+  "command" : "next",
+  "user" : "jack29",
+  "timestamp" : 6080,
+  "message" : "Please load a source before skipping to the next track."
+}, {
   "command" : "status",
   "user" : "jack29",
   "timestamp" : 6080,
@@ -5646,7 +5961,12 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, {
+}, {
+  "command" : "prev",
+  "user" : "irene33",
+  "timestamp" : 6270,
+  "message" : "Please load a source before returning to the previous track."
+}, {
   "command" : "status",
   "user" : "irene33",
   "timestamp" : 6270,
@@ -5727,7 +6047,12 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, {
+}, {
+  "command" : "prev",
+  "user" : "david27",
+  "timestamp" : 6320,
+  "message" : "Please load a source before returning to the previous track."
+}, {
   "command" : "status",
   "user" : "david27",
   "timestamp" : 6320,
@@ -5818,7 +6143,12 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, {
+}, {
+  "command" : "prev",
+  "user" : "jack29",
+  "timestamp" : 6380,
+  "message" : "Please load a source before returning to the previous track."
+}, {
   "command" : "status",
   "user" : "jack29",
   "timestamp" : 6380,
@@ -6050,7 +6380,12 @@
     "shuffle" : true,
     "paused" : true
   }
-}, null, {
+}, {
+  "command" : "next",
+  "user" : "carol19",
+  "timestamp" : 6510,
+  "message" : "Please load a source before skipping to the next track."
+}, {
   "command" : "status",
   "user" : "carol19",
   "timestamp" : 6510,
@@ -6077,7 +6412,12 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, {
+}, {
+  "command" : "next",
+  "user" : "emily30",
+  "timestamp" : 6530,
+  "message" : "Please load a source before skipping to the next track."
+}, {
   "command" : "status",
   "user" : "emily30",
   "timestamp" : 6530,
@@ -6088,7 +6428,12 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, {
+}, {
+  "command" : "next",
+  "user" : "frank21",
+  "timestamp" : 6540,
+  "message" : "Please load a source before skipping to the next track."
+}, {
   "command" : "status",
   "user" : "frank21",
   "timestamp" : 6540,
@@ -6099,7 +6444,17 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, null, {
+}, {
+  "command" : "prev",
+  "user" : "grace25",
+  "timestamp" : 6550,
+  "message" : "Please load a source before returning to the previous track."
+}, {
+  "command" : "prev",
+  "user" : "grace25",
+  "timestamp" : 6550,
+  "message" : "Please load a source before returning to the previous track."
+}, {
   "command" : "status",
   "user" : "grace25",
   "timestamp" : 6550,
@@ -6110,7 +6465,12 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, {
+}, {
+  "command" : "prev",
+  "user" : "henry26",
+  "timestamp" : 6560,
+  "message" : "Please load a source before returning to the previous track."
+}, {
   "command" : "status",
   "user" : "henry26",
   "timestamp" : 6560,
@@ -6196,7 +6556,17 @@
     "shuffle" : true,
     "paused" : true
   }
-}, null, null, {
+}, {
+  "command" : "prev",
+  "user" : "carol19",
+  "timestamp" : 6610,
+  "message" : "Please load a source before returning to the previous track."
+}, {
+  "command" : "prev",
+  "user" : "carol19",
+  "timestamp" : 6610,
+  "message" : "Please load a source before returning to the previous track."
+}, {
   "command" : "status",
   "user" : "carol19",
   "timestamp" : 6610,
@@ -6351,7 +6721,12 @@
     "shuffle" : true,
     "paused" : true
   }
-}, null, {
+}, {
+  "command" : "next",
+  "user" : "carol19",
+  "timestamp" : 6710,
+  "message" : "Please load a source before skipping to the next track."
+}, {
   "command" : "status",
   "user" : "carol19",
   "timestamp" : 6710,
@@ -6442,7 +6817,12 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, {
+}, {
+  "command" : "prev",
+  "user" : "irene33",
+  "timestamp" : 6770,
+  "message" : "Please load a source before returning to the previous track."
+}, {
   "command" : "status",
   "user" : "irene33",
   "timestamp" : 6770,
@@ -6565,7 +6945,12 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, {
+}, {
+  "command" : "prev",
+  "user" : "grace25",
+  "timestamp" : 6850,
+  "message" : "Please load a source before returning to the previous track."
+}, {
   "command" : "status",
   "user" : "grace25",
   "timestamp" : 6850,
@@ -6608,7 +6993,17 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, null, {
+}, {
+  "command" : "prev",
+  "user" : "jack29",
+  "timestamp" : 6880,
+  "message" : "Please load a source before returning to the previous track."
+}, {
+  "command" : "prev",
+  "user" : "jack29",
+  "timestamp" : 6880,
+  "message" : "Please load a source before returning to the previous track."
+}, {
   "command" : "status",
   "user" : "jack29",
   "timestamp" : 6880,
@@ -6753,7 +7148,17 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, null, null, {
+}, null, {
+  "command" : "prev",
+  "user" : "irene33",
+  "timestamp" : 6970,
+  "message" : "Please load a source before returning to the previous track."
+}, {
+  "command" : "prev",
+  "user" : "irene33",
+  "timestamp" : 6970,
+  "message" : "Please load a source before returning to the previous track."
+}, {
   "command" : "status",
   "user" : "irene33",
   "timestamp" : 6970,

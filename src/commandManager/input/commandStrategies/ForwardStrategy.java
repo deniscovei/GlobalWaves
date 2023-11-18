@@ -12,10 +12,8 @@ public class ForwardStrategy implements CommandStrategy {
         User user = Database.getInstance().findUser(input.getUsername());
         String message;
 
-        if (user.getSelection() == null) {
-            message = "Please select a file to load before skipping forward.";
-        } else if (!user.hasLoadedAFile() || user.getPlayer().hasFinished(input.getTimestamp())) {
-            message = "Please load a source before skipping forward.";
+        if (!user.hasLoadedAFile() || user.getPlayer().hasFinished(input.getTimestamp())) {
+            message = "Please load a source before attempting to forward.";
         } else if (!user.getLoadedFile().getFileType().equals(Constants.FileType.PODCAST)) {
             message = "The loaded source is not a podcast.";
         } else {

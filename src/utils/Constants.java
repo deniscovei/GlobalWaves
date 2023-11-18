@@ -2,7 +2,7 @@ package utils;
 
 public final class Constants {
     public static final String SELECT_COMMAND = "select";
-    public static final String LOAD_COMMAND = "load";
+    public static final String SEARCH = "search";
 
     public enum FileType {
         SONG,

@@ -12,7 +12,7 @@ public class NextStrategy implements CommandStrategy {
         User user = Database.getInstance().findUser(input.getUsername());
         String message;
 
-        boolean nextSucceded =  user.getPlayer().next(input.getTimestamp());
+        boolean nextSucceded = user.hasLoadedAFile() && user.getPlayer().next(input.getTimestamp());
 
         if (nextSucceded) {
             message = "Skipped to next track successfully. The current track is " +

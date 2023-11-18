@@ -15,21 +15,14 @@ public final class StatusStrategy implements CommandStrategy {
         Player player = user.getPlayer();
         Stats stats = new Stats();
 
-        System.out.println("STATUS timestamp: " + input.getTimestamp());
         if (user.hasLoadedAFile() && !player.hasFinished(input.getTimestamp())) {
-            System.out.println("PUTEM DA STATUS");
             AudioFile currentPlayingFile = player.getCurrentPlayingFile(input.getTimestamp());
             stats.setName(currentPlayingFile.getName());
             stats.setPaused(player.isPaused());
             stats.setRemainedTime(player.getRemainedTime(currentPlayingFile, input.getTimestamp()));
-            System.out.println("Name: " + currentPlayingFile.getName());
-            System.out.println("Repeat State: " + player.getRepeatState());
-            System.out.println("Loaded file: " + user.getLoadedFile().getName());
             stats.setRepeat(Constants.repeatStateToString(player.getRepeatState(), user.getLoadedFile().getFileType()));
             stats.setShuffle(player.isShuffleActivated());
         } else {
-            System.out.println("NU PUTEM DA STATUS");
-            System.out.println("timestamp: " + input.getTimestamp());
             stats.setPaused(true);
         }
 

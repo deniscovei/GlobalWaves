@@ -22,7 +22,7 @@ public final class SelectStrategy implements CommandStrategy {
         } else {
             try {
                 user.select(searchResults.get(itemNumber - 1));
-                message = "Successfully selected " + user.getSelection().getName() + ".";
+                message = "Successfully selected " + user.getSelectedFile().getName() + ".";
             } catch (IndexOutOfBoundsException e) {
                 message = "The selected ID is too low.";
             }

@@ -1,10 +1,8 @@
 package data.entities.user;
 
 import data.entities.audio.File;
-import data.entities.audio.audioCollections.Playlist;
 import data.entities.user.audioPlayer.Player;
 import data.entities.audio.audioFiles.Song;
-import fileio.input.EpisodeInput;
 import fileio.input.UserInput;
 import lombok.Getter;
 import lombok.Setter;
@@ -27,26 +25,14 @@ public class User {
     public User() {
     }
 
-    public User(UserInput user) {
-        this.username = user.getUsername();
-        this.age = user.getAge();
-        this.city = user.getCity();
-    }
-
     public User(final String username, final int age, final String city) {
         this.username = username;
         this.age = age;
         this.city = city;
     }
 
-    public User(final String username, final int age, final String city,
-                final ArrayList<File> searchResults) {
-        this(username, age, city);
-        this.searchResults = searchResults;
-    }
-
-    public File getSelection() {
-        return player.getSelection();
+    public User(UserInput user) {
+        this(user.getUsername(), user.getAge(), user.getCity());
     }
 
     public void select(File selection) {
@@ -56,6 +42,7 @@ public class User {
 
     public void loadAudioFile(int timestamp) {
         player.setLoadedFile(selectedFile);
+        setSelectedFile(null);
         player.play(timestamp);
     }
 
@@ -83,6 +70,7 @@ public class User {
     public void deleteData() {
         getPlayer().setRepeatState(Constants.NO_REPEAT);
         setPlayer(new Player());
+        setSelectedFile(null);
         player.setLoadedFile(null);
         getPrefferedSongs().clear();
         getSearchResults().clear();

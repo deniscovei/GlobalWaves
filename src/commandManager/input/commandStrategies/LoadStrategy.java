@@ -14,19 +14,16 @@ public final class LoadStrategy implements CommandStrategy {
         User user = Database.getInstance().findUser(input.getUsername());
         String message;
 
-        System.out.println("user.getPreviousCommand(): " + user.getPreviousCommand());
-
-        if (!user.getPreviousCommand().equals(Constants.SELECT_COMMAND)) {
+        if (user.getSelectedFile() == null) {
             message = "Please select a source before attempting to load.";
         } else {
-            File selection = user.getSelection();
+            File selection = user.getSelectedFile();
             Constants.FileType fileType = selection.getFileType();
             if (fileType.equals(Constants.FileType.PODCAST) && ((Podcast) selection).getEpisodes().isEmpty() ||
                 fileType.equals(Constants.FileType.PLAYLIST) && ((Playlist) selection).getSongs().isEmpty()) {
                 message = "You can't load an empty audio collection!";
             } else {
                 user.loadAudioFile(input.getTimestamp());
-                System.out.println("Repeat state at load is " + user.getPlayer().getRepeatState());
                 message = "Playback loaded successfully.";
             }
         }
