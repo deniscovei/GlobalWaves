@@ -4574,7 +4574,12 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, {
+}, {
+  "command" : "shuffle",
+  "user" : "david27",
+  "timestamp" : 5620,
+  "message" : "Please load a source before using the shuffle function."
+}, {
   "command" : "status",
   "user" : "david27",
   "timestamp" : 5620,
@@ -4666,7 +4671,12 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, null, {
+}, null, {
+  "command" : "shuffle",
+  "user" : "jack29",
+  "timestamp" : 5680,
+  "message" : "Please load a source before using the shuffle function."
+}, {
   "command" : "status",
   "user" : "jack29",
   "timestamp" : 5680,
@@ -4677,7 +4687,12 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, null, {
+}, null, {
+  "command" : "shuffle",
+  "user" : "alice22",
+  "timestamp" : 5690,
+  "message" : "Shuffle function activated successfully."
+}, {
   "command" : "status",
   "user" : "alice22",
   "timestamp" : 5690,
@@ -4685,10 +4700,15 @@
     "name" : "Sad But True",
     "remainedTime" : 36,
     "repeat" : "Repeat All",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : false
   }
-}, null, null, {
+}, null, {
+  "command" : "shuffle",
+  "user" : "bob35",
+  "timestamp" : 5700,
+  "message" : "Shuffle function activated successfully."
+}, {
   "command" : "status",
   "user" : "bob35",
   "timestamp" : 5700,
@@ -4696,7 +4716,7 @@
     "name" : "Delicate",
     "remainedTime" : 144,
     "repeat" : "No Repeat",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : true
   }
 }, {
@@ -4747,7 +4767,12 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, {
+}, {
+  "command" : "shuffle",
+  "user" : "frank21",
+  "timestamp" : 5740,
+  "message" : "Please load a source before using the shuffle function."
+}, {
   "command" : "status",
   "user" : "frank21",
   "timestamp" : 5740,
@@ -4758,7 +4783,12 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, {
+}, {
+  "command" : "shuffle",
+  "user" : "grace25",
+  "timestamp" : 5750,
+  "message" : "Please load a source before using the shuffle function."
+}, {
   "command" : "status",
   "user" : "grace25",
   "timestamp" : 5750,
@@ -4823,10 +4853,10 @@
   "user" : "alice22",
   "timestamp" : 5790,
   "stats" : {
-    "name" : "Don't",
-    "remainedTime" : 155,
+    "name" : "Angie",
+    "remainedTime" : 209,
     "repeat" : "Repeat All",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : false
   }
 }, {
@@ -4834,10 +4864,10 @@
   "user" : "alice22",
   "timestamp" : 5790,
   "stats" : {
-    "name" : "Don't",
-    "remainedTime" : 155,
+    "name" : "Angie",
+    "remainedTime" : 209,
     "repeat" : "Repeat All",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : false
   }
 }, null, {
@@ -4848,7 +4878,7 @@
     "name" : "Delicate",
     "remainedTime" : 144,
     "repeat" : "No Repeat",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : true
   }
 }, {
@@ -4986,10 +5016,10 @@
   "user" : "alice22",
   "timestamp" : 5890,
   "stats" : {
-    "name" : "Don't",
-    "remainedTime" : 55,
+    "name" : "Angie",
+    "remainedTime" : 109,
     "repeat" : "Repeat All",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : false
   }
 }, {
@@ -5005,7 +5035,7 @@
     "name" : "Delicate",
     "remainedTime" : 144,
     "repeat" : "Repeat All",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : true
   }
 }, {
@@ -5115,7 +5145,12 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, {
+}, {
+  "command" : "shuffle",
+  "user" : "jack29",
+  "timestamp" : 5980,
+  "message" : "Please load a source before using the shuffle function."
+}, {
   "command" : "status",
   "user" : "jack29",
   "timestamp" : 5980,
@@ -5131,10 +5166,10 @@
   "user" : "alice22",
   "timestamp" : 5990,
   "stats" : {
-    "name" : "Blank Space",
-    "remainedTime" : 186,
+    "name" : "Angie",
+    "remainedTime" : 9,
     "repeat" : "Repeat All",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : false
   }
 }, {
@@ -5142,10 +5177,10 @@
   "user" : "alice22",
   "timestamp" : 5990,
   "stats" : {
-    "name" : "Blank Space",
-    "remainedTime" : 186,
+    "name" : "Angie",
+    "remainedTime" : 9,
     "repeat" : "Repeat All",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : false
   }
 }, null, null, {
@@ -5156,7 +5191,7 @@
     "name" : "Delicate",
     "remainedTime" : 144,
     "repeat" : "Repeat All",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : true
   }
 }, null, {
@@ -5278,10 +5313,10 @@
   "user" : "alice22",
   "timestamp" : 6090,
   "stats" : {
-    "name" : "Blank Space",
-    "remainedTime" : 86,
+    "name" : "Love Story",
+    "remainedTime" : 145,
     "repeat" : "Repeat Current Song",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : false
   }
 }, null, {
@@ -5292,7 +5327,7 @@
     "name" : "Delicate",
     "remainedTime" : 144,
     "repeat" : "Repeat All",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : true
   }
 }, {
@@ -5425,7 +5460,12 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, {
+}, {
+  "command" : "shuffle",
+  "user" : "jack29",
+  "timestamp" : 6180,
+  "message" : "Please load a source before using the shuffle function."
+}, {
   "command" : "status",
   "user" : "jack29",
   "timestamp" : 6180,
@@ -5446,10 +5486,10 @@
   "user" : "alice22",
   "timestamp" : 6190,
   "stats" : {
-    "name" : "Blank Space",
-    "remainedTime" : 217,
+    "name" : "Love Story",
+    "remainedTime" : 45,
     "repeat" : "Repeat Current Song",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : true
   }
 }, null, {
@@ -5465,7 +5505,7 @@
     "name" : "Delicate",
     "remainedTime" : 144,
     "repeat" : "Repeat Current Song",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : true
   }
 }, null, {
@@ -5516,7 +5556,12 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, null, {
+}, null, {
+  "command" : "shuffle",
+  "user" : "frank21",
+  "timestamp" : 6240,
+  "message" : "Please load a source before using the shuffle function."
+}, {
   "command" : "status",
   "user" : "frank21",
   "timestamp" : 6240,
@@ -5608,10 +5653,10 @@
   "user" : "alice22",
   "timestamp" : 6290,
   "stats" : {
-    "name" : "Blank Space",
-    "remainedTime" : 217,
+    "name" : "Love Story",
+    "remainedTime" : 45,
     "repeat" : "Repeat Current Song",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : true
   }
 }, {
@@ -5627,7 +5672,7 @@
     "name" : "Delicate",
     "remainedTime" : 144,
     "repeat" : "Repeat Current Song",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : true
   }
 }, {
@@ -5663,7 +5708,12 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, {
+}, {
+  "command" : "shuffle",
+  "user" : "emily30",
+  "timestamp" : 6330,
+  "message" : "Please load a source before using the shuffle function."
+}, {
   "command" : "status",
   "user" : "emily30",
   "timestamp" : 6330,
@@ -5690,7 +5740,12 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, null, {
+}, null, {
+  "command" : "shuffle",
+  "user" : "grace25",
+  "timestamp" : 6350,
+  "message" : "Please load a source before using the shuffle function."
+}, {
   "command" : "status",
   "user" : "grace25",
   "timestamp" : 6350,
@@ -5754,10 +5809,10 @@
   "user" : "alice22",
   "timestamp" : 6390,
   "stats" : {
-    "name" : "Blank Space",
-    "remainedTime" : 217,
+    "name" : "Love Story",
+    "remainedTime" : 45,
     "repeat" : "Repeat Current Song",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : false
   }
 }, null, null, {
@@ -5768,7 +5823,7 @@
     "name" : "Delicate",
     "remainedTime" : 144,
     "repeat" : "Repeat Current Song",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : true
   }
 }, {
@@ -5885,7 +5940,12 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, {
+}, {
+  "command" : "shuffle",
+  "user" : "irene33",
+  "timestamp" : 6470,
+  "message" : "Please load a source before using the shuffle function."
+}, {
   "command" : "status",
   "user" : "irene33",
   "timestamp" : 6470,
@@ -5896,7 +5956,12 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, {
+}, {
+  "command" : "shuffle",
+  "user" : "jack29",
+  "timestamp" : 6480,
+  "message" : "Please load a source before using the shuffle function."
+}, {
   "command" : "status",
   "user" : "jack29",
   "timestamp" : 6480,
@@ -5912,10 +5977,10 @@
   "user" : "alice22",
   "timestamp" : 6490,
   "stats" : {
-    "name" : "Blank Space",
-    "remainedTime" : 117,
+    "name" : "Black Dog",
+    "remainedTime" : 239,
     "repeat" : "Repeat Current Song",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : false
   }
 }, {
@@ -5923,10 +5988,10 @@
   "user" : "alice22",
   "timestamp" : 6490,
   "stats" : {
-    "name" : "Blank Space",
-    "remainedTime" : 117,
+    "name" : "Black Dog",
+    "remainedTime" : 239,
     "repeat" : "Repeat Current Song",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : false
   }
 }, {
@@ -5942,7 +6007,7 @@
     "name" : "Delicate",
     "remainedTime" : 144,
     "repeat" : "No Repeat",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : true
   }
 }, null, {
@@ -6059,10 +6124,10 @@
   "user" : "alice22",
   "timestamp" : 6590,
   "stats" : {
-    "name" : "Blank Space",
-    "remainedTime" : 17,
+    "name" : "Black Dog",
+    "remainedTime" : 139,
     "repeat" : "Repeat Current Song",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : false
   }
 }, null, null, {
@@ -6073,7 +6138,7 @@
     "name" : "Delicate",
     "remainedTime" : 144,
     "repeat" : "No Repeat",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : true
   }
 }, null, null, {
@@ -6103,7 +6168,12 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, {
+}, {
+  "command" : "shuffle",
+  "user" : "emily30",
+  "timestamp" : 6630,
+  "message" : "Please load a source before using the shuffle function."
+}, {
   "command" : "status",
   "user" : "emily30",
   "timestamp" : 6630,
@@ -6114,7 +6184,12 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, {
+}, {
+  "command" : "shuffle",
+  "user" : "frank21",
+  "timestamp" : 6640,
+  "message" : "Please load a source before using the shuffle function."
+}, {
   "command" : "status",
   "user" : "frank21",
   "timestamp" : 6640,
@@ -6194,10 +6269,10 @@
   "user" : "alice22",
   "timestamp" : 6690,
   "stats" : {
-    "name" : "Blank Space",
-    "remainedTime" : 148,
+    "name" : "Black Dog",
+    "remainedTime" : 39,
     "repeat" : "Repeat Current Song",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : false
   }
 }, {
@@ -6213,7 +6288,7 @@
     "name" : "Delicate",
     "remainedTime" : 144,
     "repeat" : "Repeat All",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : true
   }
 }, null, {
@@ -6259,7 +6334,12 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, {
+}, {
+  "command" : "shuffle",
+  "user" : "frank21",
+  "timestamp" : 6740,
+  "message" : "Please load a source before using the shuffle function."
+}, {
   "command" : "status",
   "user" : "frank21",
   "timestamp" : 6740,
@@ -6334,10 +6414,10 @@
   "user" : "alice22",
   "timestamp" : 6790,
   "stats" : {
-    "name" : "Blank Space",
-    "remainedTime" : 48,
+    "name" : "Love Story",
+    "remainedTime" : 175,
     "repeat" : "Repeat Current Song",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : false
   }
 }, {
@@ -6353,7 +6433,7 @@
     "name" : "Delicate",
     "remainedTime" : 144,
     "repeat" : "Repeat All",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : true
   }
 }, {
@@ -6404,7 +6484,12 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, null, {
+}, null, {
+  "command" : "shuffle",
+  "user" : "frank21",
+  "timestamp" : 6840,
+  "message" : "Please load a source before using the shuffle function."
+}, {
   "command" : "status",
   "user" : "frank21",
   "timestamp" : 6840,
@@ -6479,10 +6564,10 @@
   "user" : "alice22",
   "timestamp" : 6890,
   "stats" : {
-    "name" : "Blank Space",
-    "remainedTime" : 179,
+    "name" : "Love Story",
+    "remainedTime" : 75,
     "repeat" : "Repeat Current Song",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : true
   }
 }, {
@@ -6498,7 +6583,7 @@
     "name" : "Delicate",
     "remainedTime" : 144,
     "repeat" : "Repeat All",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : false
   }
 }, {

@@ -31,7 +31,7 @@ public final class Test {
             Scanner scanner = new Scanner(System.in);
             //String fileName = scanner.next();
             //String fileName = "test06_playPause_error.json";
-            Main.test_no = 7;
+            Main.test_no = 10;
             for (File file : inputDir) {
                 if (/*file.getName().equalsIgnoreCase(fileName)*/ file.getName().contains(((Integer)Main.test_no).toString())) {
                     //System.out.println(file.getAbsolutePath());

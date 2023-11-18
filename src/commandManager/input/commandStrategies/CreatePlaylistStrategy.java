@@ -7,15 +7,15 @@ import data.entities.audio.audioCollections.Playlist;
 import data.entities.user.User;
 
 public final class CreatePlaylistStrategy implements CommandStrategy {
-    public Output action(Input inputCommand) {
-        User user = Database.getInstance().findUser(inputCommand.getUsername());
+    public Output action(Input input) {
+        User user = Database.getInstance().findUser(input.getUsername());
 
-        if (Database.getInstance().findPlaylist(inputCommand.getPlaylistName()) != null) {
-            return new Output(inputCommand, "A playlist with the same name already exists.");
+        if (Database.getInstance().findPlaylist(input.getPlaylistName()) != null) {
+            return new Output(input, "A playlist with the same name already exists.");
         } else {
-            Playlist playlist = new Playlist(inputCommand.getPlaylistName(), user.getUsername());
+            Playlist playlist = new Playlist(input.getPlaylistName(), user.getUsername());
             Database.getInstance().addPlaylist(playlist);
-            return new Output(inputCommand, "Playlist created successfully.");
+            return new Output(input, "Playlist created successfully.");
         }
     }
 }

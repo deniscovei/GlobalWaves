@@ -82,9 +82,11 @@ public final class Main {
         if (!Database.instantiated()) {
             Database.getInstance().upload(library);
         } else {
+            // delete the data of the users
             for (User user : Database.getInstance().getUsers()) {
                 user.deleteData();
             }
+            // delete previously created playlists
             Database.getInstance().removePlaylists();
         }
 

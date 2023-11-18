@@ -6,20 +6,20 @@ import data.Database;
 import data.entities.user.User;
 
 public final class PlayPauseStrategy implements CommandStrategy {
-    public Output action(Input inputCommand) {
-        User user = Database.getInstance().findUser(inputCommand.getUsername());
+    public Output action(Input input) {
+        User user = Database.getInstance().findUser(input.getUsername());
         String message;
 
         if (!user.hasLoadedAFile()) {
             message = "Please load a source before attempting to pause or resume playback.";
         } else if (/*!user.getPlayer().hasFinished(inputCommand.getTimestamp()) && */!user.getPlayer().isPaused()) {
-            user.getPlayer().pause(inputCommand.getTimestamp());
+            user.getPlayer().pause(input.getTimestamp());
             message = "Playback paused successfully.";
         } else {
-            user.getPlayer().play(inputCommand.getTimestamp());
+            user.getPlayer().play(input.getTimestamp());
             message = "Playback resumed successfully.";
         }
 
-        return new Output(inputCommand, message);
+        return new Output(input, message);
     }
 }

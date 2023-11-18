@@ -55,14 +55,16 @@ public class User {
     }
 
     public void loadAudioFile(int timestamp) {
-        player.play(timestamp);
         player.setLoadedFile(selectedFile);
+        player.play(timestamp);
     }
 
     public void unloadAudioFile(int timestamp) {
         player.pause(timestamp);
         player.removeLoadedSongs();
+        player.removeLoadedPlaylists();
         player.setLoadedFile(null);
+        player.setRepeatState(Constants.NO_REPEAT);
         setSelectedFile(null);
     }
 
@@ -81,9 +83,7 @@ public class User {
     public void deleteData() {
         getPlayer().setRepeatState(Constants.NO_REPEAT);
         setPlayer(new Player());
-        if (hasLoadedAFile()) {
-            player.setLoadedFile(null);
-        }
+        player.setLoadedFile(null);
         getPrefferedSongs().clear();
         getSearchResults().clear();
     }

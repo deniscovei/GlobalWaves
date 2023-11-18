@@ -10,8 +10,8 @@ import data.entities.audio.audioCollections.Podcast;
 import data.entities.user.User;
 
 public final class LoadStrategy implements CommandStrategy {
-    public Output action(Input inputCommand) {
-        User user = Database.getInstance().findUser(inputCommand.getUsername());
+    public Output action(Input input) {
+        User user = Database.getInstance().findUser(input.getUsername());
         String message;
 
         System.out.println("user.getPreviousCommand(): " + user.getPreviousCommand());
@@ -25,11 +25,12 @@ public final class LoadStrategy implements CommandStrategy {
                 fileType.equals(Constants.FileType.PLAYLIST) && ((Playlist) selection).getSongs().isEmpty()) {
                 message = "You can't load an empty audio collection!";
             } else {
-                user.loadAudioFile(inputCommand.getTimestamp());
+                user.loadAudioFile(input.getTimestamp());
+                System.out.println("Repeat state at load is " + user.getPlayer().getRepeatState());
                 message = "Playback loaded successfully.";
             }
         }
 
-        return new Output(inputCommand, message);
+        return new Output(input, message);
     }
 }

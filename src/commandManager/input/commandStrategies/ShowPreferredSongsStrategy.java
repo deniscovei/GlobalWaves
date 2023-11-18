@@ -9,14 +9,14 @@ import data.entities.user.User;
 import java.util.ArrayList;
 
 public final class ShowPreferredSongsStrategy implements CommandStrategy {
-    public Output action(Input inputCommand) {
-        User user = Database.getInstance().findUser(inputCommand.getUsername());
+    public Output action(Input input) {
+        User user = Database.getInstance().findUser(input.getUsername());
         ArrayList <Object> result = new ArrayList <>();
 
         for (Song song : user.getPrefferedSongs()) {
             result.add(song.getName());
         }
 
-        return new Output(inputCommand, result, null);
+        return new Output(input, result, null);
     }
 }

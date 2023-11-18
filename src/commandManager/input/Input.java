@@ -47,8 +47,10 @@ public class Input extends IO_Entry {
             return strategy.action(this);
         } catch (Exception e) {
             if (e instanceof NullPointerException)
-                System.out.println(e);
+                System.out.println("Null pointer exception at line " + e.getStackTrace()[0].getLineNumber() +
+                                   " in file " + e.getStackTrace()[0].getFileName());
             System.out.println("Error: Command \"" + inputCommand + "\" not found or failed.");
+            //e.printStackTrace();
             return null;
         }
     }

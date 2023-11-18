@@ -50,11 +50,11 @@
   "user" : "emily30",
   "timestamp" : 2100,
   "stats" : {
-    "name" : "",
-    "remainedTime" : 0,
+    "name" : "The Unforgiven",
+    "remainedTime" : 178,
     "repeat" : "No Repeat",
     "shuffle" : false,
-    "paused" : true
+    "paused" : false
   }
 }, {
   "command" : "repeat",
@@ -66,11 +66,11 @@
   "user" : "emily30",
   "timestamp" : 2200,
   "stats" : {
-    "name" : "",
-    "remainedTime" : 0,
-    "repeat" : "No Repeat",
+    "name" : "The Unforgiven",
+    "remainedTime" : 78,
+    "repeat" : "Repeat Once",
     "shuffle" : false,
-    "paused" : true
+    "paused" : false
   }
 }, {
   "command" : "search",
@@ -124,7 +124,7 @@
   "command" : "repeat",
   "user" : "emily30",
   "timestamp" : 3200,
-  "message" : "Repeat mode changed to repeat infinite."
+  "message" : "Repeat mode changed to repeat once."
 }, {
   "command" : "status",
   "user" : "emily30",
@@ -132,7 +132,7 @@
   "stats" : {
     "name" : "99 Problems",
     "remainedTime" : 209,
-    "repeat" : "Repeat Infinite",
+    "repeat" : "Repeat Once",
     "shuffle" : false,
     "paused" : false
   }

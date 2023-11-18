@@ -9,26 +9,26 @@ import data.entities.user.User;
 import utils.Constants;
 
 public class LikeStrategy implements CommandStrategy {
-    public Output action(Input inputCommand) {
-        User user = Database.getInstance().findUser(inputCommand.getUsername());
+    public Output action(Input input) {
+        User user = Database.getInstance().findUser(input.getUsername());
 
         if (!user.hasLoadedAFile()) {
-            return new Output(inputCommand, "Please load a source before liking or unliking.");
+            return new Output(input, "Please load a source before liking or unliking.");
         } else {
-            AudioFile currentPlayingFile = user.getPlayer().getCurrentPlayingFile(inputCommand.getTimestamp());
+            AudioFile currentPlayingFile = user.getPlayer().getCurrentPlayingFile(input.getTimestamp());
             Constants.FileType fileType = currentPlayingFile.getFileType();
             if (!fileType.equals(Constants.FileType.SONG)) {
-                return new Output(inputCommand, "Loaded source is not a song.");
+                return new Output(input, "Loaded source is not a song.");
             } else {
                 Song song = (Song) currentPlayingFile;
                 if (song.getUserWhoLiked().contains(user)) {
                     user.unlike(song);
                     song.registerUnlike(user);
-                    return new Output(inputCommand, "Unlike registered successfully.");
+                    return new Output(input, "Unlike registered successfully.");
                 } else {
                     user.like(song);
                     song.registerLike(user);
-                    return new Output(inputCommand, "Like registered successfully.");
+                    return new Output(input, "Like registered successfully.");
                 }
             }
         }

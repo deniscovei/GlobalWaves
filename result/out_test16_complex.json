@@ -4539,7 +4539,12 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, {
+}, {
+  "command" : "shuffle",
+  "user" : "carol19",
+  "timestamp" : 5610,
+  "message" : "Please load a source before using the shuffle function."
+}, {
   "command" : "status",
   "user" : "carol19",
   "timestamp" : 5610,
@@ -4577,7 +4582,12 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, {
+}, {
+  "command" : "shuffle",
+  "user" : "frank21",
+  "timestamp" : 5640,
+  "message" : "Please load a source before using the shuffle function."
+}, {
   "command" : "status",
   "user" : "frank21",
   "timestamp" : 5640,
@@ -4773,7 +4783,12 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, {
+}, {
+  "command" : "shuffle",
+  "user" : "irene33",
+  "timestamp" : 5770,
+  "message" : "Please load a source before using the shuffle function."
+}, {
   "command" : "status",
   "user" : "irene33",
   "timestamp" : 5770,
@@ -4902,7 +4917,12 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, null, {
+}, null, {
+  "command" : "shuffle",
+  "user" : "henry26",
+  "timestamp" : 5860,
+  "message" : "Please load a source before using the shuffle function."
+}, {
   "command" : "status",
   "user" : "henry26",
   "timestamp" : 5860,
@@ -5032,7 +5052,12 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, {
+}, {
+  "command" : "shuffle",
+  "user" : "grace25",
+  "timestamp" : 5950,
+  "message" : "Please load a source before using the shuffle function."
+}, {
   "command" : "status",
   "user" : "grace25",
   "timestamp" : 5950,
@@ -5173,7 +5198,12 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, {
+}, {
+  "command" : "shuffle",
+  "user" : "grace25",
+  "timestamp" : 6050,
+  "message" : "Please load a source before using the shuffle function."
+}, {
   "command" : "status",
   "user" : "grace25",
   "timestamp" : 6050,
@@ -5184,7 +5214,12 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, {
+}, {
+  "command" : "shuffle",
+  "user" : "henry26",
+  "timestamp" : 6060,
+  "message" : "Please load a source before using the shuffle function."
+}, {
   "command" : "status",
   "user" : "henry26",
   "timestamp" : 6060,
@@ -5415,7 +5450,12 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, {
+}, {
+  "command" : "shuffle",
+  "user" : "bob35",
+  "timestamp" : 6200,
+  "message" : "Please load a source before using the shuffle function."
+}, {
   "command" : "status",
   "user" : "bob35",
   "timestamp" : 6200,
@@ -5502,7 +5542,12 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, {
+}, {
+  "command" : "shuffle",
+  "user" : "grace25",
+  "timestamp" : 6250,
+  "message" : "Please load a source before using the shuffle function."
+}, {
   "command" : "status",
   "user" : "grace25",
   "timestamp" : 6250,
@@ -5973,7 +6018,12 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, {
+}, {
+  "command" : "shuffle",
+  "user" : "grace25",
+  "timestamp" : 6550,
+  "message" : "Please load a source before using the shuffle function."
+}, {
   "command" : "status",
   "user" : "grace25",
   "timestamp" : 6550,
@@ -6048,7 +6098,12 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, {
+}, {
+  "command" : "shuffle",
+  "user" : "bob35",
+  "timestamp" : 6600,
+  "message" : "Please load a source before using the shuffle function."
+}, {
   "command" : "status",
   "user" : "bob35",
   "timestamp" : 6600,
@@ -6124,7 +6179,12 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, {
+}, {
+  "command" : "shuffle",
+  "user" : "grace25",
+  "timestamp" : 6650,
+  "message" : "Please load a source before using the shuffle function."
+}, {
   "command" : "status",
   "user" : "grace25",
   "timestamp" : 6650,
@@ -6460,7 +6520,12 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, {
+}, {
+  "command" : "shuffle",
+  "user" : "irene33",
+  "timestamp" : 6870,
+  "message" : "Please load a source before using the shuffle function."
+}, {
   "command" : "status",
   "user" : "irene33",
   "timestamp" : 6870,
@@ -6519,7 +6584,12 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, null, {
+}, null, {
+  "command" : "shuffle",
+  "user" : "carol19",
+  "timestamp" : 6910,
+  "message" : "Please load a source before using the shuffle function."
+}, {
   "command" : "status",
   "user" : "carol19",
   "timestamp" : 6910,
@@ -6568,7 +6638,12 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, {
+}, {
+  "command" : "shuffle",
+  "user" : "grace25",
+  "timestamp" : 6950,
+  "message" : "Please load a source before using the shuffle function."
+}, {
   "command" : "status",
   "user" : "grace25",
   "timestamp" : 6950,

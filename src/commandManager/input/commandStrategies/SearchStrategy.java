@@ -16,18 +16,18 @@ import java.util.ArrayList;
 public final class SearchStrategy implements CommandStrategy {
     private static final int resCountMax = 5;
 
-    public Output action(Input inputCommand) {
-        User user = Database.getInstance().findUser(inputCommand.getUsername());
+    public Output action(Input input) {
+        User user = Database.getInstance().findUser(input.getUsername());
         ArrayList<File> searchResults = user.getSearchResults();
 
-        user.unloadAudioFile(inputCommand.getTimestamp());
+        user.unloadAudioFile(input.getTimestamp());
         searchResults.clear();
 
-        switch (inputCommand.getType()) {
+        switch (input.getType()) {
             case "song":
                 ArrayList<Song> songs = Database.getInstance().getSongs();
                 for (Song song : songs) {
-                    if (checkSongFilters(song, inputCommand.getFilters(), inputCommand)) {
+                    if (checkSongFilters(song, input.getFilters(), input)) {
                         searchResults.add(song);
                         if (searchResults.size() == resCountMax) {
                             break;
@@ -37,7 +37,7 @@ public final class SearchStrategy implements CommandStrategy {
                 break;
             case "podcast":
                 for (Podcast podcast : Database.getInstance().getPodcasts()) {
-                    if (checkPodcastFilters(podcast, inputCommand.getFilters(), inputCommand)) {
+                    if (checkPodcastFilters(podcast, input.getFilters(), input)) {
                         searchResults.add(podcast);
                         if (searchResults.size() == resCountMax) {
                             break;
@@ -47,7 +47,7 @@ public final class SearchStrategy implements CommandStrategy {
                 break;
             case "playlist":
                 for (Playlist playlist : Database.getInstance().getPlaylists()) {
-                    if (checkPlaylistFilters(playlist, inputCommand.getFilters(), inputCommand)) {
+                    if (checkPlaylistFilters(playlist, input.getFilters(), input)) {
                         searchResults.add(playlist);
                         if (searchResults.size() == resCountMax) {
                             break;
@@ -57,7 +57,7 @@ public final class SearchStrategy implements CommandStrategy {
                 break;
         }
 
-        return new Output(inputCommand, "Search returned " + searchResults.size() + " results",
+        return new Output(input, "Search returned " + searchResults.size() + " results",
                           AudioFile.getFileNames(searchResults));
     }
 

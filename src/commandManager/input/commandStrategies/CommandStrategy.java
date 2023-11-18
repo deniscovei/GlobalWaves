@@ -4,5 +4,5 @@ import commandManager.input.Input;
 import commandManager.output.Output;
 
 public interface CommandStrategy {
-        Output action(Input inputCommand);
+        Output action(Input input);
 }

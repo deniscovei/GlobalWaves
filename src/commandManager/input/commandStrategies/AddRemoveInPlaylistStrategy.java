@@ -10,9 +10,9 @@ import data.entities.user.User;
 import utils.Constants;
 
 public final class AddRemoveInPlaylistStrategy implements CommandStrategy {
-    public Output action(Input inputCommand) {
-        User user = Database.getInstance().findUser(inputCommand.getUsername());
-        Playlist playlist = Database.getInstance().findPlaylist(inputCommand.getPlaylistId());
+    public Output action(Input input) {
+        User user = Database.getInstance().findUser(input.getUsername());
+        Playlist playlist = Database.getInstance().findPlaylist(input.getPlaylistId());
         String message;
 
         if (!user.hasLoadedAFile()) {
@@ -35,6 +35,6 @@ public final class AddRemoveInPlaylistStrategy implements CommandStrategy {
                 }
             }
         }
-        return new Output(inputCommand, message);
+        return new Output(input, message);
     }
 }

@@ -8,20 +8,22 @@ import data.entities.user.User;
 
 public class RepeatStrategy implements CommandStrategy {
     @Override
-    public Output action(Input inputCommand) {
-        User user = Database.getInstance().findUser(inputCommand.getUsername());
+    public Output action(Input input) {
+        User user = Database.getInstance().findUser(input.getUsername());
         String message;
 
         if (!user.hasLoadedAFile()) {
             message = "Please load a source before setting the repeat status.";
         } else {
-            user.getPlayer().repeat();
+            System.out.println("timestamp: " + input.getTimestamp());
+            System.out.println("Repeat mode is " + user.getPlayer().getRepeatState());
+            user.getPlayer().repeat(input.getTimestamp());
             Constants.FileType fileType = user.getSelection().getFileType();
             int repeatState = user.getPlayer().getRepeatState();
             String repeatStateLowerCase = Constants.repeatStateToString(repeatState, fileType).toLowerCase();
             message = "Repeat mode changed to " + repeatStateLowerCase + ".";
         }
 
-        return new Output(inputCommand, message);
+        return new Output(input, message);
     }
 }

@@ -8,6 +8,10 @@ import lombok.Getter;
 import lombok.Setter;
 import utils.Constants;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Random;
+
 @Getter
 @Setter
 public class PlayerFile {
@@ -20,6 +24,9 @@ public class PlayerFile {
     private int pauseTimestamp = -1;
     private int offset = 0;
     private int repeatState = Constants.NO_REPEAT;
+    private boolean shuffleActivated = false;
+    private ArrayList<Integer> orderedIndexes = new ArrayList<>();
+    private ArrayList<Integer> shuffledIndexes = new ArrayList<>();
 
     public PlayerFile(File file) {
         this.ongoingAudioFile = file;
@@ -27,20 +34,6 @@ public class PlayerFile {
 
     public boolean hasStarted() {
         return startTimestamp != -1;
-    }
-
-    public void play(int timestamp) {
-        if (!hasStarted()) {
-            setStartTimestamp(timestamp);
-        } else {
-            setOffset(getOffset() - timestamp + getPauseTimestamp());
-        }
-        setPaused(false);
-    }
-
-    public void pause(int timestamp) {
-        setPauseTimestamp(timestamp);
-        setPaused(true);
     }
 
     public int getCurrTimeOfFile(int timestamp) {
@@ -65,6 +58,7 @@ public class PlayerFile {
         AudioFile currentPlayingFile = getCurrentPlayingFile(timestamp);
 
         if (currentPlayingFile == null) {
+            setLoadedFile(null);
             System.out.println("NU VERM SA INTRAM AICI");
             return true;
         }
@@ -100,11 +94,26 @@ public class PlayerFile {
                    loadedFile.getFileType().equals(Constants.FileType.PODCAST)) {
             AudioCollection audioCollection = (AudioCollection) loadedFile;
             AudioFile currentPlayingFile = audioCollection.getAudioFiles().get(currentPlayingFileId);
+
             if (getRemainedTime(currentPlayingFile, timestamp) >= 0)
                 return currentPlayingFile;
 
-            for (int id = currentPlayingFileId; id < audioCollection.getAudioFiles().size(); id = nextId(id)) {
-                currentPlayingFile = audioCollection.getAudioFiles().get(id);
+            setIndexesInOrder();
+            ArrayList <Integer> indexes;
+            if (isShuffleActivated()) {
+                indexes = shuffledIndexes;
+                for (int id = 0; id < indexes.size(); id++) {
+                    if (indexes.get(id) == currentPlayingFileId) {
+                        currentPlayingFileId = id;
+                        break;
+                    }
+                }
+            } else {
+                indexes = orderedIndexes;
+            }
+
+            for (int id = currentPlayingFileId; id < audioCollection.getAudioFiles().size(); id = nextId(id, indexes)) {
+                currentPlayingFile = audioCollection.getAudioFiles().get(indexes.get(id));
                 if (getRemainedTime(currentPlayingFile, timestamp) < 0) {
                     timePassed += currentPlayingFile.getDuration();
                 } else {
@@ -113,38 +122,83 @@ public class PlayerFile {
                 }
             }
 
-            return audioCollection.getAudioFiles().get(audioCollection.getAudioFiles().size() - 1);
+            // AI PROBLEME AICI
+            //setLoadedFile(null);
+            return null;
+            //return audioCollection.getAudioFiles().get(audioCollection.getAudioFiles().size() - 1);
         }
 
         return null;
     }
 
-    private int nextId(int id) {
+    private int nextId(int id, ArrayList<Integer> indexes) {
+        int size = ((AudioCollection) loadedFile).getAudioFiles().size();
         switch (loadedFile.getFileType()) {
             case PLAYLIST:
                 switch (repeatState) {
                     case Constants.NO_REPEAT:
-                        return id + 1;
+                        return indexes.get(id + 1);
                     case Constants.REPEAT_ALL:
-                        return (id + 1) % ((AudioCollection) loadedFile).getAudioFiles().size();
+                        return indexes.get((id + 1) % size);
                     case Constants.REPEAT_CURRENT_SONG:
                         return id;
                 }
             case PODCAST:
                 switch (repeatState) {
                     case Constants.NO_REPEAT:
-                        return id + 1;
+                        return indexes.get(id + 1);
                     case Constants.REPEAT_ONCE:
-                        if (id + 1 >= ((AudioCollection) loadedFile).getAudioFiles().size()) {
+                        if (indexes.get(id + 1) >= size) {
                             setRepeatState(Constants.NO_REPEAT);
-                            return 0;
+                            return indexes.get(0);
                         } else {
-                            return id + 1;
+                            return indexes.get(id + 1);
                         }
                     case Constants.REPEAT_INFINITE:
-                        return (id + 1) % ((AudioCollection) loadedFile).getAudioFiles().size();
+                        return indexes.get((id + 1) % size);
                 }
         }
-        return id + 1;
+        return indexes.get(id + 1);
+    }
+
+    public void play(int timestamp) {
+        if (!hasStarted()) {
+            setStartTimestamp(timestamp);
+        } else {
+            setOffset(getOffset() - timestamp + getPauseTimestamp());
+        }
+        setPaused(false);
+    }
+
+    public void pause(int timestamp) {
+        setPauseTimestamp(timestamp);
+        setPaused(true);
+    }
+
+    public void shuffle(int seed) {
+        setShuffleActivated(true);
+        shuffledIndexes.clear();
+        for (int i = 0; i < ((AudioCollection) loadedFile).getAudioFiles().size(); i++) {
+            shuffledIndexes.add(i);
+        }
+        Collections.shuffle(shuffledIndexes, new Random(seed));
+        System.out.println("SHUFFLED INDEXES: ");
+        for (int i = 0; i < shuffledIndexes.size(); i++) {
+            System.out.println(shuffledIndexes.get(i) + " : " + ((AudioCollection) loadedFile).getAudioFiles().get(shuffledIndexes.get(i)).getName());
+        }
+        shuffledIndexes.add(((AudioCollection) loadedFile).getAudioFiles().size());
+    }
+
+    public void setIndexesInOrder() {
+        orderedIndexes.clear();
+        int size = ((AudioCollection) loadedFile).getAudioFiles().size();
+        System.out.println("SIZE: " + size);
+        for (int i = 0; i <= size; i++) {
+            orderedIndexes.add(i);
+        }
+    }
+
+    public void unshuffle() {
+        setShuffleActivated(false);
     }
 }

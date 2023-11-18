@@ -1,9 +1,7 @@
 package data.entities.user.audioPlayer;
 
 import data.entities.audio.File;
-import data.entities.audio.audioCollections.Playlist;
 import data.entities.audio.audioFiles.AudioFile;
-import data.entities.audio.audioFiles.Song;
 import lombok.Getter;
 import lombok.Setter;
 import utils.Constants;
@@ -16,6 +14,7 @@ public class Player {
     ArrayList <PlayerFile> playerFiles = new ArrayList <>();
     private int currentPlayerFileIndex = -1;
     private int repeatState = Constants.NO_REPEAT;
+    private boolean shuffleActivated = false;
 
     public File getSelection() {
         if (currentPlayerFileIndex == -1) {
@@ -83,17 +82,35 @@ public class Player {
     public void removeLoadedSongs() {
         setCurrentPlayerFileIndex(-1);
         for (int index = 0; index < getPlayerFiles().size(); index++) {
-            if (getPlayerFiles().get(index).getOngoingAudioFile() instanceof Song) {
+            if (getPlayerFiles().get(index).getOngoingAudioFile().getFileType().equals(Constants.FileType.SONG)) {
                 getPlayerFiles().remove(index);
                 index--;
             }
         }
     }
 
-    public void repeat() {
+    public void removeLoadedPlaylists() {
+        setCurrentPlayerFileIndex(-1);
+        for (int index = 0; index < getPlayerFiles().size(); index++) {
+            if (getPlayerFiles().get(index).getOngoingAudioFile().getFileType().equals(Constants.FileType.PLAYLIST)) {
+                getPlayerFiles().remove(index);
+                index--;
+            }
+        }
+    }
+
+    public void repeat(int timestamp) {
+        fastForwardToCurrentPlayingFile(timestamp);
         changeRepeatState();
         playerFiles.get(currentPlayerFileIndex).setRepeatState(getRepeatState());
         setRepeatState(playerFiles.get(currentPlayerFileIndex).getRepeatState());
+    }
+
+    private void fastForwardToCurrentPlayingFile(int timestamp) {
+        playerFiles.get(currentPlayerFileIndex).getCurrentPlayingFile(timestamp);
+        if (playerFiles.get(currentPlayerFileIndex).getLoadedFile() == null) {
+            setCurrentPlayerFileIndex(-1);
+        }
     }
 
     private void changeRepeatState() {
@@ -112,5 +129,18 @@ public class Player {
             return null;
         }
         return playerFiles.get(currentPlayerFileIndex).getLoadedFile();
+    }
+
+    public void shuffle(int seed, int timestamp) {
+        fastForwardToCurrentPlayingFile(timestamp);
+        System.out.println("SHUFFLE at player with seed: " + seed);
+        setShuffleActivated(true);
+        playerFiles.get(currentPlayerFileIndex).shuffle(seed);
+    }
+
+    public void unshuffle(int timestamp) {
+        fastForwardToCurrentPlayingFile(timestamp);
+        setShuffleActivated(false);
+        playerFiles.get(currentPlayerFileIndex).unshuffle();
     }
 }

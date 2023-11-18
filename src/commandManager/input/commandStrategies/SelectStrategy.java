@@ -9,9 +9,9 @@ import commandManager.output.Output;
 import java.util.ArrayList;
 
 public final class SelectStrategy implements CommandStrategy {
-    public Output action(Input inputCommand) {
-        User user = Database.getInstance().findUser(inputCommand.getUsername());
-        int itemNumber = inputCommand.getItemNumber();
+    public Output action(Input input) {
+        User user = Database.getInstance().findUser(input.getUsername());
+        int itemNumber = input.getItemNumber();
         ArrayList<File> searchResults = user.getSearchResults();
         String message;
 
@@ -28,6 +28,6 @@ public final class SelectStrategy implements CommandStrategy {
             }
         }
 
-        return new Output(inputCommand, message);
+        return new Output(input, message);
     }
 }
