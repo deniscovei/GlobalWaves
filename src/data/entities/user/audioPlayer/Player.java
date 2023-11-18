@@ -143,4 +143,32 @@ public class Player {
         setShuffleActivated(false);
         playerFiles.get(currentPlayerFileIndex).unshuffle();
     }
+
+    public boolean next(int timestamp) {
+        fastForwardToCurrentPlayingFile(timestamp);
+        if (getCurrentPlayingFile(timestamp) == null) {
+            return false;
+        }
+        playerFiles.get(currentPlayerFileIndex).next(timestamp);
+        return true;
+    }
+
+    public boolean prev(int timestamp) {
+        fastForwardToCurrentPlayingFile(timestamp);
+        if (getCurrentPlayingFile(timestamp) == null) {
+            return false;
+        }
+        playerFiles.get(currentPlayerFileIndex).prev(timestamp);
+        return true;
+    }
+
+    public void forward(int timestamp) {
+        fastForwardToCurrentPlayingFile(timestamp);
+        playerFiles.get(currentPlayerFileIndex).forward(timestamp);
+    }
+
+    public void backward(int timestamp) {
+        fastForwardToCurrentPlayingFile(timestamp);
+        playerFiles.get(currentPlayerFileIndex).backward(timestamp);
+    }
 }

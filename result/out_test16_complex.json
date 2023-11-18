@@ -6394,13 +6394,23 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, null, {
+}, {
+  "command" : "prev",
+  "user" : "alice22",
+  "timestamp" : 6790,
+  "message" : "Returned to previous track successfully. The current track is Big Pimpin'."
+}, {
+  "command" : "prev",
+  "user" : "alice22",
+  "timestamp" : 6790,
+  "message" : "Returned to previous track successfully. The current track is Bohemian Rhapsody."
+}, {
   "command" : "status",
   "user" : "alice22",
   "timestamp" : 6790,
   "stats" : {
-    "name" : "Big Pimpin'",
-    "remainedTime" : 151,
+    "name" : "Bohemian Rhapsody",
+    "remainedTime" : 355,
     "repeat" : "Repeat All",
     "shuffle" : false,
     "paused" : false
@@ -6562,8 +6572,8 @@
   "user" : "alice22",
   "timestamp" : 6890,
   "stats" : {
-    "name" : "Big Pimpin'",
-    "remainedTime" : 51,
+    "name" : "Bohemian Rhapsody",
+    "remainedTime" : 255,
     "repeat" : "Repeat All",
     "shuffle" : false,
     "paused" : true

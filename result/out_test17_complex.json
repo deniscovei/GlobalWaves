@@ -4519,13 +4519,18 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, {
+}, {
+  "command" : "prev",
+  "user" : "alice22",
+  "timestamp" : 5590,
+  "message" : "Returned to previous track successfully. The current track is Sad But True."
+}, {
   "command" : "status",
   "user" : "alice22",
   "timestamp" : 5590,
   "stats" : {
     "name" : "Sad But True",
-    "remainedTime" : 136,
+    "remainedTime" : 324,
     "repeat" : "Repeat All",
     "shuffle" : false,
     "paused" : false
@@ -4698,7 +4703,7 @@
   "timestamp" : 5690,
   "stats" : {
     "name" : "Sad But True",
-    "remainedTime" : 36,
+    "remainedTime" : 224,
     "repeat" : "Repeat All",
     "shuffle" : true,
     "paused" : false
@@ -4853,8 +4858,8 @@
   "user" : "alice22",
   "timestamp" : 5790,
   "stats" : {
-    "name" : "Angie",
-    "remainedTime" : 209,
+    "name" : "Sad But True",
+    "remainedTime" : 124,
     "repeat" : "Repeat All",
     "shuffle" : true,
     "paused" : false
@@ -4864,19 +4869,24 @@
   "user" : "alice22",
   "timestamp" : 5790,
   "stats" : {
-    "name" : "Angie",
-    "remainedTime" : 209,
+    "name" : "Sad But True",
+    "remainedTime" : 124,
     "repeat" : "Repeat All",
     "shuffle" : true,
     "paused" : false
   }
-}, null, {
+}, {
+  "command" : "prev",
+  "user" : "bob35",
+  "timestamp" : 5800,
+  "message" : "Returned to previous track successfully. The current track is Angie."
+}, {
   "command" : "status",
   "user" : "bob35",
   "timestamp" : 5800,
   "stats" : {
-    "name" : "Delicate",
-    "remainedTime" : 144,
+    "name" : "Angie",
+    "remainedTime" : 273,
     "repeat" : "No Repeat",
     "shuffle" : true,
     "paused" : true
@@ -5011,13 +5021,18 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, {
+}, {
+  "command" : "next",
+  "user" : "alice22",
+  "timestamp" : 5890,
+  "message" : "Skipped to next track successfully. The current track is Don't."
+}, {
   "command" : "status",
   "user" : "alice22",
   "timestamp" : 5890,
   "stats" : {
-    "name" : "Angie",
-    "remainedTime" : 109,
+    "name" : "Don't",
+    "remainedTime" : 184,
     "repeat" : "Repeat All",
     "shuffle" : true,
     "paused" : false
@@ -5032,8 +5047,8 @@
   "user" : "bob35",
   "timestamp" : 5900,
   "stats" : {
-    "name" : "Delicate",
-    "remainedTime" : 144,
+    "name" : "Angie",
+    "remainedTime" : 273,
     "repeat" : "Repeat All",
     "shuffle" : true,
     "paused" : true
@@ -5166,8 +5181,8 @@
   "user" : "alice22",
   "timestamp" : 5990,
   "stats" : {
-    "name" : "Angie",
-    "remainedTime" : 9,
+    "name" : "Don't",
+    "remainedTime" : 84,
     "repeat" : "Repeat All",
     "shuffle" : true,
     "paused" : false
@@ -5177,19 +5192,29 @@
   "user" : "alice22",
   "timestamp" : 5990,
   "stats" : {
-    "name" : "Angie",
-    "remainedTime" : 9,
+    "name" : "Don't",
+    "remainedTime" : 84,
     "repeat" : "Repeat All",
     "shuffle" : true,
     "paused" : false
   }
-}, null, null, {
+}, {
+  "command" : "prev",
+  "user" : "bob35",
+  "timestamp" : 6000,
+  "message" : "Returned to previous track successfully. The current track is Love Story."
+}, {
+  "command" : "prev",
+  "user" : "bob35",
+  "timestamp" : 6000,
+  "message" : "Returned to previous track successfully. The current track is Black Dog."
+}, {
   "command" : "status",
   "user" : "bob35",
   "timestamp" : 6000,
   "stats" : {
-    "name" : "Delicate",
-    "remainedTime" : 144,
+    "name" : "Black Dog",
+    "remainedTime" : 294,
     "repeat" : "Repeat All",
     "shuffle" : true,
     "paused" : true
@@ -5313,19 +5338,24 @@
   "user" : "alice22",
   "timestamp" : 6090,
   "stats" : {
-    "name" : "Love Story",
-    "remainedTime" : 145,
+    "name" : "Blank Space",
+    "remainedTime" : 215,
     "repeat" : "Repeat Current Song",
     "shuffle" : true,
     "paused" : false
   }
-}, null, {
+}, {
+  "command" : "prev",
+  "user" : "bob35",
+  "timestamp" : 6100,
+  "message" : "Returned to previous track successfully. The current track is Start Me Up."
+}, {
   "command" : "status",
   "user" : "bob35",
   "timestamp" : 6100,
   "stats" : {
-    "name" : "Delicate",
-    "remainedTime" : 144,
+    "name" : "Start Me Up",
+    "remainedTime" : 212,
     "repeat" : "Repeat All",
     "shuffle" : true,
     "paused" : true
@@ -5486,8 +5516,8 @@
   "user" : "alice22",
   "timestamp" : 6190,
   "stats" : {
-    "name" : "Love Story",
-    "remainedTime" : 45,
+    "name" : "Blank Space",
+    "remainedTime" : 115,
     "repeat" : "Repeat Current Song",
     "shuffle" : true,
     "paused" : true
@@ -5502,8 +5532,8 @@
   "user" : "bob35",
   "timestamp" : 6200,
   "stats" : {
-    "name" : "Delicate",
-    "remainedTime" : 144,
+    "name" : "Start Me Up",
+    "remainedTime" : 212,
     "repeat" : "Repeat Current Song",
     "shuffle" : true,
     "paused" : true
@@ -5653,8 +5683,8 @@
   "user" : "alice22",
   "timestamp" : 6290,
   "stats" : {
-    "name" : "Love Story",
-    "remainedTime" : 45,
+    "name" : "Blank Space",
+    "remainedTime" : 115,
     "repeat" : "Repeat Current Song",
     "shuffle" : true,
     "paused" : true
@@ -5669,8 +5699,8 @@
   "user" : "bob35",
   "timestamp" : 6300,
   "stats" : {
-    "name" : "Delicate",
-    "remainedTime" : 144,
+    "name" : "Start Me Up",
+    "remainedTime" : 212,
     "repeat" : "Repeat Current Song",
     "shuffle" : true,
     "paused" : true
@@ -5809,19 +5839,29 @@
   "user" : "alice22",
   "timestamp" : 6390,
   "stats" : {
-    "name" : "Love Story",
-    "remainedTime" : 45,
+    "name" : "Blank Space",
+    "remainedTime" : 115,
     "repeat" : "Repeat Current Song",
     "shuffle" : true,
     "paused" : false
   }
-}, null, null, {
+}, {
+  "command" : "prev",
+  "user" : "bob35",
+  "timestamp" : 6400,
+  "message" : "Returned to previous track successfully. The current track is Delicate."
+}, {
+  "command" : "prev",
+  "user" : "bob35",
+  "timestamp" : 6400,
+  "message" : "Returned to previous track successfully. The current track is Stairway to Heaven."
+}, {
   "command" : "status",
   "user" : "bob35",
   "timestamp" : 6400,
   "stats" : {
-    "name" : "Delicate",
-    "remainedTime" : 144,
+    "name" : "Stairway to Heaven",
+    "remainedTime" : 482,
     "repeat" : "Repeat Current Song",
     "shuffle" : true,
     "paused" : true
@@ -5977,8 +6017,8 @@
   "user" : "alice22",
   "timestamp" : 6490,
   "stats" : {
-    "name" : "Black Dog",
-    "remainedTime" : 239,
+    "name" : "Blank Space",
+    "remainedTime" : 15,
     "repeat" : "Repeat Current Song",
     "shuffle" : true,
     "paused" : false
@@ -5988,8 +6028,8 @@
   "user" : "alice22",
   "timestamp" : 6490,
   "stats" : {
-    "name" : "Black Dog",
-    "remainedTime" : 239,
+    "name" : "Blank Space",
+    "remainedTime" : 15,
     "repeat" : "Repeat Current Song",
     "shuffle" : true,
     "paused" : false
@@ -6004,8 +6044,8 @@
   "user" : "bob35",
   "timestamp" : 6500,
   "stats" : {
-    "name" : "Delicate",
-    "remainedTime" : 144,
+    "name" : "Stairway to Heaven",
+    "remainedTime" : 482,
     "repeat" : "No Repeat",
     "shuffle" : true,
     "paused" : true
@@ -6119,24 +6159,39 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, null, {
+}, null, {
+  "command" : "next",
+  "user" : "alice22",
+  "timestamp" : 6590,
+  "message" : "Skipped to next track successfully. The current track is Blank Space."
+}, {
   "command" : "status",
   "user" : "alice22",
   "timestamp" : 6590,
   "stats" : {
-    "name" : "Black Dog",
-    "remainedTime" : 139,
+    "name" : "Blank Space",
+    "remainedTime" : 231,
     "repeat" : "Repeat Current Song",
     "shuffle" : true,
     "paused" : false
   }
-}, null, null, {
+}, {
+  "command" : "prev",
+  "user" : "bob35",
+  "timestamp" : 6600,
+  "message" : "Returned to previous track successfully. The current track is Money Trees."
+}, {
+  "command" : "prev",
+  "user" : "bob35",
+  "timestamp" : 6600,
+  "message" : "Returned to previous track successfully. The current track is Dream On."
+}, {
   "command" : "status",
   "user" : "bob35",
   "timestamp" : 6600,
   "stats" : {
-    "name" : "Delicate",
-    "remainedTime" : 144,
+    "name" : "Dream On",
+    "remainedTime" : 267,
     "repeat" : "No Repeat",
     "shuffle" : true,
     "paused" : true
@@ -6264,13 +6319,18 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, {
+}, {
+  "command" : "prev",
+  "user" : "alice22",
+  "timestamp" : 6690,
+  "message" : "Returned to previous track successfully. The current track is Blank Space."
+}, {
   "command" : "status",
   "user" : "alice22",
   "timestamp" : 6690,
   "stats" : {
-    "name" : "Black Dog",
-    "remainedTime" : 39,
+    "name" : "Blank Space",
+    "remainedTime" : 231,
     "repeat" : "Repeat Current Song",
     "shuffle" : true,
     "paused" : false
@@ -6285,8 +6345,8 @@
   "user" : "bob35",
   "timestamp" : 6700,
   "stats" : {
-    "name" : "Delicate",
-    "remainedTime" : 144,
+    "name" : "Dream On",
+    "remainedTime" : 267,
     "repeat" : "Repeat All",
     "shuffle" : true,
     "paused" : true
@@ -6409,13 +6469,18 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, {
+}, {
+  "command" : "next",
+  "user" : "alice22",
+  "timestamp" : 6790,
+  "message" : "Skipped to next track successfully. The current track is Blank Space."
+}, {
   "command" : "status",
   "user" : "alice22",
   "timestamp" : 6790,
   "stats" : {
-    "name" : "Love Story",
-    "remainedTime" : 175,
+    "name" : "Blank Space",
+    "remainedTime" : 231,
     "repeat" : "Repeat Current Song",
     "shuffle" : true,
     "paused" : false
@@ -6430,8 +6495,8 @@
   "user" : "bob35",
   "timestamp" : 6800,
   "stats" : {
-    "name" : "Delicate",
-    "remainedTime" : 144,
+    "name" : "Dream On",
+    "remainedTime" : 267,
     "repeat" : "Repeat All",
     "shuffle" : true,
     "paused" : true
@@ -6564,8 +6629,8 @@
   "user" : "alice22",
   "timestamp" : 6890,
   "stats" : {
-    "name" : "Love Story",
-    "remainedTime" : 75,
+    "name" : "Blank Space",
+    "remainedTime" : 131,
     "repeat" : "Repeat Current Song",
     "shuffle" : true,
     "paused" : true
@@ -6580,8 +6645,8 @@
   "user" : "bob35",
   "timestamp" : 6900,
   "stats" : {
-    "name" : "Delicate",
-    "remainedTime" : 144,
+    "name" : "Dream On",
+    "remainedTime" : 267,
     "repeat" : "Repeat All",
     "shuffle" : true,
     "paused" : false
@@ -8404,7 +8469,7 @@
   "command" : "showPreferredSongs",
   "user" : "bob35",
   "timestamp" : 8490,
-  "result" : [ "Delicate" ]
+  "result" : [ "Dream On" ]
 }, {
   "command" : "showPlaylists",
   "user" : "carol19",
