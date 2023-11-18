@@ -2,7 +2,7 @@
   "command" : "createPlaylist",
   "user" : "emily30",
   "timestamp" : 150,
-  "message" : "A playlist with the same name already exists."
+  "message" : "Playlist created successfully."
 }, {
   "command" : "search",
   "user" : "emily30",
@@ -77,33 +77,33 @@
   "user" : "emily30",
   "timestamp" : 1220,
   "stats" : {
-    "name" : "",
-    "remainedTime" : 0,
+    "name" : "Going Bad",
+    "remainedTime" : 155,
     "repeat" : "No Repeat",
     "shuffle" : false,
-    "paused" : true
+    "paused" : false
   }
 }, null, {
   "command" : "status",
   "user" : "emily30",
   "timestamp" : 1250,
   "stats" : {
-    "name" : "",
-    "remainedTime" : 0,
+    "name" : "Going Bad",
+    "remainedTime" : 125,
     "repeat" : "No Repeat",
     "shuffle" : false,
-    "paused" : true
+    "paused" : false
   }
 }, null, {
   "command" : "status",
   "user" : "emily30",
   "timestamp" : 1320,
   "stats" : {
-    "name" : "",
-    "remainedTime" : 0,
+    "name" : "Going Bad",
+    "remainedTime" : 55,
     "repeat" : "No Repeat",
     "shuffle" : false,
-    "paused" : true
+    "paused" : false
   }
 }, null, null, {
   "command" : "search",
@@ -126,22 +126,22 @@
   "user" : "emily30",
   "timestamp" : 3220,
   "stats" : {
-    "name" : "",
-    "remainedTime" : 0,
+    "name" : "The Capitol Riot, 1 Year Later",
+    "remainedTime" : 350,
     "repeat" : "No Repeat",
     "shuffle" : false,
-    "paused" : true
+    "paused" : false
   }
 }, null, {
   "command" : "status",
   "user" : "emily30",
   "timestamp" : 3920,
   "stats" : {
-    "name" : "",
-    "remainedTime" : 0,
+    "name" : "Inside the Vaccine Mandate Showdown",
+    "remainedTime" : 1061,
     "repeat" : "No Repeat",
     "shuffle" : false,
-    "paused" : true
+    "paused" : false
   }
 }, null, {
   "command" : "search",
@@ -169,5 +169,5 @@
   "command" : "load",
   "user" : "emily30",
   "timestamp" : 4350,
-  "message" : "Playback loaded successfully."
+  "message" : "Please select a source before attempting to load."
 }, null ]

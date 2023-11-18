@@ -1,8 +1,8 @@
 package commandManager.input.commandStrategies;
 
-import commandManager.input.InputCommand;
-import commandManager.output.OutputCommand;
+import commandManager.input.Input;
+import commandManager.output.Output;
 
 public interface CommandStrategy {
-        OutputCommand action(InputCommand inputCommand);
+        Output action(Input inputCommand);
 }

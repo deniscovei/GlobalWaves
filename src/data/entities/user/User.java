@@ -1,10 +1,14 @@
 package data.entities.user;
 
 import data.entities.audio.File;
+import data.entities.audio.audioCollections.Playlist;
+import data.entities.user.audioPlayer.Player;
 import data.entities.audio.audioFiles.Song;
+import fileio.input.EpisodeInput;
 import fileio.input.UserInput;
 import lombok.Getter;
 import lombok.Setter;
+import utils.Constants;
 
 import java.util.ArrayList;
 
@@ -15,10 +19,10 @@ public class User {
     private int age = 0;
     private String city = null;
     private ArrayList<File> searchResults = new ArrayList<>();
-    //private Player player = new Player();
-    private File selection = null;
-    boolean loaded = false;
-    private final ArrayList<Song> prefferedSongs = new ArrayList<>();
+    private Player player = new Player();
+    private File selectedFile = null;
+    private ArrayList<Song> prefferedSongs = new ArrayList<>();
+    private String previousCommand = null;
 
     public User() {
     }
@@ -41,16 +45,29 @@ public class User {
         this.searchResults = searchResults;
     }
 
-    public void loadAudioFile() {
-        setLoaded(true);
+    public File getSelection() {
+        return player.getSelection();
     }
 
-    public void unloadAudioFile() {
-        setLoaded(false);
+    public void select(File selection) {
+        setSelectedFile(selection);
+        player.select(selection);
     }
 
-    public boolean hasLoadedAudioFile() {
-        return loaded;
+    public void loadAudioFile(int timestamp) {
+        player.play(timestamp);
+        player.setLoadedFile(selectedFile);
+    }
+
+    public void unloadAudioFile(int timestamp) {
+        player.pause(timestamp);
+        player.removeLoadedSongs();
+        player.setLoadedFile(null);
+        setSelectedFile(null);
+    }
+
+    public boolean hasLoadedAFile() {
+        return player.getLoadedFile() != null;
     }
 
     public void like(final Song song) {
@@ -59,5 +76,19 @@ public class User {
 
     public void unlike(final Song song) {
         prefferedSongs.remove(song);
+    }
+
+    public void deleteData() {
+        getPlayer().setRepeatState(Constants.NO_REPEAT);
+        setPlayer(new Player());
+        if (hasLoadedAFile()) {
+            player.setLoadedFile(null);
+        }
+        getPrefferedSongs().clear();
+        getSearchResults().clear();
+    }
+
+    public File getLoadedFile() {
+        return player.getLoadedFile();
     }
 }

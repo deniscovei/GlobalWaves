@@ -107,15 +107,15 @@
   "command" : "like",
   "user" : "emily30",
   "timestamp" : 90,
-  "message" : "Loaded source is not a song."
+  "message" : "Like registered successfully."
 }, {
   "command" : "showPlaylists",
   "user" : "emily30",
   "timestamp" : 95,
   "result" : [ {
     "name" : "Playlist alb pentru zile negre",
-    "songs" : [ ],
     "visibility" : "public",
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Get Lucky" ]
   } ]
 } ]

@@ -2,7 +2,7 @@
   "command" : "createPlaylist",
   "user" : "bob35",
   "timestamp" : 150,
-  "message" : "A playlist with the same name already exists."
+  "message" : "Playlist created successfully."
 }, {
   "command" : "search",
   "user" : "bob35",
@@ -59,7 +59,7 @@
   "command" : "addRemoveInPlaylist",
   "user" : "carol19",
   "timestamp" : 340,
-  "message" : "Successfully removed from playlist."
+  "message" : "Successfully added to playlist."
 }, {
   "command" : "search",
   "user" : "carol19",
@@ -215,24 +215,24 @@
   "command" : "search",
   "user" : "bob35",
   "timestamp" : 2565,
-  "message" : "Search returned 2 results",
-  "results" : [ "The best", "Just for fun" ]
+  "message" : "Search returned 1 results",
+  "results" : [ "Just for fun" ]
 }, {
   "command" : "select",
   "user" : "bob35",
   "timestamp" : 2580,
-  "message" : "Successfully selected The best."
+  "message" : "Successfully selected Just for fun."
 }, null, {
   "command" : "search",
   "user" : "david27",
   "timestamp" : 2765,
-  "message" : "Search returned 2 results",
-  "results" : [ "The best", "Just for fun" ]
+  "message" : "Search returned 1 results",
+  "results" : [ "Just for fun" ]
 }, {
   "command" : "select",
   "user" : "david27",
   "timestamp" : 2810,
-  "message" : "Successfully selected The best."
+  "message" : "Successfully selected Just for fun."
 }, null, null, {
   "command" : "showPreferredSongs",
   "user" : "bob35",

@@ -253,18 +253,7 @@
     "shuffle" : false,
     "paused" : false
   }
-}, {
-  "command" : "status",
-  "user" : "alice22",
-  "timestamp" : 2334,
-  "stats" : {
-    "name" : "99 Problems",
-    "remainedTime" : 224,
-    "repeat" : "Repeat Current Song",
-    "shuffle" : false,
-    "paused" : false
-  }
-}, {
+}, null, {
   "command" : "repeat",
   "user" : "alice22",
   "timestamp" : 2335,

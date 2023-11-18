@@ -2,7 +2,7 @@
   "command" : "createPlaylist",
   "user" : "bob35",
   "timestamp" : 150,
-  "message" : "A playlist with the same name already exists."
+  "message" : "Playlist created successfully."
 }, {
   "command" : "search",
   "user" : "bob35",
@@ -23,12 +23,12 @@
   "command" : "addRemoveInPlaylist",
   "user" : "bob35",
   "timestamp" : 240,
-  "message" : "Successfully removed from playlist."
+  "message" : "Successfully added to playlist."
 }, {
   "command" : "createPlaylist",
   "user" : "bob35",
   "timestamp" : 450,
-  "message" : "A playlist with the same name already exists."
+  "message" : "Playlist created successfully."
 }, {
   "command" : "search",
   "user" : "bob35",
@@ -75,13 +75,13 @@
   "command" : "createPlaylist",
   "user" : "carol19",
   "timestamp" : 750,
-  "message" : "A playlist with the same name already exists."
+  "message" : "Playlist created successfully."
 }, {
   "command" : "search",
   "user" : "carol19",
   "timestamp" : 870,
   "message" : "Search returned 5 results",
-  "results" : [ "Shape of You", "Don't", "Money Trees", "Dream On", "The Unforgiven" ]
+  "results" : [ "Shape of You", "Don't", "Stairway to Heaven", "Money Trees", "Under Pressure" ]
 }, {
   "command" : "select",
   "user" : "carol19",
@@ -135,25 +135,15 @@
   "user" : "bob35",
   "timestamp" : 1460,
   "result" : [ {
-    "name" : "My playlist",
-    "songs" : [ ],
-    "visibility" : "public",
-    "followers" : 0
-  }, {
-    "name" : "Colaj",
-    "songs" : [ ],
-    "visibility" : "public",
-    "followers" : 0
-  }, {
     "name" : "My first playlist",
-    "songs" : [ ],
     "visibility" : "public",
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Stairway to Heaven", "Shape of You" ]
   }, {
     "name" : "My second playlist",
-    "songs" : [ ],
     "visibility" : "public",
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Shape of You", "Stairway to Heaven" ]
   } ]
 }, {
   "command" : "showPlaylists",
@@ -161,34 +151,24 @@
   "timestamp" : 1500,
   "result" : [ {
     "name" : "The best",
-    "songs" : [ ],
     "visibility" : "public",
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ ]
   } ]
 }, null, {
   "command" : "showPlaylists",
   "user" : "bob35",
   "timestamp" : 1560,
   "result" : [ {
-    "name" : "My playlist",
-    "songs" : [ ],
-    "visibility" : "public",
-    "followers" : 0
-  }, {
-    "name" : "Colaj",
-    "songs" : [ ],
-    "visibility" : "public",
-    "followers" : 0
-  }, {
     "name" : "My first playlist",
-    "songs" : [ ],
     "visibility" : "public",
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Stairway to Heaven", "Shape of You" ]
   }, {
     "name" : "My second playlist",
-    "songs" : [ ],
     "visibility" : "public",
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Shape of You", "Stairway to Heaven" ]
   } ]
 }, null, {
   "command" : "search",
@@ -228,24 +208,14 @@
   "user" : "bob35",
   "timestamp" : 1900,
   "result" : [ {
-    "name" : "My playlist",
-    "songs" : [ ],
-    "visibility" : "public",
-    "followers" : 0
-  }, {
-    "name" : "Colaj",
-    "songs" : [ ],
-    "visibility" : "public",
-    "followers" : 0
-  }, {
     "name" : "My first playlist",
-    "songs" : [ ],
     "visibility" : "public",
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Stairway to Heaven", "Shape of You" ]
   }, {
     "name" : "My second playlist",
-    "songs" : [ ],
     "visibility" : "public",
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Shape of You", "Stairway to Heaven" ]
   } ]
 } ]

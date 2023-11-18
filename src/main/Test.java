@@ -29,10 +29,14 @@ public final class Test {
             Arrays.sort(inputDir);
 
             Scanner scanner = new Scanner(System.in);
-            String fileName = scanner.next();
+            //String fileName = scanner.next();
+            //String fileName = "test06_playPause_error.json";
+            Main.test_no = 7;
             for (File file : inputDir) {
-                if (file.getName().equalsIgnoreCase(fileName)) {
-                    Main.action(file.getAbsolutePath(), CheckerConstants.OUT_FILE);
+                if (/*file.getName().equalsIgnoreCase(fileName)*/ file.getName().contains(((Integer)Main.test_no).toString())) {
+                    //System.out.println(file.getAbsolutePath());
+                    //Main.action(file.getAbsolutePath(), CheckerConstants.OUT_FILE);
+                    Main.action(file.getName(), CheckerConstants.OUT_FILE);
                     break;
                 }
             }

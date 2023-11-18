@@ -1,6 +1,6 @@
 package commandManager.input.commandStrategies;
 
-import commandManager.input.InputCommand;
+import commandManager.input.Input;
 import commandManager.input.attributes.Filters;
 import data.Database;
 import data.entities.audio.File;
@@ -8,7 +8,7 @@ import data.entities.audio.audioFiles.AudioFile;
 import data.entities.audio.audioCollections.Playlist;
 import data.entities.audio.audioCollections.Podcast;
 import data.entities.audio.audioFiles.Song;
-import commandManager.output.OutputCommand;
+import commandManager.output.Output;
 import data.entities.user.User;
 
 import java.util.ArrayList;
@@ -16,11 +16,11 @@ import java.util.ArrayList;
 public final class SearchStrategy implements CommandStrategy {
     private static final int resCountMax = 5;
 
-    public OutputCommand action(InputCommand inputCommand) {
+    public Output action(Input inputCommand) {
         User user = Database.getInstance().findUser(inputCommand.getUsername());
         ArrayList<File> searchResults = user.getSearchResults();
 
-        user.unloadAudioFile();
+        user.unloadAudioFile(inputCommand.getTimestamp());
         searchResults.clear();
 
         switch (inputCommand.getType()) {
@@ -57,11 +57,11 @@ public final class SearchStrategy implements CommandStrategy {
                 break;
         }
 
-        return new OutputCommand(inputCommand, "Search returned " + searchResults.size() + " results",
-                                 AudioFile.getFileNames(searchResults));
+        return new Output(inputCommand, "Search returned " + searchResults.size() + " results",
+                          AudioFile.getFileNames(searchResults));
     }
 
-    private static boolean checkSongFilters(Song song, Filters filters, InputCommand inputCommand) {
+    private static boolean checkSongFilters(Song song, Filters filters, Input inputCommand) {
         return filterSongByName(song, filters.getName(), inputCommand) &&
                 filterSongByAlbum(song, filters.getAlbum(), inputCommand) &&
                 filterSongByTags(song, filters.getTags(), inputCommand) &&
@@ -71,7 +71,7 @@ public final class SearchStrategy implements CommandStrategy {
                 filterSongByArtist(song, filters.getArtist(), inputCommand);
     }
 
-    private static boolean filterSongByName(Song song, String searchedSong, InputCommand inputCommand) {
+    private static boolean filterSongByName(Song song, String searchedSong, Input inputCommand) {
         if (inputCommand.getFilters().getName() != null) {
             return song.getName().startsWith(searchedSong);
         } else {
@@ -79,7 +79,7 @@ public final class SearchStrategy implements CommandStrategy {
         }
     }
 
-    private static boolean filterSongByAlbum(Song song, String searchedAlbum, InputCommand inputCommand) {
+    private static boolean filterSongByAlbum(Song song, String searchedAlbum, Input inputCommand) {
         if (inputCommand.getFilters().getAlbum() != null) {
             return song.getAlbum().equals(searchedAlbum);
         } else {
@@ -87,7 +87,7 @@ public final class SearchStrategy implements CommandStrategy {
         }
     }
 
-    private static boolean filterSongByTags(Song song, ArrayList<String> searchedTags, InputCommand inputCommand) {
+    private static boolean filterSongByTags(Song song, ArrayList<String> searchedTags, Input inputCommand) {
         if (!inputCommand.getFilters().getTags().isEmpty()) {
             return song.getTags().containsAll(searchedTags);
         } else {
@@ -95,15 +95,15 @@ public final class SearchStrategy implements CommandStrategy {
         }
     }
 
-    private static boolean filterSongByLyrics(Song song, String searchedLyrics, InputCommand inputCommand) {
+    private static boolean filterSongByLyrics(Song song, String searchedLyrics, Input inputCommand) {
         if (inputCommand.getFilters().getLyrics() != null) {
-            return song.getLyrics().contains(searchedLyrics);
+            return song.getLyrics().toLowerCase().contains(searchedLyrics.toLowerCase());
         } else {
             return true;
         }
     }
 
-    private static boolean filterSongByGenre(Song song, String searchedGenre, InputCommand inputCommand) {
+    private static boolean filterSongByGenre(Song song, String searchedGenre, Input inputCommand) {
         if (inputCommand.getFilters().getGenre() != null) {
             return song.getGenre().equalsIgnoreCase(searchedGenre);
         } else {
@@ -111,7 +111,7 @@ public final class SearchStrategy implements CommandStrategy {
         }
     }
 
-    private static boolean filterSongByReleaseYear(Song song, String searchedReleaseYear, InputCommand inputCommand) {
+    private static boolean filterSongByReleaseYear(Song song, String searchedReleaseYear, Input inputCommand) {
         if (inputCommand.getFilters().getReleaseYear() != null) {
             int comparator = searchedReleaseYear.charAt(0) == '>' ? 1 : -1;
             int searchedYear = Integer.parseInt(searchedReleaseYear.substring(1));
@@ -121,7 +121,7 @@ public final class SearchStrategy implements CommandStrategy {
         }
     }
 
-    private static boolean filterSongByArtist(Song song, String searchedArtist, InputCommand inputCommand) {
+    private static boolean filterSongByArtist(Song song, String searchedArtist, Input inputCommand) {
         if (inputCommand.getFilters().getArtist() != null) {
             return song.getArtist().equals(searchedArtist);
         } else {
@@ -129,12 +129,12 @@ public final class SearchStrategy implements CommandStrategy {
         }
     }
 
-    private static boolean checkPodcastFilters(Podcast podcast, Filters filters, InputCommand inputCommand) {
+    private static boolean checkPodcastFilters(Podcast podcast, Filters filters, Input inputCommand) {
         return filterPodcastByName(podcast, filters.getName(), inputCommand) &&
                 filterPodcastByOwner(podcast, filters.getOwner(), inputCommand);
     }
 
-    private static boolean filterPodcastByName(Podcast podcast, String searchedPodcast, InputCommand inputCommand) {
+    private static boolean filterPodcastByName(Podcast podcast, String searchedPodcast, Input inputCommand) {
         if (inputCommand.getFilters().getName() != null) {
             return podcast.getName().startsWith(searchedPodcast);
         } else {
@@ -142,7 +142,7 @@ public final class SearchStrategy implements CommandStrategy {
         }
     }
 
-    private static boolean filterPodcastByOwner(Podcast podcast, String searchedOwner, InputCommand inputCommand) {
+    private static boolean filterPodcastByOwner(Podcast podcast, String searchedOwner, Input inputCommand) {
         if (inputCommand.getFilters().getOwner() != null) {
             return podcast.getOwner().equals(searchedOwner);
         } else {
@@ -150,12 +150,12 @@ public final class SearchStrategy implements CommandStrategy {
         }
     }
 
-    private static boolean checkPlaylistFilters(Playlist playlist, Filters filters, InputCommand inputCommand) {
+    private static boolean checkPlaylistFilters(Playlist playlist, Filters filters, Input inputCommand) {
         return filterPlaylistByName(playlist, filters.getName(), inputCommand) &&
                 filterPlaylistByOwner(playlist, filters.getOwner(), inputCommand);
     }
 
-    private static boolean filterPlaylistByName(Playlist playlist, String searchedPlaylist, InputCommand inputCommand) {
+    private static boolean filterPlaylistByName(Playlist playlist, String searchedPlaylist, Input inputCommand) {
         if (inputCommand.getFilters().getName() != null) {
             return playlist.getName().startsWith(searchedPlaylist);
         } else {
@@ -163,7 +163,7 @@ public final class SearchStrategy implements CommandStrategy {
         }
     }
 
-    private static boolean filterPlaylistByOwner(Playlist playlist, String searchedOwner, InputCommand inputCommand) {
+    private static boolean filterPlaylistByOwner(Playlist playlist, String searchedOwner, Input inputCommand) {
         if (inputCommand.getFilters().getOwner() != null) {
             return playlist.getOwner().equals(searchedOwner);
         } else {

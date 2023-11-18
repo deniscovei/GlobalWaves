@@ -1,10 +1,14 @@
 package data.entities.audio;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
+import utils.Constants;
 
 @Getter
 public abstract class File {
     protected String name = null;
+    @JsonIgnore
+    protected Constants.FileType fileType = null;
 
     public File() {
 
@@ -13,12 +17,4 @@ public abstract class File {
     public File(String name) {
         this.name = name;
     }
-
-    public abstract void play(int timestamp);
-
-    public abstract boolean isPlaying();
-
-    public abstract void pause(int timestamp);
-
-    public abstract int getRemainedTime(int timestamp);
 }

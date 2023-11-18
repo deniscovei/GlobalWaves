@@ -9,9 +9,11 @@ import fileio.input.PodcastInput;
 import fileio.input.SongInput;
 import fileio.input.UserInput;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.util.ArrayList;
 
+@Setter
 @Getter
 public class Database {
     private static Database instance;
@@ -60,22 +62,6 @@ public class Database {
         }
     }
 
-    public void setUsers(final ArrayList <User> users) {
-        this.users.addAll(users);
-    }
-
-    public void setSongs(final ArrayList <Song> songs) {
-        this.songs.addAll(songs);
-    }
-
-    public void setPodcasts(final ArrayList <Podcast> podcasts) {
-        this.podcasts.addAll(podcasts);
-    }
-
-    public void setPlaylists(final ArrayList <Playlist> playlists) {
-        this.playlists.addAll(playlists);
-    }
-
     public void addUser(User user) {
         getUsers().add(user);
     }
@@ -102,5 +88,9 @@ public class Database {
         for (PodcastInput podcast : library.getPodcasts()) {
             addPodcast(new Podcast(podcast));
         }
+    }
+
+    public void removePlaylists() {
+        getPlaylists().clear();
     }
 }

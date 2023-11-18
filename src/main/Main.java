@@ -1,7 +1,7 @@
 package main;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import commandManager.input.InputCommand;
+import commandManager.input.Input;
 import checker.Checker;
 import checker.CheckerConstants;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -9,6 +9,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import data.Database;
+import data.entities.user.User;
 import fileio.input.LibraryInput;
 
 import java.io.File;
@@ -65,7 +66,7 @@ public final class Main {
 
         Checker.calculateScore();
     }
-
+    static int test_no = 1;
     /**
      * @param filePathInput for input file
      * @param filePathOutput for output file
@@ -80,14 +81,21 @@ public final class Main {
         // upload the library to the database
         if (!Database.instantiated()) {
             Database.getInstance().upload(library);
+        } else {
+            for (User user : Database.getInstance().getUsers()) {
+                user.deleteData();
+            }
+            Database.getInstance().removePlaylists();
         }
 
         ArrayNode outputs = objectMapper.createArrayNode();
 
         String inputPath = CheckerConstants.TESTS_PATH + filePathInput;
-        ArrayList <InputCommand> commandsInput = objectMapper.readValue(new File(inputPath), new TypeReference<>() {});
-        for (InputCommand inputCommand : commandsInput) {
-            outputs.add(objectMapper.valueToTree(inputCommand.action()));
+        System.out.println("-------------------------------------- Test " + test_no + " --------------------------------------");
+        test_no++;
+        ArrayList <Input> inputs = objectMapper.readValue(new File(inputPath), new TypeReference<>() {});
+        for (Input input : inputs) {
+            outputs.add(objectMapper.valueToTree(input.action()));
         }
 
         ObjectWriter objectWriter = objectMapper.writerWithDefaultPrettyPrinter();

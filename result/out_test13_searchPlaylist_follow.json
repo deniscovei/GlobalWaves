@@ -23,7 +23,7 @@
   "command" : "addRemoveInPlaylist",
   "user" : "bob35",
   "timestamp" : 240,
-  "message" : "Successfully removed from playlist."
+  "message" : "Successfully added to playlist."
 }, {
   "command" : "select",
   "user" : "bob35",
@@ -38,7 +38,7 @@
   "command" : "addRemoveInPlaylist",
   "user" : "bob35",
   "timestamp" : 340,
-  "message" : "Successfully added to playlist."
+  "message" : "Successfully removed from playlist."
 }, {
   "command" : "search",
   "user" : "bob35",
@@ -59,7 +59,7 @@
   "command" : "addRemoveInPlaylist",
   "user" : "bob35",
   "timestamp" : 440,
-  "message" : "Successfully removed from playlist."
+  "message" : "Successfully added to playlist."
 }, {
   "command" : "createPlaylist",
   "user" : "bob35",
@@ -132,7 +132,7 @@
   "command" : "addRemoveInPlaylist",
   "user" : "carol19",
   "timestamp" : 940,
-  "message" : "Successfully added to playlist."
+  "message" : "Successfully removed from playlist."
 }, {
   "command" : "search",
   "user" : "carol19",
@@ -149,25 +149,15 @@
   "user" : "bob35",
   "timestamp" : 1060,
   "result" : [ {
-    "name" : "My playlist",
-    "songs" : [ ],
-    "visibility" : "public",
-    "followers" : 0
-  }, {
-    "name" : "Colaj",
-    "songs" : [ ],
-    "visibility" : "public",
-    "followers" : 0
-  }, {
     "name" : "My first playlist",
-    "songs" : [ ],
     "visibility" : "public",
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ ]
   }, {
     "name" : "My second playlist",
-    "songs" : [ ],
     "visibility" : "public",
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ ]
   } ]
 }, {
   "command" : "showPlaylists",
@@ -175,34 +165,24 @@
   "timestamp" : 1100,
   "result" : [ {
     "name" : "The best",
-    "songs" : [ ],
     "visibility" : "public",
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ ]
   } ]
 }, null, {
   "command" : "showPlaylists",
   "user" : "bob35",
   "timestamp" : 1160,
   "result" : [ {
-    "name" : "My playlist",
-    "songs" : [ ],
-    "visibility" : "public",
-    "followers" : 0
-  }, {
-    "name" : "Colaj",
-    "songs" : [ ],
-    "visibility" : "public",
-    "followers" : 0
-  }, {
     "name" : "My first playlist",
-    "songs" : [ ],
     "visibility" : "public",
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ ]
   }, {
     "name" : "My second playlist",
-    "songs" : [ ],
     "visibility" : "public",
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ ]
   } ]
 }, {
   "command" : "search",
@@ -232,9 +212,9 @@
   "timestamp" : 1370,
   "result" : [ {
     "name" : "The best",
-    "songs" : [ ],
     "visibility" : "public",
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ ]
   } ]
 }, null, {
   "command" : "showPlaylists",
@@ -242,9 +222,9 @@
   "timestamp" : 1500,
   "result" : [ {
     "name" : "The best",
-    "songs" : [ ],
     "visibility" : "public",
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ ]
   } ]
 }, null, {
   "command" : "showPlaylists",
@@ -252,8 +232,8 @@
   "timestamp" : 1600,
   "result" : [ {
     "name" : "The best",
-    "songs" : [ ],
     "visibility" : "public",
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ ]
   } ]
 } ]

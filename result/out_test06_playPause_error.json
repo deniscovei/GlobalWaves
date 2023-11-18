@@ -8,7 +8,7 @@
   "user" : "emily30",
   "timestamp" : 3215,
   "message" : "Search returned 5 results",
-  "results" : [ "Shape of You", "Dream On", "Black Dog", "Sad But True", "Maps" ]
+  "results" : [ "Shape of You", "Stairway to Heaven", "Dream On", "Black Dog", "Sad But True" ]
 }, {
   "command" : "select",
   "user" : "emily30",
@@ -28,14 +28,14 @@
   "command" : "load",
   "user" : "emily30",
   "timestamp" : 3285,
-  "message" : "Playback loaded successfully."
+  "message" : "Please select a source before attempting to load."
 }, {
   "command" : "status",
   "user" : "emily30",
   "timestamp" : 3290,
   "stats" : {
     "name" : "Shape of You",
-    "remainedTime" : 3468,
+    "remainedTime" : 208,
     "repeat" : "No Repeat",
     "shuffle" : false,
     "paused" : false
@@ -50,18 +50,18 @@
   "command" : "load",
   "user" : "emily30",
   "timestamp" : 3345,
-  "message" : "Playback loaded successfully."
+  "message" : "Please select a source before attempting to load."
 }, {
   "command" : "search",
   "user" : "emily30",
   "timestamp" : 3375,
-  "message" : "Search returned 2 results",
-  "results" : [ "Playlist alb pentru zile negre", "LoFi music" ]
+  "message" : "Search returned 1 results",
+  "results" : [ "LoFi music" ]
 }, {
   "command" : "load",
   "user" : "emily30",
   "timestamp" : 3385,
-  "message" : "Playback loaded successfully."
+  "message" : "Please select a source before attempting to load."
 }, {
   "command" : "search",
   "user" : "emily30",
@@ -72,7 +72,7 @@
   "command" : "load",
   "user" : "emily30",
   "timestamp" : 3545,
-  "message" : "Playback loaded successfully."
+  "message" : "Please select a source before attempting to load."
 }, {
   "command" : "select",
   "user" : "emily30",
@@ -116,7 +116,7 @@
   "timestamp" : 3970,
   "stats" : {
     "name" : "Shape of You",
-    "remainedTime" : 16888,
+    "remainedTime" : 208,
     "repeat" : "No Repeat",
     "shuffle" : false,
     "paused" : false
@@ -142,17 +142,17 @@
   "user" : "emily30",
   "timestamp" : 4170,
   "stats" : {
-    "name" : "",
-    "remainedTime" : 0,
+    "name" : "Shape of You",
+    "remainedTime" : 168,
     "repeat" : "No Repeat",
     "shuffle" : false,
-    "paused" : true
+    "paused" : false
   }
 }, {
   "command" : "load",
   "user" : "emily30",
   "timestamp" : 4245,
-  "message" : "Playback loaded successfully."
+  "message" : "Please select a source before attempting to load."
 }, {
   "command" : "search",
   "user" : "emily30",
@@ -163,7 +163,7 @@
   "command" : "load",
   "user" : "emily30",
   "timestamp" : 4325,
-  "message" : "Playback loaded successfully."
+  "message" : "Please select a source before attempting to load."
 }, {
   "command" : "status",
   "user" : "emily30",

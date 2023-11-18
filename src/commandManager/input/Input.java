@@ -1,9 +1,9 @@
 package commandManager.input;
 
-import commandManager.Command;
+import commandManager.IO_Entry;
 import commandManager.input.attributes.Filters;
 import commandManager.input.commandStrategies.CommandStrategy;
-import commandManager.output.OutputCommand;
+import commandManager.output.Output;
 import data.Database;
 import data.entities.user.User;
 import lombok.Getter;
@@ -11,7 +11,7 @@ import lombok.Setter;
 
 @Setter
 @Getter
-public class InputCommand extends Command {
+public class Input extends IO_Entry {
     private String username = null;
     private String type = null;
     private Filters filters = null;
@@ -20,19 +20,24 @@ public class InputCommand extends Command {
     private int playlistId = 0;
     private String playlistName = null;
 
-    public InputCommand() {
+    public Input() {
     }
 
-    public InputCommand(String command, String username, Integer timestamp) {
+    public Input(String command, String username, Integer timestamp) {
         super(command, timestamp);
         this.username = username;
     }
 
-    public OutputCommand action() {
-        return commandStrategyAction(getCommand());
+    public Output action() {
+        Output output = commandStrategyAction(getCommand());
+        User user = Database.getInstance().findUser(getUsername());
+        if (user != null) {
+            user.setPreviousCommand(getCommand());
+        }
+        return output;
     }
 
-    private OutputCommand commandStrategyAction(String inputCommand) {
+    private Output commandStrategyAction(String inputCommand) {
         try {
             String inputCommandMatch = inputCommand.substring(0, 1).toUpperCase() + inputCommand.substring(1);
             String packagePath = "commandManager.input.commandStrategies.";
@@ -41,7 +46,9 @@ public class InputCommand extends Command {
             CommandStrategy strategy = (CommandStrategy) strategyClass.getDeclaredConstructor().newInstance();
             return strategy.action(this);
         } catch (Exception e) {
-            System.out.println("Error: Command \"" + inputCommand + "\" not found.");
+            if (e instanceof NullPointerException)
+                System.out.println(e);
+            System.out.println("Error: Command \"" + inputCommand + "\" not found or failed.");
             return null;
         }
     }

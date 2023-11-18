@@ -5,14 +5,14 @@ import lombok.Setter;
 
 @Setter
 @Getter
-public abstract class Command {
+public abstract class IO_Entry {
     protected String command = null;
     protected int timestamp = 0;
 
-    public Command() {
+    public IO_Entry() {
     }
 
-    public Command(final String command, final Integer timestamp) {
+    public IO_Entry(final String command, final Integer timestamp) {
         this.command = command;
         this.timestamp = timestamp;
     }

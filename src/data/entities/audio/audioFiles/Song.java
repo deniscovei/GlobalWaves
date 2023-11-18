@@ -7,6 +7,7 @@ import data.entities.audio.audioFiles.AudioFile;
 import data.entities.user.User;
 import fileio.input.SongInput;
 import lombok.Getter;
+import utils.Constants;
 
 import java.util.ArrayList;
 
@@ -29,10 +30,12 @@ public class Song extends AudioFile {
     private final ArrayList <User> userWhoLiked = new ArrayList<>();
 
     public Song() {
+        this.fileType = Constants.FileType.SONG;
     }
 
     public Song(final SongInput song) {
         super(song.getName(), song.getDuration());
+        this.fileType = Constants.FileType.SONG;
         this.album = song.getAlbum();
         this.tags.addAll(song.getTags());
         this.lyrics = song.getLyrics();
