@@ -106,15 +106,12 @@ public class PlayerFile {
 
             prepareIndexes();
 
-            boolean firstSetted = false;
-            for (int id = indexes.indexOf(currentPlayingFileId); id < audioCollection.getAudioFiles().size(); id = nextId(id, indexes)) {
-                int currId = firstSetted ? id : indexes.get(id);
-                firstSetted = true;
-                AudioFile currentFile = audioCollection.getAudioFiles().get(currId);
+            for (int id = currentPlayingFileId; id < audioCollection.getAudioFiles().size(); id = nextId(id, indexes)) {
+                AudioFile currentFile = audioCollection.getAudioFiles().get(id);
                 if (getRemainedTime(currentFile, timestamp) < 0) {
                     timePassed += currentFile.getDuration();
                 } else {
-                    currentPlayingFileId = currId;
+                    currentPlayingFileId = id;
                     return currentPlayingFile;
                 }
             }
@@ -126,6 +123,9 @@ public class PlayerFile {
     }
 
     private int nextId(int id, ArrayList<Integer> indexes) {
+        if (isShuffleActivated()) {
+            id = indexes.indexOf(id);
+        }
         int size = ((AudioCollection) loadedFile).getAudioFiles().size();
         switch (loadedFile.getFileType()) {
             case PLAYLIST:
@@ -135,7 +135,7 @@ public class PlayerFile {
                     case Constants.REPEAT_ALL:
                         return indexes.get((id + 1) % size);
                     case Constants.REPEAT_CURRENT_SONG:
-                        return id;
+                        return indexes.get(id); // AICI
                 }
             case PODCAST:
                 switch (repeatState) {
@@ -144,10 +144,8 @@ public class PlayerFile {
                     case Constants.REPEAT_ONCE:
                         if (indexes.get(id + 1) >= size) {
                             setRepeatState(Constants.NO_REPEAT);
-                            return indexes.get(0);
-                        } else {
-                            return indexes.get(id + 1);
                         }
+                        return indexes.get((id + 1) % size);
                     case Constants.REPEAT_INFINITE:
                         return indexes.get((id + 1) % size);
                 }
@@ -206,18 +204,19 @@ public class PlayerFile {
 
     public void prev(int timestamp) {
         prepareIndexes();
-        if (currentPlayingFileId != indexes.get(0) && getCurrTimeOfFile(timestamp) == 0) {
+        int id = currentPlayingFileId;
+        if (isShuffleActivated()) {
+            id = indexes.indexOf(id);
+        }
+        if (id != 0 && getCurrTimeOfFile(timestamp) == 0) { // aici
             setOffset(getOffset() - getCurrentPlayingFile(timestamp).getDuration());
             timePassed -= getCurrentPlayingFile(timestamp).getDuration();
-            if (getRepeatState() == Constants.NO_REPEAT) {
-                currentPlayingFileId = indexes.get(currentPlayingFileId - 1);
-            }
-        }
-        if (isPaused()) {
-            //setOffset(getOffset() - getCurrTimeOfFile(timestamp));
-            play(timestamp);
+            currentPlayingFileId = indexes.get(id - 1); // aici
         }
         setOffset(getOffset() - getCurrTimeOfFile(timestamp));
+        if (isPaused()) {
+            play(timestamp);
+        }
     }
 
     public void forward(int timestamp) {

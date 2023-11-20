@@ -4829,17 +4829,17 @@
   "command" : "next",
   "user" : "bob35",
   "timestamp" : 5610,
-  "message" : "Skipped to next track successfully. The current track is The Unforgiven."
+  "message" : "Please load a source before skipping to the next track."
 }, {
   "command" : "status",
   "user" : "bob35",
   "timestamp" : 5610,
   "stats" : {
-    "name" : "The Unforgiven",
-    "remainedTime" : 386,
+    "name" : "",
+    "remainedTime" : 0,
     "repeat" : "No Repeat",
-    "shuffle" : true,
-    "paused" : false
+    "shuffle" : false,
+    "paused" : true
   }
 }, {
   "command" : "switchVisibility",
@@ -4995,7 +4995,7 @@
   "command" : "like",
   "user" : "alice22",
   "timestamp" : 5700,
-  "message" : "Unlike registered successfully."
+  "message" : "Like registered successfully."
 }, {
   "command" : "status",
   "user" : "alice22",
@@ -5011,17 +5011,17 @@
   "command" : "next",
   "user" : "bob35",
   "timestamp" : 5710,
-  "message" : "Skipped to next track successfully. The current track is Bohemian Rhapsody."
+  "message" : "Please load a source before skipping to the next track."
 }, {
   "command" : "status",
   "user" : "bob35",
   "timestamp" : 5710,
   "stats" : {
-    "name" : "Bohemian Rhapsody",
-    "remainedTime" : 355,
+    "name" : "",
+    "remainedTime" : 0,
     "repeat" : "No Repeat",
-    "shuffle" : true,
-    "paused" : false
+    "shuffle" : false,
+    "paused" : true
   }
 }, {
   "command" : "shuffle",
@@ -5192,17 +5192,17 @@
   "command" : "prev",
   "user" : "bob35",
   "timestamp" : 5810,
-  "message" : "Returned to previous track successfully. The current track is Bohemian Rhapsody."
+  "message" : "Please load a source before returning to the previous track."
 }, {
   "command" : "status",
   "user" : "bob35",
   "timestamp" : 5810,
   "stats" : {
-    "name" : "Bohemian Rhapsody",
-    "remainedTime" : 355,
+    "name" : "",
+    "remainedTime" : 0,
     "repeat" : "No Repeat",
-    "shuffle" : true,
-    "paused" : false
+    "shuffle" : false,
+    "paused" : true
   }
 }, {
   "command" : "playPause",
@@ -5385,17 +5385,17 @@
   "command" : "like",
   "user" : "bob35",
   "timestamp" : 5910,
-  "message" : "Like registered successfully."
+  "message" : "Please load a source before liking or unliking."
 }, {
   "command" : "status",
   "user" : "bob35",
   "timestamp" : 5910,
   "stats" : {
-    "name" : "Bohemian Rhapsody",
-    "remainedTime" : 255,
+    "name" : "",
+    "remainedTime" : 0,
     "repeat" : "No Repeat",
-    "shuffle" : true,
-    "paused" : false
+    "shuffle" : false,
+    "paused" : true
   }
 }, {
   "command" : "switchVisibility",
@@ -5556,17 +5556,17 @@
   "command" : "shuffle",
   "user" : "bob35",
   "timestamp" : 6010,
-  "message" : "Shuffle function deactivated successfully."
+  "message" : "Please load a source before using the shuffle function."
 }, {
   "command" : "status",
   "user" : "bob35",
   "timestamp" : 6010,
   "stats" : {
-    "name" : "Bohemian Rhapsody",
-    "remainedTime" : 155,
+    "name" : "",
+    "remainedTime" : 0,
     "repeat" : "No Repeat",
     "shuffle" : false,
-    "paused" : false
+    "paused" : true
   }
 }, {
   "command" : "like",
@@ -5689,14 +5689,14 @@
   "command" : "next",
   "user" : "jack29",
   "timestamp" : 6090,
-  "message" : "Skipped to next track successfully. The current track is Love Story."
+  "message" : "Skipped to next track successfully. The current track is Big Pimpin'."
 }, {
   "command" : "status",
   "user" : "jack29",
   "timestamp" : 6090,
   "stats" : {
-    "name" : "Love Story",
-    "remainedTime" : 236,
+    "name" : "Big Pimpin'",
+    "remainedTime" : 284,
     "repeat" : "No Repeat",
     "shuffle" : true,
     "paused" : false
@@ -5721,17 +5721,17 @@
   "command" : "shuffle",
   "user" : "bob35",
   "timestamp" : 6110,
-  "message" : "Shuffle function activated successfully."
+  "message" : "Please load a source before using the shuffle function."
 }, {
   "command" : "status",
   "user" : "bob35",
   "timestamp" : 6110,
   "stats" : {
-    "name" : "Bohemian Rhapsody",
-    "remainedTime" : 55,
+    "name" : "",
+    "remainedTime" : 0,
     "repeat" : "No Repeat",
-    "shuffle" : true,
-    "paused" : false
+    "shuffle" : false,
+    "paused" : true
   }
 }, {
   "command" : "playPause",
@@ -5876,8 +5876,8 @@
   "user" : "jack29",
   "timestamp" : 6190,
   "stats" : {
-    "name" : "Love Story",
-    "remainedTime" : 136,
+    "name" : "Big Pimpin'",
+    "remainedTime" : 184,
     "repeat" : "Repeat All",
     "shuffle" : true,
     "paused" : false
@@ -5907,17 +5907,17 @@
   "command" : "like",
   "user" : "bob35",
   "timestamp" : 6210,
-  "message" : "Unlike registered successfully."
+  "message" : "Please load a source before liking or unliking."
 }, {
   "command" : "status",
   "user" : "bob35",
   "timestamp" : 6210,
   "stats" : {
-    "name" : "The Unforgiven",
-    "remainedTime" : 341,
+    "name" : "",
+    "remainedTime" : 0,
     "repeat" : "No Repeat",
-    "shuffle" : true,
-    "paused" : false
+    "shuffle" : false,
+    "paused" : true
   }
 }, {
   "command" : "playPause",
@@ -5997,14 +5997,14 @@
   "command" : "prev",
   "user" : "grace25",
   "timestamp" : 6260,
-  "message" : "Returned to previous track successfully. The current track is Stairway to Heaven."
+  "message" : "Returned to previous track successfully. The current track is Start Me Up."
 }, {
   "command" : "status",
   "user" : "grace25",
   "timestamp" : 6260,
   "stats" : {
-    "name" : "Stairway to Heaven",
-    "remainedTime" : 482,
+    "name" : "Start Me Up",
+    "remainedTime" : 212,
     "repeat" : "Repeat All",
     "shuffle" : false,
     "paused" : false
@@ -6051,8 +6051,8 @@
   "user" : "jack29",
   "timestamp" : 6290,
   "stats" : {
-    "name" : "Love Story",
-    "remainedTime" : 36,
+    "name" : "Big Pimpin'",
+    "remainedTime" : 84,
     "repeat" : "Repeat All",
     "shuffle" : true,
     "paused" : false
@@ -6062,8 +6062,8 @@
   "user" : "jack29",
   "timestamp" : 6290,
   "stats" : {
-    "name" : "Love Story",
-    "remainedTime" : 36,
+    "name" : "Big Pimpin'",
+    "remainedTime" : 84,
     "repeat" : "Repeat All",
     "shuffle" : true,
     "paused" : false
@@ -6094,17 +6094,17 @@
   "command" : "like",
   "user" : "bob35",
   "timestamp" : 6310,
-  "message" : "Like registered successfully."
+  "message" : "Please load a source before liking or unliking."
 }, {
   "command" : "status",
   "user" : "bob35",
   "timestamp" : 6310,
   "stats" : {
-    "name" : "The Unforgiven",
-    "remainedTime" : 241,
+    "name" : "",
+    "remainedTime" : 0,
     "repeat" : "No Repeat",
-    "shuffle" : true,
-    "paused" : false
+    "shuffle" : false,
+    "paused" : true
   }
 }, {
   "command" : "like",
@@ -6174,19 +6174,19 @@
   "command" : "prev",
   "user" : "grace25",
   "timestamp" : 6360,
-  "message" : "Returned to previous track successfully. The current track is Stairway to Heaven."
+  "message" : "Returned to previous track successfully. The current track is Start Me Up."
 }, {
   "command" : "prev",
   "user" : "grace25",
   "timestamp" : 6360,
-  "message" : "Returned to previous track successfully. The current track is Stairway to Heaven."
+  "message" : "Returned to previous track successfully. The current track is Dream On."
 }, {
   "command" : "status",
   "user" : "grace25",
   "timestamp" : 6360,
   "stats" : {
-    "name" : "Stairway to Heaven",
-    "remainedTime" : 482,
+    "name" : "Dream On",
+    "remainedTime" : 267,
     "repeat" : "Repeat All",
     "shuffle" : false,
     "paused" : false
@@ -6233,14 +6233,14 @@
   "command" : "prev",
   "user" : "jack29",
   "timestamp" : 6390,
-  "message" : "Returned to previous track successfully. The current track is The Man."
+  "message" : "Returned to previous track successfully. The current track is Money Trees."
 }, {
   "command" : "status",
   "user" : "jack29",
   "timestamp" : 6390,
   "stats" : {
-    "name" : "The Man",
-    "remainedTime" : 190,
+    "name" : "Money Trees",
+    "remainedTime" : 387,
     "repeat" : "Repeat All",
     "shuffle" : true,
     "paused" : false
@@ -6266,22 +6266,22 @@
   "user" : "bob35",
   "timestamp" : 6410,
   "stats" : {
-    "name" : "The Unforgiven",
-    "remainedTime" : 141,
+    "name" : "",
+    "remainedTime" : 0,
     "repeat" : "No Repeat",
-    "shuffle" : true,
-    "paused" : false
+    "shuffle" : false,
+    "paused" : true
   }
 }, {
   "command" : "status",
   "user" : "bob35",
   "timestamp" : 6410,
   "stats" : {
-    "name" : "The Unforgiven",
-    "remainedTime" : 141,
+    "name" : "",
+    "remainedTime" : 0,
     "repeat" : "No Repeat",
-    "shuffle" : true,
-    "paused" : false
+    "shuffle" : false,
+    "paused" : true
   }
 }, {
   "command" : "switchVisibility",
@@ -6362,8 +6362,8 @@
   "user" : "grace25",
   "timestamp" : 6460,
   "stats" : {
-    "name" : "Stairway to Heaven",
-    "remainedTime" : 382,
+    "name" : "Dream On",
+    "remainedTime" : 167,
     "repeat" : "Repeat All",
     "shuffle" : true,
     "paused" : false
@@ -6377,14 +6377,14 @@
   "command" : "next",
   "user" : "henry26",
   "timestamp" : 6470,
-  "message" : "Skipped to next track successfully. The current track is Black Dog."
+  "message" : "Skipped to next track successfully. The current track is Whatever You Need."
 }, {
   "command" : "status",
   "user" : "henry26",
   "timestamp" : 6470,
   "stats" : {
-    "name" : "Black Dog",
-    "remainedTime" : 294,
+    "name" : "Whatever You Need",
+    "remainedTime" : 210,
     "repeat" : "Repeat All",
     "shuffle" : true,
     "paused" : false
@@ -6409,14 +6409,14 @@
   "command" : "like",
   "user" : "jack29",
   "timestamp" : 6490,
-  "message" : "Unlike registered successfully."
+  "message" : "Like registered successfully."
 }, {
   "command" : "status",
   "user" : "jack29",
   "timestamp" : 6490,
   "stats" : {
-    "name" : "The Man",
-    "remainedTime" : 90,
+    "name" : "Money Trees",
+    "remainedTime" : 287,
     "repeat" : "Repeat All",
     "shuffle" : true,
     "paused" : false
@@ -6441,17 +6441,17 @@
   "command" : "next",
   "user" : "bob35",
   "timestamp" : 6510,
-  "message" : "Skipped to next track successfully. The current track is The Unforgiven."
+  "message" : "Please load a source before skipping to the next track."
 }, {
   "command" : "status",
   "user" : "bob35",
   "timestamp" : 6510,
   "stats" : {
-    "name" : "The Unforgiven",
-    "remainedTime" : 386,
+    "name" : "",
+    "remainedTime" : 0,
     "repeat" : "No Repeat",
-    "shuffle" : true,
-    "paused" : false
+    "shuffle" : false,
+    "paused" : true
   }
 }, {
   "command" : "switchVisibility",
@@ -6526,7 +6526,7 @@
   "command" : "prev",
   "user" : "grace25",
   "timestamp" : 6560,
-  "message" : "Returned to previous track successfully. The current track is Stairway to Heaven."
+  "message" : "Returned to previous track successfully. The current track is Dream On."
 }, {
   "command" : "prev",
   "user" : "grace25",
@@ -6553,8 +6553,8 @@
   "user" : "henry26",
   "timestamp" : 6570,
   "stats" : {
-    "name" : "Black Dog",
-    "remainedTime" : 194,
+    "name" : "Whatever You Need",
+    "remainedTime" : 110,
     "repeat" : "Repeat Current Song",
     "shuffle" : true,
     "paused" : false
@@ -6580,8 +6580,8 @@
   "user" : "jack29",
   "timestamp" : 6590,
   "stats" : {
-    "name" : "Shape of You",
-    "remainedTime" : 223,
+    "name" : "Money Trees",
+    "remainedTime" : 187,
     "repeat" : "Repeat All",
     "shuffle" : true,
     "paused" : false
@@ -6591,8 +6591,8 @@
   "user" : "jack29",
   "timestamp" : 6590,
   "stats" : {
-    "name" : "Shape of You",
-    "remainedTime" : 223,
+    "name" : "Money Trees",
+    "remainedTime" : 187,
     "repeat" : "Repeat All",
     "shuffle" : true,
     "paused" : false
@@ -6601,7 +6601,7 @@
   "command" : "like",
   "user" : "alice22",
   "timestamp" : 6600,
-  "message" : "Like registered successfully."
+  "message" : "Unlike registered successfully."
 }, {
   "command" : "status",
   "user" : "alice22",
@@ -6617,17 +6617,17 @@
   "command" : "next",
   "user" : "bob35",
   "timestamp" : 6610,
-  "message" : "Skipped to next track successfully. The current track is The Unforgiven."
+  "message" : "Please load a source before skipping to the next track."
 }, {
   "command" : "status",
   "user" : "bob35",
   "timestamp" : 6610,
   "stats" : {
-    "name" : "The Unforgiven",
-    "remainedTime" : 386,
+    "name" : "",
+    "remainedTime" : 0,
     "repeat" : "No Repeat",
-    "shuffle" : true,
-    "paused" : false
+    "shuffle" : false,
+    "paused" : true
   }
 }, {
   "command" : "switchVisibility",
@@ -6729,8 +6729,8 @@
   "user" : "henry26",
   "timestamp" : 6670,
   "stats" : {
-    "name" : "Black Dog",
-    "remainedTime" : 94,
+    "name" : "Whatever You Need",
+    "remainedTime" : 10,
     "repeat" : "Repeat Current Song",
     "shuffle" : true,
     "paused" : true
@@ -6761,8 +6761,8 @@
   "user" : "jack29",
   "timestamp" : 6690,
   "stats" : {
-    "name" : "Shape of You",
-    "remainedTime" : 123,
+    "name" : "Money Trees",
+    "remainedTime" : 87,
     "repeat" : "Repeat All",
     "shuffle" : true,
     "paused" : true
@@ -6787,17 +6787,17 @@
   "command" : "like",
   "user" : "bob35",
   "timestamp" : 6710,
-  "message" : "Unlike registered successfully."
+  "message" : "Please load a source before liking or unliking."
 }, {
   "command" : "status",
   "user" : "bob35",
   "timestamp" : 6710,
   "stats" : {
-    "name" : "The Unforgiven",
-    "remainedTime" : 286,
+    "name" : "",
+    "remainedTime" : 0,
     "repeat" : "No Repeat",
-    "shuffle" : true,
-    "paused" : false
+    "shuffle" : false,
+    "paused" : true
   }
 }, {
   "command" : "prev",
@@ -6888,14 +6888,14 @@
   "command" : "next",
   "user" : "grace25",
   "timestamp" : 6760,
-  "message" : "Skipped to next track successfully. The current track is The Man."
+  "message" : "Skipped to next track successfully. The current track is Dream On."
 }, {
   "command" : "status",
   "user" : "grace25",
   "timestamp" : 6760,
   "stats" : {
-    "name" : "The Man",
-    "remainedTime" : 190,
+    "name" : "Dream On",
+    "remainedTime" : 267,
     "repeat" : "Repeat All",
     "shuffle" : true,
     "paused" : false
@@ -6904,14 +6904,14 @@
   "command" : "prev",
   "user" : "henry26",
   "timestamp" : 6770,
-  "message" : "Returned to previous track successfully. The current track is Black Dog."
+  "message" : "Returned to previous track successfully. The current track is Whatever You Need."
 }, {
   "command" : "status",
   "user" : "henry26",
   "timestamp" : 6770,
   "stats" : {
-    "name" : "Black Dog",
-    "remainedTime" : 294,
+    "name" : "Whatever You Need",
+    "remainedTime" : 210,
     "repeat" : "Repeat Current Song",
     "shuffle" : true,
     "paused" : false
@@ -6947,8 +6947,8 @@
   "user" : "jack29",
   "timestamp" : 6790,
   "stats" : {
-    "name" : "Shape of You",
-    "remainedTime" : 123,
+    "name" : "Money Trees",
+    "remainedTime" : 87,
     "repeat" : "Repeat Current Song",
     "shuffle" : true,
     "paused" : true
@@ -6979,22 +6979,22 @@
   "command" : "prev",
   "user" : "bob35",
   "timestamp" : 6810,
-  "message" : "Returned to previous track successfully. The current track is The Unforgiven."
+  "message" : "Please load a source before returning to the previous track."
 }, {
   "command" : "prev",
   "user" : "bob35",
   "timestamp" : 6810,
-  "message" : "Returned to previous track successfully. The current track is Begin Again."
+  "message" : "Please load a source before returning to the previous track."
 }, {
   "command" : "status",
   "user" : "bob35",
   "timestamp" : 6810,
   "stats" : {
-    "name" : "Begin Again",
-    "remainedTime" : 238,
+    "name" : "",
+    "remainedTime" : 0,
     "repeat" : "No Repeat",
-    "shuffle" : true,
-    "paused" : false
+    "shuffle" : false,
+    "paused" : true
   }
 }, {
   "command" : "repeat",
@@ -7080,14 +7080,14 @@
   "command" : "next",
   "user" : "grace25",
   "timestamp" : 6860,
-  "message" : "Skipped to next track successfully. The current track is Stairway to Heaven."
+  "message" : "Skipped to next track successfully. The current track is Love Story."
 }, {
   "command" : "status",
   "user" : "grace25",
   "timestamp" : 6860,
   "stats" : {
-    "name" : "Stairway to Heaven",
-    "remainedTime" : 482,
+    "name" : "Love Story",
+    "remainedTime" : 236,
     "repeat" : "Repeat All",
     "shuffle" : true,
     "paused" : false
@@ -7102,8 +7102,8 @@
   "user" : "henry26",
   "timestamp" : 6870,
   "stats" : {
-    "name" : "Black Dog",
-    "remainedTime" : 194,
+    "name" : "Whatever You Need",
+    "remainedTime" : 110,
     "repeat" : "Repeat Current Song",
     "shuffle" : true,
     "paused" : false
@@ -7128,14 +7128,14 @@
   "command" : "like",
   "user" : "jack29",
   "timestamp" : 6890,
-  "message" : "Like registered successfully."
+  "message" : "Unlike registered successfully."
 }, {
   "command" : "status",
   "user" : "jack29",
   "timestamp" : 6890,
   "stats" : {
-    "name" : "Shape of You",
-    "remainedTime" : 123,
+    "name" : "Money Trees",
+    "remainedTime" : 87,
     "repeat" : "Repeat Current Song",
     "shuffle" : true,
     "paused" : true
@@ -7165,16 +7165,16 @@
   "command" : "playPause",
   "user" : "bob35",
   "timestamp" : 6910,
-  "message" : "Playback paused successfully."
+  "message" : "Please load a source before attempting to pause or resume playback."
 }, {
   "command" : "status",
   "user" : "bob35",
   "timestamp" : 6910,
   "stats" : {
-    "name" : "Begin Again",
-    "remainedTime" : 138,
+    "name" : "",
+    "remainedTime" : 0,
     "repeat" : "No Repeat",
-    "shuffle" : true,
+    "shuffle" : false,
     "paused" : true
   }
 }, {
@@ -7283,8 +7283,8 @@
   "user" : "henry26",
   "timestamp" : 6970,
   "stats" : {
-    "name" : "Black Dog",
-    "remainedTime" : 94,
+    "name" : "Whatever You Need",
+    "remainedTime" : 10,
     "repeat" : "Repeat Current Song",
     "shuffle" : true,
     "paused" : true
@@ -7320,8 +7320,8 @@
   "user" : "jack29",
   "timestamp" : 6990,
   "stats" : {
-    "name" : "Shape of You",
-    "remainedTime" : 123,
+    "name" : "Money Trees",
+    "remainedTime" : 87,
     "repeat" : "No Repeat",
     "shuffle" : true,
     "paused" : true
@@ -7538,18 +7538,18 @@
   "command" : "search",
   "user" : "david27",
   "timestamp" : 7120,
-  "message" : "Search returned 0 results",
-  "results" : [ ]
+  "message" : "Search returned 2 results",
+  "results" : [ "Electric Grooves Dream #1", "Groovy Beats Expedition #2" ]
 }, {
   "command" : "select",
   "user" : "david27",
   "timestamp" : 7120,
-  "message" : "The selected ID is too high."
+  "message" : "Successfully selected Groovy Beats Expedition #2."
 }, {
   "command" : "follow",
   "user" : "david27",
   "timestamp" : 7120,
-  "message" : "Please select a source before following or unfollowing."
+  "message" : "You cannot follow or unfollow your own playlist."
 }, {
   "command" : "search",
   "user" : "emily30",
@@ -7570,8 +7570,8 @@
   "command" : "search",
   "user" : "frank21",
   "timestamp" : 7140,
-  "message" : "Search returned 1 results",
-  "results" : [ "Breezy Bangers Quest #2" ]
+  "message" : "Search returned 2 results",
+  "results" : [ "Epic Melodies Safari #1", "Breezy Bangers Quest #2" ]
 }, {
   "command" : "select",
   "user" : "frank21",
@@ -7890,13 +7890,13 @@
   "command" : "search",
   "user" : "frank21",
   "timestamp" : 7340,
-  "message" : "Search returned 1 results",
-  "results" : [ "Breezy Bangers Quest #2" ]
+  "message" : "Search returned 2 results",
+  "results" : [ "Epic Melodies Safari #1", "Breezy Bangers Quest #2" ]
 }, {
   "command" : "select",
   "user" : "frank21",
   "timestamp" : 7340,
-  "message" : "Successfully selected Breezy Bangers Quest #2."
+  "message" : "Successfully selected Epic Melodies Safari #1."
 }, {
   "command" : "follow",
   "user" : "frank21",
@@ -8338,8 +8338,8 @@
   "command" : "search",
   "user" : "david27",
   "timestamp" : 7620,
-  "message" : "Search returned 0 results",
-  "results" : [ ]
+  "message" : "Search returned 2 results",
+  "results" : [ "Electric Grooves Dream #1", "Groovy Beats Expedition #2" ]
 }, {
   "command" : "select",
   "user" : "david27",
@@ -8370,13 +8370,13 @@
   "command" : "search",
   "user" : "frank21",
   "timestamp" : 7640,
-  "message" : "Search returned 1 results",
-  "results" : [ "Breezy Bangers Quest #2" ]
+  "message" : "Search returned 2 results",
+  "results" : [ "Epic Melodies Safari #1", "Breezy Bangers Quest #2" ]
 }, {
   "command" : "select",
   "user" : "frank21",
   "timestamp" : 7640,
-  "message" : "Successfully selected Breezy Bangers Quest #2."
+  "message" : "Successfully selected Epic Melodies Safari #1."
 }, {
   "command" : "follow",
   "user" : "frank21",
@@ -8434,8 +8434,8 @@
   "command" : "search",
   "user" : "jack29",
   "timestamp" : 7680,
-  "message" : "Search returned 1 results",
-  "results" : [ "Classic Harmonies Quest #1" ]
+  "message" : "Search returned 2 results",
+  "results" : [ "Classic Harmonies Quest #1", "Mellow Tracks Safari #2" ]
 }, {
   "command" : "select",
   "user" : "jack29",
@@ -8562,8 +8562,8 @@
   "command" : "search",
   "user" : "henry26",
   "timestamp" : 7760,
-  "message" : "Search returned 1 results",
-  "results" : [ "Chill Tracks Safari #2" ]
+  "message" : "Search returned 2 results",
+  "results" : [ "Vibey Tracks Safari #1", "Chill Tracks Safari #2" ]
 }, {
   "command" : "select",
   "user" : "henry26",
@@ -8594,8 +8594,8 @@
   "command" : "search",
   "user" : "jack29",
   "timestamp" : 7780,
-  "message" : "Search returned 1 results",
-  "results" : [ "Classic Harmonies Quest #1" ]
+  "message" : "Search returned 2 results",
+  "results" : [ "Classic Harmonies Quest #1", "Mellow Tracks Safari #2" ]
 }, {
   "command" : "select",
   "user" : "jack29",
@@ -8962,18 +8962,18 @@
   "command" : "search",
   "user" : "carol19",
   "timestamp" : 8010,
-  "message" : "Search returned 0 results",
-  "results" : [ ]
+  "message" : "Search returned 2 results",
+  "results" : [ "Electric Vibes Journey #1", "Chill Grooves Quest #2" ]
 }, {
   "command" : "select",
   "user" : "carol19",
   "timestamp" : 8010,
-  "message" : "The selected ID is too high."
+  "message" : "Successfully selected Electric Vibes Journey #1."
 }, {
   "command" : "follow",
   "user" : "carol19",
   "timestamp" : 8010,
-  "message" : "Please select a source before following or unfollowing."
+  "message" : "You cannot follow or unfollow your own playlist."
 }, {
   "command" : "search",
   "user" : "david27",
@@ -9122,8 +9122,8 @@
   "command" : "search",
   "user" : "carol19",
   "timestamp" : 8110,
-  "message" : "Search returned 0 results",
-  "results" : [ ]
+  "message" : "Search returned 2 results",
+  "results" : [ "Electric Vibes Journey #1", "Chill Grooves Quest #2" ]
 }, {
   "command" : "select",
   "user" : "carol19",
@@ -9426,34 +9426,34 @@
   "command" : "search",
   "user" : "bob35",
   "timestamp" : 8300,
-  "message" : "Search returned 1 results",
-  "results" : [ "Dynamic Tracks Trek #2" ]
+  "message" : "Search returned 2 results",
+  "results" : [ "Groovy Beats Dream #1", "Dynamic Tracks Trek #2" ]
 }, {
   "command" : "select",
   "user" : "bob35",
   "timestamp" : 8300,
-  "message" : "The selected ID is too high."
+  "message" : "Successfully selected Dynamic Tracks Trek #2."
 }, {
   "command" : "follow",
   "user" : "bob35",
   "timestamp" : 8300,
-  "message" : "Please select a source before following or unfollowing."
+  "message" : "You cannot follow or unfollow your own playlist."
 }, {
   "command" : "search",
   "user" : "carol19",
   "timestamp" : 8310,
-  "message" : "Search returned 0 results",
-  "results" : [ ]
+  "message" : "Search returned 2 results",
+  "results" : [ "Electric Vibes Journey #1", "Chill Grooves Quest #2" ]
 }, {
   "command" : "select",
   "user" : "carol19",
   "timestamp" : 8310,
-  "message" : "The selected ID is too high."
+  "message" : "Successfully selected Electric Vibes Journey #1."
 }, {
   "command" : "follow",
   "user" : "carol19",
   "timestamp" : 8310,
-  "message" : "Please select a source before following or unfollowing."
+  "message" : "You cannot follow or unfollow your own playlist."
 }, {
   "command" : "search",
   "user" : "david27",
@@ -9618,18 +9618,18 @@
   "command" : "search",
   "user" : "david27",
   "timestamp" : 8420,
-  "message" : "Search returned 0 results",
-  "results" : [ ]
+  "message" : "Search returned 2 results",
+  "results" : [ "Electric Grooves Dream #1", "Groovy Beats Expedition #2" ]
 }, {
   "command" : "select",
   "user" : "david27",
   "timestamp" : 8420,
-  "message" : "The selected ID is too high."
+  "message" : "Successfully selected Electric Grooves Dream #1."
 }, {
   "command" : "follow",
   "user" : "david27",
   "timestamp" : 8420,
-  "message" : "Please select a source before following or unfollowing."
+  "message" : "You cannot follow or unfollow your own playlist."
 }, {
   "command" : "search",
   "user" : "emily30",
@@ -9650,18 +9650,18 @@
   "command" : "search",
   "user" : "frank21",
   "timestamp" : 8440,
-  "message" : "Search returned 1 results",
-  "results" : [ "Breezy Bangers Quest #2" ]
+  "message" : "Search returned 2 results",
+  "results" : [ "Epic Melodies Safari #1", "Breezy Bangers Quest #2" ]
 }, {
   "command" : "select",
   "user" : "frank21",
   "timestamp" : 8440,
-  "message" : "The selected ID is too high."
+  "message" : "Successfully selected Breezy Bangers Quest #2."
 }, {
   "command" : "follow",
   "user" : "frank21",
   "timestamp" : 8440,
-  "message" : "Please select a source before following or unfollowing."
+  "message" : "You cannot follow or unfollow your own playlist."
 }, {
   "command" : "search",
   "user" : "grace25",
@@ -9745,7 +9745,7 @@
   "command" : "showPreferredSongs",
   "user" : "alice22",
   "timestamp" : 8490,
-  "result" : [ "Paint It Black" ]
+  "result" : [ "Bohemian Rhapsody" ]
 }, {
   "command" : "showPlaylists",
   "user" : "bob35",
@@ -9845,7 +9845,7 @@
   "command" : "showPreferredSongs",
   "user" : "frank21",
   "timestamp" : 8540,
-  "result" : [ "Castle on the Hill" ]
+  "result" : [ "Maps" ]
 }, {
   "command" : "showPlaylists",
   "user" : "grace25",
@@ -9885,7 +9885,7 @@
   "command" : "showPreferredSongs",
   "user" : "henry26",
   "timestamp" : 8560,
-  "result" : [ "Black Dog" ]
+  "result" : [ "Whatever You Need" ]
 }, {
   "command" : "showPlaylists",
   "user" : "irene33",
@@ -9925,7 +9925,7 @@
   "command" : "showPreferredSongs",
   "user" : "jack29",
   "timestamp" : 8580,
-  "result" : [ "Shape of You" ]
+  "result" : [ "The Man" ]
 }, {
   "command" : "getTop5Playlists",
   "timestamp" : 8580,
@@ -9933,5 +9933,5 @@
 }, {
   "command" : "getTop5Songs",
   "timestamp" : 8580,
-  "result" : [ "Don't", "Shape of You", "Black Dog", "Happier", "Paint It Black" ]
+  "result" : [ "Don't", "Whatever You Need", "Maps", "The Man", "Happier" ]
 } ]

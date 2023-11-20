@@ -12,7 +12,7 @@ public class LikeStrategy implements CommandStrategy {
     public Output action(Input input) {
         User user = Database.getInstance().findUser(input.getUsername());
 
-        if (!user.hasLoadedAFile()) {
+        if (!user.hasLoadedAFile() || user.getPlayer().hasFinished(input.getTimestamp())) {
             return new Output(input, "Please load a source before liking or unliking.");
         } else {
             AudioFile currentPlayingFile = user.getPlayer().getCurrentPlayingFile(input.getTimestamp());
