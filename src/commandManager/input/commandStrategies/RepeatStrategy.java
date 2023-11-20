@@ -15,8 +15,6 @@ public class RepeatStrategy implements CommandStrategy {
         if (!user.hasLoadedAFile()) {
             message = "Please load a source before setting the repeat status.";
         } else {
-            System.out.println("timestamp: " + input.getTimestamp());
-            System.out.println("Repeat mode is " + user.getPlayer().getRepeatState());
             user.getPlayer().repeat(input.getTimestamp());
             Constants.FileType fileType = user.getLoadedFile().getFileType();
             int repeatState = user.getPlayer().getRepeatState();

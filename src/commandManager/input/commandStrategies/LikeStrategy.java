@@ -21,7 +21,7 @@ public class LikeStrategy implements CommandStrategy {
                 return new Output(input, "Loaded source is not a song.");
             } else {
                 Song song = (Song) currentPlayingFile;
-                if (song.getUserWhoLiked().contains(user)) {
+                if (song.getUsersWhoLiked().contains(user)) {
                     user.unlike(song);
                     song.registerUnlike(user);
                     return new Output(input, "Unlike registered successfully.");

@@ -158,7 +158,7 @@
   "command" : "addRemoveInPlaylist",
   "user" : "david27",
   "timestamp" : 1240,
-  "message" : "Successfully removed from playlist."
+  "message" : "Successfully added to playlist."
 }, {
   "command" : "createPlaylist",
   "user" : "emily30",
@@ -194,7 +194,7 @@
   "command" : "addRemoveInPlaylist",
   "user" : "emily30",
   "timestamp" : 2370,
-  "message" : "Successfully removed from playlist."
+  "message" : "Successfully added to playlist."
 }, {
   "command" : "showPreferredSongs",
   "user" : "emily30",
@@ -211,7 +211,16 @@
   "user" : "emily30",
   "timestamp" : 2490,
   "message" : "Successfully selected My first playlist."
-}, null, null, {
+}, {
+  "command" : "follow",
+  "user" : "emily30",
+  "timestamp" : 2520,
+  "message" : "Playlist followed successfully."
+}, {
+  "command" : "getTop5Playlists",
+  "timestamp" : 2560,
+  "result" : [ "My first playlist", "Just for fun", "Felt cute might delete later", "Listen on repeat" ]
+}, {
   "command" : "search",
   "user" : "bob35",
   "timestamp" : 2565,
@@ -222,7 +231,12 @@
   "user" : "bob35",
   "timestamp" : 2580,
   "message" : "Successfully selected Just for fun."
-}, null, {
+}, {
+  "command" : "follow",
+  "user" : "bob35",
+  "timestamp" : 2600,
+  "message" : "Playlist followed successfully."
+}, {
   "command" : "search",
   "user" : "david27",
   "timestamp" : 2765,
@@ -233,7 +247,16 @@
   "user" : "david27",
   "timestamp" : 2810,
   "message" : "Successfully selected Just for fun."
-}, null, null, {
+}, {
+  "command" : "follow",
+  "user" : "david27",
+  "timestamp" : 2850,
+  "message" : "Playlist followed successfully."
+}, {
+  "command" : "getTop5Playlists",
+  "timestamp" : 3000,
+  "result" : [ "Just for fun", "My first playlist", "Felt cute might delete later", "Listen on repeat" ]
+}, {
   "command" : "showPreferredSongs",
   "user" : "bob35",
   "timestamp" : 3100,
@@ -243,4 +266,8 @@
   "user" : "carol19",
   "timestamp" : 3200,
   "result" : [ "Bohemian Rhapsody" ]
-}, null ]
+}, {
+  "command" : "getTop5Songs",
+  "timestamp" : 3300,
+  "result" : [ "Bohemian Rhapsody", "Angie", "Shape of You", "Don't", "Stairway to Heaven" ]
+} ]

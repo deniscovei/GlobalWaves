@@ -13,15 +13,17 @@ import data.entities.user.User;
 
 import java.util.ArrayList;
 
-public final class SearchStrategy implements CommandStrategy {
-    private static final int resCountMax = 5;
+import static utils.Constants.RES_COUNT_MAX;
 
+public final class SearchStrategy implements CommandStrategy {
+    @Override
     public Output action(Input input) {
         User user = Database.getInstance().findUser(input.getUsername());
         ArrayList<File> searchResults = user.getSearchResults();
 
         user.unloadAudioFile(input.getTimestamp());
         searchResults.clear();
+        user.setPerformedSearch(true);
 
         switch (input.getType()) {
             case "song":
@@ -29,7 +31,7 @@ public final class SearchStrategy implements CommandStrategy {
                 for (Song song : songs) {
                     if (checkSongFilters(song, input.getFilters(), input)) {
                         searchResults.add(song);
-                        if (searchResults.size() == resCountMax) {
+                        if (searchResults.size() == RES_COUNT_MAX) {
                             break;
                         }
                     }
@@ -39,7 +41,7 @@ public final class SearchStrategy implements CommandStrategy {
                 for (Podcast podcast : Database.getInstance().getPodcasts()) {
                     if (checkPodcastFilters(podcast, input.getFilters(), input)) {
                         searchResults.add(podcast);
-                        if (searchResults.size() == resCountMax) {
+                        if (searchResults.size() == RES_COUNT_MAX) {
                             break;
                         }
                     }
@@ -49,7 +51,7 @@ public final class SearchStrategy implements CommandStrategy {
                 for (Playlist playlist : Database.getInstance().getPlaylists()) {
                     if (checkPlaylistFilters(playlist, input.getFilters(), input)) {
                         searchResults.add(playlist);
-                        if (searchResults.size() == resCountMax) {
+                        if (searchResults.size() == RES_COUNT_MAX) {
                             break;
                         }
                     }
@@ -151,6 +153,9 @@ public final class SearchStrategy implements CommandStrategy {
     }
 
     private static boolean checkPlaylistFilters(Playlist playlist, Filters filters, Input inputCommand) {
+        if (playlist.getVisibility().equals("private")) {
+            return false;
+        }
         return filterPlaylistByName(playlist, filters.getName(), inputCommand) &&
                 filterPlaylistByOwner(playlist, filters.getOwner(), inputCommand);
     }

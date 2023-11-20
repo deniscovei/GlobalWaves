@@ -15,7 +15,6 @@ import java.util.Random;
 @Setter
 public class PlayerFile {
     private File loadedFile;
-    private File ongoingAudioFile;
     private boolean paused = true;
     private int timePassed = 0;
     private int currentPlayingFileId = 0;
@@ -29,7 +28,8 @@ public class PlayerFile {
     private ArrayList<Integer> indexes = new ArrayList<>();
 
     public PlayerFile(File file) {
-        this.ongoingAudioFile = file;
+        //this.loadedFile = file;
+        //this.ongoingAudioFile = file;
     }
 
     public boolean hasStarted() {
@@ -52,35 +52,26 @@ public class PlayerFile {
     }
 
     public boolean hasFinished(int timestamp) {
-        System.out.println("VERIFICARE FINISHED: " + timestamp);
-        System.out.println("VERIFICARE REPEAT STATE: " + getRepeatState());
-
         AudioFile currentPlayingFile = getCurrentPlayingFile(timestamp);
 
         if (currentPlayingFile == null) {
             setLoadedFile(null);
-            System.out.println("NU VERM SA INTRAM AICI");
             return true;
         }
 
-        if (getRemainedTime(currentPlayingFile, timestamp) <= 0) {
-            System.out.println("NU VERM SA INTRAM NICI AICI");
-            return true;
-        }
-
-        return false;
+        return getRemainedTime(currentPlayingFile, timestamp) < 0; // aici
     }
 
     public void prepareIndexes() {
         setIndexesInOrder();
         if (isShuffleActivated()) {
             indexes = shuffledIndexes;
-            for (int id = 0; id < indexes.size(); id++) {
-                if (indexes.get(id) == currentPlayingFileId) {
-                    currentPlayingFileId = id;
-                    break;
-                }
-            }
+//            for (int id = 0; id < indexes.size(); id++) {
+//                if (indexes.get(id) == currentPlayingFileId) {
+//                    currentPlayingFileId = id;
+//                    break;
+//                }
+//            }
         } else {
             indexes = orderedIndexes;
         }
@@ -88,39 +79,42 @@ public class PlayerFile {
 
     public AudioFile getCurrentPlayingFile(int timestamp) {
         if (loadedFile.getFileType().equals(Constants.FileType.SONG)) {
-            if (getRemainedTime((AudioFile) ongoingAudioFile, timestamp) >= 0) {
-                return (AudioFile) ongoingAudioFile;
+            if (getRemainedTime((AudioFile) loadedFile, timestamp) >= 0) {
+                return (AudioFile) loadedFile;
             } else {
                 switch (getRepeatState()) {
                     case Constants.NO_REPEAT:
                         return null;
                     case Constants.REPEAT_ONCE:
                         setRepeatState(Constants.NO_REPEAT);
-                        setOffset(getOffset() - ((AudioFile) ongoingAudioFile).getDuration());
-                        return (AudioFile) ongoingAudioFile;
+                        setOffset(getOffset() - ((AudioFile) loadedFile).getDuration());
+                        return (AudioFile) loadedFile;
                     case Constants.REPEAT_INFINITE:
-                        while (getRemainedTime((AudioFile) ongoingAudioFile, timestamp) < 0) {
-                            setOffset(getOffset() - ((AudioFile) ongoingAudioFile).getDuration());
+                        while (getRemainedTime((AudioFile) loadedFile, timestamp) < 0) {
+                            setOffset(getOffset() - ((AudioFile) loadedFile).getDuration());
                         }
-                        return (AudioFile) ongoingAudioFile;
+                        return (AudioFile) loadedFile;
                 }
             }
         } else if (loadedFile.getFileType().equals(Constants.FileType.PLAYLIST) ||
                 loadedFile.getFileType().equals(Constants.FileType.PODCAST)) {
             AudioCollection audioCollection = (AudioCollection) loadedFile;
-            AudioFile currentPlayingFile = audioCollection.getAudioFiles().get(currentPlayingFileId);
+            AudioFile currentPlayingFile = audioCollection.getAudioFiles().get(currentPlayingFileId); // aici
 
             if (getRemainedTime(currentPlayingFile, timestamp) >= 0)
                 return currentPlayingFile;
 
             prepareIndexes();
 
-            for (int id = currentPlayingFileId; id < audioCollection.getAudioFiles().size(); id = nextId(id, indexes)) {
-                currentPlayingFile = audioCollection.getAudioFiles().get(indexes.get(id));
-                if (getRemainedTime(currentPlayingFile, timestamp) < 0) {
-                    timePassed += currentPlayingFile.getDuration();
+            boolean firstSetted = false;
+            for (int id = indexes.indexOf(currentPlayingFileId); id < audioCollection.getAudioFiles().size(); id = nextId(id, indexes)) {
+                int currId = firstSetted ? id : indexes.get(id);
+                firstSetted = true;
+                AudioFile currentFile = audioCollection.getAudioFiles().get(currId);
+                if (getRemainedTime(currentFile, timestamp) < 0) {
+                    timePassed += currentFile.getDuration();
                 } else {
-                    currentPlayingFileId = id;
+                    currentPlayingFileId = currId;
                     return currentPlayingFile;
                 }
             }
@@ -188,7 +182,6 @@ public class PlayerFile {
     public void setIndexesInOrder() {
         orderedIndexes.clear();
         int size = ((AudioCollection) loadedFile).getAudioFiles().size();
-        System.out.println("SIZE: " + size);
         for (int i = 0; i <= size; i++) {
             orderedIndexes.add(i);
         }
@@ -198,19 +191,31 @@ public class PlayerFile {
         setShuffleActivated(false);
     }
 
-    public void next(int timestamp) {
+    public boolean next(int timestamp) {
         prepareIndexes();
-        setOffset(getOffset() + getRemainedTime(getCurrentPlayingFile(timestamp), timestamp));
+        if (isPaused()) {
+            setOffset(getOffset() + getRemainedTime(getCurrentPlayingFile(timestamp), timestamp));
+            play(timestamp);
+        } else {
+            setOffset(getOffset() + getRemainedTime(getCurrentPlayingFile(timestamp), timestamp));
+        }
         timePassed += getCurrentPlayingFile(timestamp).getDuration();
         currentPlayingFileId = nextId(currentPlayingFileId, indexes);
+        return currentPlayingFileId < ((AudioCollection) loadedFile).getAudioFiles().size();
     }
 
     public void prev(int timestamp) {
         prepareIndexes();
-        if (currentPlayingFileId != 0 && getCurrTimeOfFile(timestamp) == 0) {
+        if (currentPlayingFileId != indexes.get(0) && getCurrTimeOfFile(timestamp) == 0) {
             setOffset(getOffset() - getCurrentPlayingFile(timestamp).getDuration());
             timePassed -= getCurrentPlayingFile(timestamp).getDuration();
-            currentPlayingFileId = indexes.get(currentPlayingFileId - 1);
+            if (getRepeatState() == Constants.NO_REPEAT) {
+                currentPlayingFileId = indexes.get(currentPlayingFileId - 1);
+            }
+        }
+        if (isPaused()) {
+            //setOffset(getOffset() - getCurrTimeOfFile(timestamp));
+            play(timestamp);
         }
         setOffset(getOffset() - getCurrTimeOfFile(timestamp));
     }

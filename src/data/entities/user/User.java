@@ -6,9 +6,10 @@ import data.entities.audio.audioFiles.Song;
 import fileio.input.UserInput;
 import lombok.Getter;
 import lombok.Setter;
-import utils.Constants;
 
 import java.util.ArrayList;
+
+import static utils.Constants.NO_REPEAT;
 
 @Setter
 @Getter
@@ -16,6 +17,7 @@ public class User {
     private String username = null;
     private int age = 0;
     private String city = null;
+    private boolean performedSearch = false;
     private ArrayList<File> searchResults = new ArrayList<>();
     private Player player = new Player();
     private File selectedFile = null;
@@ -38,12 +40,13 @@ public class User {
     public void select(File selection) {
         setSelectedFile(selection);
         player.select(selection);
+        setPerformedSearch(false);
     }
 
     public void loadAudioFile(int timestamp) {
         player.setLoadedFile(selectedFile);
-        setSelectedFile(null);
         player.play(timestamp);
+        setSelectedFile(null);
     }
 
     public void unloadAudioFile(int timestamp) {
@@ -51,7 +54,7 @@ public class User {
         player.removeLoadedSongs();
         player.removeLoadedPlaylists();
         player.setLoadedFile(null);
-        player.setRepeatState(Constants.NO_REPEAT);
+        player.setRepeatState(NO_REPEAT);
         setSelectedFile(null);
     }
 
@@ -68,7 +71,7 @@ public class User {
     }
 
     public void deleteData() {
-        getPlayer().setRepeatState(Constants.NO_REPEAT);
+        getPlayer().setRepeatState(NO_REPEAT);
         setPlayer(new Player());
         setSelectedFile(null);
         player.setLoadedFile(null);
@@ -78,5 +81,9 @@ public class User {
 
     public File getLoadedFile() {
         return player.getLoadedFile();
+    }
+
+    public boolean havePerformedSearch() {
+        return isPerformedSearch();
     }
 }

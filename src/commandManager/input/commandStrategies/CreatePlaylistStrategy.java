@@ -13,7 +13,7 @@ public final class CreatePlaylistStrategy implements CommandStrategy {
         if (Database.getInstance().findPlaylist(input.getPlaylistName()) != null) {
             return new Output(input, "A playlist with the same name already exists.");
         } else {
-            Playlist playlist = new Playlist(input.getPlaylistName(), user.getUsername());
+            Playlist playlist = new Playlist(input.getPlaylistName(), user.getUsername(), input.getTimestamp());
             Database.getInstance().addPlaylist(playlist);
             return new Output(input, "Playlist created successfully.");
         }

@@ -20,7 +20,8 @@ public class Player {
         if (currentPlayerFileIndex == -1) {
             return;
         }
-        playerFiles.get(currentPlayerFileIndex).setOngoingAudioFile(selection);
+        playerFiles.get(currentPlayerFileIndex).setLoadedFile(selection);
+        //playerFiles.get(currentPlayerFileIndex).setOngoingAudioFile(selection);
     }
 
     public AudioFile getCurrentPlayingFile(int timestamp) {
@@ -64,7 +65,10 @@ public class Player {
 
     public void select(File selection) {
         for (int index = 0; index < getPlayerFiles().size(); index++) {
-            if (getPlayerFiles().get(index).getOngoingAudioFile().getName().equals(selection.getName())) {
+            if (getPlayerFiles().get(index).getLoadedFile() == null) {
+                continue;
+            }
+            if (getPlayerFiles().get(index).getLoadedFile().getName().equals(selection.getName())) {
                 setCurrentPlayerFileIndex(index);
                 return;
             }
@@ -75,7 +79,10 @@ public class Player {
     public void removeLoadedSongs() {
         setCurrentPlayerFileIndex(-1);
         for (int index = 0; index < getPlayerFiles().size(); index++) {
-            if (getPlayerFiles().get(index).getOngoingAudioFile().getFileType().equals(Constants.FileType.SONG)) {
+            if (getPlayerFiles().get(index).getLoadedFile() == null) {
+                continue;
+            }
+            if (getPlayerFiles().get(index).getLoadedFile().getFileType().equals(Constants.FileType.SONG)) { // aici
                 getPlayerFiles().remove(index);
                 index--;
             }
@@ -85,7 +92,10 @@ public class Player {
     public void removeLoadedPlaylists() {
         setCurrentPlayerFileIndex(-1);
         for (int index = 0; index < getPlayerFiles().size(); index++) {
-            if (getPlayerFiles().get(index).getOngoingAudioFile().getFileType().equals(Constants.FileType.PLAYLIST)) {
+            if (getPlayerFiles().get(index).getLoadedFile() == null) {
+                continue;
+            }
+            if (getPlayerFiles().get(index).getLoadedFile().getFileType().equals(Constants.FileType.PLAYLIST)) { // aici
                 getPlayerFiles().remove(index);
                 index--;
             }
@@ -126,7 +136,6 @@ public class Player {
 
     public void shuffle(int seed, int timestamp) {
         fastForwardToCurrentPlayingFile(timestamp);
-        System.out.println("SHUFFLE at player with seed: " + seed);
         setShuffleActivated(true);
         playerFiles.get(currentPlayerFileIndex).shuffle(seed);
     }
@@ -142,8 +151,7 @@ public class Player {
         if (getCurrentPlayingFile(timestamp) == null) {
             return false;
         }
-        playerFiles.get(currentPlayerFileIndex).next(timestamp);
-        return true;
+        return playerFiles.get(currentPlayerFileIndex).next(timestamp);
     }
 
     public boolean prev(int timestamp) {

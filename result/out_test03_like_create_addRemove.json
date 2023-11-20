@@ -103,8 +103,8 @@
   "result" : [ {
     "name" : "Playlist bengos",
     "visibility" : "public",
-    "followers" : 0,
-    "songs" : [ "The Unforgiven" ]
+    "songs" : [ "The Unforgiven" ],
+    "followers" : 0
   } ]
 }, {
   "command" : "showPreferredSongs",

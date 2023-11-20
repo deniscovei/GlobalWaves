@@ -54,12 +54,18 @@ public class Database {
         return null;
     }
 
-    public Playlist findPlaylist(int playlistId) {
-        if (1 <= playlistId && playlistId <= playlists.size()) {
-            return playlists.get(playlistId - 1);
-        } else {
-            return null;
+    public Playlist findPlaylist(int playlistId, String owner) {
+        int currentId = 0;
+        for (int id = 0; id < playlists.size(); id++) {
+            Playlist playlist = playlists.get(id);
+            if (playlist.getOwner().equals(owner)) {
+                currentId++;
+                if (currentId == playlistId) {
+                    return playlist;
+                }
+            }
         }
+        return null;
     }
 
     public void addUser(User user) {
@@ -92,5 +98,11 @@ public class Database {
 
     public void removePlaylists() {
         getPlaylists().clear();
+    }
+
+    public void removeLikedSongs() {
+        for (Song song : getSongs()) {
+            song.getUsersWhoLiked().clear();
+        }
     }
 }

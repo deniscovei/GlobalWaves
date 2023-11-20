@@ -15,7 +15,7 @@ public final class SelectStrategy implements CommandStrategy {
         ArrayList<File> searchResults = user.getSearchResults();
         String message;
 
-        if (searchResults.isEmpty()) {
+        if (!user.havePerformedSearch()) {
             message = "Please conduct a search before making a selection.";
         } else if (itemNumber > searchResults.size()) {
             message = "The selected ID is too high.";

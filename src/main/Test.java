@@ -28,14 +28,9 @@ public final class Test {
         if (inputDir != null) {
             Arrays.sort(inputDir);
 
-            Scanner scanner = new Scanner(System.in);
-            //String fileName = scanner.next();
-            //String fileName = "test06_playPause_error.json";
-            Main.test_no = 10;
+            Main.test_no = 16;
             for (File file : inputDir) {
-                if (/*file.getName().equalsIgnoreCase(fileName)*/ file.getName().contains(((Integer)Main.test_no).toString())) {
-                    //System.out.println(file.getAbsolutePath());
-                    //Main.action(file.getAbsolutePath(), CheckerConstants.OUT_FILE);
+                if (file.getName().contains(((Integer)Main.test_no).toString())) {
                     Main.action(file.getName(), CheckerConstants.OUT_FILE);
                     break;
                 }

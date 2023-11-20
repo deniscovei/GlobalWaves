@@ -1,262 +1,292 @@
 [ {
+  "command" : "switchVisibility",
+  "user" : "alice22",
+  "timestamp" : 100,
+  "message" : "The specified playlist ID is too high."
+}, {
+  "command" : "createPlaylist",
+  "user" : "alice22",
+  "timestamp" : 100,
+  "message" : "Playlist created successfully."
+}, {
   "command" : "createPlaylist",
   "user" : "bob35",
-  "timestamp" : 50,
+  "timestamp" : 110,
+  "message" : "Playlist created successfully."
+}, {
+  "command" : "switchVisibility",
+  "user" : "carol19",
+  "timestamp" : 120,
+  "message" : "The specified playlist ID is too high."
+}, {
+  "command" : "createPlaylist",
+  "user" : "carol19",
+  "timestamp" : 120,
+  "message" : "Playlist created successfully."
+}, {
+  "command" : "createPlaylist",
+  "user" : "david27",
+  "timestamp" : 130,
+  "message" : "Playlist created successfully."
+}, {
+  "command" : "createPlaylist",
+  "user" : "emily30",
+  "timestamp" : 140,
+  "message" : "Playlist created successfully."
+}, {
+  "command" : "createPlaylist",
+  "user" : "frank21",
+  "timestamp" : 150,
+  "message" : "Playlist created successfully."
+}, {
+  "command" : "createPlaylist",
+  "user" : "grace25",
+  "timestamp" : 160,
+  "message" : "Playlist created successfully."
+}, {
+  "command" : "createPlaylist",
+  "user" : "henry26",
+  "timestamp" : 170,
+  "message" : "Playlist created successfully."
+}, {
+  "command" : "switchVisibility",
+  "user" : "irene33",
+  "timestamp" : 180,
+  "message" : "The specified playlist ID is too high."
+}, {
+  "command" : "createPlaylist",
+  "user" : "irene33",
+  "timestamp" : 180,
+  "message" : "Playlist created successfully."
+}, {
+  "command" : "switchVisibility",
+  "user" : "jack29",
+  "timestamp" : 190,
+  "message" : "The specified playlist ID is too high."
+}, {
+  "command" : "createPlaylist",
+  "user" : "jack29",
+  "timestamp" : 190,
+  "message" : "Playlist created successfully."
+}, {
+  "command" : "createPlaylist",
+  "user" : "alice22",
+  "timestamp" : 200,
+  "message" : "Playlist created successfully."
+}, {
+  "command" : "createPlaylist",
+  "user" : "bob35",
+  "timestamp" : 210,
+  "message" : "Playlist created successfully."
+}, {
+  "command" : "switchVisibility",
+  "user" : "carol19",
+  "timestamp" : 220,
+  "message" : "The specified playlist ID is too high."
+}, {
+  "command" : "createPlaylist",
+  "user" : "carol19",
+  "timestamp" : 220,
+  "message" : "Playlist created successfully."
+}, {
+  "command" : "createPlaylist",
+  "user" : "david27",
+  "timestamp" : 230,
+  "message" : "Playlist created successfully."
+}, {
+  "command" : "createPlaylist",
+  "user" : "emily30",
+  "timestamp" : 240,
+  "message" : "Playlist created successfully."
+}, {
+  "command" : "createPlaylist",
+  "user" : "frank21",
+  "timestamp" : 250,
+  "message" : "Playlist created successfully."
+}, {
+  "command" : "createPlaylist",
+  "user" : "grace25",
+  "timestamp" : 260,
+  "message" : "Playlist created successfully."
+}, {
+  "command" : "createPlaylist",
+  "user" : "henry26",
+  "timestamp" : 270,
+  "message" : "Playlist created successfully."
+}, {
+  "command" : "createPlaylist",
+  "user" : "irene33",
+  "timestamp" : 280,
+  "message" : "Playlist created successfully."
+}, {
+  "command" : "createPlaylist",
+  "user" : "jack29",
+  "timestamp" : 290,
   "message" : "Playlist created successfully."
 }, {
   "command" : "search",
-  "user" : "bob35",
-  "timestamp" : 100,
-  "message" : "Search returned 1 results",
-  "results" : [ "TED Talks Daily" ]
+  "user" : "alice22",
+  "timestamp" : 300,
+  "message" : "Search returned 0 results",
+  "results" : [ ]
 }, {
   "command" : "select",
-  "user" : "bob35",
-  "timestamp" : 110,
-  "message" : "Successfully selected TED Talks Daily."
+  "user" : "alice22",
+  "timestamp" : 305,
+  "message" : "The selected ID is too high."
 }, {
   "command" : "load",
-  "user" : "bob35",
-  "timestamp" : 115,
-  "message" : "Playback loaded successfully."
+  "user" : "alice22",
+  "timestamp" : 310,
+  "message" : "Please select a source before attempting to load."
 }, {
-  "command" : "shuffle",
-  "user" : "bob35",
-  "timestamp" : 120,
-  "message" : "The loaded source is not a playlist."
+  "command" : "addRemoveInPlaylist",
+  "user" : "alice22",
+  "timestamp" : 315,
+  "message" : "Please load a source before adding to or removing from the playlist."
 }, {
   "command" : "search",
-  "user" : "bob35",
-  "timestamp" : 200,
-  "message" : "Search returned 1 results",
-  "results" : [ "Blank Space" ]
+  "user" : "alice22",
+  "timestamp" : 325,
+  "message" : "Search returned 4 results",
+  "results" : [ "Start Me Up", "Angie", "Paint It Black", "Gimme Shelter" ]
 }, {
   "command" : "select",
-  "user" : "bob35",
-  "timestamp" : 210,
-  "message" : "Successfully selected Blank Space."
+  "user" : "alice22",
+  "timestamp" : 330,
+  "message" : "Successfully selected Start Me Up."
 }, {
   "command" : "load",
-  "user" : "bob35",
-  "timestamp" : 213,
+  "user" : "alice22",
+  "timestamp" : 335,
   "message" : "Playback loaded successfully."
 }, {
   "command" : "addRemoveInPlaylist",
-  "user" : "bob35",
-  "timestamp" : 215,
+  "user" : "alice22",
+  "timestamp" : 340,
   "message" : "Successfully added to playlist."
 }, {
   "command" : "search",
-  "user" : "bob35",
-  "timestamp" : 250,
-  "message" : "Search returned 1 results",
-  "results" : [ "Whole Lotta Love" ]
+  "user" : "alice22",
+  "timestamp" : 350,
+  "message" : "Search returned 5 results",
+  "results" : [ "Big Pimpin'", "Black Dog", "Bohemian Rhapsody", "Blank Space", "Begin Again" ]
 }, {
   "command" : "select",
-  "user" : "bob35",
-  "timestamp" : 260,
-  "message" : "Successfully selected Whole Lotta Love."
+  "user" : "alice22",
+  "timestamp" : 355,
+  "message" : "Successfully selected Begin Again."
 }, {
   "command" : "load",
-  "user" : "bob35",
-  "timestamp" : 263,
+  "user" : "alice22",
+  "timestamp" : 360,
   "message" : "Playback loaded successfully."
 }, {
   "command" : "addRemoveInPlaylist",
-  "user" : "bob35",
-  "timestamp" : 265,
+  "user" : "alice22",
+  "timestamp" : 365,
   "message" : "Successfully added to playlist."
 }, {
   "command" : "search",
-  "user" : "bob35",
+  "user" : "alice22",
+  "timestamp" : 375,
+  "message" : "Search returned 4 results",
+  "results" : [ "Start Me Up", "Angie", "Paint It Black", "Gimme Shelter" ]
+}, {
+  "command" : "select",
+  "user" : "alice22",
+  "timestamp" : 380,
+  "message" : "Successfully selected Start Me Up."
+}, {
+  "command" : "load",
+  "user" : "alice22",
+  "timestamp" : 385,
+  "message" : "Playback loaded successfully."
+}, {
+  "command" : "addRemoveInPlaylist",
+  "user" : "alice22",
+  "timestamp" : 390,
+  "message" : "Successfully removed from playlist."
+}, {
+  "command" : "search",
+  "user" : "alice22",
   "timestamp" : 400,
-  "message" : "Search returned 1 results",
-  "results" : [ "I Don't Wanna Live Forever" ]
+  "message" : "Search returned 5 results",
+  "results" : [ "Stairway to Heaven", "Under Pressure", "Dream On", "Start Me Up", "Black Dog" ]
 }, {
   "command" : "select",
-  "user" : "bob35",
+  "user" : "alice22",
+  "timestamp" : 405,
+  "message" : "Successfully selected Black Dog."
+}, {
+  "command" : "load",
+  "user" : "alice22",
   "timestamp" : 410,
-  "message" : "Successfully selected I Don't Wanna Live Forever."
+  "message" : "Playback loaded successfully."
 }, {
-  "command" : "load",
-  "user" : "bob35",
+  "command" : "addRemoveInPlaylist",
+  "user" : "alice22",
   "timestamp" : 415,
-  "message" : "Playback loaded successfully."
-}, {
-  "command" : "shuffle",
-  "user" : "bob35",
-  "timestamp" : 420,
-  "message" : "The loaded source is not a playlist."
-}, {
-  "command" : "search",
-  "user" : "bob35",
-  "timestamp" : 500,
-  "message" : "Search returned 1 results",
-  "results" : [ "Kings Dead" ]
-}, {
-  "command" : "select",
-  "user" : "bob35",
-  "timestamp" : 510,
-  "message" : "Successfully selected Kings Dead."
-}, {
-  "command" : "load",
-  "user" : "bob35",
-  "timestamp" : 513,
-  "message" : "Playback loaded successfully."
-}, {
-  "command" : "addRemoveInPlaylist",
-  "user" : "bob35",
-  "timestamp" : 515,
   "message" : "Successfully added to playlist."
 }, {
   "command" : "search",
-  "user" : "bob35",
-  "timestamp" : 550,
-  "message" : "Search returned 1 results",
-  "results" : [ "Thinking Out Loud" ]
+  "user" : "alice22",
+  "timestamp" : 425,
+  "message" : "Search returned 5 results",
+  "results" : [ "Don't", "Start Me Up", "Sad But True", "Maps", "Gimme Shelter" ]
 }, {
   "command" : "select",
-  "user" : "bob35",
-  "timestamp" : 560,
-  "message" : "Successfully selected Thinking Out Loud."
+  "user" : "alice22",
+  "timestamp" : 430,
+  "message" : "Successfully selected Start Me Up."
 }, {
   "command" : "load",
-  "user" : "bob35",
-  "timestamp" : 563,
+  "user" : "alice22",
+  "timestamp" : 435,
   "message" : "Playback loaded successfully."
 }, {
   "command" : "addRemoveInPlaylist",
-  "user" : "bob35",
-  "timestamp" : 565,
+  "user" : "alice22",
+  "timestamp" : 440,
   "message" : "Successfully added to playlist."
 }, {
-  "command" : "status",
-  "user" : "bob35",
-  "timestamp" : 3100,
-  "stats" : {
-    "name" : "",
-    "remainedTime" : 0,
-    "repeat" : "No Repeat",
-    "shuffle" : false,
-    "paused" : true
-  }
-}, {
   "command" : "search",
-  "user" : "bob35",
-  "timestamp" : 3110,
-  "message" : "Search returned 1 results",
-  "results" : [ "Colaj" ]
-}, {
-  "command" : "shuffle",
-  "user" : "bob35",
-  "timestamp" : 3120,
-  "message" : "Please load a source before using the shuffle function."
+  "user" : "alice22",
+  "timestamp" : 450,
+  "message" : "Search returned 0 results",
+  "results" : [ ]
 }, {
   "command" : "select",
-  "user" : "bob35",
-  "timestamp" : 3130,
-  "message" : "Successfully selected Colaj."
+  "user" : "alice22",
+  "timestamp" : 455,
+  "message" : "The selected ID is too high."
 }, {
   "command" : "load",
-  "user" : "bob35",
-  "timestamp" : 3140,
+  "user" : "alice22",
+  "timestamp" : 460,
+  "message" : "Please select a source before attempting to load."
+}, {
+  "command" : "addRemoveInPlaylist",
+  "user" : "alice22",
+  "timestamp" : 465,
+  "message" : "Please load a source before adding to or removing from the playlist."
+}, {
+  "command" : "search",
+  "user" : "alice22",
+  "timestamp" : 475,
+  "message" : "Search returned 5 results",
+  "results" : [ "The Man", "Delicate", "Love Story", "Blank Space", "Begin Again" ]
+}, {
+  "command" : "select",
+  "user" : "alice22",
+  "timestamp" : 480,
+  "message" : "Successfully selected Begin Again."
+}, {
+  "command" : "load",
+  "user" : "alice22",
+  "timestamp" : 485,
   "message" : "Playback loaded successfully."
 }, {
-  "command" : "status",
-  "user" : "bob35",
-  "timestamp" : 3150,
-  "stats" : {
-    "name" : "Blank Space",
-    "remainedTime" : 221,
-    "repeat" : "No Repeat",
-    "shuffle" : false,
-    "paused" : false
-  }
-}, {
-  "command" : "status",
-  "user" : "bob35",
-  "timestamp" : 3200,
-  "stats" : {
-    "name" : "Blank Space",
-    "remainedTime" : 171,
-    "repeat" : "No Repeat",
-    "shuffle" : false,
-    "paused" : false
-  }
-}, {
-  "command" : "status",
-  "user" : "bob35",
-  "timestamp" : 3250,
-  "stats" : {
-    "name" : "Blank Space",
-    "remainedTime" : 121,
-    "repeat" : "No Repeat",
-    "shuffle" : false,
-    "paused" : false
-  }
-}, {
-  "command" : "shuffle",
-  "user" : "bob35",
-  "timestamp" : 3260,
-  "message" : "Shuffle function activated successfully."
-}, {
-  "command" : "status",
-  "user" : "bob35",
-  "timestamp" : 3270,
-  "stats" : {
-    "name" : "Blank Space",
-    "remainedTime" : 101,
-    "repeat" : "No Repeat",
-    "shuffle" : true,
-    "paused" : false
-  }
-}, {
-  "command" : "status",
-  "user" : "bob35",
-  "timestamp" : 3320,
-  "stats" : {
-    "name" : "Blank Space",
-    "remainedTime" : 51,
-    "repeat" : "No Repeat",
-    "shuffle" : true,
-    "paused" : false
-  }
-}, {
-  "command" : "status",
-  "user" : "bob35",
-  "timestamp" : 3370,
-  "stats" : {
-    "name" : "Blank Space",
-    "remainedTime" : 1,
-    "repeat" : "No Repeat",
-    "shuffle" : true,
-    "paused" : false
-  }
-}, {
-  "command" : "shuffle",
-  "user" : "bob35",
-  "timestamp" : 3680,
-  "message" : "Please load a source before using the shuffle function."
-}, {
-  "command" : "status",
-  "user" : "bob35",
-  "timestamp" : 3690,
-  "stats" : {
-    "name" : "",
-    "remainedTime" : 0,
-    "repeat" : "No Repeat",
-    "shuffle" : false,
-    "paused" : true
-  }
-}, {
-  "command" : "status",
-  "user" : "bob35",
-  "timestamp" : 3740,
-  "stats" : {
-    "name" : "",
-    "remainedTime" : 0,
-    "repeat" : "No Repeat",
-    "shuffle" : false,
-    "paused" : true
-  }
-} ]
+  "command" : "addRemoveInPlaylist",
+  "user" : "alice22",
+  "timestamp"

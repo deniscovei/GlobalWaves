@@ -88,6 +88,8 @@ public final class Main {
             }
             // delete previously created playlists
             Database.getInstance().removePlaylists();
+            //delete liked songs
+            Database.getInstance().removeLikedSongs();
         }
 
         ArrayNode outputs = objectMapper.createArrayNode();

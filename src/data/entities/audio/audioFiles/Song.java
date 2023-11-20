@@ -1,9 +1,7 @@
 package data.entities.audio.audioFiles;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonIgnoreType;
-import data.entities.audio.audioFiles.AudioFile;
 import data.entities.user.User;
 import fileio.input.SongInput;
 import lombok.Getter;
@@ -27,7 +25,7 @@ public class Song extends AudioFile {
     @JsonIgnore
     private String artist = null;
     @JsonIgnore
-    private final ArrayList <User> userWhoLiked = new ArrayList<>();
+    private final ArrayList <User> usersWhoLiked = new ArrayList<>();
 
     public Song() {
         this.fileType = Constants.FileType.SONG;
@@ -73,10 +71,10 @@ public class Song extends AudioFile {
     }
 
     public void registerLike(final User user) {
-        userWhoLiked.add(user);
+        usersWhoLiked.add(user);
     }
 
     public void registerUnlike(final User user) {
-        userWhoLiked.remove(user);
+        usersWhoLiked.remove(user);
     }
 }

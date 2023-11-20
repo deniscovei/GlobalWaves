@@ -11,7 +11,9 @@ public class PrevStrategy implements CommandStrategy {
         User user = Database.getInstance().findUser(input.getUsername());
         String message;
 
-        boolean prevSucceded = user.hasLoadedAFile() && user.getPlayer().prev(input.getTimestamp());
+        boolean prevSucceded = user.hasLoadedAFile() &&
+                               !user.getPlayer().hasFinished(input.getTimestamp()) &&
+                               user.getPlayer().prev(input.getTimestamp());
 
         if (prevSucceded) {
             message = "Returned to previous track successfully. The current track is " +

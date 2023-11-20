@@ -12,7 +12,7 @@ import utils.Constants;
 public final class AddRemoveInPlaylistStrategy implements CommandStrategy {
     public Output action(Input input) {
         User user = Database.getInstance().findUser(input.getUsername());
-        Playlist playlist = Database.getInstance().findPlaylist(input.getPlaylistId());
+        Playlist playlist = Database.getInstance().findPlaylist(input.getPlaylistId(), input.getUsername());
         String message;
 
         if (!user.hasLoadedAFile()) {
