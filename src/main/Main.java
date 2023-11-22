@@ -1,7 +1,7 @@
 package main;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import commandManager.input.Input;
+import commandmanager.input.Input;
 import checker.Checker;
 import checker.CheckerConstants;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -35,6 +35,7 @@ public final class Main {
     /**
      * DO NOT MODIFY MAIN METHOD
      * Call the checker
+     *
      * @param args from command line
      * @throws IOException in case of exceptions to reading / writing
      */
@@ -66,9 +67,9 @@ public final class Main {
 
         Checker.calculateScore();
     }
-    static int test_no = 1;
+
     /**
-     * @param filePathInput for input file
+     * @param filePathInput  for input file
      * @param filePathOutput for output file
      * @throws IOException in case of exceptions to reading / writing
      */
@@ -89,15 +90,15 @@ public final class Main {
             // delete previously created playlists
             Database.getInstance().removePlaylists();
             //delete liked songs
-            Database.getInstance().removeLikedSongs();
+            Database.getInstance().removeLikes();
         }
 
         ArrayNode outputs = objectMapper.createArrayNode();
 
         String inputPath = CheckerConstants.TESTS_PATH + filePathInput;
-        System.out.println("-------------------------------------- Test " + test_no + " --------------------------------------");
-        test_no++;
-        ArrayList <Input> inputs = objectMapper.readValue(new File(inputPath), new TypeReference<>() {});
+        ArrayList<Input> inputs = objectMapper.readValue(new File(inputPath), new TypeReference<>() {
+        });
+
         for (Input input : inputs) {
             outputs.add(objectMapper.valueToTree(input.action()));
         }

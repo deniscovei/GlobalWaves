@@ -5,7 +5,6 @@ import checker.CheckerConstants;
 import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.Scanner;
 
 /**
  * Use this if you want to test on a specific input file
@@ -28,9 +27,9 @@ public final class Test {
         if (inputDir != null) {
             Arrays.sort(inputDir);
 
-            Main.test_no = 16;
+            int testNo = 16;
             for (File file : inputDir) {
-                if (file.getName().contains(((Integer)Main.test_no).toString())) {
+                if (file.getName().contains(Integer.toString(testNo))) {
                     Main.action(file.getName(), CheckerConstants.OUT_FILE);
                     break;
                 }

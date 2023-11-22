@@ -2,6 +2,7 @@ package utils;
 
 public final class Constants {
     public static final int RES_COUNT_MAX = 5;
+
     public enum FileType {
         SONG,
         EPISODE,
@@ -15,9 +16,18 @@ public final class Constants {
     public static final int REPEAT_INFINITE = 2;
     public static final String PUBLIC = "public";
     public static final String PRIVATE = "private";
+    public static final int MIN_SECONDS = 90;
+    public static final int NO_REPEAT_STATES = 3;
 
-    public static String repeatStateToString(int repeatState, FileType ongoingAudioFileType) {
-        switch (ongoingAudioFileType) {
+    /**
+     * Converts a repeat state and file type to a human-readable string representation.
+     *
+     * @param repeatState The repeat state value.
+     * @param fileType The file type.
+     * @return A string representation of the repeat state and file type.
+     */
+    public static String repeatStateToString(final int repeatState, final FileType fileType) {
+        switch (fileType) {
             case PLAYLIST:
                 if (repeatState == REPEAT_ALL) {
                     return "Repeat All";
@@ -32,6 +42,8 @@ public final class Constants {
                 } else if (repeatState == REPEAT_INFINITE) {
                     return "Repeat Infinite";
                 }
+                break;
+            default:
                 break;
         }
         return "No Repeat";

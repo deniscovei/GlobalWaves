@@ -1,8 +1,8 @@
 package data;
 
-import data.entities.audio.audioCollections.Playlist;
-import data.entities.audio.audioCollections.Podcast;
-import data.entities.audio.audioFiles.Song;
+import data.entities.audio.audiocollections.Playlist;
+import data.entities.audio.audiocollections.Podcast;
+import data.entities.audio.audiofiles.Song;
 import data.entities.user.User;
 import fileio.input.LibraryInput;
 import fileio.input.PodcastInput;
@@ -15,16 +15,19 @@ import java.util.ArrayList;
 
 @Setter
 @Getter
-public class Database {
+public final class Database {
     private static Database instance;
-    private final ArrayList <User> users = new ArrayList<>();
-    private final ArrayList <Song> songs = new ArrayList<>();
-    private final ArrayList <Podcast> podcasts = new ArrayList<>();
-    private final ArrayList <Playlist> playlists = new ArrayList<>();
+    private final ArrayList<User> users = new ArrayList<>();
+    private final ArrayList<Song> songs = new ArrayList<>();
+    private final ArrayList<Podcast> podcasts = new ArrayList<>();
+    private final ArrayList<Playlist> playlists = new ArrayList<>();
 
     private Database() {
     }
 
+    /**
+     * returns the database instance
+     */
     public static Database getInstance() {
         if (instance == null) {
             instance = new Database();
@@ -32,12 +35,18 @@ public class Database {
         return instance;
     }
 
+    /**
+     * returns true if the database has been instantiated
+     */
     public static boolean instantiated() {
         return instance != null;
     }
 
-    public User findUser(String username) {
-        for (User user : users) {
+    /**
+     * returns the user with the given username
+     */
+    public User findUser(final String username) {
+        for (User user : getUsers()) {
             if (user.getUsername().equals(username)) {
                 return user;
             }
@@ -45,8 +54,11 @@ public class Database {
         return null;
     }
 
-    public Playlist findPlaylist(String playlistName) {
-        for (Playlist playlist : playlists) {
+    /**
+     * returns the playlist with the given name
+     */
+    public Playlist findPlaylist(final String playlistName) {
+        for (Playlist playlist : getPlaylists()) {
             if (playlist.getName().equals(playlistName)) {
                 return playlist;
             }
@@ -54,10 +66,13 @@ public class Database {
         return null;
     }
 
-    public Playlist findPlaylist(int playlistId, String owner) {
+
+    /**
+     * returns the playlist with the given id in the user's playlist list
+     */
+    public Playlist findPlaylist(final int playlistId, final String owner) {
         int currentId = 0;
-        for (int id = 0; id < playlists.size(); id++) {
-            Playlist playlist = playlists.get(id);
+        for (Playlist playlist : getPlaylists()) {
             if (playlist.getOwner().equals(owner)) {
                 currentId++;
                 if (currentId == playlistId) {
@@ -68,23 +83,38 @@ public class Database {
         return null;
     }
 
-    public void addUser(User user) {
+    /**
+     * adds a user to the database
+     */
+    public void addUser(final User user) {
         getUsers().add(user);
     }
 
-    public void addSong(Song song) {
+    /**
+     * adds a song to the database
+     */
+    public void addSong(final Song song) {
         getSongs().add(song);
     }
 
-    public void addPodcast(Podcast podcast) {
+    /**
+     * adds a podcast to the database
+     */
+    public void addPodcast(final Podcast podcast) {
         getPodcasts().add(podcast);
     }
 
-    public void addPlaylist(Playlist playlist) {
+    /**
+     * adds a playlist to the database
+     */
+    public void addPlaylist(final Playlist playlist) {
         getPlaylists().add(playlist);
     }
 
-    public void upload(LibraryInput library) {
+    /**
+     * uploads the library
+     */
+    public void upload(final LibraryInput library) {
         for (UserInput user : library.getUsers()) {
             addUser(new User(user));
         }
@@ -96,11 +126,17 @@ public class Database {
         }
     }
 
+    /**
+     * removes all the playlists from the database
+     */
     public void removePlaylists() {
         getPlaylists().clear();
     }
 
-    public void removeLikedSongs() {
+    /**
+     * removes all the songs' likes from the database
+     */
+    public void removeLikes() {
         for (Song song : getSongs()) {
             song.getUsersWhoLiked().clear();
         }
