@@ -1,6 +1,8 @@
 # GlobalWaves
 ## Denis Covei - 322CA
 
+Here it is the project structure, with the most important classes descriptions.
+
 ### Project Structure
 * <span style="color:#FFBF00">*src/*</span>
   * <span style="color:#FFBF00">*checker/*</span> - checker files
@@ -60,5 +62,10 @@
   * <span style="color:#FFBF00">*utils/*</span>
     * <span style="color:#ADDFFF">*AudioFileListSerializer*</span> - JSON serializer for songs
     * <span style="color:#ADDFFF">*Constants*</span> - contains constants used in the project
-* input/ - contains the tests and library in JSON format
-* ref/ - contains all reference output for the tests in JSON format
+* <span style="color:#FFBF00">*input/*</span> - contains the tests and library in JSON format
+* <span style="color:#FFBF00">*ref/*</span> - contains all reference output for the tests in JSON format
+
+Encountered problems:
+* I had some problems with parsing JSON files. I had to write a custom serializer for the songs, because the default one was not working properly, as I only needed to display the name of the song as a string, not to print all attributes of the Song class instances.
+* In the User class, I have a player field, that keeps track of the history of loaded files and the state in which they remained. For each loaded file in player, I have 4 parameters: the time at which the file started playing, a pause timestamp, if the file was paused, an elapsed time parameter which tracks how much time did the files before the current playing one lasted, and an offset, that I modify whenever I repeat, skip or rewind the file (as logically, the rest of the parameters should keep their purpose). I use these parameters to calculate the time which I am at, using a formula based on the play/pause state and the list of audio files of the audio collections.
+* I also had some trouble with shuffling, as it was hard to find out what audio file comes next after the current playing one, taking into account the repeat and shuffle options. I solved this by using two lists of indexes, one for the shuffled ones and one with the indexes in increasing order (index(i) = i), and writing a nextId method that uses one of these lists, depending on the shuffle option, and, based on the repeat option, it either returns the next index, the current or the first one.

@@ -132,8 +132,14 @@ public final class PlayerFile {
 
     /**
      * returns the next id of the current playing file
+     *
+     * If the shuffle mode is activated, we search for the index of the current playing file in the
+     * shuffled indexes list and get what the following index is, otherwise we just get to
+     * index + 1. Now, we have the following index of the current playing file, so, keeping track of
+     * the repeat state, we return the next id.
+     *
      * @param id the current playing file id
-     * @param indexes the indexes of the audio files (shuffled or not)
+     * @param indexes the working indexes of the audio files (shuffled or not)
      */
     private int nextId(int id, final ArrayList<Integer> indexes) {
         if (isShuffleActivated()) {
