@@ -4330,13 +4330,13 @@
   "result" : [ {
     "name" : "Groovy Beats Quest #1",
     "visibility" : "public",
-    "songs" : [ "Start Me Up", "Bohemian Rhapsody", "Paint It Black" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Start Me Up", "Bohemian Rhapsody", "Paint It Black" ]
   }, {
     "name" : "Classic Grooves Escape #2",
     "visibility" : "public",
-    "songs" : [ "Start Me Up", "Shape of You", "Begin Again", "Black Dog" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Start Me Up", "Shape of You", "Begin Again", "Black Dog" ]
   } ]
 }, {
   "command" : "showPlaylists",
@@ -4345,13 +4345,13 @@
   "result" : [ {
     "name" : "Groovy Beats Dream #1",
     "visibility" : "public",
-    "songs" : [ "The Unforgiven", "Delicate", "The Man", "Money Trees", "Start Me Up" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "The Unforgiven", "Delicate", "The Man", "Money Trees", "Start Me Up" ]
   }, {
     "name" : "Dynamic Tracks Trek #2",
     "visibility" : "public",
-    "songs" : [ "Bohemian Rhapsody", "The Unforgiven", "Begin Again" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Bohemian Rhapsody", "The Unforgiven", "Begin Again" ]
   } ]
 }, {
   "command" : "showPlaylists",
@@ -4360,13 +4360,13 @@
   "result" : [ {
     "name" : "Electric Vibes Journey #1",
     "visibility" : "public",
-    "songs" : [ "Sad But True", "Gimme Shelter", "Happier", "Money Trees", "Castle on the Hill", "Dream On" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Sad But True", "Gimme Shelter", "Happier", "Money Trees", "Castle on the Hill", "Dream On" ]
   }, {
     "name" : "Chill Grooves Quest #2",
     "visibility" : "public",
-    "songs" : [ "Happier", "Black Dog", "Gimme Shelter", "Under Pressure", "Maps", "Shape of You" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Happier", "Black Dog", "Gimme Shelter", "Under Pressure", "Maps", "Shape of You" ]
   } ]
 }, {
   "command" : "showPlaylists",
@@ -4375,13 +4375,13 @@
   "result" : [ {
     "name" : "Electric Grooves Dream #1",
     "visibility" : "public",
-    "songs" : [ "Dream On", "Start Me Up", "Under Pressure" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Dream On", "Start Me Up", "Under Pressure" ]
   }, {
     "name" : "Groovy Beats Expedition #2",
     "visibility" : "public",
-    "songs" : [ "Don't", "Sad But True", "Dream On" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Don't", "Sad But True", "Dream On" ]
   } ]
 }, {
   "command" : "showPlaylists",
@@ -4390,13 +4390,13 @@
   "result" : [ {
     "name" : "Electric Bangers Dream #1",
     "visibility" : "public",
-    "songs" : [ "Don't", "The Man", "Blank Space", "Black Dog", "Whatever You Need", "Castle on the Hill" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Don't", "The Man", "Blank Space", "Black Dog", "Whatever You Need", "Castle on the Hill" ]
   }, {
     "name" : "Electric Tunes Dream #2",
     "visibility" : "public",
-    "songs" : [ "Bohemian Rhapsody", "The Man", "Delicate", "Angie", "Paint It Black", "Begin Again" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Bohemian Rhapsody", "The Man", "Delicate", "Angie", "Paint It Black", "Begin Again" ]
   } ]
 }, {
   "command" : "showPlaylists",
@@ -4405,13 +4405,13 @@
   "result" : [ {
     "name" : "Epic Melodies Safari #1",
     "visibility" : "public",
-    "songs" : [ "Castle on the Hill", "The Man", "Love Story", "Don't", "Dream On" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Castle on the Hill", "The Man", "Love Story", "Don't", "Dream On" ]
   }, {
     "name" : "Breezy Bangers Quest #2",
     "visibility" : "public",
-    "songs" : [ "Castle on the Hill", "Maps", "Blank Space", "Delicate", "Happier", "Big Pimpin'" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Castle on the Hill", "Maps", "Blank Space", "Delicate", "Happier", "Big Pimpin'" ]
   } ]
 }, {
   "command" : "showPlaylists",
@@ -4420,13 +4420,13 @@
   "result" : [ {
     "name" : "Classic Tunes Dream #1",
     "visibility" : "public",
-    "songs" : [ "Dream On", "Start Me Up", "Stairway to Heaven", "Love Story", "The Unforgiven", "The Man" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Dream On", "Start Me Up", "Stairway to Heaven", "Love Story", "The Unforgiven", "The Man" ]
   }, {
     "name" : "Electric Beats Escape #2",
     "visibility" : "public",
-    "songs" : [ "Maps", "Black Dog", "Whatever You Need", "Begin Again", "Start Me Up" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Maps", "Black Dog", "Whatever You Need", "Begin Again", "Start Me Up" ]
   } ]
 }, {
   "command" : "showPlaylists",
@@ -4435,13 +4435,13 @@
   "result" : [ {
     "name" : "Vibey Tracks Safari #1",
     "visibility" : "public",
-    "songs" : [ "Whatever You Need", "Money Trees", "Don't", "The Man", "Start Me Up", "Maps", "Black Dog", "Begin Again" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Whatever You Need", "Money Trees", "Don't", "The Man", "Start Me Up", "Maps", "Black Dog", "Begin Again" ]
   }, {
     "name" : "Chill Tracks Safari #2",
     "visibility" : "public",
-    "songs" : [ "Sad But True", "Don't", "Delicate", "Gimme Shelter", "Paint It Black" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Sad But True", "Don't", "Delicate", "Gimme Shelter", "Paint It Black" ]
   } ]
 }, {
   "command" : "showPlaylists",
@@ -4450,13 +4450,13 @@
   "result" : [ {
     "name" : "Epic Tracks Safari #1",
     "visibility" : "public",
-    "songs" : [ "Blank Space", "Dream On", "Don't", "Start Me Up" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Blank Space", "Dream On", "Don't", "Start Me Up" ]
   }, {
     "name" : "Stellar Rhythms Safari #2",
     "visibility" : "public",
-    "songs" : [ "Sad But True", "The Man", "Delicate", "Big Pimpin'", "Under Pressure", "Gimme Shelter", "Don't" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Sad But True", "The Man", "Delicate", "Big Pimpin'", "Under Pressure", "Gimme Shelter", "Don't" ]
   } ]
 }, {
   "command" : "showPlaylists",
@@ -4465,13 +4465,13 @@
   "result" : [ {
     "name" : "Classic Harmonies Quest #1",
     "visibility" : "public",
-    "songs" : [ "Big Pimpin'", "Maps", "Money Trees", "Gimme Shelter", "Start Me Up" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Big Pimpin'", "Maps", "Money Trees", "Gimme Shelter", "Start Me Up" ]
   }, {
     "name" : "Mellow Tracks Safari #2",
     "visibility" : "public",
-    "songs" : [ "Maps", "The Man", "Blank Space", "Money Trees", "Shape of You", "The Unforgiven", "Big Pimpin'", "Love Story" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Maps", "The Man", "Blank Space", "Money Trees", "Shape of You", "The Unforgiven", "Big Pimpin'", "Love Story" ]
   } ]
 }, {
   "command" : "search",
@@ -9733,13 +9733,13 @@
   "result" : [ {
     "name" : "Groovy Beats Quest #1",
     "visibility" : "public",
-    "songs" : [ "Start Me Up", "Bohemian Rhapsody", "Paint It Black" ],
-    "followers" : 3
+    "followers" : 3,
+    "songs" : [ "Start Me Up", "Bohemian Rhapsody", "Paint It Black" ]
   }, {
     "name" : "Classic Grooves Escape #2",
     "visibility" : "public",
-    "songs" : [ "Start Me Up", "Shape of You", "Begin Again", "Black Dog" ],
-    "followers" : 3
+    "followers" : 3,
+    "songs" : [ "Start Me Up", "Shape of You", "Begin Again", "Black Dog" ]
   } ]
 }, {
   "command" : "showPreferredSongs",
@@ -9753,13 +9753,13 @@
   "result" : [ {
     "name" : "Groovy Beats Dream #1",
     "visibility" : "private",
-    "songs" : [ "The Unforgiven", "Delicate", "The Man", "Money Trees", "Start Me Up" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "The Unforgiven", "Delicate", "The Man", "Money Trees", "Start Me Up" ]
   }, {
     "name" : "Dynamic Tracks Trek #2",
     "visibility" : "public",
-    "songs" : [ "Bohemian Rhapsody", "The Unforgiven", "Begin Again" ],
-    "followers" : 6
+    "followers" : 6,
+    "songs" : [ "Bohemian Rhapsody", "The Unforgiven", "Begin Again" ]
   } ]
 }, {
   "command" : "showPreferredSongs",
@@ -9773,13 +9773,13 @@
   "result" : [ {
     "name" : "Electric Vibes Journey #1",
     "visibility" : "private",
-    "songs" : [ "Sad But True", "Gimme Shelter", "Happier", "Money Trees", "Castle on the Hill", "Dream On" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Sad But True", "Gimme Shelter", "Happier", "Money Trees", "Castle on the Hill", "Dream On" ]
   }, {
     "name" : "Chill Grooves Quest #2",
     "visibility" : "private",
-    "songs" : [ "Happier", "Black Dog", "Gimme Shelter", "Under Pressure", "Maps", "Shape of You" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Happier", "Black Dog", "Gimme Shelter", "Under Pressure", "Maps", "Shape of You" ]
   } ]
 }, {
   "command" : "showPreferredSongs",
@@ -9793,13 +9793,13 @@
   "result" : [ {
     "name" : "Electric Grooves Dream #1",
     "visibility" : "private",
-    "songs" : [ "Dream On", "Start Me Up", "Under Pressure" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Dream On", "Start Me Up", "Under Pressure" ]
   }, {
     "name" : "Groovy Beats Expedition #2",
     "visibility" : "private",
-    "songs" : [ "Don't", "Sad But True", "Dream On" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Don't", "Sad But True", "Dream On" ]
   } ]
 }, {
   "command" : "showPreferredSongs",
@@ -9813,13 +9813,13 @@
   "result" : [ {
     "name" : "Electric Bangers Dream #1",
     "visibility" : "public",
-    "songs" : [ "Don't", "The Man", "Blank Space", "Black Dog", "Whatever You Need", "Castle on the Hill" ],
-    "followers" : 5
+    "followers" : 5,
+    "songs" : [ "Don't", "The Man", "Blank Space", "Black Dog", "Whatever You Need", "Castle on the Hill" ]
   }, {
     "name" : "Electric Tunes Dream #2",
     "visibility" : "public",
-    "songs" : [ "Bohemian Rhapsody", "The Man", "Delicate", "Angie", "Paint It Black", "Begin Again" ],
-    "followers" : 2
+    "followers" : 2,
+    "songs" : [ "Bohemian Rhapsody", "The Man", "Delicate", "Angie", "Paint It Black", "Begin Again" ]
   } ]
 }, {
   "command" : "showPreferredSongs",
@@ -9833,13 +9833,13 @@
   "result" : [ {
     "name" : "Epic Melodies Safari #1",
     "visibility" : "private",
-    "songs" : [ "Castle on the Hill", "The Man", "Love Story", "Don't", "Dream On" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Castle on the Hill", "The Man", "Love Story", "Don't", "Dream On" ]
   }, {
     "name" : "Breezy Bangers Quest #2",
     "visibility" : "public",
-    "songs" : [ "Castle on the Hill", "Maps", "Blank Space", "Delicate", "Happier", "Big Pimpin'" ],
-    "followers" : 3
+    "followers" : 3,
+    "songs" : [ "Castle on the Hill", "Maps", "Blank Space", "Delicate", "Happier", "Big Pimpin'" ]
   } ]
 }, {
   "command" : "showPreferredSongs",
@@ -9853,13 +9853,13 @@
   "result" : [ {
     "name" : "Classic Tunes Dream #1",
     "visibility" : "public",
-    "songs" : [ "Dream On", "Start Me Up", "Stairway to Heaven", "Love Story", "The Unforgiven", "The Man" ],
-    "followers" : 4
+    "followers" : 4,
+    "songs" : [ "Dream On", "Start Me Up", "Stairway to Heaven", "Love Story", "The Unforgiven", "The Man" ]
   }, {
     "name" : "Electric Beats Escape #2",
     "visibility" : "public",
-    "songs" : [ "Maps", "Black Dog", "Whatever You Need", "Begin Again", "Start Me Up" ],
-    "followers" : 4
+    "followers" : 4,
+    "songs" : [ "Maps", "Black Dog", "Whatever You Need", "Begin Again", "Start Me Up" ]
   } ]
 }, {
   "command" : "showPreferredSongs",
@@ -9873,13 +9873,13 @@
   "result" : [ {
     "name" : "Vibey Tracks Safari #1",
     "visibility" : "private",
-    "songs" : [ "Whatever You Need", "Money Trees", "Don't", "The Man", "Start Me Up", "Maps", "Black Dog", "Begin Again" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Whatever You Need", "Money Trees", "Don't", "The Man", "Start Me Up", "Maps", "Black Dog", "Begin Again" ]
   }, {
     "name" : "Chill Tracks Safari #2",
     "visibility" : "public",
-    "songs" : [ "Sad But True", "Don't", "Delicate", "Gimme Shelter", "Paint It Black" ],
-    "followers" : 1
+    "followers" : 1,
+    "songs" : [ "Sad But True", "Don't", "Delicate", "Gimme Shelter", "Paint It Black" ]
   } ]
 }, {
   "command" : "showPreferredSongs",
@@ -9893,13 +9893,13 @@
   "result" : [ {
     "name" : "Epic Tracks Safari #1",
     "visibility" : "public",
-    "songs" : [ "Blank Space", "Dream On", "Don't", "Start Me Up" ],
-    "followers" : 4
+    "followers" : 4,
+    "songs" : [ "Blank Space", "Dream On", "Don't", "Start Me Up" ]
   }, {
     "name" : "Stellar Rhythms Safari #2",
     "visibility" : "public",
-    "songs" : [ "Sad But True", "The Man", "Delicate", "Big Pimpin'", "Under Pressure", "Gimme Shelter", "Don't" ],
-    "followers" : 1
+    "followers" : 1,
+    "songs" : [ "Sad But True", "The Man", "Delicate", "Big Pimpin'", "Under Pressure", "Gimme Shelter", "Don't" ]
   } ]
 }, {
   "command" : "showPreferredSongs",
@@ -9913,13 +9913,13 @@
   "result" : [ {
     "name" : "Classic Harmonies Quest #1",
     "visibility" : "public",
-    "songs" : [ "Big Pimpin'", "Maps", "Money Trees", "Gimme Shelter", "Start Me Up" ],
-    "followers" : 4
+    "followers" : 4,
+    "songs" : [ "Big Pimpin'", "Maps", "Money Trees", "Gimme Shelter", "Start Me Up" ]
   }, {
     "name" : "Mellow Tracks Safari #2",
     "visibility" : "private",
-    "songs" : [ "Maps", "The Man", "Blank Space", "Money Trees", "Shape of You", "The Unforgiven", "Big Pimpin'", "Love Story" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Maps", "The Man", "Blank Space", "Money Trees", "Shape of You", "The Unforgiven", "Big Pimpin'", "Love Story" ]
   } ]
 }, {
   "command" : "showPreferredSongs",

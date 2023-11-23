@@ -7,6 +7,7 @@ import data.entities.audio.audiofiles.Song;
 import data.entities.user.User;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * This class implements the command strategy for showing the preferred songs.
@@ -17,7 +18,7 @@ public final class ShowPreferredSongsStrategy implements CommandStrategy {
         User user = Database.getInstance().findUser(input.getUsername());
         ArrayList<Object> result = new ArrayList<>();
 
-        for (Song song : user.getPreferredSongs()) {
+        for (Song song : Objects.requireNonNull(user).getPreferredSongs()) {
             result.add(song.getName());
         }
 

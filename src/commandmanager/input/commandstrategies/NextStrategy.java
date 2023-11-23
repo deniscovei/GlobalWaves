@@ -5,6 +5,8 @@ import commandmanager.output.Output;
 import data.Database;
 import data.entities.user.User;
 
+import java.util.Objects;
+
 /**
  * This class represents the strategy for skipping to the next track.
  */
@@ -14,7 +16,7 @@ public final class NextStrategy implements CommandStrategy {
         User user = Database.getInstance().findUser(input.getUsername());
         String message;
 
-        boolean nextSucceeded = user.hasLoadedAFile()
+        boolean nextSucceeded = Objects.requireNonNull(user).hasLoadedAFile()
                 && !user.getPlayer().hasFinished(input.getTimestamp())
                 && user.getPlayer().next(input.getTimestamp());
 

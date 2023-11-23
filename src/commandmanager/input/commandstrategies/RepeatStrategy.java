@@ -6,6 +6,8 @@ import utils.Constants;
 import data.Database;
 import data.entities.user.User;
 
+import java.util.Objects;
+
 /**
  * This class represents the strategy for setting the repeat status of a source.
  */
@@ -15,7 +17,7 @@ public final class RepeatStrategy implements CommandStrategy {
         User user = Database.getInstance().findUser(input.getUsername());
         String message;
 
-        if (!user.hasLoadedAFile()) {
+        if (!Objects.requireNonNull(user).hasLoadedAFile()) {
             message = "Please load a source before setting the repeat status.";
         } else {
             user.getPlayer().repeat(input.getTimestamp());

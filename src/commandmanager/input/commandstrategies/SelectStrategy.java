@@ -7,6 +7,7 @@ import data.entities.user.User;
 import commandmanager.output.Output;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * This class implements the command strategy for selecting a file.
@@ -16,7 +17,7 @@ public final class SelectStrategy implements CommandStrategy {
     public Output action(final Input input) {
         User user = Database.getInstance().findUser(input.getUsername());
         int itemNumber = input.getItemNumber();
-        ArrayList<File> searchResults = user.getSearchResults();
+        ArrayList<File> searchResults = Objects.requireNonNull(user).getSearchResults();
         String message;
 
         if (!user.havePerformedSearch()) {

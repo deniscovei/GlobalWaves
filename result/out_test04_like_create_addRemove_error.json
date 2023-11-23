@@ -115,7 +115,7 @@
   "result" : [ {
     "name" : "Playlist alb pentru zile negre",
     "visibility" : "public",
-    "songs" : [ "Get Lucky" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Get Lucky" ]
   } ]
 } ]

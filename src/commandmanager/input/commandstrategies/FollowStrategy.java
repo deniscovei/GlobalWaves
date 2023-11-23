@@ -7,13 +7,16 @@ import data.entities.audio.File;
 import data.entities.audio.audiocollections.Playlist;
 import utils.Constants;
 
+import java.util.Objects;
+
 /**
  * This class represents the strategy for following or unfollowing a playlist.
  */
 public final class FollowStrategy implements CommandStrategy {
     @Override
     public Output action(final Input input) {
-        File selectedFile = Database.getInstance().findUser(input.getUsername()).getSelectedFile();
+        File selectedFile = Objects.requireNonNull(Database.getInstance()
+                .findUser(input.getUsername())).getSelectedFile();
         String message;
 
         if (selectedFile == null) {

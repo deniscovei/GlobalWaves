@@ -6,6 +6,8 @@ import data.Database;
 import data.entities.audio.audiocollections.Playlist;
 import data.entities.user.User;
 
+import java.util.Objects;
+
 /**
  * This class represents the strategy for creating a playlist.
  */
@@ -18,7 +20,7 @@ public final class CreatePlaylistStrategy implements CommandStrategy {
             return new Output(input, "A playlist with the same name already exists.");
         } else {
             Playlist playlist = new Playlist(input.getPlaylistName(),
-                                             user.getUsername(),
+                                             Objects.requireNonNull(user).getUsername(),
                                              input.getTimestamp());
             Database.getInstance().addPlaylist(playlist);
             return new Output(input, "Playlist created successfully.");

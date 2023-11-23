@@ -10,8 +10,8 @@ import java.util.ArrayList;
 
 public final class AudioFileListSerializer extends JsonSerializer<ArrayList<AudioFile>> {
     @Override
-    public void serialize(ArrayList<AudioFile> audioFiles, JsonGenerator jsonGenerator,
-                          SerializerProvider serializerProvider) throws IOException {
+    public void serialize(final ArrayList<AudioFile> audioFiles, final JsonGenerator jsonGenerator,
+                          final SerializerProvider serializerProvider) throws IOException {
         jsonGenerator.writeStartArray();
 
         for (AudioFile audioFile : audioFiles) {

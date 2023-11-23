@@ -27,7 +27,7 @@ public final class Test {
         if (inputDir != null) {
             Arrays.sort(inputDir);
 
-            int testNo = 16;
+            int testNo = 1;
             for (File file : inputDir) {
                 if (file.getName().contains(Integer.toString(testNo))) {
                     Main.action(file.getName(), CheckerConstants.OUT_FILE);

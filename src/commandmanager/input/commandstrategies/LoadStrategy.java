@@ -9,6 +9,8 @@ import data.entities.audio.audiocollections.Playlist;
 import data.entities.audio.audiocollections.Podcast;
 import data.entities.user.User;
 
+import java.util.Objects;
+
 /**
  * This class represents the strategy for loading a file.
  */
@@ -18,7 +20,7 @@ public final class LoadStrategy implements CommandStrategy {
         User user = Database.getInstance().findUser(input.getUsername());
         String message;
 
-        if (user.getSelectedFile() == null) {
+        if (Objects.requireNonNull(user).getSelectedFile() == null) {
             message = "Please select a source before attempting to load.";
         } else {
             File selection = user.getSelectedFile();

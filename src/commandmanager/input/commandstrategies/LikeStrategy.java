@@ -8,6 +8,8 @@ import data.entities.audio.audiofiles.Song;
 import data.entities.user.User;
 import utils.Constants;
 
+import java.util.Objects;
+
 /**
  * This class represents the strategy for liking or unliking a song.
  */
@@ -16,7 +18,8 @@ public final class LikeStrategy implements CommandStrategy {
     public Output action(final Input input) {
         User user = Database.getInstance().findUser(input.getUsername());
 
-        if (!user.hasLoadedAFile() || user.getPlayer().hasFinished(input.getTimestamp())) {
+        if (!Objects.requireNonNull(user).hasLoadedAFile()
+                || user.getPlayer().hasFinished(input.getTimestamp())) {
             return new Output(input, "Please load a source before liking or unliking.");
         } else {
             AudioFile currentPlayingFile = user.getPlayer()

@@ -64,6 +64,7 @@ public final class Input extends IO_Entry {
                         + e.getStackTrace()[0].getLineNumber()
                         + " in file " + e.getStackTrace()[0].getFileName());
             }
+
             e.printStackTrace();
 
             return null;

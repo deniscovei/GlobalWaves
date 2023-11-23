@@ -96,8 +96,9 @@ public final class Main {
         ArrayNode outputs = objectMapper.createArrayNode();
 
         String inputPath = CheckerConstants.TESTS_PATH + filePathInput;
-        ArrayList<Input> inputs = objectMapper.readValue(new File(inputPath), new TypeReference<>() {
-        });
+        ArrayList<Input> inputs = objectMapper
+                .readValue(new File(inputPath), new TypeReference<>() {
+                });
 
         for (Input input : inputs) {
             outputs.add(objectMapper.valueToTree(input.action()));

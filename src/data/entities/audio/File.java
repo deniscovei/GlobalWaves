@@ -14,7 +14,7 @@ public abstract class File {
 
     }
 
-    public File(String name) {
+    public File(final String name) {
         this.name = name;
     }
 }

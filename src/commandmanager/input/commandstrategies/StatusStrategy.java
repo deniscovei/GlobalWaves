@@ -9,6 +9,8 @@ import data.entities.audio.audiofiles.AudioFile;
 import data.entities.user.User;
 import utils.Constants;
 
+import java.util.Objects;
+
 /**
  * This class implements the command strategy for showing the stats of the player.
  */
@@ -16,7 +18,7 @@ public final class StatusStrategy implements CommandStrategy {
     @Override
     public Output action(final Input input) {
         User user = Database.getInstance().findUser(input.getUsername());
-        Player player = user.getPlayer();
+        Player player = Objects.requireNonNull(user).getPlayer();
         Stats stats = new Stats();
 
         if (user.hasLoadedAFile() && !player.hasFinished(input.getTimestamp())) {

@@ -19,8 +19,7 @@ public final class SwitchVisibilityStrategy implements CommandStrategy {
             message = "The specified playlist ID is too high.";
         } else {
             playlist.switchVisibility();
-            message = "Visibility status updated successfully to "
-                    + playlist.getVisibility() + ".";
+            message = "Visibility status updated successfully to " + playlist.getVisibility() + ".";
         }
 
         return new Output(input, message);

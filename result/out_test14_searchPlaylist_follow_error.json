@@ -152,13 +152,13 @@
   "result" : [ {
     "name" : "My first playlist",
     "visibility" : "public",
-    "songs" : [ "Stairway to Heaven" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Stairway to Heaven" ]
   }, {
     "name" : "My second playlist",
     "visibility" : "public",
-    "songs" : [ "Shape of You", "Stairway to Heaven" ],
-    "followers" : 1
+    "followers" : 1,
+    "songs" : [ "Shape of You", "Stairway to Heaven" ]
   } ]
 }, {
   "command" : "showPlaylists",
@@ -167,8 +167,8 @@
   "result" : [ {
     "name" : "The best",
     "visibility" : "public",
-    "songs" : [ "Shape of You" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Shape of You" ]
   } ]
 }, {
   "command" : "switchVisibility",
@@ -182,13 +182,13 @@
   "result" : [ {
     "name" : "My first playlist",
     "visibility" : "public",
-    "songs" : [ "Stairway to Heaven" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Stairway to Heaven" ]
   }, {
     "name" : "My second playlist",
     "visibility" : "private",
-    "songs" : [ "Shape of You", "Stairway to Heaven" ],
-    "followers" : 1
+    "followers" : 1,
+    "songs" : [ "Shape of You", "Stairway to Heaven" ]
   } ]
 }, {
   "command" : "follow",
@@ -255,12 +255,12 @@
   "result" : [ {
     "name" : "My first playlist",
     "visibility" : "public",
-    "songs" : [ "Stairway to Heaven" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Stairway to Heaven" ]
   }, {
     "name" : "My second playlist",
     "visibility" : "public",
-    "songs" : [ "Shape of You", "Stairway to Heaven" ],
-    "followers" : 3
+    "followers" : 3,
+    "songs" : [ "Shape of You", "Stairway to Heaven" ]
   } ]
 } ]

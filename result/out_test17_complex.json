@@ -4330,13 +4330,13 @@
   "result" : [ {
     "name" : "Classic Harmonies Dream #1",
     "visibility" : "public",
-    "songs" : [ "Stairway to Heaven", "Start Me Up", "Gimme Shelter" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Stairway to Heaven", "Start Me Up", "Gimme Shelter" ]
   }, {
     "name" : "Classic Sounds Expedition #2",
     "visibility" : "public",
-    "songs" : [ "Angie", "Shape of You", "Sad But True", "Love Story", "Bohemian Rhapsody", "The Man", "Money Trees", "Thinking Out Loud" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Angie", "Shape of You", "Sad But True", "Love Story", "Bohemian Rhapsody", "The Man", "Money Trees", "Thinking Out Loud" ]
   } ]
 }, {
   "command" : "showPlaylists",
@@ -4345,13 +4345,13 @@
   "result" : [ {
     "name" : "Breezy Rhythms Trek #1",
     "visibility" : "public",
-    "songs" : [ "Stairway to Heaven", "Angie", "Whatever You Need", "Gimme Shelter", "Money Trees", "Sad But True" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Stairway to Heaven", "Angie", "Whatever You Need", "Gimme Shelter", "Money Trees", "Sad But True" ]
   }, {
     "name" : "Electric Harmonies Odyssey #2",
     "visibility" : "public",
-    "songs" : [ "Dream On", "Big Pimpin'", "Sad But True", "Shape of You", "Don't" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Dream On", "Big Pimpin'", "Sad But True", "Shape of You", "Don't" ]
   } ]
 }, {
   "command" : "showPlaylists",
@@ -4360,13 +4360,13 @@
   "result" : [ {
     "name" : "Groovy Grooves Dream #1",
     "visibility" : "public",
-    "songs" : [ "Maps", "Under Pressure", "Stairway to Heaven", "Start Me Up", "Shape of You" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Maps", "Under Pressure", "Stairway to Heaven", "Start Me Up", "Shape of You" ]
   }, {
     "name" : "Groovy Grooves Expedition #2",
     "visibility" : "public",
-    "songs" : [ "Love Story", "Don't", "Money Trees", "Maps" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Love Story", "Don't", "Money Trees", "Maps" ]
   } ]
 }, {
   "command" : "showPlaylists",
@@ -4375,13 +4375,13 @@
   "result" : [ {
     "name" : "Breezy Bangers Quest #1",
     "visibility" : "public",
-    "songs" : [ "Blank Space", "Big Pimpin'", "Begin Again", "Paint It Black", "Love Story" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Blank Space", "Big Pimpin'", "Begin Again", "Paint It Black", "Love Story" ]
   }, {
     "name" : "Stellar Tunes Quest #2",
     "visibility" : "public",
-    "songs" : [ "Start Me Up", "Dream On", "Angie", "Gimme Shelter", "Begin Again", "Black Dog", "Stairway to Heaven" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Start Me Up", "Dream On", "Angie", "Gimme Shelter", "Begin Again", "Black Dog", "Stairway to Heaven" ]
   } ]
 }, {
   "command" : "showPlaylists",
@@ -4390,13 +4390,13 @@
   "result" : [ {
     "name" : "Chill Sounds Journey #1",
     "visibility" : "public",
-    "songs" : [ "Start Me Up", "Shape of You", "Black Dog", "Begin Again", "Don't", "Delicate", "Happier" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Start Me Up", "Shape of You", "Black Dog", "Begin Again", "Don't", "Delicate", "Happier" ]
   }, {
     "name" : "Chill Sounds Adventure #2",
     "visibility" : "public",
-    "songs" : [ "Start Me Up", "Bohemian Rhapsody", "Blank Space" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Start Me Up", "Bohemian Rhapsody", "Blank Space" ]
   } ]
 }, {
   "command" : "showPlaylists",
@@ -4405,13 +4405,13 @@
   "result" : [ {
     "name" : "Chill Melodies Voyage #1",
     "visibility" : "public",
-    "songs" : [ "Start Me Up", "Whatever You Need", "Dream On", "Begin Again", "Black Dog", "Shape of You", "Delicate" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Start Me Up", "Whatever You Need", "Dream On", "Begin Again", "Black Dog", "Shape of You", "Delicate" ]
   }, {
     "name" : "Classic Grooves Trek #2",
     "visibility" : "public",
-    "songs" : [ "Gimme Shelter", "Bohemian Rhapsody", "Love Story", "Black Dog", "Thinking Out Loud" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Gimme Shelter", "Bohemian Rhapsody", "Love Story", "Black Dog", "Thinking Out Loud" ]
   } ]
 }, {
   "command" : "showPlaylists",
@@ -4420,13 +4420,13 @@
   "result" : [ {
     "name" : "Groovy Vibes Odyssey #1",
     "visibility" : "public",
-    "songs" : [ "Delicate", "Under Pressure", "Money Trees", "Love Story", "The Man", "Shape of You" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Delicate", "Under Pressure", "Money Trees", "Love Story", "The Man", "Shape of You" ]
   }, {
     "name" : "Dynamic Tracks Adventure #2",
     "visibility" : "public",
-    "songs" : [ "Begin Again", "Gimme Shelter", "Start Me Up" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Begin Again", "Gimme Shelter", "Start Me Up" ]
   } ]
 }, {
   "command" : "showPlaylists",
@@ -4435,13 +4435,13 @@
   "result" : [ {
     "name" : "Dynamic Grooves Expedition #1",
     "visibility" : "public",
-    "songs" : [ "Dream On", "Stairway to Heaven", "Begin Again", "Under Pressure", "Thinking Out Loud", "Maps" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Dream On", "Stairway to Heaven", "Begin Again", "Under Pressure", "Thinking Out Loud", "Maps" ]
   }, {
     "name" : "Breezy Tunes Odyssey #2",
     "visibility" : "public",
-    "songs" : [ "Dream On" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Dream On" ]
   } ]
 }, {
   "command" : "showPlaylists",
@@ -4450,13 +4450,13 @@
   "result" : [ {
     "name" : "Chill Sounds Voyage #1",
     "visibility" : "public",
-    "songs" : [ "The Man", "Blank Space", "Shape of You", "Sad But True", "Don't", "Money Trees", "Happier", "Paint It Black", "Begin Again" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "The Man", "Blank Space", "Shape of You", "Sad But True", "Don't", "Money Trees", "Happier", "Paint It Black", "Begin Again" ]
   }, {
     "name" : "Electric Melodies Escape #2",
     "visibility" : "public",
-    "songs" : [ "Dream On", "Don't", "Thinking Out Loud", "Black Dog" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Dream On", "Don't", "Thinking Out Loud", "Black Dog" ]
   } ]
 }, {
   "command" : "showPlaylists",
@@ -4465,13 +4465,13 @@
   "result" : [ {
     "name" : "Vibey Bangers Safari #1",
     "visibility" : "public",
-    "songs" : [ "Don't", "Start Me Up", "Stairway to Heaven", "Thinking Out Loud", "Black Dog", "The Man" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Don't", "Start Me Up", "Stairway to Heaven", "Thinking Out Loud", "Black Dog", "The Man" ]
   }, {
     "name" : "Groovy Rhythms Dream #2",
     "visibility" : "public",
-    "songs" : [ "Shape of You", "Money Trees", "Delicate", "Start Me Up", "Blank Space", "Begin Again", "Sad But True" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Shape of You", "Money Trees", "Delicate", "Start Me Up", "Blank Space", "Begin Again", "Sad But True" ]
   } ]
 }, {
   "command" : "search",
@@ -9739,13 +9739,13 @@
   "result" : [ {
     "name" : "Classic Harmonies Dream #1",
     "visibility" : "private",
-    "songs" : [ "Stairway to Heaven", "Start Me Up", "Gimme Shelter" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Stairway to Heaven", "Start Me Up", "Gimme Shelter" ]
   }, {
     "name" : "Classic Sounds Expedition #2",
     "visibility" : "public",
-    "songs" : [ "Angie", "Shape of You", "Sad But True", "Love Story", "Bohemian Rhapsody", "The Man", "Money Trees", "Thinking Out Loud" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Angie", "Shape of You", "Sad But True", "Love Story", "Bohemian Rhapsody", "The Man", "Money Trees", "Thinking Out Loud" ]
   } ]
 }, {
   "command" : "showPreferredSongs",
@@ -9759,13 +9759,13 @@
   "result" : [ {
     "name" : "Breezy Rhythms Trek #1",
     "visibility" : "public",
-    "songs" : [ "Stairway to Heaven", "Angie", "Whatever You Need", "Gimme Shelter", "Money Trees", "Sad But True" ],
-    "followers" : 4
+    "followers" : 4,
+    "songs" : [ "Stairway to Heaven", "Angie", "Whatever You Need", "Gimme Shelter", "Money Trees", "Sad But True" ]
   }, {
     "name" : "Electric Harmonies Odyssey #2",
     "visibility" : "public",
-    "songs" : [ "Dream On", "Big Pimpin'", "Sad But True", "Shape of You", "Don't" ],
-    "followers" : 1
+    "followers" : 1,
+    "songs" : [ "Dream On", "Big Pimpin'", "Sad But True", "Shape of You", "Don't" ]
   } ]
 }, {
   "command" : "showPreferredSongs",
@@ -9779,13 +9779,13 @@
   "result" : [ {
     "name" : "Groovy Grooves Dream #1",
     "visibility" : "private",
-    "songs" : [ "Maps", "Under Pressure", "Stairway to Heaven", "Start Me Up", "Shape of You" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Maps", "Under Pressure", "Stairway to Heaven", "Start Me Up", "Shape of You" ]
   }, {
     "name" : "Groovy Grooves Expedition #2",
     "visibility" : "public",
-    "songs" : [ "Love Story", "Don't", "Money Trees", "Maps" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Love Story", "Don't", "Money Trees", "Maps" ]
   } ]
 }, {
   "command" : "showPreferredSongs",
@@ -9799,13 +9799,13 @@
   "result" : [ {
     "name" : "Breezy Bangers Quest #1",
     "visibility" : "public",
-    "songs" : [ "Blank Space", "Big Pimpin'", "Begin Again", "Paint It Black", "Love Story" ],
-    "followers" : 3
+    "followers" : 3,
+    "songs" : [ "Blank Space", "Big Pimpin'", "Begin Again", "Paint It Black", "Love Story" ]
   }, {
     "name" : "Stellar Tunes Quest #2",
     "visibility" : "public",
-    "songs" : [ "Start Me Up", "Dream On", "Angie", "Gimme Shelter", "Begin Again", "Black Dog", "Stairway to Heaven" ],
-    "followers" : 5
+    "followers" : 5,
+    "songs" : [ "Start Me Up", "Dream On", "Angie", "Gimme Shelter", "Begin Again", "Black Dog", "Stairway to Heaven" ]
   } ]
 }, {
   "command" : "showPreferredSongs",
@@ -9819,13 +9819,13 @@
   "result" : [ {
     "name" : "Chill Sounds Journey #1",
     "visibility" : "public",
-    "songs" : [ "Start Me Up", "Shape of You", "Black Dog", "Begin Again", "Don't", "Delicate", "Happier" ],
-    "followers" : 4
+    "followers" : 4,
+    "songs" : [ "Start Me Up", "Shape of You", "Black Dog", "Begin Again", "Don't", "Delicate", "Happier" ]
   }, {
     "name" : "Chill Sounds Adventure #2",
     "visibility" : "private",
-    "songs" : [ "Start Me Up", "Bohemian Rhapsody", "Blank Space" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Start Me Up", "Bohemian Rhapsody", "Blank Space" ]
   } ]
 }, {
   "command" : "showPreferredSongs",
@@ -9839,13 +9839,13 @@
   "result" : [ {
     "name" : "Chill Melodies Voyage #1",
     "visibility" : "public",
-    "songs" : [ "Start Me Up", "Whatever You Need", "Dream On", "Begin Again", "Black Dog", "Shape of You", "Delicate" ],
-    "followers" : 6
+    "followers" : 6,
+    "songs" : [ "Start Me Up", "Whatever You Need", "Dream On", "Begin Again", "Black Dog", "Shape of You", "Delicate" ]
   }, {
     "name" : "Classic Grooves Trek #2",
     "visibility" : "public",
-    "songs" : [ "Gimme Shelter", "Bohemian Rhapsody", "Love Story", "Black Dog", "Thinking Out Loud" ],
-    "followers" : 2
+    "followers" : 2,
+    "songs" : [ "Gimme Shelter", "Bohemian Rhapsody", "Love Story", "Black Dog", "Thinking Out Loud" ]
   } ]
 }, {
   "command" : "showPreferredSongs",
@@ -9859,13 +9859,13 @@
   "result" : [ {
     "name" : "Groovy Vibes Odyssey #1",
     "visibility" : "public",
-    "songs" : [ "Delicate", "Under Pressure", "Money Trees", "Love Story", "The Man", "Shape of You" ],
-    "followers" : 4
+    "followers" : 4,
+    "songs" : [ "Delicate", "Under Pressure", "Money Trees", "Love Story", "The Man", "Shape of You" ]
   }, {
     "name" : "Dynamic Tracks Adventure #2",
     "visibility" : "public",
-    "songs" : [ "Begin Again", "Gimme Shelter", "Start Me Up" ],
-    "followers" : 6
+    "followers" : 6,
+    "songs" : [ "Begin Again", "Gimme Shelter", "Start Me Up" ]
   } ]
 }, {
   "command" : "showPreferredSongs",
@@ -9879,13 +9879,13 @@
   "result" : [ {
     "name" : "Dynamic Grooves Expedition #1",
     "visibility" : "public",
-    "songs" : [ "Dream On", "Stairway to Heaven", "Begin Again", "Under Pressure", "Thinking Out Loud", "Maps" ],
-    "followers" : 4
+    "followers" : 4,
+    "songs" : [ "Dream On", "Stairway to Heaven", "Begin Again", "Under Pressure", "Thinking Out Loud", "Maps" ]
   }, {
     "name" : "Breezy Tunes Odyssey #2",
     "visibility" : "public",
-    "songs" : [ "Dream On" ],
-    "followers" : 1
+    "followers" : 1,
+    "songs" : [ "Dream On" ]
   } ]
 }, {
   "command" : "showPreferredSongs",
@@ -9899,13 +9899,13 @@
   "result" : [ {
     "name" : "Chill Sounds Voyage #1",
     "visibility" : "public",
-    "songs" : [ "The Man", "Blank Space", "Shape of You", "Sad But True", "Don't", "Money Trees", "Happier", "Paint It Black", "Begin Again" ],
-    "followers" : 3
+    "followers" : 3,
+    "songs" : [ "The Man", "Blank Space", "Shape of You", "Sad But True", "Don't", "Money Trees", "Happier", "Paint It Black", "Begin Again" ]
   }, {
     "name" : "Electric Melodies Escape #2",
     "visibility" : "private",
-    "songs" : [ "Dream On", "Don't", "Thinking Out Loud", "Black Dog" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Dream On", "Don't", "Thinking Out Loud", "Black Dog" ]
   } ]
 }, {
   "command" : "showPreferredSongs",
@@ -9919,13 +9919,13 @@
   "result" : [ {
     "name" : "Vibey Bangers Safari #1",
     "visibility" : "public",
-    "songs" : [ "Don't", "Start Me Up", "Stairway to Heaven", "Thinking Out Loud", "Black Dog", "The Man" ],
-    "followers" : 2
+    "followers" : 2,
+    "songs" : [ "Don't", "Start Me Up", "Stairway to Heaven", "Thinking Out Loud", "Black Dog", "The Man" ]
   }, {
     "name" : "Groovy Rhythms Dream #2",
     "visibility" : "private",
-    "songs" : [ "Shape of You", "Money Trees", "Delicate", "Start Me Up", "Blank Space", "Begin Again", "Sad But True" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Shape of You", "Money Trees", "Delicate", "Start Me Up", "Blank Space", "Begin Again", "Sad But True" ]
   } ]
 }, {
   "command" : "showPreferredSongs",

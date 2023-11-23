@@ -5,6 +5,8 @@ import commandmanager.output.Output;
 import data.Database;
 import data.entities.user.User;
 
+import java.util.Objects;
+
 /**
  * This class represents the strategy for playing or pausing a track.
  */
@@ -14,7 +16,8 @@ public final class PlayPauseStrategy implements CommandStrategy {
         User user = Database.getInstance().findUser(input.getUsername());
         String message;
 
-        if (!user.hasLoadedAFile() || user.getPlayer().hasFinished(input.getTimestamp())) {
+        if (!Objects.requireNonNull(user).hasLoadedAFile()
+                || user.getPlayer().hasFinished(input.getTimestamp())) {
             message = "Please load a source before attempting to pause or resume playback.";
         } else if (!user.getPlayer().isPaused()) {
             user.getPlayer().pause(input.getTimestamp());

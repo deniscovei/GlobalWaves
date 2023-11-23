@@ -156,13 +156,13 @@
   "result" : [ {
     "name" : "My first playlist",
     "visibility" : "public",
-    "songs" : [ "Start Me Up" ],
-    "followers" : 1
+    "followers" : 1,
+    "songs" : [ "Start Me Up" ]
   }, {
     "name" : "My second playlist",
     "visibility" : "public",
-    "songs" : [ ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ ]
   } ]
 }, {
   "command" : "showPlaylists",
@@ -171,8 +171,8 @@
   "result" : [ {
     "name" : "The best",
     "visibility" : "public",
-    "songs" : [ "Start Me Up" ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ "Start Me Up" ]
   } ]
 }, {
   "command" : "switchVisibility",
@@ -186,13 +186,13 @@
   "result" : [ {
     "name" : "My first playlist",
     "visibility" : "private",
-    "songs" : [ "Start Me Up" ],
-    "followers" : 1
+    "followers" : 1,
+    "songs" : [ "Start Me Up" ]
   }, {
     "name" : "My second playlist",
     "visibility" : "public",
-    "songs" : [ ],
-    "followers" : 0
+    "followers" : 0,
+    "songs" : [ ]
   } ]
 }, {
   "command" : "search",
@@ -233,8 +233,8 @@
   "result" : [ {
     "name" : "The best",
     "visibility" : "public",
-    "songs" : [ "Start Me Up" ],
-    "followers" : 2
+    "followers" : 2,
+    "songs" : [ "Start Me Up" ]
   } ]
 }, {
   "command" : "switchVisibility",
@@ -248,8 +248,8 @@
   "result" : [ {
     "name" : "The best",
     "visibility" : "private",
-    "songs" : [ "Start Me Up" ],
-    "followers" : 2
+    "followers" : 2,
+    "songs" : [ "Start Me Up" ]
   } ]
 }, {
   "command" : "switchVisibility",
@@ -263,7 +263,7 @@
   "result" : [ {
     "name" : "The best",
     "visibility" : "public",
-    "songs" : [ "Start Me Up" ],
-    "followers" : 2
+    "followers" : 2,
+    "songs" : [ "Start Me Up" ]
   } ]
 } ]

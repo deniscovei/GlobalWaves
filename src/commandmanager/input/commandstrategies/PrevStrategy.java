@@ -5,6 +5,8 @@ import commandmanager.output.Output;
 import data.Database;
 import data.entities.user.User;
 
+import java.util.Objects;
+
 /**
  * This class represents the strategy for returning to the previous track.
  */
@@ -14,7 +16,7 @@ public final class PrevStrategy implements CommandStrategy {
         User user = Database.getInstance().findUser(input.getUsername());
         String message;
 
-        boolean prevSucceded = user.hasLoadedAFile()
+        boolean prevSucceded = Objects.requireNonNull(user).hasLoadedAFile()
                 && !user.getPlayer().hasFinished(input.getTimestamp())
                 && user.getPlayer().prev(input.getTimestamp());
 

@@ -13,6 +13,7 @@ import data.entities.user.User;
 import utils.Constants;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import static utils.Constants.RES_COUNT_MAX;
 
@@ -23,7 +24,7 @@ public final class SearchStrategy implements CommandStrategy {
     @Override
     public Output action(final Input input) {
         User user = Database.getInstance().findUser(input.getUsername());
-        ArrayList<File> searchResults = user.getSearchResults();
+        ArrayList<File> searchResults = Objects.requireNonNull(user).getSearchResults();
 
         user.unloadAudioFile(input.getTimestamp());
         searchResults.clear();

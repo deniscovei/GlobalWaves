@@ -6,6 +6,8 @@ import data.Database;
 import data.entities.user.User;
 import utils.Constants;
 
+import java.util.Objects;
+
 /**
  * This class represents the strategy for rewinding a podcast.
  */
@@ -15,7 +17,8 @@ public final class ForwardStrategy implements CommandStrategy {
         User user = Database.getInstance().findUser(input.getUsername());
         String message;
 
-        if (!user.hasLoadedAFile() || user.getPlayer().hasFinished(input.getTimestamp())) {
+        if (!Objects.requireNonNull(user).hasLoadedAFile()
+                || user.getPlayer().hasFinished(input.getTimestamp())) {
             message = "Please load a source before attempting to forward.";
         } else if (!user.getLoadedFile().getFileType().equals(Constants.FileType.PODCAST)) {
             message = "The loaded source is not a podcast.";
