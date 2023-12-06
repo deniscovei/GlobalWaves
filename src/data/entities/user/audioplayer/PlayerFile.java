@@ -93,8 +93,8 @@ public final class PlayerFile {
                         while (getRemainedTime(currAudioFile, timestamp) < 0) {
                             setOffset(getOffset() - (currAudioFile).getDuration());
                         }
-                        return currAudioFile;
                     case Constants.NO_REPEAT:
+                        return currAudioFile;
                     default:
                         return null;
                 }

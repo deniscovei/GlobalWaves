@@ -1,0 +1,9 @@
+
+T
+java:S35164"9Refactor this method to not always return the same value.(›ôıÿÿÿÿ
+h
+java:S3776Q"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(ƒÈ‹€
+m	java:S128\"LEnd this switch case with an unconditional break, return or throw statement.(ãëøùÿÿÿÿ8—åšÖÂ1
+b	java:S128¡"LEnd this switch case with an unconditional break, return or throw statement.(ùİ™
+b	java:S128˜"LEnd this switch case with an unconditional break, return or throw statement.(ƒîø¢
+=	java:S131™""Add a default case to this switch.(•Üõìÿÿÿÿÿ

@@ -1,5 +1,5 @@
 Starting audit...
-[ERROR] C:\Users\Denis\Desktop\all\UPB\Anul 2\Semestrul 1\POO\tema\.\src\commandmanager\IO_Entry.java:8:23: Name 'IO_Entry' must match pattern '^[A-Z][a-zA-Z0-9]*$'. [TypeName]
+[ERROR] C:\Users\Denis\Desktop\all\UPB\Anul 2\Semestrul 1\POO\tema\.\src\commandManager\IO_Entry.java:8:23: Name 'IO_Entry' must match pattern '^[A-Z][a-zA-Z0-9]*$'. [TypeName]
 [ERROR] C:\Users\Denis\Desktop\all\UPB\Anul 2\Semestrul 1\POO\tema\.\src\data\entities\user\audioplayer\Player.java:14:27: Variable 'playerFiles' must be private and have accessor methods. [VisibilityModifier]
 [ERROR] C:\Users\Denis\Desktop\all\UPB\Anul 2\Semestrul 1\POO\tema\.\src\data\entities\user\audioplayer\PlayerFile.java:144:24: Parameter id should be final. [FinalParameters]
 [ERROR] C:\Users\Denis\Desktop\all\UPB\Anul 2\Semestrul 1\POO\tema\.\src\data\entities\user\audioplayer\PlayerFile.java:144:57: 'indexes' hides a field. [HiddenField]

@@ -1,7 +1,7 @@
 package main;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import commandmanager.input.Input;
+import commandManager.input.Input;
 import checker.Checker;
 import checker.CheckerConstants;
 import com.fasterxml.jackson.core.type.TypeReference;
