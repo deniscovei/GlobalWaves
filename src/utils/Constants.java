@@ -9,6 +9,21 @@ public final class Constants {
         PODCAST,
         PLAYLIST
     }
+
+    public enum UserType {
+        LISTENER,
+        ARTIST,
+        HOST
+    }
+
+    public enum Page {
+        HOME_PAGE,
+        LIKED_CONTENT_PAGE,
+        ARTIST_PAGE,
+        HOST_PAGE
+
+    }
+
     public static final int NO_REPEAT = 0;
     public static final int REPEAT_ALL = 1;
     public static final int REPEAT_CURRENT_SONG = 2;
@@ -47,5 +62,14 @@ public final class Constants {
                 break;
         }
         return "No Repeat";
+    }
+
+    public static UserType stringToUserType(final String userType) {
+        return switch (userType) {
+            case "user" -> UserType.LISTENER;
+            case "artist" -> UserType.ARTIST;
+            case "host" -> UserType.HOST;
+            default -> null;
+        };
     }
 }

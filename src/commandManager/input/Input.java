@@ -2,12 +2,16 @@ package commandManager.input;
 
 import commandManager.IoEntry;
 import commandManager.input.attributes.Filters;
-import commandManager.input.commandStrategies.CommandStrategy;
+import commandManager.input.commands.Command;
 import commandManager.output.Output;
-import data.Database;
-import data.entities.user.User;
+import data.entities.audio.audioFiles.Episode;
+import data.entities.audio.audioFiles.Song;
+import fileio.input.EpisodeInput;
+import fileio.input.SongInput;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.ArrayList;
 
 @Setter
 @Getter
@@ -19,6 +23,16 @@ public final class Input extends IoEntry {
     private int seed = 0;
     private int playlistId = 0;
     private String playlistName = null;
+    private int age = 0;
+    private String city = null;
+    private String name = null;
+    private int releaseYear = 0;
+    private String description = null;
+    private ArrayList<SongInput> songs = new ArrayList<>();
+    private String date = null;
+    private int price = 0;
+    private ArrayList<EpisodeInput> episodes = new ArrayList<>();
+    private String nextPage = null;
 
     public Input() {
     }
@@ -33,12 +47,7 @@ public final class Input extends IoEntry {
      * @return the output of the command strategy
      */
     public Output action() {
-        Output output = commandStrategyAction(getCommand());
-        User user = Database.getInstance().findUser(getUsername());
-        if (user != null) {
-            user.setPreviousCommand(getCommand());
-        }
-        return output;
+        return commandStrategyAction(getCommand());
     }
 
     /**
@@ -49,10 +58,10 @@ public final class Input extends IoEntry {
     private Output commandStrategyAction(final String input) {
         try {
             final String inputMatch = input.substring(0, 1).toUpperCase() + input.substring(1);
-            final String packagePath = "commandManager.input.commandStrategies.";
-            final String strategyClassName = packagePath + inputMatch + "Strategy";
+            final String packagePath = "commandManager.input.commands.";
+            final String strategyClassName = packagePath + inputMatch;
             final Class<?> strategyClass = Class.forName(strategyClassName);
-            final CommandStrategy strategy = (CommandStrategy) strategyClass.
+            final Command strategy = (Command) strategyClass.
                     getDeclaredConstructor().newInstance();
 
             return strategy.action(this);

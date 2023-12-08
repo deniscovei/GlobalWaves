@@ -3,7 +3,7 @@ package utils;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
-import data.entities.audio.audiofiles.AudioFile;
+import data.entities.audio.audioFiles.AudioFile;
 
 import java.io.IOException;
 import java.util.ArrayList;

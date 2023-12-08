@@ -1,7 +1,14 @@
 
-U	java:S8991";Do something with the "boolean" value returned by "delete".(²Œ­ûÿÿÿÿ
-i
-java:S40421"NUse "java.nio.file.Files#delete" here for better messages on error conditions.(²Œ­ûÿÿÿÿ
-P	java:S8993";Do something with the "boolean" value returned by "delete".(ç›¡
-d
-java:S40423"NUse "java.nio.file.Files#delete" here for better messages on error conditions.(ç›¡
+\	java:S8993";Do something with the "boolean" value returned by "delete".(²Œ­ûÿÿÿÿ8òò¤ÛÄ1
+p
+java:S40423"NUse "java.nio.file.Files#delete" here for better messages on error conditions.(²Œ­ûÿÿÿÿ8òò¤ÛÄ1
+W	java:S8995";Do something with the "boolean" value returned by "delete".(ç›¡8òò¤ÛÄ1
+k
+java:S40425"NUse "java.nio.file.Files#delete" here for better messages on error conditions.(ç›¡8òò¤ÛÄ1
+X	java:S125R"<This block of commented-out lines of code should be removed.(ÉÌäÛ8ó¤ÛÄ1
+l
+java:S1128"PRemove this unused import 'com.fasterxml.jackson.databind.SerializationFeature'.(ª¥Æ*8ƒó¤ÛÄ1
+V
+java:S1128"4Remove this unused import 'data.entities.user.User'.(Ôîã–øÿÿÿÿ8ƒó¤ÛÄ1
+S
+java:S1128"6Remove this unused import 'fileio.output.AlbumOutput'.(Çœı®8ƒó¤ÛÄ1

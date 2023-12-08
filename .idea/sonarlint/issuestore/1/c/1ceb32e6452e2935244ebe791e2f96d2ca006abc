@@ -1,23 +1,0 @@
-
-`
-java:S1192¿"IDefine a constant instead of duplicating this literal "playlist" 3 times.(úÏ°Ñ
-_
-java:S1192Õ"HDefine a constant instead of duplicating this literal "podcast" 3 times.(¹Éâõ
-‹
-java:S1319A"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(›îèøÿÿÿÿ
-Œ
-java:S1319ú"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¢‹í‹úÿÿÿÿ
-‡
-java:S1319¶"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(Ø±İó
-3
-java:S6205"Remove this redundant block.(ìÁº€
-2
-java:S6205 "Remove this redundant block.(­ÀÈ8
-3
-java:S6205£"Remove this redundant block.(¥Âùµ
-8
-java:S6205¦"Remove this redundant block.(Óå ëıÿÿÿÿ
-8
-java:S6205©"Remove this redundant block.(õìÉÚÿÿÿÿÿ
-3
-java:S6205¬"Remove this redundant block.(üØô

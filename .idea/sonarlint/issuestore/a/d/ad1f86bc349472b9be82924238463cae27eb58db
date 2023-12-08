@@ -1,0 +1,12 @@
+
+†
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(Ãßñ¦
+€
+java:S1319"jThe type of "audioFiles" should be an interface such as "List" rather than the implementation "ArrayList".(Ãßñ¦
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ğâòÚÿÿÿÿÿ
+O
+java:S5993"9Change the visibility of this constructor to "protected".(•ñÎù
+T
+java:S5993"9Change the visibility of this constructor to "protected".(˜§üûÿÿÿÿ
+V
+java:S5993"9Change the visibility of this constructor to "protected".(Éà¢Ê8½§ÁØÄ1

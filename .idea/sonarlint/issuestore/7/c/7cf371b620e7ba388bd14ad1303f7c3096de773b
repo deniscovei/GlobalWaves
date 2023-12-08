@@ -1,0 +1,12 @@
+
+†
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¼Ø›¦
+€
+java:S1319"eThe type of "users" should be an interface such as "List" rather than the implementation "ArrayList".(éÉ¹ûùÿÿÿÿ
+†
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(Å¬Ø­
+ƒ
+java:S1319!"hThe type of "commands" should be an interface such as "List" rather than the implementation "ArrayList".(ðú³Âûÿÿÿÿ
+—
+java:S1186
+"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(·¦€Ó

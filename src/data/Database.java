@@ -1,8 +1,11 @@
 package data;
 
-import data.entities.audio.audiocollections.Playlist;
-import data.entities.audio.audiocollections.Podcast;
-import data.entities.audio.audiofiles.Song;
+import data.entities.audio.audioCollections.Playlist;
+import data.entities.audio.audioCollections.Podcast;
+import data.entities.audio.audioFiles.Song;
+import data.entities.user.Artist;
+import data.entities.user.Host;
+import data.entities.user.Listener;
 import data.entities.user.User;
 import fileio.input.LibraryInput;
 import fileio.input.PodcastInput;
@@ -10,6 +13,7 @@ import fileio.input.SongInput;
 import fileio.input.UserInput;
 import lombok.Getter;
 import lombok.Setter;
+import utils.Constants;
 
 import java.util.ArrayList;
 
@@ -116,7 +120,7 @@ public final class Database {
      */
     public void upload(final LibraryInput library) {
         for (UserInput user : library.getUsers()) {
-            addUser(new User(user));
+            addUser(new Listener(user));
         }
         for (SongInput song : library.getSongs()) {
             addSong(new Song(song));
@@ -140,5 +144,52 @@ public final class Database {
         for (Song song : getSongs()) {
             song.getUsersWhoLiked().clear();
         }
+    }
+
+    public void addUser(String username, int age, String city, Constants.UserType userType) {
+        User user;
+        switch (userType) {
+            case LISTENER:
+                user = new Listener(username, age, city);
+                break;
+            case ARTIST:
+                user = new Artist(username, age, city);
+                break;
+            case HOST:
+                user = new Host(username, age, city);
+                break;
+            default:
+                user = new User(username, age, city);
+                break;
+        }
+        user.setAdded(true);
+        addUser(user);
+    }
+
+    public void flush() {
+        // delete the data of the users
+        for (User user : getUsers()) {
+            if (user.getUserType().equals(Constants.UserType.LISTENER)) {
+                ((Listener) user).deleteData();
+            }
+        }
+        // delete previously created playlists
+        Database.getInstance().removePlaylists();
+        // delete liked songs
+        Database.getInstance().removeLikes();
+        // delete added users
+        getUsers().removeIf(User::isAdded);
+    }
+
+    public ArrayList<Playlist> getFollowedPlaylists(String username) {
+        ArrayList<Playlist> result = new ArrayList<>();
+
+        for (Playlist playlist : Database.getInstance().getPlaylists()) {
+            if (playlist.getOwner().equals(username)) {
+                result.add(playlist);
+            }
+        }
+
+        return result;
     }
 }

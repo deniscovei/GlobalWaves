@@ -1,0 +1,16 @@
+
+‹
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(°º¨Ëýÿÿÿÿ
+{
+java:S1319"eThe type of "songs" should be an interface such as "List" rather than the implementation "ArrayList".(ÑÎ„Ì
+‹
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(åÜ¯Òûÿÿÿÿ
+~
+java:S1319"hThe type of "podcasts" should be an interface such as "List" rather than the implementation "ArrayList".(×Žùè
+†
+java:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¼Ø›¦
+€
+java:S1319!"eThe type of "users" should be an interface such as "List" rather than the implementation "ArrayList".(éÉ¹ûùÿÿÿÿ
+—
+java:S1186
+"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(÷ÊÔÍ

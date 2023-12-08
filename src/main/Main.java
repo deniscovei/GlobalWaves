@@ -1,6 +1,7 @@
 package main;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import commandManager.input.Input;
 import checker.Checker;
 import checker.CheckerConstants;
@@ -10,6 +11,7 @@ import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import data.Database;
 import data.entities.user.User;
+import fileio.output.AlbumOutput;
 import fileio.input.LibraryInput;
 
 import java.io.File;
@@ -77,20 +79,15 @@ public final class Main {
                               final String filePathOutput) throws IOException {
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+        //objectMapper.canSerialize(AlbumOutput.class);
+        //objectMapper.configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false);
         LibraryInput library = objectMapper.readValue(new File(LIBRARY_PATH), LibraryInput.class);
 
         // upload the library to the database
         if (!Database.instantiated()) {
             Database.getInstance().upload(library);
         } else {
-            // delete the data of the users
-            for (User user : Database.getInstance().getUsers()) {
-                user.deleteData();
-            }
-            // delete previously created playlists
-            Database.getInstance().removePlaylists();
-            //delete liked songs
-            Database.getInstance().removeLikes();
+            Database.getInstance().flush();
         }
 
         ArrayNode outputs = objectMapper.createArrayNode();
