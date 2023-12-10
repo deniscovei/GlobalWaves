@@ -4,7 +4,7 @@
 java:S35164"9Refactor this method to not always return the same value.(›ôıÿÿÿÿ8¦€­€Å1
 o
 java:S3776Q"RRefactor this method to reduce its Cognitive Complexity from 20 to the 15 allowed.(ƒÈ‹€8ª€­€Å1
-m	java:S128\"LEnd this switch case with an unconditional break, return or throw statement.(ãëøùÿÿÿÿ8«€­€Å1
+m	java:S128\"LEnd this switch case with an unconditional break, return or throw statement.(’›¶ÿÿÿÿÿ8«€­€Å1
 i	java:S128 "LEnd this switch case with an unconditional break, return or throw statement.(ùİ™8­€­€Å1
 n	java:S128—"LEnd this switch case with an unconditional break, return or throw statement.(¡ÑŠ¾üÿÿÿÿ8°­€Å1
 D	java:S131˜""Add a default case to this switch.(•Üõìÿÿÿÿÿ8­€­€Å1

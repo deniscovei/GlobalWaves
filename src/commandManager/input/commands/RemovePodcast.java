@@ -3,14 +3,14 @@ package commandManager.input.commands;
 import commandManager.input.Input;
 import commandManager.output.Output;
 import data.Database;
-import data.entities.content.Announcement;
-import data.entities.content.Event;
+import data.entities.audio.audioCollections.Album;
+import data.entities.audio.audioCollections.Podcast;
 import data.entities.users.Artist;
 import data.entities.users.Host;
 import data.entities.users.User;
 import utils.Extras.UserType;
 
-public final class AddAnnouncement implements Command {
+public final class RemovePodcast implements Command {
     @Override
     public Output action(Input input) {
         User user = Database.getInstance().findUser(input.getUsername());
@@ -22,14 +22,21 @@ public final class AddAnnouncement implements Command {
             message = input.getUsername() + " is not a host.";
         } else {
             Host host = (Host) user;
-            if (host.findAnnouncement(input.getName()) != null) {
-                message = input.getUsername() + " has already added an announcement with this name.";
+            Podcast podcast = host.findPodcast(input.getName());
+
+            if (podcast == null) {
+                message = input.getUsername() + " doesn't have a podcast with the given name.";
+            } else if (podcast.interactingWithOthers(input.getTimestamp())) {
+                message = input.getUsername() + " can't delete this podcast.";
             } else {
-                host.addAnnouncement(new Announcement(input.getName(), input.getDescription()));
-                message = input.getUsername() + " has successfully added new announcement.";
+                host.removePodcast(podcast);
+                Database.getInstance().removePodcast(podcast);
+                message = input.getUsername() + " deleted the podcast successfully.";
             }
         }
 
         return new Output(input, message);
     }
 }
+
+

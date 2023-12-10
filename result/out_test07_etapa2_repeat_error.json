@@ -86,7 +86,7 @@
   "command" : "repeat",
   "user" : "emily30",
   "timestamp" : 2135,
-  "message" : "Repeat mode changed to repeat once."
+  "message" : "Please load a source before setting the repeat status."
 }, {
   "command" : "load",
   "user" : "rhythmicrider58",
@@ -97,11 +97,11 @@
   "user" : "emily30",
   "timestamp" : 2200,
   "stats" : {
-    "name" : "Night Pulse",
-    "remainedTime" : 120,
+    "name" : "",
+    "remainedTime" : 0,
     "repeat" : "No Repeat",
     "shuffle" : false,
-    "paused" : false
+    "paused" : true
   }
 }, {
   "command" : "search",
@@ -133,7 +133,7 @@
   "command" : "changePage",
   "user" : "rhythmicrider58",
   "timestamp" : 2755,
-  "message" : "Successfully changed page."
+  "message" : "rhythmicrider58 accessed LikedContent successfully."
 }, {
   "command" : "deleteUser",
   "user" : "melodymaster",
@@ -238,7 +238,7 @@
   "command" : "printCurrentPage",
   "user" : "rhythmicrider58",
   "timestamp" : 3300,
-  "message" : "Liked songs:\n\t[Synth Symphony - melodymaster]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Synth Symphony - melodymaster]\n\nFollowed playlists:\n\t[My favourite songs - emily30]"
 }, {
   "command" : "status",
   "user" : "emily30",
@@ -254,7 +254,7 @@
   "command" : "changePage",
   "user" : "rhythmicrider58",
   "timestamp" : 3320,
-  "message" : "Successfully changed page."
+  "message" : "rhythmicrider58 accessed Home successfully."
 }, {
   "command" : "repeat",
   "user" : "emily30",

@@ -1,12 +1,11 @@
 
-t	java:S127ƒ"XRefactor the code in order to not assign to this loop counter from within the loop body.(¨…ÄK8ıË€ŒÅ1
+t	java:S127"XRefactor the code in order to not assign to this loop counter from within the loop body.(¨…ÄK8¡ŞÃÅ1
+t	java:S127›"XRefactor the code in order to not assign to this loop counter from within the loop body.(¨…ÄK8¡ŞÃÅ1
 
-java:S1319Â"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ÉĞà‹8ıË€ŒÅ1
+java:S1319Â"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ÉĞà‹8¡ŞÃÅ1
 “
-java:S1319“"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(£»õòşÿÿÿÿ8ıË€ŒÅ1
+java:S1319¯"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(£»õòşÿÿÿÿ8¡ŞÃÅ1
 
-java:S1319Ÿ"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(½õÇÔ8ß˜óŒÅ1
-
-java:S1319«"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(’¹˜Ñ8ß˜óŒÅ1
+java:S1319»"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(¢Áì½8¡ŞÃÅ1
 »
-java:S6548"˜A Singleton implementation was detected. Make sure the use of the Singleton pattern is required and the implementation is the right one for the context.(ÒÅ„úıÿÿÿÿ8šÌ€ŒÅ1
+java:S6548"˜A Singleton implementation was detected. Make sure the use of the Singleton pattern is required and the implementation is the right one for the context.(ÒÅ„úıÿÿÿÿ8§ŞÃÅ1

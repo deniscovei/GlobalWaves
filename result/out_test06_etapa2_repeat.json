@@ -287,7 +287,7 @@
   "command" : "printCurrentPage",
   "user" : "alice22",
   "timestamp" : 1038,
-  "message" : "Liked songs:\n\t[]\n\nFollowed playlists:\n\t[My favourite songs]"
+  "message" : "Liked songs:\n\t[]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "search",
   "user" : "carol19",
@@ -298,7 +298,7 @@
   "command" : "printCurrentPage",
   "user" : "carol19",
   "timestamp" : 1040,
-  "message" : "Liked songs:\n\t[]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[]\n\nFollowed playlists:\n\t[My favourite songs]"
 }, {
   "command" : "status",
   "user" : "alice22",
@@ -335,7 +335,7 @@
   "command" : "changePage",
   "user" : "carol19",
   "timestamp" : 2102,
-  "message" : "Successfully changed page."
+  "message" : "carol19 accessed LikedContent successfully."
 }, {
   "command" : "status",
   "user" : "alice22",
@@ -372,7 +372,7 @@
   "command" : "printCurrentPage",
   "user" : "carol19",
   "timestamp" : 2338,
-  "message" : "Liked songs:\n\t[]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[]\n\nFollowed playlists:\n\t[My favourite songs - alice22]"
 }, {
   "command" : "status",
   "user" : "alice22",

@@ -160,7 +160,7 @@
   "command" : "printCurrentPage",
   "user" : "bob35",
   "timestamp" : 525,
-  "message" : "Liked songs:\n\t[Aurora Harmony]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Aurora Harmony]\n\nFollowed playlists:\n\t[Playlist bengos]"
 }, {
   "command" : "deleteUser",
   "user" : "sonicpainter",
@@ -218,7 +218,7 @@
   "command" : "changePage",
   "user" : "soundseeker21",
   "timestamp" : 955,
-  "message" : "Successfully changed page."
+  "message" : "soundseeker21 accessed Home successfully."
 }, {
   "command" : "deleteUser",
   "user" : "melodicwanderer",
@@ -234,7 +234,12 @@
   "user" : "sonicpainter",
   "timestamp" : 975,
   "message" : "sonicpainter can't be deleted."
-}, null, {
+}, {
+  "command" : "removePodcast",
+  "user" : "musicmaven",
+  "timestamp" : 980,
+  "message" : "musicmaven can't delete this podcast."
+}, {
   "command" : "deleteUser",
   "user" : "audiosage",
   "timestamp" : 1100,
@@ -253,7 +258,7 @@
   "command" : "deleteUser",
   "user" : "musicmaven",
   "timestamp" : 6900,
-  "message" : "musicmaven was successfully deleted."
+  "message" : "musicmaven can't be deleted."
 }, {
   "command" : "repeat",
   "user" : "carol19",
@@ -283,7 +288,7 @@
   "command" : "changePage",
   "user" : "david27",
   "timestamp" : 7885,
-  "message" : "Successfully changed page."
+  "message" : "david27 accessed Home successfully."
 }, {
   "command" : "deleteUser",
   "user" : "sonicpainter",
@@ -293,5 +298,5 @@
   "command" : "printCurrentPage",
   "user" : "bob35",
   "timestamp" : 7900,
-  "message" : "Liked songs:\n\t[]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[]\n\nFollowed playlists:\n\t[Playlist bengos]"
 } ]

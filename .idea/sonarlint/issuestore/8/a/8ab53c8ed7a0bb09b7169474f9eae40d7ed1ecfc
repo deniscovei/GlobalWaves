@@ -1,9 +1,9 @@
 
-{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¹ù€Ïùÿÿÿÿ8éÛ½àÄ1
-L	java:S106E"+Replace this use of System.out by a logger.(şñšåıÿÿÿÿ8ôÛ½àÄ1
-L	java:S106H"+Replace this use of System.out by a logger.(Öó–úÿÿÿÿ8ôÛ½àÄ1
-X	java:S125M"<This block of commented-out lines of code should be removed.(†€éˆ8ÎÇÙÅ1
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¹ù€Ïùÿÿÿÿ8ë¿ïÅ1
+L	java:S106E"+Replace this use of System.out by a logger.(şñšåıÿÿÿÿ8ğ¿ïÅ1
+L	java:S106H"+Replace this use of System.out by a logger.(Öó–úÿÿÿÿ8ğ¿ïÅ1
+X	java:S125M"<This block of commented-out lines of code should be removed.(†€éˆ8‡¬ñÅ1
 e
-java:S1128"CRemove this unused import 'data.entities.audio.audioFiles.Episode'.(‘Í¾èÿÿÿÿÿ8ôÛ½àÄ1
+java:S1128"CRemove this unused import 'data.entities.audio.audioFiles.Episode'.(‘Í¾èÿÿÿÿÿ8ËêïÅ1
 ]
-java:S1128"@Remove this unused import 'data.entities.audio.audioFiles.Song'.(ŒŸèÃ8ôÛ½àÄ1
+java:S1128"@Remove this unused import 'data.entities.audio.audioFiles.Song'.(ŒŸèÃ8ËêïÅ1

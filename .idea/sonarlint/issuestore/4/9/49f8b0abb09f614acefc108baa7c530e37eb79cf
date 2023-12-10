@@ -1,4 +1,4 @@
 
-r	java:S127q"XRefactor the code in order to not assign to this loop counter from within the loop body.(¬å‹øÿÿÿÿ
-s	java:S127ƒ"XRefactor the code in order to not assign to this loop counter from within the loop body.(¬å‹øÿÿÿÿ
-{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(õõ„ûúÿÿÿÿ8ÀÀêùÄ1
+y	java:S127q"XRefactor the code in order to not assign to this loop counter from within the loop body.(¬å‹øÿÿÿÿ8¹âµ‘Å1
+z	java:S127ƒ"XRefactor the code in order to not assign to this loop counter from within the loop body.(¬å‹øÿÿÿÿ8¹âµ‘Å1
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(õõ„ûúÿÿÿÿ8ºâµ‘Å1

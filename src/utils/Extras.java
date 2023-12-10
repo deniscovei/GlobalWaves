@@ -66,15 +66,14 @@ public final class Extras {
      */
     public static String repeatStateToString(final int repeatState, final FileType fileType) {
         switch (fileType) {
-            case PLAYLIST:
+            case PLAYLIST, ALBUM:
                 if (repeatState == REPEAT_ALL) {
                     return "Repeat All";
                 } else if (repeatState == REPEAT_CURRENT_SONG) {
                     return "Repeat Current Song";
                 }
                 break;
-            case PODCAST:
-            case SONG:
+            case PODCAST, SONG:
                 if (repeatState == REPEAT_ONCE) {
                     return "Repeat Once";
                 } else if (repeatState == REPEAT_INFINITE) {

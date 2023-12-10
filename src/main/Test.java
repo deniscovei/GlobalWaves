@@ -27,7 +27,7 @@ public final class Test {
         if (inputDir != null) {
             Arrays.sort(inputDir);
 
-            int testNo = 4;
+            int testNo = 9;
             for (File file : inputDir) {
                 if (file.getName().contains(Integer.toString(testNo))) {
                     Main.action(file.getName(), CheckerConstants.OUT_FILE);

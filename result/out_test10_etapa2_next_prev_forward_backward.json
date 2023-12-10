@@ -202,8 +202,8 @@
   "command" : "search",
   "user" : "bob35",
   "timestamp" : 800,
-  "message" : "Search returned 3 results",
-  "results" : [ "Auditory Adventures", "Auditory Adventures", "Auditory Adventures" ]
+  "message" : "Search returned 1 results",
+  "results" : [ "Auditory Adventures" ]
 }, {
   "command" : "select",
   "user" : "bob35",
@@ -230,7 +230,12 @@
   "user" : "bob35",
   "timestamp" : 1050,
   "message" : "Skipped forward successfully."
-}, null, {
+}, {
+  "command" : "removePodcast",
+  "user" : "soundseeker",
+  "timestamp" : 1050,
+  "message" : "soundseeker can't delete this podcast."
+}, {
   "command" : "status",
   "user" : "bob35",
   "timestamp" : 1051,
@@ -245,8 +250,8 @@
   "command" : "search",
   "user" : "bob35",
   "timestamp" : 1198,
-  "message" : "Search returned 3 results",
-  "results" : [ "Auditory Adventures", "Auditory Adventures", "Auditory Adventures" ]
+  "message" : "Search returned 1 results",
+  "results" : [ "Auditory Adventures" ]
 }, {
   "command" : "select",
   "user" : "bob35",

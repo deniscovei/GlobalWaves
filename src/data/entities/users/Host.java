@@ -1,13 +1,16 @@
 package data.entities.users;
 
+import data.Database;
 import data.entities.audio.audioCollections.Podcast;
 import data.entities.content.Announcement;
 import data.entities.pages.HostPage;
 import lombok.Getter;
 import lombok.Setter;
+import utils.Extras.FileType;
 import utils.Extras.UserType;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 @Getter
 @Setter
@@ -49,10 +52,31 @@ public class Host extends User {
 
     @Override
     public boolean interactingWithOthers(int timestamp) {
+        for (User user : Database.getInstance().getUsers()) {
+            if (user.getUserType() == UserType.LISTENER) {
+                Listener listener = (Listener) user;
+
+                // uncomment here
+                if (!Objects.requireNonNull(listener).hasLoadedAFile()
+                        /*|| listener.getPlayer().hasFinished(timestamp)*/) {
+                    continue;
+                }
+
+                if (listener.getPlayer().getLoadedFile().getFileType() == FileType.PODCAST
+                        && ((Podcast) listener.getPlayer().getLoadedFile()).getOwner().equals(getUsername())) {
+                    return true;
+                }
+            }
+        }
+
         return false;
     }
 
     public void removeAnnouncement(Announcement announcement) {
         getAnnouncements().remove(announcement);
+    }
+
+    public void removePodcast(Podcast podcast) {
+        getPodcasts().remove(podcast);
     }
 }

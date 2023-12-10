@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public final class ShowPlaylists implements Command {
     @Override
     public Output action(final Input input) {
-        ArrayList<Playlist> result = Database.getInstance().getFollowedPlaylists(input.getUsername());
+        ArrayList<Playlist> result = Database.getInstance().getOwnedPlaylists(input.getUsername());
         return new Output(input, result, null);
     }
 }

@@ -22,7 +22,7 @@ public final class ChangePage implements Command {
                 message = input.getUsername() + " is trying to access a non-existent page.";
             } else {
                 user.goToNextPage(pageType);
-                message = "Successfully changed page.";
+                message = input.getUsername() + " accessed " + input.getNextPage() + " successfully.";
             }
         }
 

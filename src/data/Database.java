@@ -195,7 +195,7 @@ public final class Database {
         ArrayList<Playlist> result = new ArrayList<>();
 
         for (Playlist playlist : Database.getInstance().getPlaylists()) {
-            if (playlist.getOwner().equals(username)) {
+            if (playlist.getFollowerNames().contains(username)) {
                 result.add(playlist);
             }
         }
@@ -237,7 +237,10 @@ public final class Database {
                 if (user.isAdded()) {
                     getUsers().remove(user);
                 } else {
-                    ((Listener) user).setDeleted(true);
+                    Listener listener = (Listener) user;
+                    listener.setDeleted(true);
+                    deletePlaylists(listener);
+                    deleteFollowingPlaylists(listener);
                 }
                 break;
             case ARTIST:
@@ -247,6 +250,27 @@ public final class Database {
             case HOST:
                 getUsers().remove(user);
                 break;
+        }
+    }
+
+    private void deleteFollowingPlaylists(Listener listener) {
+        for (int i = 0; i < getPlaylists().size(); i++) {
+            Playlist playlist = getPlaylists().get(i);
+
+            if (playlist.getFollowerNames().contains(listener.getUsername())) {
+                playlist.getFollowerNames().remove(listener.getUsername());
+            }
+        }
+    }
+
+    private void deletePlaylists(Listener listener) {
+        for (int i = 0; i < getPlaylists().size(); i++) {
+            Playlist playlist = getPlaylists().get(i);
+
+            if (playlist.getOwner().equals(listener.getUsername())) {
+                getPlaylists().remove(i);
+                i--;
+            }
         }
     }
 
@@ -272,6 +296,10 @@ public final class Database {
         getAlbums().remove(album);
     }
 
+    public void removePodcast(Podcast podcast) {
+        getPodcasts().remove(podcast);
+    }
+
     public ArrayList<Artist> getArtists() {
         ArrayList<Artist> artists = new ArrayList<>();
 
@@ -284,24 +312,12 @@ public final class Database {
         return artists;
     }
 
-    public ArrayList<Podcast> findPodcasts(final String username) {
-        ArrayList<Podcast> result = new ArrayList<>();
+    public ArrayList<Playlist> getOwnedPlaylists(String username) {
+        ArrayList<Playlist> result = new ArrayList<>();
 
-        for (Podcast podcast : getPodcasts()) {
-            if (podcast.getOwner().equals(username)) {
-                result.add(podcast);
-            }
-        }
-
-        return result;
-    }
-
-    public ArrayList<Album> findAlbums(String username) {
-        ArrayList<Album> result = new ArrayList<>();
-
-        for (Album album : getAlbums()) {
-            if (album.getOwner().equals(username)) {
-                result.add(album);
+        for (Playlist playlist : getPlaylists()) {
+            if (playlist.getOwner().equals(username)) {
+                result.add(playlist);
             }
         }
 
