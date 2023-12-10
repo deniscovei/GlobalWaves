@@ -7,15 +7,15 @@ import data.entities.audio.audioFiles.AudioFile;
 import data.entities.audio.audioFiles.Song;
 import lombok.Getter;
 import lombok.Setter;
-import utils.Constants;
-import utils.Constants.FileType;
+import utils.Extras;
+import utils.Extras.FileType;
 
 import java.util.ArrayList;
 
 @Setter
 @Getter
 public final class Playlist extends AudioCollection {
-    private String visibility = Constants.PUBLIC;
+    private String visibility = Extras.PUBLIC;
     @JsonIgnore
     private final ArrayList<String> followerNames = new ArrayList<>();
     @JsonIgnore
@@ -47,18 +47,18 @@ public final class Playlist extends AudioCollection {
     }
 
     private void makePublic() {
-        setVisibility(Constants.PUBLIC);
+        setVisibility(Extras.PUBLIC);
     }
 
     private void makePrivate() {
-        setVisibility(Constants.PRIVATE);
+        setVisibility(Extras.PRIVATE);
     }
 
     /**
      * switches the visibility of the playlist
      */
     public void switchVisibility() {
-        if (getVisibility().equals(Constants.PUBLIC)) {
+        if (getVisibility().equals(Extras.PUBLIC)) {
             makePrivate();
         } else {
             makePublic();

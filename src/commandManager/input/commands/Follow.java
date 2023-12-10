@@ -5,8 +5,8 @@ import commandManager.output.Output;
 import data.Database;
 import data.entities.audio.File;
 import data.entities.audio.audioCollections.Playlist;
-import data.entities.user.Listener;
-import utils.Constants;
+import data.entities.users.Listener;
+import utils.Extras;
 
 import java.util.Objects;
 
@@ -27,7 +27,7 @@ public final class Follow implements Command {
 
         if (selectedFile == null) {
             message = "Please select a source before following or unfollowing.";
-        } else if (!selectedFile.getFileType().equals(Constants.FileType.PLAYLIST)) {
+        } else if (!selectedFile.getFileType().equals(Extras.FileType.PLAYLIST)) {
             message = "The selected source is not a playlist.";
         } else {
             Playlist playlist = (Playlist) selectedFile;

@@ -3,19 +3,21 @@ package commandManager.input.commands;
 import commandManager.input.Input;
 import commandManager.input.attributes.Filters;
 import data.Database;
-import data.entities.audio.File;
-import data.entities.audio.audioFiles.AudioFile;
+import data.entities.audio.audioCollections.Album;
 import data.entities.audio.audioCollections.Playlist;
 import data.entities.audio.audioCollections.Podcast;
 import data.entities.audio.audioFiles.Song;
 import commandManager.output.Output;
-import data.entities.user.Listener;
-import utils.Constants;
+import data.entities.users.Listener;
+import data.entities.users.User;
+import utils.Extras;
+import utils.Extras.SearchType;
+import utils.Extras.UserType;
 
 import java.util.ArrayList;
 import java.util.Objects;
 
-import static utils.Constants.RES_COUNT_MAX;
+import static utils.Extras.RES_COUNT_MAX;
 
 /**
  * This class implements the command strategy for searching for audio files.
@@ -24,11 +26,11 @@ public final class Search implements Command {
     @Override
     public Output action(final Input input) {
         Listener user = (Listener) Database.getInstance().findUser(input.getUsername());
-        ArrayList<File> searchResults = Objects.requireNonNull(user).getSearchResults();
+        ArrayList<String> searchResults = Objects.requireNonNull(user).getSearchBar().getSearchResults();
         searchResults.clear();
 
         if (!Objects.requireNonNull(user).isOnline()) {
-            return new Output(input, user.getUsername() + " is offline.", AudioFile.getFileNames(searchResults));
+            return new Output(input, user.getUsername() + " is offline.", searchResults);
         }
 
         user.unloadAudioFile(input.getTimestamp());
@@ -36,10 +38,11 @@ public final class Search implements Command {
 
         switch (input.getType()) {
             case "song":
+                user.getSearchBar().setSearchType(SearchType.SONG);
                 ArrayList<Song> songs = Database.getInstance().getSongs();
                 for (Song song : songs) {
                     if (checkSongFilters(song, input.getFilters())) {
-                        searchResults.add(song);
+                        searchResults.add(song.getName());
                         if (searchResults.size() == RES_COUNT_MAX) {
                             break;
                         }
@@ -47,9 +50,10 @@ public final class Search implements Command {
                 }
                 break;
             case "podcast":
+                user.getSearchBar().setSearchType(SearchType.PODCAST);
                 for (Podcast podcast : Database.getInstance().getPodcasts()) {
                     if (checkPodcastFilters(podcast, input.getFilters())) {
-                        searchResults.add(podcast);
+                        searchResults.add(podcast.getName());
                         if (searchResults.size() == RES_COUNT_MAX) {
                             break;
                         }
@@ -57,11 +61,49 @@ public final class Search implements Command {
                 }
                 break;
             case "playlist":
+                user.getSearchBar().setSearchType(SearchType.PLAYLIST);
                 for (Playlist playlist : Database.getInstance().getPlaylists()) {
                     if (checkPlaylistFilters(playlist, input.getFilters(), input.getUsername())) {
-                        searchResults.add(playlist);
+                        searchResults.add(playlist.getName());
                         if (searchResults.size() == RES_COUNT_MAX) {
                             break;
+                        }
+                    }
+                }
+                break;
+            case "album":
+                user.getSearchBar().setSearchType(SearchType.ALBUM);
+                for (Album album : Database.getInstance().getAlbums()) {
+                    if (checkAlbumFilters(album, input.getFilters())) {
+                        searchResults.add(album.getName());
+                        if (searchResults.size() == RES_COUNT_MAX) {
+                            break;
+                        }
+                    }
+                }
+                break;
+            case "artist":
+                user.getSearchBar().setSearchType(SearchType.ARTIST);
+                for (User artist : Database.getInstance().getUsers()) {
+                    if (artist.getUserType().equals(UserType.ARTIST)) {
+                        if (checkArtistFilters(artist, input.getFilters(), input.getUsername())) {
+                            searchResults.add(artist.getUsername());
+                            if (searchResults.size() == RES_COUNT_MAX) {
+                                break;
+                            }
+                        }
+                    }
+                }
+                break;
+            case "host":
+                user.getSearchBar().setSearchType(SearchType.HOST);
+                for (User host : Database.getInstance().getUsers()) {
+                    if (host.getUserType().equals(UserType.HOST)) {
+                        if (checkHostFilters(host, input.getFilters())) {
+                            searchResults.add(host.getUsername());
+                            if (searchResults.size() == RES_COUNT_MAX) {
+                                break;
+                            }
                         }
                     }
                 }
@@ -70,8 +112,7 @@ public final class Search implements Command {
                 break;
         }
 
-        return new Output(input, "Search returned " + searchResults.size() + " results",
-                AudioFile.getFileNames(searchResults));
+        return new Output(input, "Search returned " + searchResults.size() + " results", searchResults);
     }
 
     private boolean checkSongFilters(final Song song, final Filters filters) {
@@ -167,7 +208,7 @@ public final class Search implements Command {
 
     private boolean checkPlaylistFilters(final Playlist playlist, final Filters filters,
                                          final String currentUser) {
-        if (playlist.getVisibility().equals(Constants.PRIVATE)
+        if (playlist.getVisibility().equals(Extras.PRIVATE)
                 && !playlist.getOwner().equals(currentUser)) {
             return false;
         }
@@ -187,6 +228,63 @@ public final class Search implements Command {
     private boolean filterPlaylistByOwner(final Playlist playlist, final String searchedOwner) {
         if (searchedOwner != null) {
             return playlist.getOwner().equals(searchedOwner);
+        } else {
+            return true;
+        }
+    }
+
+    private boolean checkArtistFilters(User artist, Filters filters, String username) {
+        return filters != null
+                && filterArtistByName(artist, filters.getName());
+    }
+
+    private boolean filterArtistByName(User artist, String name) {
+        if (name != null) {
+            return artist.getUsername().startsWith(name);
+        } else {
+            return true;
+        }
+    }
+
+    private boolean checkAlbumFilters(Album album, Filters filters) {
+        return filters != null
+                && filterAlbumByName(album, filters.getName())
+                && filterAlbumByOwner(album, filters.getOwner())
+                && filterAlbumByDescription(album, filters.getReleaseYear());
+    }
+
+    private boolean filterAlbumByName(Album album, String name) {
+        if (name != null) {
+            return album.getName().startsWith(name);
+        } else {
+            return true;
+        }
+    }
+
+    private boolean filterAlbumByOwner(Album album, String owner) {
+        if (owner != null) {
+            return album.getOwner().startsWith(owner);
+        } else {
+            return true;
+        }
+    }
+
+    private boolean filterAlbumByDescription(Album album, String description) {
+        if (description != null) {
+            return album.getDescription().startsWith(description);
+        } else {
+            return true;
+        }
+    }
+
+    private boolean checkHostFilters(User host, Filters filters) {
+        return filters != null
+                && filterHostByName(host, filters.getName());
+    }
+
+    private boolean filterHostByName(User host, String name) {
+        if (name != null) {
+            return host.getUsername().startsWith(name);
         } else {
             return true;
         }

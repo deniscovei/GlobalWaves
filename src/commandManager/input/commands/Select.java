@@ -2,9 +2,10 @@ package commandManager.input.commands;
 
 import commandManager.input.Input;
 import data.Database;
-import data.entities.audio.File;
-import data.entities.user.Listener;
+import data.entities.Selection;
+import data.entities.users.Listener;
 import commandManager.output.Output;
+import utils.Extras.SearchType;
 
 import java.util.ArrayList;
 import java.util.Objects;
@@ -22,7 +23,7 @@ public final class Select implements Command {
         }
 
         int itemNumber = input.getItemNumber();
-        ArrayList<File> searchResults = Objects.requireNonNull(user).getSearchResults();
+        ArrayList<String> searchResults = Objects.requireNonNull(user).getSearchBar().getSearchResults();
         String message;
 
         if (!user.havePerformedSearch()) {
@@ -31,8 +32,15 @@ public final class Select implements Command {
             message = "The selected ID is too high.";
         } else {
             try {
-                user.select(searchResults.get(itemNumber - 1));
-                message = "Successfully selected " + user.getSelectedFile().getName() + ".";
+                SearchType searchType = user.getSearchBar().getSearchType();
+                Selection selection = new Selection(searchType, searchResults.get(itemNumber - 1));
+                user.select(selection);
+
+                message = "Successfully selected " + searchResults.get(itemNumber - 1);
+                switch (selection.getSelectionType()) {
+                    case FILE -> message += ".";
+                    case PAGE -> message += "'s page.";
+                }
             } catch (IndexOutOfBoundsException e) {
                 message = "The selected ID is too low.";
             }

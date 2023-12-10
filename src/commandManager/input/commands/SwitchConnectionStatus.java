@@ -3,8 +3,8 @@ package commandManager.input.commands;
 import commandManager.input.Input;
 import commandManager.output.Output;
 import data.Database;
-import data.entities.user.Listener;
-import utils.Constants;
+import data.entities.users.Listener;
+import utils.Extras;
 
 public final class SwitchConnectionStatus implements Command {
     @Override
@@ -14,7 +14,7 @@ public final class SwitchConnectionStatus implements Command {
 
         if (user == null) {
             message = "The username " + input.getUsername() + " doesn't exist.";
-        } else if (user.getUserType() != Constants.UserType.LISTENER) {
+        } else if (user.getUserType() != Extras.UserType.LISTENER) {
             message = user.getUsername() + " is not a normal user.";
         } else {
             user.switchConnectionStatus(input.getTimestamp());

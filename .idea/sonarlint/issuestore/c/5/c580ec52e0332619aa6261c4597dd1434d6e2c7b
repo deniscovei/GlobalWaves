@@ -1,4 +1,5 @@
 
 W
-java:S1118":Add a private constructor to hide the implicit public one.(ñÊÒ8ã¦İİÄ1
-j	java:S119"IRename this generic name to match the regular expression '^[A-Z][0-9]?$'.(ñ¬Öâúÿÿÿÿ8ã¦İİÄ1
+java:S1118":Add a private constructor to hide the implicit public one.(ñÊÒ8ÛòˆàÄ1
+^
+java:S1126"AReplace this if-then-else statement by a single return statement.(Í“¿‰8ÀÉˆàÄ1

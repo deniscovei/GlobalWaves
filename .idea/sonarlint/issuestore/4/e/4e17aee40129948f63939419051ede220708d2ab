@@ -1,0 +1,6 @@
+
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¥èÅÁ8÷ÛÝŠÅ1
+U
+java:S1128"8Remove this unused import 'data.entities.content.Event'.(ÉØž†8­û‘ŒÅ1
+Y
+java:S1128"7Remove this unused import 'data.entities.users.Artist'.(°ã‡ªþÿÿÿÿ8½û‘ŒÅ1

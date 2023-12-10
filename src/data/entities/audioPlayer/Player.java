@@ -4,7 +4,7 @@ import data.entities.audio.File;
 import data.entities.audio.audioFiles.AudioFile;
 import lombok.Getter;
 import lombok.Setter;
-import utils.Constants;
+import utils.Extras;
 
 import java.util.ArrayList;
 
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public final class Player {
     ArrayList<Playable> playerFiles = new ArrayList<>();
     private int currentPlayerFileIndex = -1;
-    private int repeatState = Constants.NO_REPEAT;
+    private int repeatState = Extras.NO_REPEAT;
     private boolean shuffleActivated = false;
 
     /**
@@ -108,7 +108,7 @@ public final class Player {
                 continue;
             }
             if (getPlayerFiles().get(index).getLoadedFile().getFileType().
-                    equals(Constants.FileType.SONG)) {
+                    equals(Extras.FileType.SONG)) {
                 getPlayerFiles().remove(index);
                 index--;
             }
@@ -126,7 +126,7 @@ public final class Player {
             }
 
             if (getPlayerFiles().get(index).getLoadedFile().getFileType().
-                    equals(Constants.FileType.PLAYLIST)) {
+                    equals(Extras.FileType.PLAYLIST)) {
                 getPlayerFiles().remove(index);
                 index--;
             }
@@ -158,7 +158,7 @@ public final class Player {
      * changes the repeat state
      */
     private void changeRepeatState() {
-        setRepeatState((getRepeatState() + 1) % Constants.NO_REPEAT_STATES);
+        setRepeatState((getRepeatState() + 1) % Extras.NO_REPEAT_STATES);
     }
 
     /**

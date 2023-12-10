@@ -2,8 +2,8 @@ package commandManager.input.commands;
 
 import commandManager.input.Input;
 import commandManager.output.Output;
-import data.entities.user.Listener;
-import utils.Constants;
+import data.entities.users.Listener;
+import utils.Extras;
 import data.Database;
 
 import java.util.Objects;
@@ -26,9 +26,9 @@ public final class Repeat implements Command {
             message = "Please load a source before setting the repeat status.";
         } else {
             user.getPlayer().repeat(input.getTimestamp());
-            Constants.FileType fileType = user.getLoadedFile().getFileType();
+            Extras.FileType fileType = user.getLoadedFile().getFileType();
             int repeatState = user.getPlayer().getRepeatState();
-            String repeatStateLowerCase = Constants
+            String repeatStateLowerCase = Extras
                     .repeatStateToString(repeatState, fileType).toLowerCase();
             message = "Repeat mode changed to " + repeatStateLowerCase + ".";
         }

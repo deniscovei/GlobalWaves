@@ -17,8 +17,8 @@
   "command" : "search",
   "user" : "emily30",
   "timestamp" : 1000,
-  "message" : "Search returned 4 results",
-  "results" : [ "Night Pulse", "Night Pulse", "Night Pulse", "Night Pulse" ]
+  "message" : "Search returned 1 results",
+  "results" : [ "Night Pulse" ]
 }, {
   "command" : "repeat",
   "user" : "emily30",
@@ -129,7 +129,17 @@
   "user" : "rhythmicrider58",
   "timestamp" : 2555,
   "message" : "The loaded source is not a podcast."
-}, null, null, {
+}, {
+  "command" : "changePage",
+  "user" : "rhythmicrider58",
+  "timestamp" : 2755,
+  "message" : "Successfully changed page."
+}, {
+  "command" : "deleteUser",
+  "user" : "melodymaster",
+  "timestamp" : 2760,
+  "message" : "melodymaster can't be deleted."
+}, {
   "command" : "load",
   "user" : "emily30",
   "timestamp" : 3000,
@@ -228,7 +238,7 @@
   "command" : "printCurrentPage",
   "user" : "rhythmicrider58",
   "timestamp" : 3300,
-  "message" : "Liked songs:\n\t[Synth Symphony]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Synth Symphony - melodymaster]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "status",
   "user" : "emily30",
@@ -240,17 +250,27 @@
     "shuffle" : false,
     "paused" : true
   }
-}, null, {
+}, {
+  "command" : "changePage",
+  "user" : "rhythmicrider58",
+  "timestamp" : 3320,
+  "message" : "Successfully changed page."
+}, {
   "command" : "repeat",
   "user" : "emily30",
   "timestamp" : 3335,
   "message" : "Please load a source before setting the repeat status."
-}, null, {
+}, {
+  "command" : "deleteUser",
+  "user" : "melodymaster",
+  "timestamp" : 3335,
+  "message" : "melodymaster was successfully deleted."
+}, {
   "command" : "search",
   "user" : "rhythmicrider58",
   "timestamp" : 3380,
-  "message" : "Search returned 4 results",
-  "results" : [ "Vibrant Echoes", "Vibrant Echoes", "Vibrant Echoes", "Vibrant Echoes" ]
+  "message" : "Search returned 0 results",
+  "results" : [ ]
 }, {
   "command" : "search",
   "user" : "rhythmicrider58",
@@ -298,7 +318,12 @@
   "user" : "rhythmicrider58",
   "timestamp" : 3440,
   "message" : "Playback loaded successfully."
-}, null, {
+}, {
+  "command" : "deleteUser",
+  "user" : "emily30",
+  "timestamp" : 3443,
+  "message" : "emily30 was successfully deleted."
+}, {
   "command" : "like",
   "user" : "rhythmicrider58",
   "timestamp" : 3445,
@@ -307,5 +332,5 @@
   "command" : "printCurrentPage",
   "user" : "rhythmicrider58",
   "timestamp" : 7000,
-  "message" : "Liked songs:\n\t[Synth Symphony,Shape of You]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Shape of You]\n\nFollowed playlists:\n\t[]"
 } ]

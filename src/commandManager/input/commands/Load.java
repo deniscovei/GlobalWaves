@@ -3,11 +3,10 @@ package commandManager.input.commands;
 import commandManager.input.Input;
 import commandManager.output.Output;
 import data.entities.audio.File;
-import data.entities.user.Listener;
-import utils.Constants;
+import data.entities.audio.audioCollections.AudioCollection;
+import data.entities.users.Listener;
+import utils.Extras;
 import data.Database;
-import data.entities.audio.audioCollections.Playlist;
-import data.entities.audio.audioCollections.Podcast;
 
 import java.util.Objects;
 
@@ -29,11 +28,9 @@ public final class Load implements Command {
             message = "Please select a source before attempting to load.";
         } else {
             File selection = user.getSelectedFile();
-            Constants.FileType fileType = selection.getFileType();
-            if (fileType.equals(Constants.FileType.PODCAST)
-                && ((Podcast) selection).getEpisodes().isEmpty()
-                || fileType.equals(Constants.FileType.PLAYLIST)
-                && ((Playlist) selection).getSongs().isEmpty()) {
+            Extras.FileType fileType = selection.getFileType();
+            if (Extras.isAudioCollection(fileType)
+                && ((AudioCollection) selection).getAudioFiles().isEmpty()) {
                 message = "You can't load an empty audio collection!";
             } else {
                 user.loadAudioFile(input.getTimestamp());

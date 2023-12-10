@@ -1,19 +1,20 @@
 package data;
 
+import data.entities.audio.audioCollections.Album;
 import data.entities.audio.audioCollections.Playlist;
 import data.entities.audio.audioCollections.Podcast;
 import data.entities.audio.audioFiles.Song;
-import data.entities.user.Artist;
-import data.entities.user.Host;
-import data.entities.user.Listener;
-import data.entities.user.User;
+import data.entities.users.Artist;
+import data.entities.users.Host;
+import data.entities.users.Listener;
+import data.entities.users.User;
 import fileio.input.LibraryInput;
 import fileio.input.PodcastInput;
 import fileio.input.SongInput;
 import fileio.input.UserInput;
 import lombok.Getter;
 import lombok.Setter;
-import utils.Constants;
+import utils.Extras.UserType;
 
 import java.util.ArrayList;
 
@@ -25,6 +26,7 @@ public final class Database {
     private final ArrayList<Song> songs = new ArrayList<>();
     private final ArrayList<Podcast> podcasts = new ArrayList<>();
     private final ArrayList<Playlist> playlists = new ArrayList<>();
+    private final ArrayList<Album> albums = new ArrayList<>();
 
     private Database() {
     }
@@ -146,20 +148,18 @@ public final class Database {
         }
     }
 
-    public void addUser(String username, int age, String city, Constants.UserType userType) {
+    public void addUser(final String username, final int age, final String city, final UserType userType) {
         User user;
         switch (userType) {
-            case LISTENER:
-                user = new Listener(username, age, city);
-                break;
             case ARTIST:
                 user = new Artist(username, age, city);
                 break;
             case HOST:
                 user = new Host(username, age, city);
                 break;
+            case LISTENER:
             default:
-                user = new User(username, age, city);
+                user = new Listener(username, age, city);
                 break;
         }
         user.setAdded(true);
@@ -169,24 +169,139 @@ public final class Database {
     public void flush() {
         // delete the data of the users
         for (User user : getUsers()) {
-            if (user.getUserType().equals(Constants.UserType.LISTENER)) {
+            if (user.getUserType().equals(UserType.LISTENER)) {
                 ((Listener) user).deleteData();
             }
         }
+        // delete previously created albums
+        removeAlbums();
         // delete previously created playlists
-        Database.getInstance().removePlaylists();
+        removePlaylists();
         // delete liked songs
-        Database.getInstance().removeLikes();
+        removeLikes();
         // delete added users
         getUsers().removeIf(User::isAdded);
+        // delete added songs
+        getSongs().removeIf(Song::isAdded);
+        // delete added podcasts
+        getPodcasts().removeIf(Podcast::isAdded);
     }
 
-    public ArrayList<Playlist> getFollowedPlaylists(String username) {
+    private void removeAlbums() {
+        getAlbums().clear();
+    }
+
+    public ArrayList<Playlist> getFollowedPlaylists(final String username) {
         ArrayList<Playlist> result = new ArrayList<>();
 
         for (Playlist playlist : Database.getInstance().getPlaylists()) {
             if (playlist.getOwner().equals(username)) {
                 result.add(playlist);
+            }
+        }
+
+        return result;
+    }
+
+    public Song findSong(final String songName) {
+        for (Song song : getSongs()) {
+            if (song.getName().equals(songName)) {
+                return song;
+            }
+        }
+        return null;
+
+    }
+
+    public Podcast findPodcast(final String podcastName) {
+        for (Podcast podcast : getPodcasts()) {
+            if (podcast.getName().equals(podcastName)) {
+                return podcast;
+            }
+        }
+        return null;
+    }
+
+    public Album findAlbum(final String albumName) {
+        for (Album album : getAlbums()) {
+            if (album.getName().equals(albumName)) {
+                return album;
+            }
+        }
+        return null;
+    }
+
+    public void removeUser(User user) {
+        switch (user.getUserType()) {
+            case LISTENER:
+                if (user.isAdded()) {
+                    getUsers().remove(user);
+                } else {
+                    ((Listener) user).setDeleted(true);
+                }
+                break;
+            case ARTIST:
+                getUsers().remove(user);
+                removeSongs(user);
+                break;
+            case HOST:
+                getUsers().remove(user);
+                break;
+        }
+    }
+
+    private void removeSongs(User artist) {
+        for (int i = 0; i < getSongs().size(); i++) {
+            Song song = getSongs().get(i);
+
+            if (song.getArtist().equals(artist.getUsername())) {
+                getSongs().remove(i);
+                i--;
+            }
+        }
+
+        for (User user : getUsers()) {
+            if (user.getUserType() == UserType.LISTENER) {
+                Listener listener = (Listener) user;
+                listener.getLikedSongs().removeIf(song -> song.getArtist().equals(artist.getUsername()));
+            }
+        }
+    }
+
+    public void removeAlbum(Album album) {
+        getAlbums().remove(album);
+    }
+
+    public ArrayList<Artist> getArtists() {
+        ArrayList<Artist> artists = new ArrayList<>();
+
+        for (User user : getUsers()) {
+            if (user.getUserType() == UserType.ARTIST) {
+                artists.add((Artist) user);
+            }
+        }
+
+        return artists;
+    }
+
+    public ArrayList<Podcast> findPodcasts(final String username) {
+        ArrayList<Podcast> result = new ArrayList<>();
+
+        for (Podcast podcast : getPodcasts()) {
+            if (podcast.getOwner().equals(username)) {
+                result.add(podcast);
+            }
+        }
+
+        return result;
+    }
+
+    public ArrayList<Album> findAlbums(String username) {
+        ArrayList<Album> result = new ArrayList<>();
+
+        for (Album album : getAlbums()) {
+            if (album.getOwner().equals(username)) {
+                result.add(album);
             }
         }
 

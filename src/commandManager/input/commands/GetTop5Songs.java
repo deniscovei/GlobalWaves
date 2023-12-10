@@ -8,7 +8,7 @@ import data.entities.audio.audioFiles.Song;
 import java.util.ArrayList;
 import java.util.Comparator;
 
-import static utils.Constants.RES_COUNT_MAX;
+import static utils.Extras.RES_COUNT_MAX;
 
 /**
  * This class implements the command strategy for getting the top 5 songs.

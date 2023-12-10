@@ -4,10 +4,10 @@ import commandManager.input.attributes.Stats;
 import commandManager.input.Input;
 import commandManager.output.Output;
 import data.Database;
-import data.entities.user.Listener;
+import data.entities.users.Listener;
 import data.entities.audioPlayer.Player;
 import data.entities.audio.audioFiles.AudioFile;
-import utils.Constants;
+import utils.Extras;
 
 import java.util.Objects;
 
@@ -31,7 +31,7 @@ public final class Status implements Command {
             stats.setPaused(player.isPaused());
             stats.setRemainedTime(player.getRemainedTime(currentPlayingFile,
                     input.getTimestamp()));
-            stats.setRepeat(Constants.repeatStateToString(player.getRepeatState(),
+            stats.setRepeat(Extras.repeatStateToString(player.getRepeatState(),
                     user.getLoadedFile().getFileType()));
             stats.setShuffle(player.isShuffleActivated());
         } else {

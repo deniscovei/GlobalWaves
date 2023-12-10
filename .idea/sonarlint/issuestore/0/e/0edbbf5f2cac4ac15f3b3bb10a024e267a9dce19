@@ -1,2 +1,8 @@
 
-v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¥èÅÁ8×ÉáÇÄ1
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¥èÅÁ8ƒ¹¿Å1
+s
+java:S1128"QRemove this unused import 'data.entities.audio.audioCollections.AudioCollection'.(Â»ìßûÿÿÿÿ8‹¹¿Å1
+g
+java:S1128	"ERemove this unused import 'data.entities.audio.audioFiles.AudioFile'.(œê˜ëıÿÿÿÿ8‹¹¿Å1
+M
+java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8‹¹¿Å1

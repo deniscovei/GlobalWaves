@@ -1,0 +1,9 @@
+
+_
+java:S6208M"CMerge the previous cases into this one using comma-separated label.(Ş‰8ºôíÅ1
+€
+java:S1319i"dThe type of "list" should be an interface such as "List" rather than the implementation "ArrayList".( Æ¡E8»ôíÅ1
+s
+java:S1128"QRemove this unused import 'data.entities.audio.audioCollections.AudioCollection'.(Â»ìßûÿÿÿÿ8ÇôíÅ1
+g
+java:S1128"ERemove this unused import 'data.entities.audio.audioFiles.AudioFile'.(œê˜ëıÿÿÿÿ8ÇôíÅ1

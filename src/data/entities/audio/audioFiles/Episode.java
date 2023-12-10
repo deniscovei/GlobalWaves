@@ -3,7 +3,7 @@ package data.entities.audio.audioFiles;
 import fileio.input.EpisodeInput;
 import lombok.Getter;
 import lombok.Setter;
-import utils.Constants.FileType;
+import utils.Extras.FileType;
 
 @Setter
 @Getter

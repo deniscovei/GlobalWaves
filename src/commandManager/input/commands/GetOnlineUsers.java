@@ -3,9 +3,9 @@ package commandManager.input.commands;
 import commandManager.input.Input;
 import commandManager.output.Output;
 import data.Database;
-import data.entities.user.Listener;
-import data.entities.user.User;
-import utils.Constants.UserType;
+import data.entities.users.Listener;
+import data.entities.users.User;
+import utils.Extras.UserType;
 
 import java.util.ArrayList;
 

@@ -3,8 +3,8 @@ package commandManager.input.commands;
 import commandManager.input.Input;
 import commandManager.output.Output;
 import data.Database;
-import data.entities.user.Listener;
-import utils.Constants;
+import data.entities.users.Listener;
+import utils.Extras;
 
 import java.util.Objects;
 
@@ -25,7 +25,7 @@ public final class Shuffle implements Command {
         if (!Objects.requireNonNull(user).hasLoadedAFile()
                 || user.getPlayer().hasFinished(input.getTimestamp())) {
             message = "Please load a source before using the shuffle function.";
-        } else if (!user.getLoadedFile().getFileType().equals(Constants.FileType.PLAYLIST)) {
+        } else if (!user.getLoadedFile().getFileType().equals(Extras.FileType.PLAYLIST)) {
             message = "The loaded source is not a playlist.";
         } else {
             if (user.getPlayer().isShuffleActivated()) {

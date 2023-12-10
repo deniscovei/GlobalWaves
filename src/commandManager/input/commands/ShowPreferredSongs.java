@@ -4,7 +4,7 @@ import commandManager.input.Input;
 import commandManager.output.Output;
 import data.Database;
 import data.entities.audio.audioFiles.Song;
-import data.entities.user.Listener;
+import data.entities.users.Listener;
 
 import java.util.ArrayList;
 import java.util.Objects;

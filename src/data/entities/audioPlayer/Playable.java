@@ -5,7 +5,7 @@ import data.entities.audio.audioCollections.AudioCollection;
 import data.entities.audio.audioFiles.AudioFile;
 import lombok.Getter;
 import lombok.Setter;
-import utils.Constants;
+import utils.Extras;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -22,7 +22,7 @@ public final class Playable {
     private int startTimestamp = -1;
     private int pauseTimestamp = -1;
     private int offset = 0;
-    private int repeatState = Constants.NO_REPEAT;
+    private int repeatState = Extras.NO_REPEAT;
     private boolean shuffleActivated = false;
     private ArrayList<Integer> orderedIndexes = new ArrayList<>();
     private ArrayList<Integer> shuffledIndexes = new ArrayList<>();
@@ -79,28 +79,27 @@ public final class Playable {
      * returns the current playing file
      */
     public AudioFile getCurrentPlayingFile(final int timestamp) {
-        if (getLoadedFile().getFileType().equals(Constants.FileType.SONG)) {
+        if (getLoadedFile().getFileType().equals(Extras.FileType.SONG)) {
             AudioFile currAudioFile = (AudioFile) getLoadedFile();
             if (getRemainedTime(currAudioFile, timestamp) >= 0) {
                 return currAudioFile;
             } else {
                 switch (getRepeatState()) {
-                    case Constants.REPEAT_ONCE:
-                        setRepeatState(Constants.NO_REPEAT);
+                    case Extras.REPEAT_ONCE:
+                        setRepeatState(Extras.NO_REPEAT);
                         setOffset(getOffset() - (currAudioFile).getDuration());
                         return currAudioFile;
-                    case Constants.REPEAT_INFINITE:
+                    case Extras.REPEAT_INFINITE:
                         while (getRemainedTime(currAudioFile, timestamp) < 0) {
                             setOffset(getOffset() - (currAudioFile).getDuration());
                         }
-                    case Constants.NO_REPEAT:
+                    case Extras.NO_REPEAT:
                         return currAudioFile;
                     default:
                         return null;
                 }
             }
-        } else if (getLoadedFile().getFileType().equals(Constants.FileType.PLAYLIST)
-                || getLoadedFile().getFileType().equals(Constants.FileType.PODCAST)) {
+        } else if (Extras.isAudioCollection(getLoadedFile().getFileType())) {
             AudioCollection audioCollection = (AudioCollection) getLoadedFile();
             AudioFile currentPlayingFile = audioCollection.getAudioFiles().
                     get(getCurrentPlayingFileId());
@@ -149,25 +148,25 @@ public final class Playable {
         int size = ((AudioCollection) getLoadedFile()).getAudioFiles().size();
 
         switch (getLoadedFile().getFileType()) {
-            case PLAYLIST:
+            case PLAYLIST, ALBUM:
                 switch (repeatState) {
-                    case Constants.NO_REPEAT:
+                    case Extras.NO_REPEAT:
                         return indexes.get(id + 1);
-                    case Constants.REPEAT_ALL:
+                    case Extras.REPEAT_ALL:
                         return indexes.get((id + 1) % size);
-                    case Constants.REPEAT_CURRENT_SONG:
+                    case Extras.REPEAT_CURRENT_SONG:
                         return indexes.get(id);
                 }
             case PODCAST:
                 switch (getRepeatState()) {
-                    case Constants.NO_REPEAT:
+                    case Extras.NO_REPEAT:
                         return indexes.get(id + 1);
-                    case Constants.REPEAT_ONCE:
+                    case Extras.REPEAT_ONCE:
                         if (indexes.get(id + 1) >= size) {
-                            setRepeatState(Constants.NO_REPEAT);
+                            setRepeatState(Extras.NO_REPEAT);
                         }
                         return indexes.get((id + 1) % size);
-                    case Constants.REPEAT_INFINITE:
+                    case Extras.REPEAT_INFINITE:
                         return indexes.get((id + 1) % size);
                 }
             default:
@@ -262,8 +261,8 @@ public final class Playable {
     }
 
     public void forward(final int timestamp) {
-        if (getRemainedTime(getCurrentPlayingFile(timestamp), timestamp) >= Constants.MIN_SECONDS) {
-            setOffset(getOffset() + Constants.MIN_SECONDS);
+        if (getRemainedTime(getCurrentPlayingFile(timestamp), timestamp) >= Extras.MIN_SECONDS) {
+            setOffset(getOffset() + Extras.MIN_SECONDS);
         } else {
             setOffset(getOffset() + getRemainedTime(getCurrentPlayingFile(timestamp), timestamp));
             setElapsedTime(getElapsedTime()
@@ -273,8 +272,8 @@ public final class Playable {
     }
 
     public void backward(final int timestamp) {
-        if (getCurrTimeOfFile(timestamp) >= Constants.MIN_SECONDS) {
-            setOffset(getOffset() - Constants.MIN_SECONDS);
+        if (getCurrTimeOfFile(timestamp) >= Extras.MIN_SECONDS) {
+            setOffset(getOffset() - Extras.MIN_SECONDS);
         } else {
             setOffset(getOffset() - getCurrTimeOfFile(timestamp));
         }

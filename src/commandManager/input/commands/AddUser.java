@@ -3,7 +3,7 @@ package commandManager.input.commands;
 import commandManager.input.Input;
 import commandManager.output.Output;
 import data.Database;
-import utils.Constants;
+import utils.Extras;
 
 public final class AddUser implements Command {
     @Override
@@ -12,7 +12,7 @@ public final class AddUser implements Command {
             return new Output(input, "The username " + input.getUsername() + " is already taken.");
         } else {
             Database.getInstance().addUser(input.getUsername(), input.getAge(), input.getCity(),
-                    Constants.stringToUserType(input.getType()));
+                    Extras.stringToUserType(input.getType()));
             return new Output(input, "The username " + input.getUsername() + " has been added successfully.");
         }
     }

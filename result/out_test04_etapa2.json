@@ -38,7 +38,11 @@
   "user" : "irene33",
   "timestamp" : 40,
   "message" : "The username irene33 is already taken."
-}, null, {
+}, {
+  "command" : "getAllUsers",
+  "timestamp" : 45,
+  "result" : [ "alice22", "bob35", "carol19", "david27", "emily30", "frank21", "grace25", "henry26", "irene33", "jack29", "melodicmind42", "rhythmicrider58", "harmonyhunter73", "melodymaster", "rhythmrider", "beatblazer", "harmonichero" ]
+}, {
   "command" : "addAlbum",
   "user" : "rhythmrider",
   "timestamp" : 50,
@@ -52,18 +56,18 @@
   "command" : "search",
   "user" : "melodicmind42",
   "timestamp" : 60,
-  "message" : "Search returned 5 results",
-  "results" : [ "Radio Ga Ga", "Retro Rhythms", "Retro Rhythms", "Rhythm Rise", "Rhythmic Revolution" ]
+  "message" : "Search returned 3 results",
+  "results" : [ "Radio Ga Ga", "Rhythm Rise", "Rhythmic Revolution" ]
 }, {
   "command" : "select",
   "user" : "alice22",
   "timestamp" : 65,
-  "message" : "The selected ID is too high."
+  "message" : "Please conduct a search before making a selection."
 }, {
   "command" : "select",
   "user" : "melodicmind42",
   "timestamp" : 70,
-  "message" : "Successfully selected Retro Rhythms."
+  "message" : "Successfully selected Rhythmic Revolution."
 }, {
   "command" : "load",
   "user" : "melodicmind42",
@@ -74,8 +78,8 @@
   "user" : "melodicmind42",
   "timestamp" : 90,
   "stats" : {
-    "name" : "Retro Rhythms",
-    "remainedTime" : 205,
+    "name" : "Rhythmic Revolution",
+    "remainedTime" : 185,
     "repeat" : "No Repeat",
     "shuffle" : false,
     "paused" : false
@@ -89,34 +93,49 @@
   "command" : "printCurrentPage",
   "user" : "melodicmind42",
   "timestamp" : 135,
-  "message" : "Liked songs:\n\t[Retro Rhythms]\n\nFollowed playlists:\n\t[]"
-}, null, {
+  "message" : "Liked songs:\n\t[Rhythmic Revolution]\n\nFollowed playlists:\n\t[]"
+}, {
+  "command" : "deleteUser",
+  "user" : "beatblazer",
+  "timestamp" : 150,
+  "message" : "beatblazer can't be deleted."
+}, {
   "command" : "search",
   "user" : "alice22",
   "timestamp" : 190,
-  "message" : "Search returned 0 results",
-  "results" : [ ]
+  "message" : "Search returned 1 results",
+  "results" : [ "Beat Odyssey" ]
 }, {
   "command" : "select",
   "user" : "alice22",
   "timestamp" : 280,
-  "message" : "The selected ID is too high."
+  "message" : "Successfully selected Beat Odyssey."
 }, {
   "command" : "load",
   "user" : "alice22",
   "timestamp" : 285,
-  "message" : "Please select a source before attempting to load."
-}, null, {
+  "message" : "Playback loaded successfully."
+}, {
+  "command" : "deleteUser",
+  "user" : "beatblazer",
+  "timestamp" : 1158,
+  "message" : "beatblazer can't be deleted."
+}, {
   "command" : "prev",
   "user" : "alice22",
   "timestamp" : 1159,
-  "message" : "Please load a source before returning to the previous track."
-}, null, {
+  "message" : "Returned to previous track successfully. The current track is Melodic Motion."
+}, {
+  "command" : "deleteUser",
+  "user" : "beatblazer",
+  "timestamp" : 1380,
+  "message" : "beatblazer was successfully deleted."
+}, {
   "command" : "search",
   "user" : "melodicmind42",
   "timestamp" : 1385,
-  "message" : "Search returned 2 results",
-  "results" : [ "Rapid Rhythms", "Rapid Fire" ]
+  "message" : "Search returned 1 results",
+  "results" : [ "Rapid Rhythms" ]
 }, {
   "command" : "select",
   "user" : "melodicmind42",
@@ -136,5 +155,5 @@
   "command" : "printCurrentPage",
   "user" : "melodicmind42",
   "timestamp" : 1480,
-  "message" : "Liked songs:\n\t[Retro Rhythms,Rapid Rhythms]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Rapid Rhythms]\n\nFollowed playlists:\n\t[]"
 } ]

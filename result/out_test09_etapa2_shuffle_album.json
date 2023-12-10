@@ -19,7 +19,12 @@
   "user" : "melodymaster",
   "timestamp" : 172,
   "message" : "melodymaster has added new album successfully."
-}, null, {
+}, {
+  "command" : "addEvent",
+  "user" : "melodymaster",
+  "timestamp" : 185,
+  "message" : "melodymaster has added new event successfully."
+}, {
   "command" : "select",
   "user" : "bob35",
   "timestamp" : 190,
@@ -38,14 +43,14 @@
   "command" : "search",
   "user" : "carol19",
   "timestamp" : 270,
-  "message" : "Search returned 5 results",
-  "results" : [ "Don't", "Delicate", "Digital Dreams", "Digital Dreams", "Digital Dreams" ]
+  "message" : "Search returned 3 results",
+  "results" : [ "Don't", "Delicate", "Digital Dreams" ]
 }, {
   "command" : "search",
   "user" : "david27",
   "timestamp" : 270,
-  "message" : "Search returned 0 results",
-  "results" : [ ]
+  "message" : "Search returned 1 results",
+  "results" : [ "melodymaster" ]
 }, {
   "command" : "select",
   "user" : "bob35",
@@ -60,7 +65,7 @@
   "command" : "select",
   "user" : "david27",
   "timestamp" : 320,
-  "message" : "The selected ID is too high."
+  "message" : "Successfully selected melodymaster's page."
 }, {
   "command" : "addRemoveInPlaylist",
   "user" : "bob35",
@@ -70,8 +75,8 @@
   "command" : "search",
   "user" : "bob35",
   "timestamp" : 340,
-  "message" : "Search returned 5 results",
-  "results" : [ "Radio Ga Ga", "Retro Rhythms", "Retro Rhythms", "Rhythm Rise", "Reverberating Beats" ]
+  "message" : "Search returned 2 results",
+  "results" : [ "Radio Ga Ga", "Retro Rhythms" ]
 }, {
   "command" : "select",
   "user" : "bob35",
@@ -98,12 +103,22 @@
   "timestamp" : 370,
   "message" : "Search returned 1 results",
   "results" : [ "Elevate" ]
-}, null, {
+}, {
+  "command" : "removeAlbum",
+  "user" : "Ed Sheeran",
+  "timestamp" : 375,
+  "message" : "The username Ed Sheeran doesn't exist."
+}, {
   "command" : "select",
   "user" : "bob35",
   "timestamp" : 390,
   "message" : "Successfully selected Elevate."
-}, null, {
+}, {
+  "command" : "addEvent",
+  "user" : "melodymaster",
+  "timestamp" : 395,
+  "message" : "Event for melodymaster does not have a valid date."
+}, {
   "command" : "load",
   "user" : "bob35",
   "timestamp" : 400,
@@ -117,24 +132,34 @@
   "command" : "printCurrentPage",
   "user" : "david27",
   "timestamp" : 430,
-  "message" : "Liked songs:\n\t[]\n\nFollowed playlists:\n\t[]"
-}, null, {
+  "message" : "Albums:\n\t[Harmonic Horizons]\n\nMerch:\n\t[]\n\nEvents:\n\t[Event1 - 01-01-2022:\n\tPrimul Event adaugat!]"
+}, {
+  "command" : "removeAlbum",
+  "user" : "melodymaster",
+  "timestamp" : 430,
+  "message" : "melodymaster doesn't have an album with the given name."
+}, {
   "command" : "search",
   "user" : "bob35",
   "timestamp" : 431,
-  "message" : "Search returned 0 results",
-  "results" : [ ]
+  "message" : "Search returned 1 results",
+  "results" : [ "Harmonic Horizons" ]
 }, {
   "command" : "select",
   "user" : "bob35",
   "timestamp" : 432,
-  "message" : "The selected ID is too high."
+  "message" : "Successfully selected Harmonic Horizons."
 }, {
   "command" : "load",
   "user" : "bob35",
   "timestamp" : 433,
-  "message" : "Please select a source before attempting to load."
-}, null, {
+  "message" : "Playback loaded successfully."
+}, {
+  "command" : "addMerch",
+  "user" : "melodymaster",
+  "timestamp" : 433,
+  "message" : "melodymaster has added new merchandise successfully."
+}, {
   "command" : "load",
   "user" : "carol19",
   "timestamp" : 434,
@@ -144,34 +169,39 @@
   "user" : "bob35",
   "timestamp" : 434,
   "stats" : {
-    "name" : "",
-    "remainedTime" : 0,
+    "name" : "Vibrant Echoes",
+    "remainedTime" : 249,
     "repeat" : "No Repeat",
     "shuffle" : false,
-    "paused" : true
+    "paused" : false
   }
 }, {
   "command" : "shuffle",
   "user" : "bob35",
   "timestamp" : 440,
-  "message" : "Please load a source before using the shuffle function."
+  "message" : "The loaded source is not a playlist."
 }, {
   "command" : "status",
   "user" : "bob35",
   "timestamp" : 446,
   "stats" : {
-    "name" : "",
-    "remainedTime" : 0,
+    "name" : "Vibrant Echoes",
+    "remainedTime" : 237,
     "repeat" : "No Repeat",
     "shuffle" : false,
-    "paused" : true
+    "paused" : false
   }
 }, {
   "command" : "repeat",
   "user" : "carol19",
   "timestamp" : 690,
   "message" : "Repeat mode changed to repeat once."
-}, null, {
+}, {
+  "command" : "addEvent",
+  "user" : "melodymaster",
+  "timestamp" : 785,
+  "message" : "melodymaster has added new event successfully."
+}, {
   "command" : "repeat",
   "user" : "carol19",
   "timestamp" : 950,
@@ -181,18 +211,23 @@
   "user" : "bob35",
   "timestamp" : 1000,
   "stats" : {
-    "name" : "",
-    "remainedTime" : 0,
+    "name" : "Retro Rhythms",
+    "remainedTime" : 203,
     "repeat" : "No Repeat",
     "shuffle" : false,
-    "paused" : true
+    "paused" : false
   }
 }, {
   "command" : "like",
   "user" : "carol19",
   "timestamp" : 1115,
   "message" : "Like registered successfully."
-}, null, {
+}, {
+  "command" : "removeAlbum",
+  "user" : "melodymaster",
+  "timestamp" : 1200,
+  "message" : "melodymaster can't delete this album."
+}, {
   "command" : "search",
   "user" : "carol19",
   "timestamp" : 1500,
@@ -214,7 +249,12 @@
   "user" : "carol19",
   "timestamp" : 2435,
   "message" : "Successfully selected My playlist."
-}, null, {
+}, {
+  "command" : "removeEvent",
+  "user" : "melodymaster",
+  "timestamp" : 2440,
+  "message" : "melodymaster deleted the event successfully."
+}, {
   "command" : "search",
   "user" : "bob35",
   "timestamp" : 2445,
@@ -330,7 +370,12 @@
     "shuffle" : true,
     "paused" : false
   }
-}, null, {
+}, {
+  "command" : "removeAlbum",
+  "user" : "melodymaster",
+  "timestamp" : 3000,
+  "message" : "Album Harmonic Horizons was removed successfully."
+}, {
   "command" : "status",
   "user" : "bob35",
   "timestamp" : 3250,
@@ -341,7 +386,12 @@
     "shuffle" : true,
     "paused" : false
   }
-}, null, {
+}, {
+  "command" : "changePage",
+  "user" : "carol19",
+  "timestamp" : 3251,
+  "message" : "Successfully changed page."
+}, {
   "command" : "status",
   "user" : "bob35",
   "timestamp" : 3600,
@@ -372,7 +422,7 @@
   "command" : "printCurrentPage",
   "user" : "david27",
   "timestamp" : 3900,
-  "message" : "Liked songs:\n\t[]\n\nFollowed playlists:\n\t[]"
+  "message" : "Albums:\n\t[]\n\nMerch:\n\t[Merch1 - 100:\n\tPrimul Merch adaugat!]\n\nEvents:\n\t[Event2 - 05-02-2021:\n\tAl doilea Event adaugat!]"
 }, {
   "command" : "status",
   "user" : "bob35",
@@ -420,7 +470,7 @@
   "command" : "printCurrentPage",
   "user" : "david27",
   "timestamp" : 4400,
-  "message" : "Liked songs:\n\t[]\n\nFollowed playlists:\n\t[]"
+  "message" : "Albums:\n\t[]\n\nMerch:\n\t[Merch1 - 100:\n\tPrimul Merch adaugat!]\n\nEvents:\n\t[Event2 - 05-02-2021:\n\tAl doilea Event adaugat!]"
 }, {
   "command" : "status",
   "user" : "bob35",
@@ -447,7 +497,7 @@
   "command" : "printCurrentPage",
   "user" : "carol19",
   "timestamp" : 5000,
-  "message" : "Liked songs:\n\t[Digital Dreams]\n\nFollowed playlists:\n\t[]"
+  "message" : "Liked songs:\n\t[Digital Dreams - melodymaster]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "status",
   "user" : "bob35",

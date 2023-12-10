@@ -1,5 +1,12 @@
 
+t	java:S127ƒ"XRefactor the code in order to not assign to this loop counter from within the loop body.(¨…ÄK8ýË€ŒÅ1
+Ž
+java:S1319Â"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ÉÐà‹8ýË€ŒÅ1
 “
-java:S1319¸"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(Ë¯’©ùÿÿÿÿ8ÇÑòÝÄ1
+java:S1319“"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(£»õòþÿÿÿÿ8ýË€ŒÅ1
+Ž
+java:S1319Ÿ"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(½õÇÔ8ß˜óŒÅ1
+Ž
+java:S1319«"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(’¹˜Ñ8ß˜óŒÅ1
 »
-java:S6548"˜A Singleton implementation was detected. Make sure the use of the Singleton pattern is required and the implementation is the right one for the context.(ÒÅ„úýÿÿÿÿ8ÌÑòÝÄ1
+java:S6548"˜A Singleton implementation was detected. Make sure the use of the Singleton pattern is required and the implementation is the right one for the context.(ÒÅ„úýÿÿÿÿ8šÌ€ŒÅ1

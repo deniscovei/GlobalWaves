@@ -4,11 +4,14 @@ import commandManager.input.Input;
 import commandManager.output.Output;
 import data.Database;
 import data.entities.audio.File;
+import data.entities.audio.audioCollections.AudioCollection;
 import data.entities.audio.audioCollections.Playlist;
+import data.entities.audio.audioFiles.AudioFile;
 import data.entities.audio.audioFiles.Song;
-import data.entities.user.Listener;
-import utils.Constants;
+import data.entities.users.Listener;
+import utils.Extras.FileType;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -34,11 +37,13 @@ public final class AddRemoveInPlaylist implements Command {
             message = "The specified playlist does not exist.";
         } else {
             File loadedFile = user.getLoadedFile();
-            Constants.FileType fileType = loadedFile.getFileType();
-            if (!fileType.equals(Constants.FileType.SONG)) {
+            FileType fileType = loadedFile.getFileType();
+            if (fileType != FileType.SONG && fileType != FileType.ALBUM) {
                 message = "The loaded source is not a song.";
             } else {
-                Song song = (Song) loadedFile;
+                Song song = (fileType == FileType.SONG ? (Song) loadedFile :
+                        (Song) user.getPlayer().getCurrentPlayingFile(input.getTimestamp()));
+
                 if (playlist.getSongs().contains(song)) {
                     playlist.removeSong(song);
                     message = "Successfully removed from playlist.";

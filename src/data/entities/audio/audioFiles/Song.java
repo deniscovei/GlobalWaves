@@ -1,10 +1,10 @@
 package data.entities.audio.audioFiles;
 
-import data.entities.user.User;
+import data.entities.users.User;
 import fileio.input.SongInput;
 import lombok.Getter;
 import lombok.Setter;
-import utils.Constants.FileType;
+import utils.Extras.FileType;
 
 import java.util.ArrayList;
 
@@ -34,6 +34,11 @@ public final class Song extends AudioFile {
         this.artist = song.getArtist();
     }
 
+    public Song(SongInput songInput, boolean added) {
+        this(songInput);
+        this.added = added;
+    }
+
     /**
      * adds a user to the list of users who liked the song
      */
@@ -46,5 +51,9 @@ public final class Song extends AudioFile {
      */
     public void registerUnlike(final User user) {
         getUsersWhoLiked().remove(user);
+    }
+
+    public int getNumberOfLikes() {
+        return getUsersWhoLiked().size();
     }
 }
