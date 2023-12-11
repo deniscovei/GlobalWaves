@@ -4,6 +4,7 @@ import commandManager.input.Input;
 import commandManager.output.Output;
 import data.Database;
 import data.entities.audio.audioCollections.Album;
+import data.entities.audio.audioFiles.AudioFile;
 import data.entities.audio.audioFiles.Song;
 import data.entities.users.Artist;
 import data.entities.users.User;
@@ -38,9 +39,14 @@ public final class AddAlbum implements Command {
                 artist.addAlbum(newAlbum);
                 Database.getInstance().getAlbums().add(newAlbum);
 
-                for (SongInput songInput : input.getSongs()) {
-                    Database.getInstance().addSong(new Song(songInput, true));
+                for (AudioFile audioFile : newAlbum.getAudioFiles()) {
+                    Song song = (Song) audioFile;
+                    Database.getInstance().addSong(song);
                 }
+
+//                for (SongInput songInput : input.getSongs()) {
+//                    Database.getInstance().addSong(new Song(songInput, true));
+//                }
 
                 message = input.getUsername() + " has added new album successfully.";
             }

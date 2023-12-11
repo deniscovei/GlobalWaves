@@ -56,6 +56,10 @@ public class Host extends User {
             if (user.getUserType() == UserType.LISTENER) {
                 Listener listener = (Listener) user;
 
+                if (listener.getCurrentPage().getCreator().equals(this)) {
+                    return true;
+                }
+
                 // uncomment here
                 if (!Objects.requireNonNull(listener).hasLoadedAFile()
                         /*|| listener.getPlayer().hasFinished(timestamp)*/) {

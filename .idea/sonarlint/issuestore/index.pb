@@ -47,8 +47,6 @@ f
 6src/data/entities/audio/audiocollections/Playlist.java,4\d\4d4f4bd02db01cbad25a3c29af9b7829f18e8241
 e
 5src/data/entities/audio/audiocollections/Podcast.java,f\3\f3e10d5b3fa0258cdadad02f1bb7d0bef74764bc
-H
-src/utils/Constants.java,4\a\4a529251440c44cd317d92ed0b57bc18d2a5596e
 c
 3src/data/entities/audio/audiocollections/Album.java,5\6\560c81dec7bfff0d84888dff096f2855ff16dbc3
 m
@@ -113,8 +111,6 @@ _
 /src/commandManager/input/commands/AddAlbum.java,8\8\88b55f90bd5c06c841ed93c7301591914acdc5e9
 ^
 .src/commandManager/input/commands/AddUser.java,a\e\ae506651a4353469bb610da3b992966f774f27df
-F
-src/utils/Methods.java,c\5\c580ec52e0332619aa6261c4597dd1434d6e2c7b
 a
 1src/commandManager/input/commands/ShowAlbums.java,2\c\2c1e523d95e488d7f669f6732681edca88ae7135
 d
@@ -207,8 +203,6 @@ R
 "src/fileio/input/PodcastInput.java,3\c\3ccbf4ba76d9b1c33da5abf07d97fea5b4b6b745
 c
 3src/commandManager/input/commands/ShowPodcasts.java,f\1\f14ca6b977717199643ecd9d7ef11347c57e48e6
-Q
-!src/fileio/input/AlbumOutput.java,2\4\24dceb8fe32cfc3d24cd211c3e4e0068e5a5cd67
 T
 $src/fileio/output/PodcastOutput.java,4\b\4b2a0e04b3e7ad9ec2e227d8a81320140b4cce72
 T
@@ -239,3 +233,25 @@ X
 (ref/ref_test09_etapa2_shuffle_album.json,6\d\6ddee4ce4ec10e15e2331db645f07249a9add1a5
 V
 &input/test09_etapa2_shuffle_album.json,3\2\324f2a1d1740787e2516e0c0f2f4a9c13f3d9ec7
+[
++result/out_test11_etapa2_shuffle_error.json,a\7\a72f2bf356989cfd4e700845fd87439648e9a945
+X
+(ref/ref_test11_etapa2_shuffle_error.json,0\3\03c0e071b7e0d84b2ed4c7252571ca0b32e9ad3e
+W
+'ref/ref_test14_etapa2_delete_cases.json,c\f\cf2a51ecf634e576f8ebe5128208c184258d0f0d
+U
+%input/test14_etapa2_delete_cases.json,d\0\d0953e1d91694a12ef7a7f88546bf9318ae7bb3a
+Z
+*result/out_test14_etapa2_delete_cases.json,2\c\2c46e38889bfb6c18a1dde179386c5445b9e0aba
+R
+"ref/ref_test15_etapa2_complex.json,5\c\5ccdb39cc998d28f7d65eec8beb6d4f8876f0af6
+U
+%result/out_test15_etapa2_complex.json,c\7\c76282383ca4e519b8df8572d3b51c21eb74e996
+c
+3src/commandManager/input/commands/GetTop5Songs.java,5\a\5a9e225d696ed80895e43d851249facbbfc69e9a
+P
+ input/test15_etapa2_complex.json,4\b\4b76919663c78b311de841f0c6a83b899aef25db
+R
+"ref/ref_test16_etapa2_complex.json,c\0\c001b0d60e236b1171e9db8ede5da2d0f36bc4fe
+U
+%result/out_test16_etapa2_complex.json,c\2\c2cc030405f40ff260676786199cfc8bead03c5c

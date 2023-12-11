@@ -17,12 +17,18 @@ public final class GetTop5Songs implements Command {
     @Override
     public Output action(final Input input) {
         ArrayList<Song> songs = new ArrayList<>(Database.getInstance().getSongs());
+
         songs.sort(Comparator
                 .<Song, Integer>comparing(song -> song.getUsersWhoLiked().size())
                 .reversed()
-                .thenComparing(songs::indexOf));
+                /*.thenComparing(songs::indexOf)*/);
+
+        for (Song song : songs) {
+            System.out.println(song.getName() + " " + song.getUsersWhoLiked().size());
+        }
 
         ArrayList<Object> result = new ArrayList<>();
+
         for (int i = 0; i < Math.min(RES_COUNT_MAX, songs.size()); i++) {
             result.add(songs.get(i).getName());
         }

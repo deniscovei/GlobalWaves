@@ -32,6 +32,7 @@ public final class Like implements Command {
                 message = "Loaded source is not a song.";
             } else {
                 Song song = (Song) currentPlayingFile;
+
                 if (song.getUsersWhoLiked().contains(user)) {
                     user.unlike(song);
                     song.registerUnlike(user);

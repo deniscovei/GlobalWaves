@@ -13,7 +13,6 @@ import java.util.ArrayList;
 public final class Player {
     ArrayList<Playable> playerFiles = new ArrayList<>();
     private int currentPlayerFileIndex = -1;
-    private int repeatState = Extras.NO_REPEAT;
     private boolean shuffleActivated = false;
 
     /**
@@ -22,7 +21,6 @@ public final class Player {
     public AudioFile getCurrentPlayingFile(final int timestamp) {
         Playable currentPlayerFile = getPlayerFiles().get(getCurrentPlayerFileIndex());
         AudioFile currentPlayingFile = currentPlayerFile.getCurrentPlayingFile(timestamp);
-        setRepeatState(currentPlayerFile.getRepeatState());
         return currentPlayingFile;
     }
 
@@ -133,14 +131,29 @@ public final class Player {
         }
     }
 
+    public void removeLoadedAlbums() {
+        setCurrentPlayerFileIndex(-1);
+        for (int index = 0; index < getPlayerFiles().size(); index++) {
+            if (getPlayerFiles().get(index).getLoadedFile() == null) {
+                continue;
+            }
+
+            if (getPlayerFiles().get(index).getLoadedFile().getFileType().
+                    equals(Extras.FileType.ALBUM)) {
+                getPlayerFiles().remove(index);
+                index--;
+            }
+        }
+    }
+
     /**
      * changes the repeat state of the player
      */
     public void repeat(final int timestamp) {
         fastForwardToCurrentPlayingFile(timestamp);
         changeRepeatState();
-        getPlayerFiles().get(getCurrentPlayerFileIndex()).setRepeatState(getRepeatState());
-        setRepeatState(getPlayerFiles().get(getCurrentPlayerFileIndex()).getRepeatState());
+        //getPlayerFiles().get(getCurrentPlayerFileIndex()).setRepeatState(getRepeatState());
+        //setRepeatState(getPlayerFiles().get(getCurrentPlayerFileIndex()).getRepeatState());
     }
 
     /**
@@ -158,7 +171,16 @@ public final class Player {
      * changes the repeat state
      */
     private void changeRepeatState() {
-        setRepeatState((getRepeatState() + 1) % Extras.NO_REPEAT_STATES);
+        Playable currentPlayerFIle = (getPlayerFiles().get(getCurrentPlayerFileIndex()));
+        currentPlayerFIle.setRepeatState((currentPlayerFIle.getRepeatState() + 1) % Extras.NO_REPEAT_STATES);
+    }
+
+    public int getRepeatState() {
+        return getPlayerFiles().get(getCurrentPlayerFileIndex()).getRepeatState();
+    }
+
+    public void setRepeatState(int repeatState) {
+        getPlayerFiles().get(getCurrentPlayerFileIndex()).setRepeatState(repeatState);
     }
 
     /**

@@ -74,7 +74,7 @@ public final class Input extends IoEntry {
                         + " in file " + e.getStackTrace()[0].getFileName());
             }
 
-            //e.printStackTrace();
+            e.printStackTrace();
 
             return null;
         }

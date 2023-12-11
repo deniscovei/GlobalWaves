@@ -9,13 +9,13 @@ import data.entities.users.User;
 import utils.Extras.PageType;
 
 public final class HostPage extends Page {
-    public HostPage(User viewer) {
-        super(viewer);
+    public HostPage(User creator) {
+        super(creator);
         pageType = PageType.HOST_PAGE;
     }
     @Override
     public String getFormat() {
-        Host host = (Host) getViewer();
+        Host host = (Host) getCreator();
         StringBuilder result = new StringBuilder("Podcasts:\n\t[");
 
         for (Podcast podcast : host.getPodcasts()) {

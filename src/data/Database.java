@@ -148,20 +148,18 @@ public final class Database {
         }
     }
 
-    public void addUser(final String username, final int age, final String city, final UserType userType) {
-        User user;
-        switch (userType) {
-            case ARTIST:
-                user = new Artist(username, age, city);
-                break;
-            case HOST:
-                user = new Host(username, age, city);
-                break;
-            case LISTENER:
-            default:
-                user = new Listener(username, age, city);
-                break;
+    public void removeLikes(User listener) {
+        for (Song song : getSongs()) {
+            song.getUsersWhoLiked().remove(listener);
         }
+    }
+
+    public void addUser(final String username, final int age, final String city, final UserType userType) {
+        User user = switch (userType) {
+            case ARTIST -> new Artist(username, age, city);
+            case HOST -> new Host(username, age, city);
+            default -> new Listener(username, age, city);
+        };
         user.setAdded(true);
         addUser(user);
     }
@@ -185,10 +183,6 @@ public final class Database {
         getSongs().removeIf(Song::isAdded);
         // delete added podcasts
         getPodcasts().removeIf(Podcast::isAdded);
-    }
-
-    private void removeAlbums() {
-        getAlbums().clear();
     }
 
     public ArrayList<Playlist> getFollowedPlaylists(final String username) {
@@ -234,36 +228,61 @@ public final class Database {
     public void removeUser(User user) {
         switch (user.getUserType()) {
             case LISTENER:
+                Listener listener = (Listener) user;
+                removeFollowedPlaylists(listener);
+                removePlaylists(listener);
+                removeLikes(listener);
                 if (user.isAdded()) {
                     getUsers().remove(user);
                 } else {
-                    Listener listener = (Listener) user;
                     listener.setDeleted(true);
-                    deletePlaylists(listener);
-                    deleteFollowingPlaylists(listener);
                 }
                 break;
             case ARTIST:
                 getUsers().remove(user);
                 removeSongs(user);
+                removeAlbums(user);
                 break;
             case HOST:
                 getUsers().remove(user);
+                removePodcasts(user);
                 break;
         }
     }
 
-    private void deleteFollowingPlaylists(Listener listener) {
-        for (int i = 0; i < getPlaylists().size(); i++) {
-            Playlist playlist = getPlaylists().get(i);
+    private void removeAlbums() {
+        getAlbums().clear();
+    }
 
-            if (playlist.getFollowerNames().contains(listener.getUsername())) {
-                playlist.getFollowerNames().remove(listener.getUsername());
+    private void removeAlbums(User artist) {
+        for (int i = 0; i < getAlbums().size(); i++) {
+            Album album = getAlbums().get(i);
+
+            if (album.getOwner().equals(artist.getUsername())) {
+                getAlbums().remove(i);
+                i--;
             }
         }
     }
 
-    private void deletePlaylists(Listener listener) {
+    private void removePodcasts(User host) {
+        for (int i = 0; i < getPodcasts().size(); i++) {
+            Podcast podcast = getPodcasts().get(i);
+
+            if (podcast.getOwner().equals(host.getUsername())) {
+                getPodcasts().remove(i);
+                i--;
+            }
+        }
+    }
+
+    private void removeFollowedPlaylists(Listener listener) {
+        for (int i = 0; i < getPlaylists().size(); i++) {
+            getPlaylists().get(i).getFollowerNames().remove(listener.getUsername());
+        }
+    }
+
+    private void removePlaylists(Listener listener) {
         for (int i = 0; i < getPlaylists().size(); i++) {
             Playlist playlist = getPlaylists().get(i);
 

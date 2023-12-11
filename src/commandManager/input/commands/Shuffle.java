@@ -27,7 +27,7 @@ public final class Shuffle implements Command {
             message = "Please load a source before using the shuffle function.";
         } else if (user.getLoadedFile().getFileType() != FileType.PLAYLIST
                 && user.getLoadedFile().getFileType() != FileType.ALBUM) {
-            message = "The loaded source is not a playlist.";
+            message = "The loaded source is not a playlist or an album.";
         } else {
             if (user.getPlayer().isShuffleActivated()) {
                 user.getPlayer().unshuffle(input.getTimestamp());

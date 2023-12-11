@@ -205,7 +205,7 @@
   "command" : "repeat",
   "user" : "carol19",
   "timestamp" : 950,
-  "message" : "Repeat mode changed to repeat infinite."
+  "message" : "Repeat mode changed to repeat once."
 }, {
   "command" : "status",
   "user" : "bob35",
@@ -351,14 +351,14 @@
     "name" : "Retro Rhythms",
     "remainedTime" : 160,
     "repeat" : "No Repeat",
-    "shuffle" : true,
+    "shuffle" : false,
     "paused" : false
   }
 }, {
   "command" : "shuffle",
   "user" : "bob35",
   "timestamp" : 2850,
-  "message" : "Shuffle function deactivated successfully."
+  "message" : "Shuffle function activated successfully."
 }, {
   "command" : "status",
   "user" : "bob35",
@@ -367,23 +367,23 @@
     "name" : "Retro Rhythms",
     "remainedTime" : 60,
     "repeat" : "No Repeat",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : false
   }
 }, {
   "command" : "removeAlbum",
   "user" : "melodymaster",
   "timestamp" : 3000,
-  "message" : "Album Harmonic Horizons was removed successfully."
+  "message" : "melodymaster can't delete this album."
 }, {
   "command" : "status",
   "user" : "bob35",
   "timestamp" : 3250,
   "stats" : {
-    "name" : "I Don't Wanna Live Forever",
-    "remainedTime" : 180,
+    "name" : "Hustle Hard",
+    "remainedTime" : 167,
     "repeat" : "No Repeat",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : false
   }
 }, {
@@ -396,33 +396,33 @@
   "user" : "bob35",
   "timestamp" : 3600,
   "stats" : {
-    "name" : "Hustle Hard",
-    "remainedTime" : 62,
+    "name" : "",
+    "remainedTime" : 0,
     "repeat" : "No Repeat",
     "shuffle" : false,
-    "paused" : false
+    "paused" : true
   }
 }, {
   "command" : "shuffle",
   "user" : "bob35",
   "timestamp" : 3610,
-  "message" : "Shuffle function activated successfully."
+  "message" : "Please load a source before using the shuffle function."
 }, {
   "command" : "status",
   "user" : "bob35",
   "timestamp" : 3660,
   "stats" : {
-    "name" : "Hustle Hard",
-    "remainedTime" : 2,
+    "name" : "",
+    "remainedTime" : 0,
     "repeat" : "No Repeat",
-    "shuffle" : true,
-    "paused" : false
+    "shuffle" : false,
+    "paused" : true
   }
 }, {
   "command" : "printCurrentPage",
   "user" : "david27",
   "timestamp" : 3900,
-  "message" : "Albums:\n\t[]\n\nMerch:\n\t[Merch1 - 100:\n\tPrimul Merch adaugat!]\n\nEvents:\n\t[Event2 - 05-02-2021:\n\tAl doilea Event adaugat!]"
+  "message" : "Albums:\n\t[Harmonic Horizons]\n\nMerch:\n\t[Merch1 - 100:\n\tPrimul Merch adaugat!]\n\nEvents:\n\t[Event2 - 05-02-2021:\n\tAl doilea Event adaugat!]"
 }, {
   "command" : "status",
   "user" : "bob35",
@@ -465,12 +465,12 @@
   "command" : "shuffle",
   "user" : "bob35",
   "timestamp" : 4360,
-  "message" : "Shuffle function deactivated successfully."
+  "message" : "Shuffle function activated successfully."
 }, {
   "command" : "printCurrentPage",
   "user" : "david27",
   "timestamp" : 4400,
-  "message" : "Albums:\n\t[]\n\nMerch:\n\t[Merch1 - 100:\n\tPrimul Merch adaugat!]\n\nEvents:\n\t[Event2 - 05-02-2021:\n\tAl doilea Event adaugat!]"
+  "message" : "Albums:\n\t[Harmonic Horizons]\n\nMerch:\n\t[Merch1 - 100:\n\tPrimul Merch adaugat!]\n\nEvents:\n\t[Event2 - 05-02-2021:\n\tAl doilea Event adaugat!]"
 }, {
   "command" : "status",
   "user" : "bob35",
@@ -479,7 +479,7 @@
     "name" : "Retro Rhythms",
     "remainedTime" : 163,
     "repeat" : "No Repeat",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : false
   }
 }, {
@@ -487,10 +487,10 @@
   "user" : "bob35",
   "timestamp" : 4750,
   "stats" : {
-    "name" : "Elevate",
-    "remainedTime" : 48,
+    "name" : "Hustle Hard",
+    "remainedTime" : 55,
     "repeat" : "No Repeat",
-    "shuffle" : false,
+    "shuffle" : true,
     "paused" : false
   }
 }, {
@@ -503,11 +503,11 @@
   "user" : "bob35",
   "timestamp" : 5100,
   "stats" : {
-    "name" : "Hustle Hard",
-    "remainedTime" : 175,
+    "name" : "",
+    "remainedTime" : 0,
     "repeat" : "No Repeat",
     "shuffle" : false,
-    "paused" : false
+    "paused" : true
   }
 }, {
   "command" : "showPlaylists",

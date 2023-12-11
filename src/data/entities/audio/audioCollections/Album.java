@@ -28,7 +28,7 @@ public class Album extends AudioCollection {
         this.releaseYear = releaseYear;
         this.description = description;
         for (SongInput songInput : songs) {
-            audioFiles.add(new Song(songInput));
+            this.audioFiles.add(new Song(songInput, true));
         }
     }
 
@@ -43,9 +43,19 @@ public class Album extends AudioCollection {
 
                 File loadedFile = listener.getPlayer().getLoadedFile();
                 if (loadedFile.equals(this)
-                        || loadedFile.getFileType().equals(FileType.SONG)
+                        || loadedFile.getFileType() == FileType.SONG
                         && ((Song) loadedFile).getAlbum().equals(getName())) {
                     return true;
+                }
+
+                if (loadedFile.getFileType() == FileType.PLAYLIST) {
+                    for (AudioFile audioFile : getAudioFiles()) {
+                        Song song = (Song) audioFile;
+
+                        if (song.getAlbum().equals(getName())) {
+                            return true;
+                        }
+                    }
                 }
             }
         }

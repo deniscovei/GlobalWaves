@@ -194,6 +194,10 @@ public final class Playable {
         setPaused(true);
     }
 
+    public void freeze(final int timestamp) {
+        setPauseTimestamp(timestamp);
+    }
+
     /**
      * shuffles the audio files in the loaded file using a seed and sets the shuffled indexes
      */
@@ -201,9 +205,11 @@ public final class Playable {
         setShuffleActivated(true);
         getShuffledIndexes().clear();
         AudioCollection audioCollection = (AudioCollection) getLoadedFile();
+
         for (int i = 0; i < audioCollection.getAudioFiles().size(); i++) {
             getShuffledIndexes().add(i);
         }
+
         Collections.shuffle(getShuffledIndexes(), new Random(seed));
         getShuffledIndexes().add(audioCollection.getAudioFiles().size());
     }
@@ -228,15 +234,19 @@ public final class Playable {
 
     public boolean next(final int timestamp) {
         prepareIndexes();
+
         if (isPaused()) {
             setOffset(getOffset() + getRemainedTime(getCurrentPlayingFile(timestamp), timestamp));
             play(timestamp);
         } else {
             setOffset(getOffset() + getRemainedTime(getCurrentPlayingFile(timestamp), timestamp));
         }
+
         setElapsedTime(getElapsedTime()
                 + Objects.requireNonNull(getCurrentPlayingFile(timestamp)).getDuration());
+
         setCurrentPlayingFileId(nextId(getCurrentPlayingFileId(), getIndexes()));
+
         return getCurrentPlayingFileId()
                 < ((AudioCollection) getLoadedFile()).getAudioFiles().size();
     }

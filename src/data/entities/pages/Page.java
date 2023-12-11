@@ -8,11 +8,11 @@ import utils.Extras.PageType;
 @Getter
 @Setter
 public class Page {
-    protected User viewer = null;
+    protected User creator = null;
     protected PageType pageType = null;
 
-    Page(User viewer) {
-        this.viewer = viewer;
+    Page(User creator) {
+        this.creator = creator;
     }
 
     public String getFormat() {

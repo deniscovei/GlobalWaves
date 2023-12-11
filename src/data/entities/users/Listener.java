@@ -7,6 +7,7 @@ import data.entities.Selection;
 import data.entities.audio.File;
 import data.entities.audio.audioCollections.Playlist;
 import data.entities.audio.audioFiles.AudioFile;
+import data.entities.audioPlayer.Playable;
 import data.entities.audioPlayer.Player;
 import data.entities.audio.audioFiles.Song;
 import data.entities.pages.HomePage;
@@ -18,8 +19,10 @@ import lombok.Setter;
 import utils.Extras;
 import utils.Extras.UserType;
 import utils.Extras.PageType;
+import utils.Extras.FileType;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 import static utils.Extras.NO_REPEAT;
 
@@ -35,6 +38,7 @@ public class Listener extends User {
     private boolean online = true;
     private Stats stats = new Stats();
     private boolean deleted = false;
+    private int lastConnectedTimestamp = 0;
 
     public Listener(String username, int age, String city) {
         super(username, age, city);
@@ -67,6 +71,8 @@ public class Listener extends User {
     }
 
     public void loadAudioFile(final int timestamp) {
+        // here added
+        getPlayer().setShuffleActivated(false);
         getPlayer().setLoadedFile(getSelection().getSelectedFile());
         getPlayer().play(timestamp);
         setSelection(null);
@@ -76,8 +82,8 @@ public class Listener extends User {
         getPlayer().pause(timestamp);
         getPlayer().removeLoadedSongs();
         getPlayer().removeLoadedPlaylists();
+        getPlayer().removeLoadedAlbums();
         getPlayer().setLoadedFile(null);
-        getPlayer().setRepeatState(NO_REPEAT);
         setSelection(null);
     }
 
@@ -95,7 +101,6 @@ public class Listener extends User {
 
     public void deleteData() {
         setOnline(true);
-        getPlayer().setRepeatState(NO_REPEAT);
         setPlayer(new Player());
         setSelection(null);
         getPlayer().setLoadedFile(null);
@@ -114,6 +119,12 @@ public class Listener extends User {
     }
 
     public void switchConnectionStatus(int timestamp) {
+        if (isOnline()) {
+            setLastConnectedTimestamp(timestamp);
+        } else if (getPlayer().getCurrentPlayerFileIndex() != -1) {
+            Playable currentPlayingFile = getPlayer().getPlayerFiles().get(getPlayer().getCurrentPlayerFileIndex());
+            currentPlayingFile.setOffset(currentPlayingFile.getOffset() - timestamp + getLastConnectedTimestamp());
+        }
         setOnline(!isOnline());
         setStats(timestamp);
     }
@@ -128,7 +139,11 @@ public class Listener extends User {
                     getLoadedFile().getFileType()));
             getStats().setShuffle(getPlayer().isShuffleActivated());
         } else {
+            getStats().setName("");
             getStats().setPaused(true);
+            getStats().setRemainedTime(0);
+            getStats().setRepeat("No Repeat");
+            getStats().setShuffle(false);
         }
     }
 
@@ -138,6 +153,35 @@ public class Listener extends User {
 
     @Override
     public boolean interactingWithOthers(int timestamp) {
+        for (User user : Database.getInstance().getUsers()) {
+            if (user == this) {
+                continue;
+            }
+
+            if (user.getUserType() == UserType.LISTENER) {
+                Listener listener = (Listener) user;
+
+//                if (listener.getCurrentPage().getCreator().equals(this)) {
+//                    return true;
+//                }
+
+                if (!Objects.requireNonNull(listener).hasLoadedAFile()
+                        || listener.getPlayer().hasFinished(timestamp)) {
+                    continue;
+                }
+
+                if (listener.getPlayer().getLoadedFile().getFileType() == FileType.PLAYLIST
+                        && ((Playlist) listener.getPlayer().getLoadedFile()).getOwner().equals(getUsername())) {
+                    return true;
+                }
+
+//                if (listener.getPlayer().getLoadedFile().getFileType() == Extras.FileType.PLAYLIST
+//                        && ((Playlist) listener.getPlayer().getLoadedFile()).getOwner().equals(getUsername())) {
+//                    return true;
+//                }
+            }
+        }
+
         return false;
     }
 

@@ -8,20 +8,20 @@ import data.entities.users.User;
 import utils.Extras.PageType;
 
 public final class ArtistPage extends Page {
-    public ArtistPage(User viewer) {
-        super(viewer);
+    public ArtistPage(User creator) {
+        super(creator);
         pageType = PageType.ARTIST_PAGE;
     }
 
     @Override
     public String getFormat() {
-        Artist artist = (Artist) getViewer();
+        Artist artist = (Artist) getCreator();
         StringBuilder result = new StringBuilder("Albums:\n\t[");
 
         for (Album album : artist.getAlbums()) {
             result.append(album.getName());
             if (album != artist.getAlbums().get(artist.getAlbums().size() - 1)) {
-                result.append(",");
+                result.append(", ");
             }
         }
 

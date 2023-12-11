@@ -73,6 +73,11 @@ public class Artist extends User {
         for (User user : Database.getInstance().getUsers()) {
             if (user.getUserType() == UserType.LISTENER) {
                 Listener listener = (Listener) user;
+
+                if (listener.getCurrentPage().getCreator().equals(this)) {
+                    return true;
+                }
+
                 if (!Objects.requireNonNull(listener).hasLoadedAFile()
                     || listener.getPlayer().hasFinished(timestamp)) {
                     continue;
@@ -83,8 +88,6 @@ public class Artist extends User {
                     && ((Song) currentPlayingFile).getArtist().equals(getUsername())) {
                     return true;
                 }
-
-                return true;
             }
         }
 

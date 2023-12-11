@@ -1,5 +1,8 @@
 
+{	java:S135œ"YReduce the total number of break and continue statements in this loop to use at most one.(ñÄ ‰ùÿÿÿÿ8¹¼³Å1
 
-java:S1319‡"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ãëÃ½8ÍÄúÅ1
+java:S1319–"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ãëÃ½8º¼³Å1
 m
-java:S13012"KReplace this "switch" statement by "if" statements to increase readability.(¥éÿ¨ûÿÿÿÿ8ÍÄúÅ1
+java:S13016"KReplace this "switch" statement by "if" statements to increase readability.(¥éÿ¨ûÿÿÿÿ8º¼³Å1
+Y	java:S125¤"<This block of commented-out lines of code should be removed.(âõÊ½8Ä¼³Å1
+^	java:S125²"<This block of commented-out lines of code should be removed.(§ÓÊòùÿÿÿÿ8Ä¼³Å1

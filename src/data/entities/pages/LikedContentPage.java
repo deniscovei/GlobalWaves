@@ -9,20 +9,20 @@ import utils.Extras.PageType;
 import java.util.ArrayList;
 
 public final class LikedContentPage extends Page {
-    public LikedContentPage(User viewer) {
-        super(viewer);
+    public LikedContentPage(User creator) {
+        super(creator);
         pageType = PageType.LIKED_CONTENT_PAGE;
     }
 
     @Override
     public String getFormat() {
-        Listener listener = (Listener) getViewer();
+        Listener listener = (Listener) getCreator();
         StringBuilder result = new StringBuilder("Liked songs:\n\t[");
 
         for (Song song : listener.getLikedSongs()) {
             result.append(song.getName()).append(" - ").append(song.getArtist());
             if (song != listener.getLikedSongs().get(listener.getLikedSongs().size() - 1)) {
-                result.append(",");
+                result.append(", ");
             }
         }
 
@@ -33,7 +33,7 @@ public final class LikedContentPage extends Page {
         for (Playlist playlist : followedPlaylists) {
             result.append(playlist.getName()).append(" - ").append(playlist.getOwner());
             if (playlist != followedPlaylists.get(followedPlaylists.size() - 1)) {
-                result.append(",");
+                result.append(", ");
             }
         }
 
