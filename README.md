@@ -1,7 +1,7 @@
 # GlobalWaves
 ## Denis Covei - 322CA
 
-I used three design patterns in this project: **Command**, **Singleton**, **Template** and 
+I used four design patterns in this project: **Command**, **Singleton**, **Template** and 
 **Decorator**.
 
 * <span style="color:green">*Command*</span> - command interface for the commands, containing the 
