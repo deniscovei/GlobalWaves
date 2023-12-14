@@ -7,6 +7,9 @@ import utils.AppUtils.SearchType;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Search bar.
+ */
 @Getter
 @Setter
 public class SearchBar {

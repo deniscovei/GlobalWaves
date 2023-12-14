@@ -9,6 +9,9 @@ import utils.AppUtils.FileType;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Song.
+ */
 @Setter
 @Getter
 public final class Song extends AudioFile {
@@ -20,10 +23,18 @@ public final class Song extends AudioFile {
     private String artist = null;
     private final List<User> usersWhoLiked = new ArrayList<>();
 
+    /**
+     * Instantiates a new Song.
+     */
     public Song() {
         this.fileType = FileType.SONG;
     }
 
+    /**
+     * Instantiates a new Song.
+     *
+     * @param song the song
+     */
     public Song(final SongInput song) {
         super(song.getName(), song.getDuration());
         this.fileType = FileType.SONG;
@@ -35,6 +46,12 @@ public final class Song extends AudioFile {
         this.artist = song.getArtist();
     }
 
+    /**
+     * Instantiates a new Song.
+     *
+     * @param songInput the song input
+     * @param added     the added
+     */
     public Song(final SongInput songInput, final boolean added) {
         this(songInput);
         this.added = added;
@@ -42,6 +59,8 @@ public final class Song extends AudioFile {
 
     /**
      * adds a user to the list of users who liked the song
+     *
+     * @param user the user
      */
     public void registerLike(final User user) {
         getUsersWhoLiked().add(user);
@@ -49,11 +68,18 @@ public final class Song extends AudioFile {
 
     /**
      * removes a user from the list of users who liked the song
+     *
+     * @param user the user
      */
     public void registerUnlike(final User user) {
         getUsersWhoLiked().remove(user);
     }
 
+    /**
+     * Gets number of likes.
+     *
+     * @return the number of likes
+     */
     public int getNumberOfLikes() {
         return getUsersWhoLiked().size();
     }

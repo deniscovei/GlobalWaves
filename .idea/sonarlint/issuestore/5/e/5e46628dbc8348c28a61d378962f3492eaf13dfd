@@ -1,9 +1,9 @@
 
-t	java:S127¦"XRefactor the code in order to not assign to this loop counter from within the loop body.(¨…ÄK8ôŠž¬Æ1
-t	java:S127´"XRefactor the code in order to not assign to this loop counter from within the loop body.(¨…ÄK8ôŠž¬Æ1
-t	java:S127Ë"XRefactor the code in order to not assign to this loop counter from within the loop body.(¨…ÄK8ôŠž¬Æ1
-t	java:S127Ù"XRefactor the code in order to not assign to this loop counter from within the loop body.(¨…ÄK8ôŠž¬Æ1
+t	java:S127Ö"XRefactor the code in order to not assign to this loop counter from within the loop body.(¨…ÄK8ôŠž¬Æ1
+t	java:S127ä"XRefactor the code in order to not assign to this loop counter from within the loop body.(¨…ÄK8ôŠž¬Æ1
+t	java:S127û"XRefactor the code in order to not assign to this loop counter from within the loop body.(¨…ÄK8ôŠž¬Æ1
+t	java:S127‰"XRefactor the code in order to not assign to this loop counter from within the loop body.(¨…ÄK8ôŠž¬Æ1
 Ž
-java:S1319Ê"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ÉÐà‹8ôŠž¬Æ1
+java:S1319ï"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(ÉÐà‹8ôŠž¬Æ1
 »
-java:S6548"˜A Singleton implementation was detected. Make sure the use of the Singleton pattern is required and the implementation is the right one for the context.(ÒÅ„úýÿÿÿÿ8ôŠž¬Æ1
+java:S6548"˜A Singleton implementation was detected. Make sure the use of the Singleton pattern is required and the implementation is the right one for the context.(ÒÅ„úýÿÿÿÿ8ôŠž¬Æ1

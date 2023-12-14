@@ -8,7 +8,15 @@ import data.entities.users.Host;
 import data.entities.users.User;
 import utils.AppUtils.PageType;
 
+/**
+ * The type Host page.
+ */
 public final class HostPage extends Page {
+    /**
+     * Instantiates a new Host page.
+     *
+     * @param creator the creator
+     */
     public HostPage(final User creator) {
         super(creator);
         pageType = PageType.HOST_PAGE;

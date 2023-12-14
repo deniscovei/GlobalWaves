@@ -3,6 +3,9 @@ package commandmanager.input.attributes;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * The type Stats.
+ */
 @Setter
 @Getter
 public class Stats {

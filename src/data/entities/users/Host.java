@@ -13,12 +13,22 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * The type Host.
+ */
 @Getter
 @Setter
 public class Host extends User {
     private List<Podcast> podcasts = new ArrayList<>();
     private List<Announcement> announcements = new ArrayList<>();
 
+    /**
+     * Instantiates a new Host.
+     *
+     * @param username the username
+     * @param age      the age
+     * @param city     the city
+     */
     public Host(final String username, final int age, final String city) {
         super(username, age, city);
         setUserType(UserType.HOST);
@@ -27,6 +37,8 @@ public class Host extends User {
 
     /**
      * adds an announcement to the host's list of announcements
+     *
+     * @param announcement the announcement
      */
     public void addAnnouncement(final Announcement announcement) {
         announcements.add(announcement);
@@ -34,6 +46,9 @@ public class Host extends User {
 
     /**
      * finds an announcement in the host's list of announcements
+     *
+     * @param name the name
+     * @return the announcement
      */
     public Announcement findAnnouncement(final String name) {
         for (Announcement announcement : announcements) {
@@ -46,6 +61,9 @@ public class Host extends User {
 
     /**
      * finds a podcast in the host's list of podcasts
+     *
+     * @param name the name
+     * @return the podcast
      */
     public Podcast findPodcast(final String name) {
         for (Podcast podcast : podcasts) {
@@ -58,6 +76,8 @@ public class Host extends User {
 
     /**
      * adds a podcast to the host's list of podcasts
+     *
+     * @param podcast the podcast
      */
     public void addPodcast(final Podcast podcast) {
         podcasts.add(podcast);
@@ -94,6 +114,8 @@ public class Host extends User {
 
     /**
      * removes an announcement from the host's list of announcements
+     *
+     * @param announcement the announcement
      */
     public void removeAnnouncement(final Announcement announcement) {
         getAnnouncements().remove(announcement);
@@ -101,6 +123,8 @@ public class Host extends User {
 
     /**
      * removes a podcast from the host's list of podcasts
+     *
+     * @param podcast the podcast
      */
     public void removePodcast(final Podcast podcast) {
         getPodcasts().remove(podcast);

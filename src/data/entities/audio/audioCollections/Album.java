@@ -17,12 +17,24 @@ import java.util.Objects;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+/**
+ * The type Album.
+ */
 @Getter
 @Setter
 public class Album extends AudioCollection {
     private int releaseYear = 0;
     private String description = null;
 
+    /**
+     * Instantiates a new Album.
+     *
+     * @param name        the name
+     * @param owner       the owner
+     * @param releaseYear the release year
+     * @param description the description
+     * @param songs       the songs
+     */
     public Album(final String name, final String owner, final int releaseYear,
                  final String description, final List<SongInput> songs) {
         super(name, owner);
@@ -36,6 +48,9 @@ public class Album extends AudioCollection {
 
     /**
      * checks if the album is interacting with users
+     *
+     * @param timestamp the timestamp
+     * @return the boolean
      */
     public boolean interactingWithOthers(final int timestamp) {
         for (User user : Database.getInstance().getUsers()) {
@@ -73,6 +88,8 @@ public class Album extends AudioCollection {
     /**
      * calculate the total number of likes using multiple threads
      * returns the number of likes of the album
+     *
+     * @return the number of likes
      */
     public int getNumberOfLikes() {
         List<Song> songs = getAudioFiles().stream()

@@ -8,7 +8,15 @@ import utils.AppUtils.PageType;
 
 import java.util.List;
 
+/**
+ * The type Liked content page.
+ */
 public final class LikedContentPage extends Page {
+    /**
+     * Instantiates a new Liked content page.
+     *
+     * @param creator the creator
+     */
     public LikedContentPage(final User creator) {
         super(creator);
         pageType = PageType.LIKED_CONTENT_PAGE;

@@ -19,6 +19,9 @@ import utils.AppUtils.UserType;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Database.
+ */
 @Setter
 @Getter
 public final class Database {
@@ -34,6 +37,8 @@ public final class Database {
 
     /**
      * returns the database instance
+     *
+     * @return the instance
      */
     public static Database getInstance() {
         if (instance == null) {
@@ -44,6 +49,8 @@ public final class Database {
 
     /**
      * returns true if the database has been instantiated
+     *
+     * @return the boolean
      */
     public static boolean instantiated() {
         return instance != null;
@@ -51,6 +58,9 @@ public final class Database {
 
     /**
      * returns the user with the given username
+     *
+     * @param username the username
+     * @return the user
      */
     public User findUser(final String username) {
         for (User user : getUsers()) {
@@ -63,6 +73,9 @@ public final class Database {
 
     /**
      * returns the playlist with the given name
+     *
+     * @param playlistName the playlist name
+     * @return the playlist
      */
     public Playlist findPlaylist(final String playlistName) {
         for (Playlist playlist : getPlaylists()) {
@@ -76,6 +89,10 @@ public final class Database {
 
     /**
      * returns the playlist with the given id in the user's playlist list
+     *
+     * @param playlistId the playlist id
+     * @param owner      the owner
+     * @return the playlist
      */
     public Playlist findPlaylist(final int playlistId, final String owner) {
         int currentId = 0;
@@ -92,6 +109,8 @@ public final class Database {
 
     /**
      * adds a user to the database
+     *
+     * @param user the user
      */
     public void addUser(final User user) {
         getUsers().add(user);
@@ -99,6 +118,8 @@ public final class Database {
 
     /**
      * adds a song to the database
+     *
+     * @param song the song
      */
     public void addSong(final Song song) {
         getSongs().add(song);
@@ -106,6 +127,8 @@ public final class Database {
 
     /**
      * adds a podcast to the database
+     *
+     * @param podcast the podcast
      */
     public void addPodcast(final Podcast podcast) {
         getPodcasts().add(podcast);
@@ -113,6 +136,8 @@ public final class Database {
 
     /**
      * adds a playlist to the database
+     *
+     * @param playlist the playlist
      */
     public void addPlaylist(final Playlist playlist) {
         getPlaylists().add(playlist);
@@ -120,6 +145,8 @@ public final class Database {
 
     /**
      * uploads the library
+     *
+     * @param library the library
      */
     public void upload(final LibraryInput library) {
         for (UserInput user : library.getUsers()) {
@@ -151,6 +178,8 @@ public final class Database {
 
     /**
      * removes all the likes of the given user from the database
+     *
+     * @param listener the listener
      */
     public void removeLikes(final User listener) {
         for (Song song : getSongs()) {
@@ -160,6 +189,11 @@ public final class Database {
 
     /**
      * adds a new user to the database
+     *
+     * @param username the username
+     * @param age      the age
+     * @param city     the city
+     * @param userType the user type
      */
     public void addUser(final String username, final int age, final String city,
                         final UserType userType) {
@@ -198,6 +232,9 @@ public final class Database {
 
     /**
      * returns the followed playlists of the given user
+     *
+     * @param username the username
+     * @return the followed playlists
      */
     public ArrayList<Playlist> getFollowedPlaylists(final String username) {
         ArrayList<Playlist> result = new ArrayList<>();
@@ -213,6 +250,9 @@ public final class Database {
 
     /**
      * searches for the given song in the database
+     *
+     * @param songName the song name
+     * @return the song
      */
     public Song findSong(final String songName) {
         for (Song song : getSongs()) {
@@ -226,6 +266,9 @@ public final class Database {
 
     /**
      * searches for the given podcast in the database
+     *
+     * @param podcastName the podcast name
+     * @return the podcast
      */
     public Podcast findPodcast(final String podcastName) {
         for (Podcast podcast : getPodcasts()) {
@@ -238,6 +281,9 @@ public final class Database {
 
     /**
      * searches for the given album in the database
+     *
+     * @param albumName the album name
+     * @return the album
      */
     public Album findAlbum(final String albumName) {
         for (Album album : getAlbums()) {
@@ -250,6 +296,8 @@ public final class Database {
 
     /**
      * removes the given user from the database
+     *
+     * @param user the user
      */
     public void removeUser(final User user) {
         switch (user.getUserType()) {
@@ -357,6 +405,8 @@ public final class Database {
 
     /**
      * removes given album from the database
+     *
+     * @param album the album
      */
     public void removeAlbum(final Album album) {
         getAlbums().remove(album);
@@ -364,6 +414,8 @@ public final class Database {
 
     /**
      * removes given podcast from the database
+     *
+     * @param podcast the podcast
      */
     public void removePodcast(final Podcast podcast) {
         getPodcasts().remove(podcast);
@@ -371,6 +423,8 @@ public final class Database {
 
     /**
      * gets all the artists from the database
+     *
+     * @return the artists
      */
     public List<Artist> getArtists() {
         List<Artist> artists = new ArrayList<>();
@@ -386,6 +440,9 @@ public final class Database {
 
     /**
      * gets owned playlists of the given user
+     *
+     * @param username the username
+     * @return the owned playlists
      */
     public List<Playlist> getOwnedPlaylists(final String username) {
         List<Playlist> result = new ArrayList<>();

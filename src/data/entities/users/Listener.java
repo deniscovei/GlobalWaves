@@ -23,6 +23,9 @@ import utils.AppUtils.FileType;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Listener.
+ */
 @Getter
 @Setter
 public class Listener extends User {
@@ -37,18 +40,32 @@ public class Listener extends User {
     private boolean deleted = false;
     private int lastConnectedTimestamp = 0;
 
+    /**
+     * Instantiates a new Listener.
+     *
+     * @param username the username
+     * @param age      the age
+     * @param city     the city
+     */
     public Listener(final String username, final int age, final String city) {
         super(username, age, city);
         setUserType(UserType.LISTENER);
         setCurrentPage(new HomePage(this));
     }
 
+    /**
+     * Instantiates a new Listener.
+     *
+     * @param user the user
+     */
     public Listener(final UserInput user) {
         this(user.getUsername(), user.getAge(), user.getCity());
     }
 
     /**
      * selects a file or a page
+     *
+     * @param newSelection the new selection
      */
     public void select(final Selection newSelection) {
         if (newSelection.getSelectionType() == AppUtils.SelectionType.FILE) {
@@ -63,6 +80,8 @@ public class Listener extends User {
 
     /**
      * gets the selected file
+     *
+     * @return the selected file
      */
     public File getSelectedFile() {
         if (getSelection() == null) {
@@ -73,6 +92,8 @@ public class Listener extends User {
 
     /**
      * loads an audio file
+     *
+     * @param timestamp the timestamp
      */
     public void loadAudioFile(final int timestamp) {
         getPlayer().setShuffleActivated(false);
@@ -83,6 +104,8 @@ public class Listener extends User {
 
     /**
      * unloads the loaded file
+     *
+     * @param timestamp the timestamp
      */
     public void unloadAudioFile(final int timestamp) {
         getPlayer().pause(timestamp);
@@ -95,6 +118,8 @@ public class Listener extends User {
 
     /**
      * checks if the user has loaded a file
+     *
+     * @return the boolean
      */
     public boolean hasLoadedAFile() {
         return getPlayer().getLoadedFile() != null;
@@ -102,6 +127,8 @@ public class Listener extends User {
 
     /**
      * likes a song
+     *
+     * @param song the song
      */
     public void like(final Song song) {
         getLikedSongs().add(song);
@@ -109,6 +136,8 @@ public class Listener extends User {
 
     /**
      * unlikes a song
+     *
+     * @param song the song
      */
     public void unlike(final Song song) {
         getLikedSongs().remove(song);
@@ -130,6 +159,8 @@ public class Listener extends User {
 
     /**
      * gets the loaded file
+     *
+     * @return the loaded file
      */
     public File getLoadedFile() {
         return getPlayer().getLoadedFile();
@@ -137,6 +168,8 @@ public class Listener extends User {
 
     /**
      * checks if the user has performed a search
+     *
+     * @return the boolean
      */
     public boolean havePerformedSearch() {
         return performedSearch;
@@ -144,6 +177,8 @@ public class Listener extends User {
 
     /**
      * switches the connection status
+     *
+     * @param timestamp the timestamp
      */
     public void switchConnectionStatus(final int timestamp) {
         if (isOnline()) {
@@ -162,6 +197,8 @@ public class Listener extends User {
 
     /**
      * sets the stats
+     *
+     * @param timestamp the timestamp
      */
     public void setStats(final int timestamp) {
         if (hasLoadedAFile() && !getPlayer().hasFinished(timestamp)) {
@@ -183,6 +220,8 @@ public class Listener extends User {
 
     /**
      * gets the followed playlists
+     *
+     * @return the followed playlists
      */
     public List<Playlist> getFollowedPlaylists() {
         return Database.getInstance().getFollowedPlaylists(getUsername());
@@ -190,6 +229,9 @@ public class Listener extends User {
 
     /**
      * checks if the user is interacting with others
+     *
+     * @param timestamp the timestamp
+     * @return true if the user is interacting with others and false otherwise
      */
     @Override
     public boolean interactingWithOthers(final int timestamp) {
@@ -219,6 +261,8 @@ public class Listener extends User {
 
     /**
      * goes to the next page
+     *
+     * @param pageType the page type
      */
     public void goToNextPage(final PageType pageType) {
         switch (pageType) {

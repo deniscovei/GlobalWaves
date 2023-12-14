@@ -6,6 +6,9 @@ import lombok.Setter;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Filters.
+ */
 @Setter
 @Getter
 public class Filters {

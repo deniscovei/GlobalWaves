@@ -13,6 +13,9 @@ import utils.AppUtils.FileType;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Playlist.
+ */
 @Setter
 @Getter
 public final class Playlist extends AudioCollection {
@@ -22,10 +25,20 @@ public final class Playlist extends AudioCollection {
     @JsonIgnore
     private int createdAt = 0;
 
+    /**
+     * Instantiates a new Playlist.
+     */
     public Playlist() {
         this.fileType = FileType.PLAYLIST;
     }
 
+    /**
+     * Instantiates a new Playlist.
+     *
+     * @param name      the name
+     * @param owner     the owner
+     * @param createdAt the created at
+     */
     public Playlist(final String name, final String owner, final int createdAt) {
         super(name, owner);
         this.fileType = FileType.PLAYLIST;
@@ -34,6 +47,8 @@ public final class Playlist extends AudioCollection {
 
     /**
      * returns the number of followers of the playlist
+     *
+     * @return the followers
      */
     public int getFollowers() {
         return getFollowerNames().size();
@@ -41,6 +56,8 @@ public final class Playlist extends AudioCollection {
 
     /**
      * returns the number of songs in the playlist
+     *
+     * @return the songs
      */
     @JsonSerialize(using = AudioFileListSerializer.class)
     public List<AudioFile> getSongs() {
@@ -68,6 +85,8 @@ public final class Playlist extends AudioCollection {
 
     /**
      * adds a follower to the playlist
+     *
+     * @param song the song
      */
     public void addSong(final Song song) {
         getAudioFiles().add(song);
@@ -75,6 +94,8 @@ public final class Playlist extends AudioCollection {
 
     /**
      * removes a follower from the playlist
+     *
+     * @param song the song
      */
     public void removeSong(final Song song) {
         getAudioFiles().remove(song);

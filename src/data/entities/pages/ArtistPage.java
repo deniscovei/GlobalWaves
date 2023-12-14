@@ -7,7 +7,15 @@ import data.entities.users.Artist;
 import data.entities.users.User;
 import utils.AppUtils.PageType;
 
+/**
+ * The type Artist page.
+ */
 public final class ArtistPage extends Page {
+    /**
+     * Instantiates a new Artist page.
+     *
+     * @param creator the creator
+     */
     public ArtistPage(final User creator) {
         super(creator);
         pageType = PageType.ARTIST_PAGE;

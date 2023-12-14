@@ -12,6 +12,9 @@ import lombok.Setter;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Input.
+ */
 @Setter
 @Getter
 public final class Input extends IoEntry {
@@ -33,9 +36,19 @@ public final class Input extends IoEntry {
     private List<EpisodeInput> episodes = new ArrayList<>();
     private String nextPage = null;
 
+    /**
+     * Instantiates a new Input.
+     */
     public Input() {
     }
 
+    /**
+     * Instantiates a new Input.
+     *
+     * @param command   the command
+     * @param username  the username
+     * @param timestamp the timestamp
+     */
     public Input(final String command, final String username, final Integer timestamp) {
         super(command, timestamp);
         this.username = username;

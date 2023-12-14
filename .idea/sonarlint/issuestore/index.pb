@@ -302,3 +302,9 @@ d
 4src/commandmanager/input/commands/RemovePodcast.java,1\0\10dc4cea4cb4888dceac6fccd52926ed58bcad04
 b
 2src/commandmanager/input/commands/RemoveEvent.java,1\5\155725834688d75e6fb0086eb315ecadbbc7ab07
+O
+src/commandmanager/IoEntry.java,5\e\5e74f7bd480d13ef6ac64544db2e6183993395c2
+`
+0src/commandmanager/input/attributes/Filters.java,b\7\b7607b3502ea2838f71f070c895bdc3ba71f4540
+^
+.src/commandmanager/input/attributes/Stats.java,e\d\ed5d574b90de05b0dfb9e703041b6563aa10cd4e

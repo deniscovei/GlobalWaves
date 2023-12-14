@@ -11,7 +11,15 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
+/**
+ * The type Home page.
+ */
 public final class HomePage extends Page {
+    /**
+     * Instantiates a new Home page.
+     *
+     * @param creator the creator
+     */
     public HomePage(final User creator) {
         super(creator);
         pageType = PageType.HOME_PAGE;

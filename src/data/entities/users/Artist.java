@@ -16,6 +16,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * The type Artist.
+ */
 @Getter
 @Setter
 public class Artist extends User {
@@ -23,6 +26,13 @@ public class Artist extends User {
     private List<Event> events = new ArrayList<>();
     private List<Merchandise> merchandise = new ArrayList<>();
 
+    /**
+     * Instantiates a new Artist.
+     *
+     * @param username the username
+     * @param age      the age
+     * @param city     the city
+     */
     public Artist(final String username, final int age, final String city) {
         super(username, age, city);
         setUserType(UserType.ARTIST);
@@ -31,6 +41,9 @@ public class Artist extends User {
 
     /**
      * finds an album in the artist's list of albums
+     *
+     * @param name the name
+     * @return the album
      */
     public Album findAlbum(final String name) {
         for (Album album : albums) {
@@ -43,6 +56,8 @@ public class Artist extends User {
 
     /**
      * adds an album to the artist's list of albums
+     *
+     * @param album the album
      */
     public void addAlbum(final Album album) {
         getAlbums().add(album);
@@ -50,6 +65,9 @@ public class Artist extends User {
 
     /**
      * finds an event in the artist's list of events
+     *
+     * @param name the name
+     * @return the event
      */
     public Event findEvent(final String name) {
         for (Event event : events) {
@@ -62,6 +80,8 @@ public class Artist extends User {
 
     /**
      * adds an event to the artist's list of events
+     *
+     * @param event the event
      */
     public void addEvent(final Event event) {
         getEvents().add(event);
@@ -69,6 +89,9 @@ public class Artist extends User {
 
     /**
      * finds a merchandise in the artist's list of merchandise
+     *
+     * @param name the name
+     * @return the merchandise
      */
     public Merchandise findMerch(final String name) {
         for (Merchandise merch : getMerchandise()) {
@@ -81,6 +104,8 @@ public class Artist extends User {
 
     /**
      * adds a merchandise to the artist's list of merchandise
+     *
+     * @param newMerchandise the new merchandise
      */
     public void addMerchandise(final Merchandise newMerchandise) {
         getMerchandise().add(newMerchandise);
@@ -118,6 +143,8 @@ public class Artist extends User {
 
     /**
      * removes an album from the artist's albums
+     *
+     * @param album the album
      */
     public void removeAlbum(final Album album) {
         getAlbums().remove(album);
@@ -126,6 +153,8 @@ public class Artist extends User {
 
     /**
      * removes an event from the artist's events
+     *
+     * @param event the event
      */
     public void removeEvent(final Event event) {
         getEvents().remove(event);
@@ -133,6 +162,8 @@ public class Artist extends User {
 
     /**
      * gets the number of likes of the artist's albums
+     *
+     * @return the number of likes
      */
     public int getNumberOfLikes() {
         int numberOfLikes = 0;

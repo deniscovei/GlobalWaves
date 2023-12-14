@@ -8,6 +8,9 @@ import data.entities.audio.audioFiles.AudioFile;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * The type Audio file list serializer.
+ */
 public final class AudioFileListSerializer extends JsonSerializer<List<AudioFile>> {
     @Override
     public void serialize(final List<AudioFile> audioFiles, final JsonGenerator jsonGenerator,

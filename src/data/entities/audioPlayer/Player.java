@@ -9,6 +9,9 @@ import utils.AppUtils;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Player.
+ */
 @Setter
 @Getter
 public final class Player {
@@ -18,6 +21,9 @@ public final class Player {
 
     /**
      * returns the names of the files in the given list
+     *
+     * @param timestamp the timestamp
+     * @return the current playing file
      */
     public AudioFile getCurrentPlayingFile(final int timestamp) {
         Playable currentPlayerFile = getPlayerFiles().get(getCurrentPlayerFileIndex());
@@ -26,6 +32,9 @@ public final class Player {
 
     /**
      * returns true if the loaded file has finished and false otherwise
+     *
+     * @param timestamp the timestamp
+     * @return the boolean
      */
     public boolean hasFinished(final int timestamp) {
         return getPlayerFiles().get(getCurrentPlayerFileIndex()).hasFinished(timestamp);
@@ -34,6 +43,8 @@ public final class Player {
 
     /**
      * returns true if the loaded file is paused and false otherwise
+     *
+     * @return the boolean
      */
     public boolean isPaused() {
         return getPlayerFiles().get(getCurrentPlayerFileIndex()).isPaused();
@@ -41,6 +52,8 @@ public final class Player {
 
     /**
      * pauses the loaded file
+     *
+     * @param timestamp the timestamp
      */
     public void pause(final int timestamp) {
         if (getCurrentPlayerFileIndex() == -1) {
@@ -51,6 +64,8 @@ public final class Player {
 
     /**
      * plays the loaded file
+     *
+     * @param timestamp the timestamp
      */
     public void play(final int timestamp) {
         getPlayerFiles().get(getCurrentPlayerFileIndex()).play(timestamp);
@@ -58,6 +73,10 @@ public final class Player {
 
     /**
      * returns the remained time of an audio file
+     *
+     * @param currentPlayingFile the current playing file
+     * @param timestamp          the timestamp
+     * @return the remained time
      */
     public int getRemainedTime(final AudioFile currentPlayingFile, final int timestamp) {
         return getPlayerFiles().get(getCurrentPlayerFileIndex()).
@@ -66,6 +85,8 @@ public final class Player {
 
     /**
      * sets the current playing file pause parameter to the given value
+     *
+     * @param value the value
      */
     public void setPaused(final boolean value) {
         getPlayerFiles().get(getCurrentPlayerFileIndex()).setPaused(value);
@@ -82,6 +103,8 @@ public final class Player {
 
     /**
      * adds a new file to the player
+     *
+     * @param selection the selection
      */
     public void select(final File selection) {
         for (int index = 0; index < getPlayerFiles().size(); index++) {
@@ -151,6 +174,8 @@ public final class Player {
 
     /**
      * changes the repeat state of the player
+     *
+     * @param timestamp the timestamp
      */
     public void repeat(final int timestamp) {
         fastForwardToCurrentPlayingFile(timestamp);
@@ -179,6 +204,8 @@ public final class Player {
 
     /**
      * returns the repeat state
+     *
+     * @return the repeat state
      */
     public int getRepeatState() {
         return getPlayerFiles().get(getCurrentPlayerFileIndex()).getRepeatState();
@@ -186,6 +213,8 @@ public final class Player {
 
     /**
      * sets the loaded file to the selected file
+     *
+     * @param selectedFile the selected file
      */
     public void setLoadedFile(final File selectedFile) {
         if (getCurrentPlayerFileIndex() == -1) {
@@ -196,6 +225,8 @@ public final class Player {
 
     /**
      * returns the loaded file
+     *
+     * @return the loaded file
      */
     public File getLoadedFile() {
         if (getCurrentPlayerFileIndex() == -1) {
@@ -206,6 +237,9 @@ public final class Player {
 
     /**
      * shuffles the songs
+     *
+     * @param seed      the seed
+     * @param timestamp the timestamp
      */
     public void shuffle(final int seed, final int timestamp) {
         fastForwardToCurrentPlayingFile(timestamp);
@@ -215,6 +249,8 @@ public final class Player {
 
     /**
      * unshuffles the songs
+     *
+     * @param timestamp the timestamp
      */
     public void unshuffle(final int timestamp) {
         fastForwardToCurrentPlayingFile(timestamp);
@@ -224,6 +260,9 @@ public final class Player {
 
     /**
      * gets to the next song
+     *
+     * @param timestamp the timestamp
+     * @return the boolean
      */
     public boolean next(final int timestamp) {
         fastForwardToCurrentPlayingFile(timestamp);
@@ -235,6 +274,9 @@ public final class Player {
 
     /**
      * gets to the previous song
+     *
+     * @param timestamp the timestamp
+     * @return the boolean
      */
     public boolean prev(final int timestamp) {
         fastForwardToCurrentPlayingFile(timestamp);
@@ -247,6 +289,8 @@ public final class Player {
 
     /**
      * forwards the episode
+     *
+     * @param timestamp the timestamp
      */
     public void forward(final int timestamp) {
         fastForwardToCurrentPlayingFile(timestamp);
@@ -255,6 +299,8 @@ public final class Player {
 
     /**
      * rewinds the episode
+     *
+     * @param timestamp the timestamp
      */
     public void backward(final int timestamp) {
         fastForwardToCurrentPlayingFile(timestamp);

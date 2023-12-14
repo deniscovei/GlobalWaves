@@ -13,6 +13,9 @@ import java.util.List;
 import java.util.Random;
 import java.util.Objects;
 
+/**
+ * The type Playable.
+ */
 @Getter
 @Setter
 public final class Playable {
@@ -31,6 +34,8 @@ public final class Playable {
 
     /**
      * returns true if the loaded has started and false otherwise
+     *
+     * @return the boolean
      */
     public boolean hasStarted() {
         return getStartTimestamp() != -1;
@@ -38,6 +43,9 @@ public final class Playable {
 
     /**
      * returns the current time of the current playing file
+     *
+     * @param timestamp the timestamp
+     * @return the curr time of file
      */
     public int getCurrTimeOfFile(final int timestamp) {
         if (!isPaused()) {
@@ -49,6 +57,10 @@ public final class Playable {
 
     /**
      * returns the remained time of the current playing file
+     *
+     * @param file      the file
+     * @param timestamp the timestamp
+     * @return the remained time
      */
     public int getRemainedTime(final AudioFile file, final int timestamp) {
         return (file == null ? 0 : file.getDuration() - getCurrTimeOfFile(timestamp));
@@ -56,6 +68,9 @@ public final class Playable {
 
     /**
      * returns true if the loaded file has finished and false otherwise
+     *
+     * @param timestamp the timestamp
+     * @return the boolean
      */
     public boolean hasFinished(final int timestamp) {
         AudioFile currentPlayingFile = getCurrentPlayingFile(timestamp);
@@ -75,6 +90,9 @@ public final class Playable {
 
     /**
      * returns the current playing file
+     *
+     * @param timestamp the timestamp
+     * @return the current playing file
      */
     public AudioFile getCurrentPlayingFile(final int timestamp) {
         if (getLoadedFile().getFileType().equals(AppUtils.FileType.SONG)) {
@@ -168,6 +186,8 @@ public final class Playable {
 
     /**
      * plays the loaded file
+     *
+     * @param timestamp the timestamp
      */
     public void play(final int timestamp) {
         if (!hasStarted()) {
@@ -180,6 +200,8 @@ public final class Playable {
 
     /**
      * pauses the loaded file
+     *
+     * @param timestamp the timestamp
      */
     public void pause(final int timestamp) {
         setPauseTimestamp(timestamp);
@@ -188,6 +210,8 @@ public final class Playable {
 
     /**
      * shuffles the audio files in the loaded file using a seed and sets the shuffled indexes
+     *
+     * @param seed the seed
      */
     public void shuffle(final int seed) {
         setShuffleActivated(true);
@@ -222,6 +246,9 @@ public final class Playable {
 
     /**
      * skips to the next audio file
+     *
+     * @param timestamp the timestamp
+     * @return the boolean
      */
     public boolean next(final int timestamp) {
         prepareIndexes();
@@ -244,6 +271,8 @@ public final class Playable {
 
     /**
      * skips to the previous audio file
+     *
+     * @param timestamp the timestamp
      */
     public void prev(final int timestamp) {
         prepareIndexes();
@@ -266,6 +295,8 @@ public final class Playable {
 
     /**
      * skips 90 seconds
+     *
+     * @param timestamp the timestamp
      */
     public void forward(final int timestamp) {
         if (getRemainedTime(getCurrentPlayingFile(timestamp), timestamp) >= AppUtils.MIN_SECONDS) {
@@ -280,6 +311,8 @@ public final class Playable {
 
     /**
      * rewinds 90 seconds
+     *
+     * @param timestamp the timestamp
      */
     public void backward(final int timestamp) {
         if (getCurrTimeOfFile(timestamp) >= AppUtils.MIN_SECONDS) {

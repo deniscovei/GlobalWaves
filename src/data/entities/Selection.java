@@ -10,6 +10,9 @@ import utils.AppUtils.SearchType;
 
 import java.util.Objects;
 
+/**
+ * The type Selection.
+ */
 @Getter
 @Setter
 public class Selection {
@@ -17,7 +20,13 @@ public class Selection {
     private File selectedFile = null;
     private Page selectedPage = null;
 
-    // selectionType is FILE by default
+    /**
+     * Instantiates a new Selection.
+     *
+     * @param searchType the search type
+     * @param selection  the selection
+     */
+// selectionType is FILE by default
     public Selection(final SearchType searchType, final String selection) {
         switch (searchType) {
             case SONG:
