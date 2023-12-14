@@ -66,6 +66,9 @@ There are four types of **pages**: <span style="color:#ADDFFF">*HomePage*</span>
 These extend the <span style="color:green">*Page*</span> abstract class, using **Template** design
 pattern. Each page has a method for getting the content of the page.
 
+I added parallelism in the application, by using **threads**. I calculate the number of likes of 
+a songs on an album by using all the processors of the machine.
+
 Encountered problems:
 * I had some problems with parsing JSON files. I had to write a custom serializer for the songs,
 because the default one was not working properly, as I only needed to display the name of the song

@@ -1,6 +1,8 @@
 
-z	java:S135'"YReduce the total number of break and continue statements in this loop to use at most one.(ñÄ ‰ùÿÿÿÿ8’ €­Æ1
+z	java:S135)"YReduce the total number of break and continue statements in this loop to use at most one.(ñÄ ‰ùÿÿÿÿ8’ €­Æ1
 u	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ôëý
 8Š¨ø¬Æ1
 o
-java:S3776&"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(¹‚´‰8Þ¨ø¬Æ1
+java:S2095U"MUse try-with-resources or close this "ExecutorService" in a "finally" clause.(Èà«¶ûÿÿÿÿ8™öÔ±Æ1
+o
+java:S3776("RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(¹‚´‰8Þ¨ø¬Æ1

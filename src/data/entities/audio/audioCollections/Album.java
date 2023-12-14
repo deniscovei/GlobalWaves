@@ -14,6 +14,8 @@ import utils.AppUtils.FileType;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 @Getter
 @Setter
@@ -69,15 +71,25 @@ public class Album extends AudioCollection {
     }
 
     /**
+     * calculate the total number of likes using multiple threads
      * returns the number of likes of the album
      */
     public int getNumberOfLikes() {
-        int numberOfLikes = 0;
-        for (AudioFile audioFile : getAudioFiles()) {
-            Song song = (Song) audioFile;
-            numberOfLikes += song.getNumberOfLikes();
-        }
+        List<Song> songs = getAudioFiles().stream()
+            .filter(Song.class::isInstance)
+            .map(Song.class::cast)
+            .toList();
 
-        return numberOfLikes;
+        // Use available processors as the number of threads
+        int numberOfThreads = Runtime.getRuntime().availableProcessors();
+        ExecutorService executorService = Executors.newFixedThreadPool(numberOfThreads);
+
+        try {
+            return songs.parallelStream()
+                .mapToInt(Song::getNumberOfLikes)
+                .sum();
+        } finally {
+            executorService.shutdown();
+        }
     }
 }
