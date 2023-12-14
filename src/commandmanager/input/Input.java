@@ -43,25 +43,27 @@ public final class Input extends IoEntry {
 
     /**
      * This method calls the action method of the command strategy that matches the command.
+     *
      * @return the output of the command strategy
      */
     public Output action() {
-        return commandStrategyAction(getCommand());
+        return queryHandler(getCommand());
     }
 
     /**
      * This method calls the action method of the command strategy that matches the command.
+     *
      * @param input the command to be executed
      * @return the output of the command strategy
      */
-    private Output commandStrategyAction(final String input) {
+    private Output queryHandler(final String input) {
         try {
             final String inputMatch = input.substring(0, 1).toUpperCase() + input.substring(1);
             final String packagePath = "commandmanager.input.commands.";
             final String strategyClassName = packagePath + inputMatch;
             final Class<?> strategyClass = Class.forName(strategyClassName);
             final Command strategy = (Command) strategyClass.
-                    getDeclaredConstructor().newInstance();
+                getDeclaredConstructor().newInstance();
 
             return strategy.action(this);
         } catch (Exception e) {

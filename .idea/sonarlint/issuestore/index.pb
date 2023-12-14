@@ -294,3 +294,11 @@ G
 :
 
 etapa1.iml,4\9\49097a400d8c3f9b3475ba04959e5ac98ac7e2ce
+i
+9src/commandmanager/input/commands/RemoveAnnouncement.java,a\e\aedb975c0c453b235c9695659afba2811614a665
+b
+2src/commandmanager/input/commands/RemoveAlbum.java,6\9\6972b13e463048696814dd6b926d04c1aa1bb357
+d
+4src/commandmanager/input/commands/RemovePodcast.java,1\0\10dc4cea4cb4888dceac6fccd52926ed58bcad04
+b
+2src/commandmanager/input/commands/RemoveEvent.java,1\5\155725834688d75e6fb0086eb315ecadbbc7ab07

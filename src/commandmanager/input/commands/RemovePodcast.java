@@ -28,7 +28,6 @@ public final class RemovePodcast implements Command {
                 message = input.getUsername() + " can't delete this podcast.";
             } else {
                 host.removePodcast(podcast);
-                Database.getInstance().removePodcast(podcast);
                 message = input.getUsername() + " deleted the podcast successfully.";
             }
         }

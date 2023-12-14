@@ -1,14 +1,15 @@
 # GlobalWaves
 ## Denis Covei - 322CA
 
-I used two design patterns in this project: **Command** and **Singleton**.
+I used three design patterns in this project: **Command**, **Singleton**, **Template** and 
+**Decorator**.
 
 * <span style="color:green">*Command*</span> - command interface for the commands, containing the 
   action 
 method
-* <span style="color:#ADDFFF">*Database*</span> - singleton class that keeps track of the users,
+* <span style="color:#ADDFFF">*Database*</span> - Singleton class that keeps track of the users,
 podcasts, playlists and songs; the library is loaded here at runtime, and then for each test, the
-database is reset to its initial state
+database is reset to its initial state.
 * <span style="color:#ADDFFF">*AudioFileListSerializer*</span> - JSON serializer for songs
 
 I have an abstract class <span style="color:#ADDFFF">*User*</span> that is extended by artists, 
@@ -30,11 +31,14 @@ Hosts can create new podcasts and add new episodes to them. They can also add an
 Each user interacts with the application through an **interface**. A page is displayed for each
 user, with the available options for that user.
 
-We have two types of files: <span style="color:#ADDFFF">*AudioCollection*</span> and
-<span style="color:#ADDFFF">*AudioFile*</span>. The
-<span style="color:#ADDFFF">*AudioCollection*</span> is an abstract class, extended by
+We have two types of files:
+<span style="color:blueviolet">*AudioCollection*</span> and
+<span style="color:blueviolet">*AudioFile*</span> extending the
+<span style="color:green">*File*</span> abstract class, using **Decorator** pattern. The
+<span style="color:blueviolet">*AudioCollection*</span> is also extended by
 <span style="color:#ADDFFF">*Playlist*</span>, <span style="color:#ADDFFF">*Album*</span> and
-<span style="color:#ADDFFF">*Podcast*</span>. The <span style="color:#ADDFFF">*AudioFile*</span> is
+<span style="color:#ADDFFF">*Podcast*</span>. The
+<span style="color:blueviolet">*AudioFile*</span> is
 extended by <span style="color:#ADDFFF">*Song*</span> and
 <span style="color:#ADDFFF">*Episode*</span>.
 
@@ -55,6 +59,12 @@ library of a listener. They can be shuffled and repeated.
 
 **Episodes** exist in the context of a podcast, and can be listened by listeners. They can be
 added to the library of a listener.
+
+There are four types of **pages**: <span style="color:#ADDFFF">*HomePage*</span>,
+<span style="color:#ADDFFF">*LikedContentPage*</span>, 
+<span style="color:#ADDFFF">*ArtistPage*</span> and <span style="color:#ADDFFF">*HostPage*</span>.
+These extend the <span style="color:green">*Page*</span> abstract class, using **Template** design
+pattern. Each page has a method for getting the content of the page.
 
 Encountered problems:
 * I had some problems with parsing JSON files. I had to write a custom serializer for the songs,

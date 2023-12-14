@@ -104,5 +104,6 @@ public class Host extends User {
      */
     public void removePodcast(final Podcast podcast) {
         getPodcasts().remove(podcast);
+        Database.getInstance().removePodcast(podcast);
     }
 }

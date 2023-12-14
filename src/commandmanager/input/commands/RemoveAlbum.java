@@ -28,7 +28,6 @@ public final class RemoveAlbum implements Command {
                 message = input.getUsername() + " can't delete this album.";
             } else {
                 artist.removeAlbum(album);
-                Database.getInstance().removeAlbum(album);
                 message = "Album " + input.getName() + " was removed successfully.";
             }
         }

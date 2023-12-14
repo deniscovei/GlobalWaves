@@ -109,8 +109,7 @@ public final class Playable {
 
             prepareIndexes();
 
-            for (int id = getCurrentPlayingFileId();
-                 id < audioCollection.getAudioFiles().size();
+            for (int id = getCurrentPlayingFileId(); id < audioCollection.getAudioFiles().size();
                  id = nextId(id)) {
                 AudioFile currentFile = audioCollection.getAudioFiles().get(id);
 
@@ -140,7 +139,6 @@ public final class Playable {
      */
     private int nextId(final int currId) {
         int id = isShuffleActivated() ? getIndexes().indexOf(currId) : currId;
-
         int size = ((AudioCollection) getLoadedFile()).getAudioFiles().size();
 
         switch (getLoadedFile().getFileType()) {

@@ -8,7 +8,7 @@ import utils.AppUtils.PageType;
 @Getter
 @Setter
 public abstract class Page {
-    protected User creator = null;
+    protected User creator;
     protected PageType pageType = null;
 
     Page(final User creator) {

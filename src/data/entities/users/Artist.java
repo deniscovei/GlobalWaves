@@ -121,6 +121,7 @@ public class Artist extends User {
      */
     public void removeAlbum(final Album album) {
         getAlbums().remove(album);
+        Database.getInstance().removeAlbum(album);
     }
 
     /**
