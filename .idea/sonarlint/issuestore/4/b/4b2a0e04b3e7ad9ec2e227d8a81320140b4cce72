@@ -1,5 +1,3 @@
 
-^
-java:S1117"<Rename "episodes" which hides the field declared at line 13.(²²Æ¾şÿÿÿÿ8µœäŒÅ1
-Y
-java:S1128"7Remove this unused import 'data.entities.users.Artist'.(°ã‡ªşÿÿÿÿ8ØïŒÅ1
+E
+java:S1068"(Remove this unused "name" private field.(Ú§×œ8åœÏªÆ1

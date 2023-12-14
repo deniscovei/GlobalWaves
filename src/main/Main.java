@@ -1,7 +1,7 @@
 package main;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import commandManager.input.Input;
+import commandmanager.input.Input;
 import checker.Checker;
 import checker.CheckerConstants;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -88,7 +88,7 @@ public final class Main {
         ArrayNode outputs = objectMapper.createArrayNode();
 
         String inputPath = CheckerConstants.TESTS_PATH + filePathInput;
-        ArrayList<Input> inputs = objectMapper
+        List<Input> inputs = objectMapper
                 .readValue(new File(inputPath), new TypeReference<>() {
                 });
 

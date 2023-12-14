@@ -1,13 +1,3 @@
 
-Œ
-java:S1319 "jThe type of "audioFiles" should be an interface such as "List" rather than the implementation "ArrayList".(Ş¥Êôıÿÿÿÿ8¨ÏûƒÅ1
 u	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ôëı
 8©ÏûƒÅ1
-V
-java:S5993"9Change the visibility of this constructor to "protected".(«Ï‚Ÿ8­ÏûƒÅ1
-[
-java:S5993"9Change the visibility of this constructor to "protected".(¤·±©ùÿÿÿÿ8­ÏûƒÅ1
-[
-java:S5993"9Change the visibility of this constructor to "protected".(‰¥¢×ÿÿÿÿÿ8­ÏûƒÅ1
-U
-java:S5993"9Change the visibility of this constructor to "protected".(øá„n8­ÏûƒÅ1

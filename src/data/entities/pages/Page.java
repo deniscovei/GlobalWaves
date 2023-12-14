@@ -3,19 +3,20 @@ package data.entities.pages;
 import data.entities.users.User;
 import lombok.Getter;
 import lombok.Setter;
-import utils.Extras.PageType;
+import utils.AppUtils.PageType;
 
 @Getter
 @Setter
-public class Page {
+public abstract class Page {
     protected User creator = null;
     protected PageType pageType = null;
 
-    Page(User creator) {
+    Page(final User creator) {
         this.creator = creator;
     }
 
-    public String getFormat() {
-        return null;
-    }
+    /**
+     * returns the page's content in a formatted string
+     */
+    public abstract String getFormat();
 }

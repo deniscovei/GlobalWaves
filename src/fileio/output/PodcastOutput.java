@@ -2,24 +2,21 @@ package fileio.output;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import data.entities.audio.audioFiles.AudioFile;
-import data.entities.users.Artist;
 import data.entities.users.Host;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 public class PodcastOutput {
-    String name = null;
-    ArrayList<String> episodes = new ArrayList<>();
+    private final String name;
+    private final List<String> episodes = new ArrayList<>();
 
-    public PodcastOutput() {
-    }
-
-    public PodcastOutput(Host host, int id) {
+    public PodcastOutput(final Host host, final int id) {
         this.name = host.getPodcasts().get(id).getName();
 
-        ArrayList<AudioFile> episodes = host.getPodcasts().get(id).getAudioFiles();
-        for (AudioFile episode : episodes) {
+        List<AudioFile> podcastEpisodes = host.getPodcasts().get(id).getAudioFiles();
+        for (AudioFile episode : podcastEpisodes) {
             this.episodes.add(episode.getName());
         }
     }

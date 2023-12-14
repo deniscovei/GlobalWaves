@@ -2,13 +2,13 @@ package data.entities.pages;
 
 import data.entities.audio.audioCollections.Album;
 import data.entities.content.Event;
-import data.entities.content.Merch;
+import data.entities.content.Merchandise;
 import data.entities.users.Artist;
 import data.entities.users.User;
-import utils.Extras.PageType;
+import utils.AppUtils.PageType;
 
 public final class ArtistPage extends Page {
-    public ArtistPage(User creator) {
+    public ArtistPage(final User creator) {
         super(creator);
         pageType = PageType.ARTIST_PAGE;
     }
@@ -27,10 +27,10 @@ public final class ArtistPage extends Page {
 
         result.append("]\n\nMerch:\n\t[");
 
-        for (Merch merch : artist.getMerches()) {
-            result.append(merch.getName()).append(" - ").append(merch.getPrice())
-                    .append(":\n\t").append(merch.getDescription());
-            if (merch != artist.getMerches().get(artist.getMerches().size() - 1)) {
+        for (Merchandise merchandise : artist.getMerchandise()) {
+            result.append(merchandise.getName()).append(" - ").append(merchandise.getPrice())
+                    .append(":\n\t").append(merchandise.getDescription());
+            if (merchandise != artist.getMerchandise().get(artist.getMerchandise().size() - 1)) {
                 result.append(", ");
             }
         }

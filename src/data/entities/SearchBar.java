@@ -2,17 +2,21 @@ package data.entities;
 
 import lombok.Getter;
 import lombok.Setter;
-import utils.Extras.SearchType;
+import utils.AppUtils.SearchType;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
 public class SearchBar {
     private SearchType searchType;
-    private ArrayList<String> searchResults = new ArrayList<>();
+    private List<String> searchResults = new ArrayList<>();
 
+    /**
+     * flushes the search results
+     */
     public void flush() {
-        searchResults = new ArrayList<>();
+        getSearchResults().clear();
     }
 }

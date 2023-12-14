@@ -1,4 +1,7 @@
 
 m
-java:S1301("KReplace this "switch" statement by "if" statements to increase readability.(¥éÿ¨ûÿÿÿÿ8æÁÅùÄ1
+java:S1301)"KReplace this "switch" statement by "if" statements to increase readability.(¥éÿ¨ûÿÿÿÿ8æÁÅùÄ1
 v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¥èÅÁ8çÁÅùÄ1
+M
+java:S1128
+"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8¿¤—«Æ1

@@ -5,12 +5,13 @@ import data.entities.audio.audioCollections.AudioCollection;
 import data.entities.audio.audioFiles.AudioFile;
 import lombok.Getter;
 import lombok.Setter;
-import utils.Extras;
+import utils.AppUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Objects;
+import java.util.List;
 import java.util.Random;
+import java.util.Objects;
 
 @Getter
 @Setter
@@ -22,11 +23,11 @@ public final class Playable {
     private int startTimestamp = -1;
     private int pauseTimestamp = -1;
     private int offset = 0;
-    private int repeatState = Extras.NO_REPEAT;
+    private int repeatState = AppUtils.NO_REPEAT;
     private boolean shuffleActivated = false;
-    private ArrayList<Integer> orderedIndexes = new ArrayList<>();
-    private ArrayList<Integer> shuffledIndexes = new ArrayList<>();
-    private ArrayList<Integer> indexes = new ArrayList<>();
+    private List<Integer> orderedIndexes = new ArrayList<>();
+    private List<Integer> shuffledIndexes = new ArrayList<>();
+    private List<Integer> indexes = new ArrayList<>();
 
     /**
      * returns true if the loaded has started and false otherwise
@@ -50,10 +51,7 @@ public final class Playable {
      * returns the remained time of the current playing file
      */
     public int getRemainedTime(final AudioFile file, final int timestamp) {
-        if (file == null) {
-            return 0;
-        }
-        return file.getDuration() - getCurrTimeOfFile(timestamp);
+        return (file == null ? 0 : file.getDuration() - getCurrTimeOfFile(timestamp));
     }
 
     /**
@@ -79,30 +77,31 @@ public final class Playable {
      * returns the current playing file
      */
     public AudioFile getCurrentPlayingFile(final int timestamp) {
-        if (getLoadedFile().getFileType().equals(Extras.FileType.SONG)) {
+        if (getLoadedFile().getFileType().equals(AppUtils.FileType.SONG)) {
             AudioFile currAudioFile = (AudioFile) getLoadedFile();
             if (getRemainedTime(currAudioFile, timestamp) >= 0) {
                 return currAudioFile;
             } else {
                 switch (getRepeatState()) {
-                    case Extras.REPEAT_ONCE:
-                        setRepeatState(Extras.NO_REPEAT);
+                    case AppUtils.REPEAT_ONCE:
+                        setRepeatState(AppUtils.NO_REPEAT);
                         setOffset(getOffset() - (currAudioFile).getDuration());
                         return currAudioFile;
-                    case Extras.REPEAT_INFINITE:
+                    case AppUtils.REPEAT_INFINITE:
                         while (getRemainedTime(currAudioFile, timestamp) < 0) {
                             setOffset(getOffset() - (currAudioFile).getDuration());
                         }
-                    case Extras.NO_REPEAT:
+                        return currAudioFile;
+                    case AppUtils.NO_REPEAT:
                         return currAudioFile;
                     default:
                         return null;
                 }
             }
-        } else if (Extras.isAudioCollection(getLoadedFile().getFileType())) {
+        } else if (AppUtils.isAudioCollection(getLoadedFile().getFileType())) {
             AudioCollection audioCollection = (AudioCollection) getLoadedFile();
             AudioFile currentPlayingFile = audioCollection.getAudioFiles().
-                    get(getCurrentPlayingFileId());
+                get(getCurrentPlayingFileId());
 
             if (getRemainedTime(currentPlayingFile, timestamp) >= 0) {
                 return currentPlayingFile;
@@ -112,7 +111,7 @@ public final class Playable {
 
             for (int id = getCurrentPlayingFileId();
                  id < audioCollection.getAudioFiles().size();
-                 id = nextId(id, getIndexes())) {
+                 id = nextId(id)) {
                 AudioFile currentFile = audioCollection.getAudioFiles().get(id);
 
                 if (getRemainedTime(currentFile, timestamp) < 0) {
@@ -131,44 +130,39 @@ public final class Playable {
 
     /**
      * returns the next id of the current playing file
-     *
+     * <p>
      * If the shuffle mode is activated, we search for the index of the current playing file in the
      * shuffled indexes list and get what the following index is, otherwise we just get to
      * index + 1. Now, we have the following index of the current playing file, so, keeping track of
      * the repeat state, we return the next id.
      *
-     * @param id the current playing file id
-     * @param indexes the working indexes of the audio files (shuffled or not)
+     * @param currId      the current playing file id
      */
-    private int nextId(int id, final ArrayList<Integer> indexes) {
-        if (isShuffleActivated()) {
-            id = indexes.indexOf(id);
-        }
+    private int nextId(final int currId) {
+        int id = isShuffleActivated() ? getIndexes().indexOf(currId) : currId;
 
         int size = ((AudioCollection) getLoadedFile()).getAudioFiles().size();
 
         switch (getLoadedFile().getFileType()) {
             case PLAYLIST, ALBUM:
-                switch (repeatState) {
-                    case Extras.NO_REPEAT:
-                        return indexes.get(id + 1);
-                    case Extras.REPEAT_ALL:
-                        return indexes.get((id + 1) % size);
-                    case Extras.REPEAT_CURRENT_SONG:
-                        return indexes.get(id);
-                }
+                return switch (repeatState) {
+                    case AppUtils.REPEAT_ALL -> indexes.get((id + 1) % size);
+                    case AppUtils.REPEAT_CURRENT_SONG -> indexes.get(id);
+                    default -> // NO_REPEAT
+                        indexes.get(id + 1);
+                };
             case PODCAST:
-                switch (getRepeatState()) {
-                    case Extras.NO_REPEAT:
-                        return indexes.get(id + 1);
-                    case Extras.REPEAT_ONCE:
+                return switch (getRepeatState()) {
+                    case AppUtils.REPEAT_ONCE -> {
                         if (indexes.get(id + 1) >= size) {
-                            setRepeatState(Extras.NO_REPEAT);
+                            setRepeatState(AppUtils.NO_REPEAT);
                         }
-                        return indexes.get((id + 1) % size);
-                    case Extras.REPEAT_INFINITE:
-                        return indexes.get((id + 1) % size);
-                }
+                        yield indexes.get((id + 1) % size);
+                    }
+                    case AppUtils.REPEAT_INFINITE -> indexes.get((id + 1) % size);
+                    default -> // NO_REPEAT
+                        indexes.get(id + 1);
+                };
             default:
                 return indexes.get(id + 1);
         }
@@ -192,10 +186,6 @@ public final class Playable {
     public void pause(final int timestamp) {
         setPauseTimestamp(timestamp);
         setPaused(true);
-    }
-
-    public void freeze(final int timestamp) {
-        setPauseTimestamp(timestamp);
     }
 
     /**
@@ -232,6 +222,9 @@ public final class Playable {
         setShuffleActivated(false);
     }
 
+    /**
+     * skips to the next audio file
+     */
     public boolean next(final int timestamp) {
         prepareIndexes();
 
@@ -243,14 +236,17 @@ public final class Playable {
         }
 
         setElapsedTime(getElapsedTime()
-                + Objects.requireNonNull(getCurrentPlayingFile(timestamp)).getDuration());
+            + Objects.requireNonNull(getCurrentPlayingFile(timestamp)).getDuration());
 
-        setCurrentPlayingFileId(nextId(getCurrentPlayingFileId(), getIndexes()));
+        setCurrentPlayingFileId(nextId(getCurrentPlayingFileId()));
 
         return getCurrentPlayingFileId()
-                < ((AudioCollection) getLoadedFile()).getAudioFiles().size();
+            < ((AudioCollection) getLoadedFile()).getAudioFiles().size();
     }
 
+    /**
+     * skips to the previous audio file
+     */
     public void prev(final int timestamp) {
         prepareIndexes();
         int id = getCurrentPlayingFileId();
@@ -259,9 +255,9 @@ public final class Playable {
         }
         if (id != 0 && getCurrTimeOfFile(timestamp) == 0) {
             setOffset(getOffset()
-                    - Objects.requireNonNull(getCurrentPlayingFile(timestamp)).getDuration());
+                - Objects.requireNonNull(getCurrentPlayingFile(timestamp)).getDuration());
             setElapsedTime(getElapsedTime()
-                    - Objects.requireNonNull(getCurrentPlayingFile(timestamp)).getDuration());
+                - Objects.requireNonNull(getCurrentPlayingFile(timestamp)).getDuration());
             setCurrentPlayingFileId(getIndexes().get(id - 1));
         }
         setOffset(getOffset() - getCurrTimeOfFile(timestamp));
@@ -270,20 +266,26 @@ public final class Playable {
         }
     }
 
+    /**
+     * skips 90 seconds
+     */
     public void forward(final int timestamp) {
-        if (getRemainedTime(getCurrentPlayingFile(timestamp), timestamp) >= Extras.MIN_SECONDS) {
-            setOffset(getOffset() + Extras.MIN_SECONDS);
+        if (getRemainedTime(getCurrentPlayingFile(timestamp), timestamp) >= AppUtils.MIN_SECONDS) {
+            setOffset(getOffset() + AppUtils.MIN_SECONDS);
         } else {
             setOffset(getOffset() + getRemainedTime(getCurrentPlayingFile(timestamp), timestamp));
             setElapsedTime(getElapsedTime()
-                    + Objects.requireNonNull(getCurrentPlayingFile(timestamp)).getDuration());
-            setCurrentPlayingFileId(nextId(getCurrentPlayingFileId(), getIndexes()));
+                + Objects.requireNonNull(getCurrentPlayingFile(timestamp)).getDuration());
+            setCurrentPlayingFileId(nextId(getCurrentPlayingFileId()));
         }
     }
 
+    /**
+     * rewinds 90 seconds
+     */
     public void backward(final int timestamp) {
-        if (getCurrTimeOfFile(timestamp) >= Extras.MIN_SECONDS) {
-            setOffset(getOffset() - Extras.MIN_SECONDS);
+        if (getCurrTimeOfFile(timestamp) >= AppUtils.MIN_SECONDS) {
+            setOffset(getOffset() - AppUtils.MIN_SECONDS);
         } else {
             setOffset(getOffset() - getCurrTimeOfFile(timestamp));
         }

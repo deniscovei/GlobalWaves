@@ -1,12 +1,12 @@
 
 L
-java:S1066Y"/Merge this if statement with the enclosing one.(Â€ç÷8ÜâÊáÄ1
+java:S1066["/Merge this if statement with the enclosing one.(ˆÒ‘“8ÜâÊáÄ1
 L
-java:S1066f"/Merge this if statement with the enclosing one.(ÜÿŸ—8ÔÑáÄ1
+java:S1066h"/Merge this if statement with the enclosing one.(ÜÿŸ—8ÔÑáÄ1
 v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¥èÅÁ8İâÊáÄ1
 t
-java:S3776"RRefactor this method to reduce its Cognitive Complexity from 66 to the 15 allowed.(çßØ¡øÿÿÿÿ8îâÊáÄ1
+java:S3776"RRefactor this method to reduce its Cognitive Complexity from 66 to the 15 allowed.(çßØ¡øÿÿÿÿ8îâÊáÄ1
 M
-java:S1172ì"/Remove this unused method parameter "username".(¦ô¾ü8õâÊáÄ1
+java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8’˜¿«Æ1
 è
-java:S6541"ÅA "Brain Method" was detected. Refactor it to reduce at least one of the following metrics: LOC from 86 to 64, Complexity from 28 to 14, Nesting Level from 5 to 2, Number of Variables from 10 to 6.(çßØ¡øÿÿÿÿ8øâÊáÄ1
+java:S6541"ÅA "Brain Method" was detected. Refactor it to reduce at least one of the following metrics: LOC from 86 to 64, Complexity from 28 to 14, Nesting Level from 5 to 2, Number of Variables from 10 to 6.(çßØ¡øÿÿÿÿ8øâÊáÄ1

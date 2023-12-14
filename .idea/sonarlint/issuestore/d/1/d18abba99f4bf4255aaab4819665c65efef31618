@@ -1,10 +1,4 @@
 
-„
-java:S1319 "gThe type of "results" should be an interface such as "List" rather than the implementation "ArrayList".(±Øœ8Ø®Ø¦Ä1
-„
-java:S1319%"gThe type of "results" should be an interface such as "List" rather than the implementation "ArrayList".(ûµËÑ8ç®Ø¦Ä1
-ƒ
-java:S1319*"fThe type of "result" should be an interface such as "List" rather than the implementation "ArrayList".(¸äî8ö®Ø¦Ä1
 {	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¼©³ïùÿÿÿÿ8ªÏ‹‡Ä1
 R
-java:S1172*"5Remove this unused method parameter "magicParameter".(¸äî8¤¯Ø¦Ä1
+java:S1172)"5Remove this unused method parameter "magicParameter".(šÂÌ½8¶ÚíªÆ1

@@ -1,7 +1,6 @@
 
-‚
-java:S1319"eThe type of "songs" should be an interface such as "List" rather than the implementation "ArrayList".(÷ƒò8ç…’Å1
+z	java:S135'"YReduce the total number of break and continue statements in this loop to use at most one.(ñÄ ‰ùÿÿÿÿ8’ €­Æ1
 u	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ôëı
-8ç…’Å1
-t
-java:S3776#"RRefactor this method to reduce its Cognitive Complexity from 24 to the 15 allowed.(¿‡¹ ûÿÿÿÿ8ì…’Å1
+8Š¨ø¬Æ1
+o
+java:S3776&"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(¹‚´‰8Ş¨ø¬Æ1

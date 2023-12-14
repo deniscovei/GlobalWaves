@@ -2,34 +2,37 @@ package data.entities.users;
 
 import data.Database;
 import data.entities.audio.audioCollections.Album;
-import data.entities.audio.audioCollections.AudioCollection;
 import data.entities.audio.audioFiles.AudioFile;
 import data.entities.audio.audioFiles.Song;
 import data.entities.content.Event;
-import data.entities.content.Merch;
+import data.entities.content.Merchandise;
 import data.entities.pages.ArtistPage;
 import lombok.Getter;
 import lombok.Setter;
-import utils.Extras.UserType;
-import utils.Extras.FileType;
+import utils.AppUtils.UserType;
+import utils.AppUtils.FileType;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Getter
 @Setter
 public class Artist extends User {
-    private ArrayList<Album> albums = new ArrayList<>();
-    private ArrayList<Event> events = new ArrayList<>();
-    private ArrayList<Merch> merches = new ArrayList<>();
+    private List<Album> albums = new ArrayList<>();
+    private List<Event> events = new ArrayList<>();
+    private List<Merchandise> merchandise = new ArrayList<>();
 
-    public Artist(String username, int age, String city) {
+    public Artist(final String username, final int age, final String city) {
         super(username, age, city);
         setUserType(UserType.ARTIST);
         setCurrentPage(new ArtistPage(this));
     }
 
-    public Album findAlbum(String name) {
+    /**
+     * finds an album in the artist's list of albums
+     */
+    public Album findAlbum(final String name) {
         for (Album album : albums) {
             if (album.getName().equals(name)) {
                 return album;
@@ -38,11 +41,17 @@ public class Artist extends User {
         return null;
     }
 
-    public void addAlbum(Album album) {
+    /**
+     * adds an album to the artist's list of albums
+     */
+    public void addAlbum(final Album album) {
         getAlbums().add(album);
     }
 
-    public Event findEvent(String name) {
+    /**
+     * finds an event in the artist's list of events
+     */
+    public Event findEvent(final String name) {
         for (Event event : events) {
             if (event.getName().equals(name)) {
                 return event;
@@ -51,12 +60,18 @@ public class Artist extends User {
         return null;
     }
 
-    public void addEvent(Event event) {
+    /**
+     * adds an event to the artist's list of events
+     */
+    public void addEvent(final Event event) {
         getEvents().add(event);
     }
 
-    public Merch findMerch(String name) {
-        for (Merch merch : merches) {
+    /**
+     * finds a merchandise in the artist's list of merchandise
+     */
+    public Merchandise findMerch(final String name) {
+        for (Merchandise merch : getMerchandise()) {
             if (merch.getName().equals(name)) {
                 return merch;
             }
@@ -64,12 +79,18 @@ public class Artist extends User {
         return null;
     }
 
-    public void addMerch(Merch merch) {
-        getMerches().add(merch);
+    /**
+     * adds a merchandise to the artist's list of merchandise
+     */
+    public void addMerchandise(final Merchandise newMerchandise) {
+        getMerchandise().add(newMerchandise);
     }
 
+    /**
+     * checks if the artist is interacting with others
+     */
     @Override
-    public boolean interactingWithOthers(int timestamp) {
+    public boolean interactingWithOthers(final int timestamp) {
         for (User user : Database.getInstance().getUsers()) {
             if (user.getUserType() == UserType.LISTENER) {
                 Listener listener = (Listener) user;
@@ -83,7 +104,8 @@ public class Artist extends User {
                     continue;
                 }
 
-                AudioFile currentPlayingFile = listener.getPlayer().getCurrentPlayingFile(timestamp);
+                AudioFile currentPlayingFile =
+                    listener.getPlayer().getCurrentPlayingFile(timestamp);
                 if (currentPlayingFile.getFileType().equals(FileType.SONG)
                     && ((Song) currentPlayingFile).getArtist().equals(getUsername())) {
                     return true;
@@ -94,14 +116,23 @@ public class Artist extends User {
         return false;
     }
 
-    public void removeAlbum(Album album) {
+    /**
+     * removes an album from the artist's albums
+     */
+    public void removeAlbum(final Album album) {
         getAlbums().remove(album);
     }
 
-    public void removeEvent(Event event) {
+    /**
+     * removes an event from the artist's events
+     */
+    public void removeEvent(final Event event) {
         getEvents().remove(event);
     }
 
+    /**
+     * gets the number of likes of the artist's albums
+     */
     public int getNumberOfLikes() {
         int numberOfLikes = 0;
         for (Album album : getAlbums()) {

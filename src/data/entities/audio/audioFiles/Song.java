@@ -4,20 +4,21 @@ import data.entities.users.User;
 import fileio.input.SongInput;
 import lombok.Getter;
 import lombok.Setter;
-import utils.Extras.FileType;
+import utils.AppUtils.FileType;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Setter
 @Getter
 public final class Song extends AudioFile {
     private String album = null;
-    private final ArrayList<String> tags = new ArrayList<>();
+    private final List<String> tags = new ArrayList<>();
     private String lyrics = null;
     private String genre = null;
     private Integer releaseYear = null;
     private String artist = null;
-    private final ArrayList<User> usersWhoLiked = new ArrayList<>();
+    private final List<User> usersWhoLiked = new ArrayList<>();
 
     public Song() {
         this.fileType = FileType.SONG;
@@ -34,7 +35,7 @@ public final class Song extends AudioFile {
         this.artist = song.getArtist();
     }
 
-    public Song(SongInput songInput, boolean added) {
+    public Song(final SongInput songInput, final boolean added) {
         this(songInput);
         this.added = added;
     }

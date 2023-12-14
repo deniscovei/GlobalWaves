@@ -1,6 +1,6 @@
 package data.entities.users;
 
-import commandManager.input.attributes.Stats;
+import commandmanager.input.attributes.Stats;
 import data.Database;
 import data.entities.SearchBar;
 import data.entities.Selection;
@@ -12,19 +12,16 @@ import data.entities.audioPlayer.Player;
 import data.entities.audio.audioFiles.Song;
 import data.entities.pages.HomePage;
 import data.entities.pages.LikedContentPage;
-import data.entities.pages.Page;
 import fileio.input.UserInput;
 import lombok.Getter;
 import lombok.Setter;
-import utils.Extras;
-import utils.Extras.UserType;
-import utils.Extras.PageType;
-import utils.Extras.FileType;
+import utils.AppUtils;
+import utils.AppUtils.UserType;
+import utils.AppUtils.PageType;
+import utils.AppUtils.FileType;
 
 import java.util.ArrayList;
-import java.util.Objects;
-
-import static utils.Extras.NO_REPEAT;
+import java.util.List;
 
 @Getter
 @Setter
@@ -33,32 +30,40 @@ public class Listener extends User {
     private SearchBar searchBar = new SearchBar();
     private Player player = new Player();
     private Selection selection = null;
-    private ArrayList<Song> likedSongs = new ArrayList<>();
+    private List<Song> likedSongs = new ArrayList<>();
     private String previousCommand = null;
     private boolean online = true;
     private Stats stats = new Stats();
     private boolean deleted = false;
     private int lastConnectedTimestamp = 0;
 
-    public Listener(String username, int age, String city) {
+    public Listener(final String username, final int age, final String city) {
         super(username, age, city);
         setUserType(UserType.LISTENER);
         setCurrentPage(new HomePage(this));
     }
 
-    public Listener(UserInput user) {
+    public Listener(final UserInput user) {
         this(user.getUsername(), user.getAge(), user.getCity());
     }
 
-    public void select(final Selection selection) {
-        switch (selection.getSelectionType()) {
-            case FILE -> getPlayer().select(selection.getSelectedFile());
-            case PAGE -> setCurrentPage(selection.getSelectedPage());
+    /**
+     * selects a file or a page
+     */
+    public void select(final Selection newSelection) {
+        if (newSelection.getSelectionType() == AppUtils.SelectionType.FILE) {
+            getPlayer().select(newSelection.getSelectedFile());
+        } else {
+            setCurrentPage(newSelection.getSelectedPage());
         }
-        setSelection(selection);
+
+        setSelection(newSelection);
         setPerformedSearch(false);
     }
 
+    /**
+     * gets the selected file
+     */
     public File getSelectedFile() {
         if (getSelection() == null) {
             return null;
@@ -66,18 +71,19 @@ public class Listener extends User {
         return getSelection().getSelectedFile();
     }
 
-    public Page getSelectedPage() {
-        return getSelection().getSelectedPage();
-    }
-
+    /**
+     * loads an audio file
+     */
     public void loadAudioFile(final int timestamp) {
-        // here added
         getPlayer().setShuffleActivated(false);
         getPlayer().setLoadedFile(getSelection().getSelectedFile());
         getPlayer().play(timestamp);
         setSelection(null);
     }
 
+    /**
+     * unloads the loaded file
+     */
     public void unloadAudioFile(final int timestamp) {
         getPlayer().pause(timestamp);
         getPlayer().removeLoadedSongs();
@@ -87,18 +93,30 @@ public class Listener extends User {
         setSelection(null);
     }
 
+    /**
+     * checks if the user has loaded a file
+     */
     public boolean hasLoadedAFile() {
         return getPlayer().getLoadedFile() != null;
     }
 
+    /**
+     * likes a song
+     */
     public void like(final Song song) {
         getLikedSongs().add(song);
     }
 
+    /**
+     * unlikes a song
+     */
     public void unlike(final Song song) {
         getLikedSongs().remove(song);
     }
 
+    /**
+     * deletes the user's data
+     */
     public void deleteData() {
         setOnline(true);
         setPlayer(new Player());
@@ -110,33 +128,49 @@ public class Listener extends User {
         setCurrentPage(new HomePage(this));
     }
 
+    /**
+     * gets the loaded file
+     */
     public File getLoadedFile() {
         return getPlayer().getLoadedFile();
     }
 
+    /**
+     * checks if the user has performed a search
+     */
     public boolean havePerformedSearch() {
         return performedSearch;
     }
 
-    public void switchConnectionStatus(int timestamp) {
+    /**
+     * switches the connection status
+     */
+    public void switchConnectionStatus(final int timestamp) {
         if (isOnline()) {
             setLastConnectedTimestamp(timestamp);
         } else if (getPlayer().getCurrentPlayerFileIndex() != -1) {
-            Playable currentPlayingFile = getPlayer().getPlayerFiles().get(getPlayer().getCurrentPlayerFileIndex());
-            currentPlayingFile.setOffset(currentPlayingFile.getOffset() - timestamp + getLastConnectedTimestamp());
+            Playable currentPlayingFile =
+                getPlayer().getPlayerFiles().get(getPlayer().getCurrentPlayerFileIndex());
+
+            currentPlayingFile.setOffset(currentPlayingFile.getOffset() - timestamp
+                + getLastConnectedTimestamp());
         }
+
         setOnline(!isOnline());
         setStats(timestamp);
     }
 
-    public void setStats(int timestamp) {
+    /**
+     * sets the stats
+     */
+    public void setStats(final int timestamp) {
         if (hasLoadedAFile() && !getPlayer().hasFinished(timestamp)) {
             AudioFile currentPlayingFile = getPlayer().getCurrentPlayingFile(timestamp);
             getStats().setName(currentPlayingFile.getName());
             getStats().setPaused(getPlayer().isPaused());
             getStats().setRemainedTime(getPlayer().getRemainedTime(currentPlayingFile, timestamp));
-            getStats().setRepeat(Extras.repeatStateToString(getPlayer().getRepeatState(),
-                    getLoadedFile().getFileType()));
+            getStats().setRepeat(AppUtils.repeatStateToString(getPlayer().getRepeatState(),
+                getLoadedFile().getFileType()));
             getStats().setShuffle(getPlayer().isShuffleActivated());
         } else {
             getStats().setName("");
@@ -147,45 +181,46 @@ public class Listener extends User {
         }
     }
 
-    public ArrayList<Playlist> getFollowedPlaylists() {
+    /**
+     * gets the followed playlists
+     */
+    public List<Playlist> getFollowedPlaylists() {
         return Database.getInstance().getFollowedPlaylists(getUsername());
     }
 
+    /**
+     * checks if the user is interacting with others
+     */
     @Override
-    public boolean interactingWithOthers(int timestamp) {
+    public boolean interactingWithOthers(final int timestamp) {
         for (User user : Database.getInstance().getUsers()) {
-            if (user == this) {
+            if (user == this || user.getUserType() != UserType.LISTENER) {
                 continue;
             }
 
-            if (user.getUserType() == UserType.LISTENER) {
-                Listener listener = (Listener) user;
+            Listener listener = (Listener) user;
 
-//                if (listener.getCurrentPage().getCreator().equals(this)) {
-//                    return true;
-//                }
+            if (listener.getCurrentPage().getCreator().equals(this)) {
+                return true;
+            }
 
-                if (!Objects.requireNonNull(listener).hasLoadedAFile()
-                        || listener.getPlayer().hasFinished(timestamp)) {
-                    continue;
-                }
+            if (listener.hasLoadedAFile() && !listener.getPlayer().hasFinished(timestamp)) {
+                File loadedFile = listener.getPlayer().getLoadedFile();
 
-                if (listener.getPlayer().getLoadedFile().getFileType() == FileType.PLAYLIST
-                        && ((Playlist) listener.getPlayer().getLoadedFile()).getOwner().equals(getUsername())) {
+                if (loadedFile != null && loadedFile.getFileType() == FileType.PLAYLIST
+                    && ((Playlist) loadedFile).getOwner().equals(getUsername())) {
                     return true;
                 }
-
-//                if (listener.getPlayer().getLoadedFile().getFileType() == Extras.FileType.PLAYLIST
-//                        && ((Playlist) listener.getPlayer().getLoadedFile()).getOwner().equals(getUsername())) {
-//                    return true;
-//                }
             }
         }
 
         return false;
     }
 
-    public void goToNextPage(PageType pageType) {
+    /**
+     * goes to the next page
+     */
+    public void goToNextPage(final PageType pageType) {
         switch (pageType) {
             case HOME_PAGE:
                 setCurrentPage(new HomePage(this));

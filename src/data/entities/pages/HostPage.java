@@ -6,10 +6,10 @@ import data.entities.audio.audioFiles.Episode;
 import data.entities.content.Announcement;
 import data.entities.users.Host;
 import data.entities.users.User;
-import utils.Extras.PageType;
+import utils.AppUtils.PageType;
 
 public final class HostPage extends Page {
-    public HostPage(User creator) {
+    public HostPage(final User creator) {
         super(creator);
         pageType = PageType.HOST_PAGE;
     }
@@ -21,7 +21,8 @@ public final class HostPage extends Page {
         for (Podcast podcast : host.getPodcasts()) {
             result.append(podcast.getName()).append(":\n\t[");
             for (AudioFile episode : podcast.getEpisodes()) {
-                result.append(episode.getName()).append(" - ").append(((Episode) episode).getDescription());
+                result.append(episode.getName()).append(" - ")
+                    .append(((Episode) episode).getDescription());
                 if (episode != podcast.getEpisodes().get(podcast.getEpisodes().size() - 1)) {
                     result.append(", ");
                 }
@@ -37,7 +38,9 @@ public final class HostPage extends Page {
         result.append("]\n\nAnnouncements:\n\t[");
 
         for (Announcement announcement : host.getAnnouncements()) {
-            result.append(announcement.getName()).append(":\n\t").append(announcement.getDescription()).append("\n");
+            result.append(announcement.getName()).append(":\n\t")
+                .append(announcement.getDescription()).append("\n");
+
             if (announcement != host.getAnnouncements().get(host.getAnnouncements().size() - 1)) {
                 result.append(", ");
             }

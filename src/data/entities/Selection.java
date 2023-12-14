@@ -5,8 +5,8 @@ import data.entities.audio.File;
 import data.entities.pages.Page;
 import lombok.Getter;
 import lombok.Setter;
-import utils.Extras.SelectionType;
-import utils.Extras.SearchType;
+import utils.AppUtils.SelectionType;
+import utils.AppUtils.SearchType;
 
 import java.util.Objects;
 
@@ -34,7 +34,8 @@ public class Selection {
                 break;
             case ARTIST, HOST:
                 this.selectionType = SelectionType.PAGE;
-                this.selectedPage = Objects.requireNonNull(Database.getInstance().findUser(selection)).getCurrentPage();
+                this.selectedPage = Objects.requireNonNull(Database.getInstance()
+                    .findUser(selection)).getCurrentPage();
                 break;
             default:
                 break;

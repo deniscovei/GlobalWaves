@@ -1,9 +1,3 @@
 
-…
-java:S1319 "hThe type of "episodes" should be an interface such as "List" rather than the implementation "ArrayList".(åÌœÌ8®ë¯Å1
-’
-java:S1319*"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(˜Ò×‹şÿÿÿÿ8¯ë¯Å1
 u	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ôëı
 8¯ë¯Å1
-]
-java:S1128"@Remove this unused import 'data.entities.audio.audioFiles.Song'.(ŒŸèÃ8Ù±Å1

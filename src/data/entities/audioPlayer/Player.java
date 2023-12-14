@@ -4,14 +4,15 @@ import data.entities.audio.File;
 import data.entities.audio.audioFiles.AudioFile;
 import lombok.Getter;
 import lombok.Setter;
-import utils.Extras;
+import utils.AppUtils;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Setter
 @Getter
 public final class Player {
-    ArrayList<Playable> playerFiles = new ArrayList<>();
+    private List<Playable> playerFiles = new ArrayList<>();
     private int currentPlayerFileIndex = -1;
     private boolean shuffleActivated = false;
 
@@ -20,8 +21,7 @@ public final class Player {
      */
     public AudioFile getCurrentPlayingFile(final int timestamp) {
         Playable currentPlayerFile = getPlayerFiles().get(getCurrentPlayerFileIndex());
-        AudioFile currentPlayingFile = currentPlayerFile.getCurrentPlayingFile(timestamp);
-        return currentPlayingFile;
+        return currentPlayerFile.getCurrentPlayingFile(timestamp);
     }
 
     /**
@@ -106,7 +106,7 @@ public final class Player {
                 continue;
             }
             if (getPlayerFiles().get(index).getLoadedFile().getFileType().
-                    equals(Extras.FileType.SONG)) {
+                    equals(AppUtils.FileType.SONG)) {
                 getPlayerFiles().remove(index);
                 index--;
             }
@@ -124,13 +124,16 @@ public final class Player {
             }
 
             if (getPlayerFiles().get(index).getLoadedFile().getFileType().
-                    equals(Extras.FileType.PLAYLIST)) {
+                    equals(AppUtils.FileType.PLAYLIST)) {
                 getPlayerFiles().remove(index);
                 index--;
             }
         }
     }
 
+    /**
+     * removes loaded albums from the player
+     */
     public void removeLoadedAlbums() {
         setCurrentPlayerFileIndex(-1);
         for (int index = 0; index < getPlayerFiles().size(); index++) {
@@ -139,7 +142,7 @@ public final class Player {
             }
 
             if (getPlayerFiles().get(index).getLoadedFile().getFileType().
-                    equals(Extras.FileType.ALBUM)) {
+                    equals(AppUtils.FileType.ALBUM)) {
                 getPlayerFiles().remove(index);
                 index--;
             }
@@ -152,8 +155,6 @@ public final class Player {
     public void repeat(final int timestamp) {
         fastForwardToCurrentPlayingFile(timestamp);
         changeRepeatState();
-        //getPlayerFiles().get(getCurrentPlayerFileIndex()).setRepeatState(getRepeatState());
-        //setRepeatState(getPlayerFiles().get(getCurrentPlayerFileIndex()).getRepeatState());
     }
 
     /**
@@ -172,15 +173,15 @@ public final class Player {
      */
     private void changeRepeatState() {
         Playable currentPlayerFIle = (getPlayerFiles().get(getCurrentPlayerFileIndex()));
-        currentPlayerFIle.setRepeatState((currentPlayerFIle.getRepeatState() + 1) % Extras.NO_REPEAT_STATES);
+        currentPlayerFIle.setRepeatState((currentPlayerFIle.getRepeatState() + 1)
+            % AppUtils.NO_REPEAT_STATES);
     }
 
+    /**
+     * returns the repeat state
+     */
     public int getRepeatState() {
         return getPlayerFiles().get(getCurrentPlayerFileIndex()).getRepeatState();
-    }
-
-    public void setRepeatState(int repeatState) {
-        getPlayerFiles().get(getCurrentPlayerFileIndex()).setRepeatState(repeatState);
     }
 
     /**

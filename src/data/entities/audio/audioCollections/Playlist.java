@@ -7,17 +7,18 @@ import data.entities.audio.audioFiles.AudioFile;
 import data.entities.audio.audioFiles.Song;
 import lombok.Getter;
 import lombok.Setter;
-import utils.Extras;
-import utils.Extras.FileType;
+import utils.AppUtils;
+import utils.AppUtils.FileType;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Setter
 @Getter
 public final class Playlist extends AudioCollection {
-    private String visibility = Extras.PUBLIC;
+    private String visibility = AppUtils.PUBLIC;
     @JsonIgnore
-    private final ArrayList<String> followerNames = new ArrayList<>();
+    private final List<String> followerNames = new ArrayList<>();
     @JsonIgnore
     private int createdAt = 0;
 
@@ -42,23 +43,23 @@ public final class Playlist extends AudioCollection {
      * returns the number of songs in the playlist
      */
     @JsonSerialize(using = AudioFileListSerializer.class)
-    public ArrayList<AudioFile> getSongs() {
+    public List<AudioFile> getSongs() {
         return getAudioFiles();
     }
 
     private void makePublic() {
-        setVisibility(Extras.PUBLIC);
+        setVisibility(AppUtils.PUBLIC);
     }
 
     private void makePrivate() {
-        setVisibility(Extras.PRIVATE);
+        setVisibility(AppUtils.PRIVATE);
     }
 
     /**
      * switches the visibility of the playlist
      */
     public void switchVisibility() {
-        if (getVisibility().equals(Extras.PUBLIC)) {
+        if (getVisibility().equals(AppUtils.PUBLIC)) {
             makePrivate();
         } else {
             makePublic();

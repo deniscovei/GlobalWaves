@@ -4,12 +4,12 @@ import data.entities.audio.audioCollections.Playlist;
 import data.entities.audio.audioFiles.Song;
 import data.entities.users.Listener;
 import data.entities.users.User;
-import utils.Extras.PageType;
+import utils.AppUtils.PageType;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public final class LikedContentPage extends Page {
-    public LikedContentPage(User creator) {
+    public LikedContentPage(final User creator) {
         super(creator);
         pageType = PageType.LIKED_CONTENT_PAGE;
     }
@@ -28,7 +28,7 @@ public final class LikedContentPage extends Page {
 
         result.append("]\n\nFollowed playlists:\n\t[");
 
-        ArrayList<Playlist> followedPlaylists = listener.getFollowedPlaylists();
+        List<Playlist> followedPlaylists = listener.getFollowedPlaylists();
 
         for (Playlist playlist : followedPlaylists) {
             result.append(playlist.getName()).append(" - ").append(playlist.getOwner());

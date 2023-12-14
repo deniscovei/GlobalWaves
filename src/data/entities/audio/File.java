@@ -2,7 +2,7 @@ package data.entities.audio;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
-import utils.Extras.FileType;
+import utils.AppUtils.FileType;
 
 @Getter
 public abstract class File {

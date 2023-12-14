@@ -1,6 +1,2 @@
 
 o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¥èÅÁ
-g
-java:S1128"JRemove this unused import 'data.entities.audio.audioCollections.Playlist'.(ýÎ…“8®§´±Å1
-K
-java:S1128")Remove this unused import 'utils.Extras'.(æ‹†»ùÿÿÿÿ8®§´±Å1

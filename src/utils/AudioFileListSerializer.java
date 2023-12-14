@@ -6,11 +6,11 @@ import com.fasterxml.jackson.databind.SerializerProvider;
 import data.entities.audio.audioFiles.AudioFile;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 
-public final class AudioFileListSerializer extends JsonSerializer<ArrayList<AudioFile>> {
+public final class AudioFileListSerializer extends JsonSerializer<List<AudioFile>> {
     @Override
-    public void serialize(final ArrayList<AudioFile> audioFiles, final JsonGenerator jsonGenerator,
+    public void serialize(final List<AudioFile> audioFiles, final JsonGenerator jsonGenerator,
                           final SerializerProvider serializerProvider) throws IOException {
         jsonGenerator.writeStartArray();
 
