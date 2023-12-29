@@ -3,8 +3,8 @@ package commandmanager.input.commands;
 import commandmanager.input.Input;
 import commandmanager.output.Output;
 import data.Database;
-import data.entities.audio.File;
-import data.entities.audio.audioCollections.Playlist;
+import data.entities.files.File;
+import data.entities.files.audioCollections.Playlist;
 import data.entities.users.Listener;
 import utils.AppUtils;
 

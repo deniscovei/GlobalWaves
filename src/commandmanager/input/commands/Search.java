@@ -3,11 +3,12 @@ package commandmanager.input.commands;
 import commandmanager.input.Input;
 import commandmanager.input.attributes.Filters;
 import data.Database;
-import data.entities.audio.audioCollections.Album;
-import data.entities.audio.audioCollections.Playlist;
-import data.entities.audio.audioCollections.Podcast;
-import data.entities.audio.audioFiles.Song;
+import data.entities.files.audioCollections.Album;
+import data.entities.files.audioCollections.Playlist;
+import data.entities.files.audioCollections.Podcast;
+import data.entities.files.audioFiles.Song;
 import commandmanager.output.Output;
+import data.entities.users.Artist;
 import data.entities.users.Listener;
 import data.entities.users.User;
 import utils.AppUtils;
@@ -74,9 +75,17 @@ public final class Search implements Command {
                 break;
             case "album":
                 user.getSearchBar().setSearchType(SearchType.ALBUM);
-                for (Album album : Database.getInstance().getAlbums()) {
-                    if (checkAlbumFilters(album, input.getFilters())) {
-                        searchResults.add(album.getName());
+                for (User _user : Database.getInstance().getUsers()) {
+                    if (_user.getUserType().equals(UserType.ARTIST)) {
+                        Artist artist = (Artist) _user;
+                        for (Album album : artist.getAlbums()) {
+                            if (checkAlbumFilters(album, input.getFilters())) {
+                                searchResults.add(album.getName());
+                                if (searchResults.size() == RES_COUNT_MAX) {
+                                    break;
+                                }
+                            }
+                        }
                         if (searchResults.size() == RES_COUNT_MAX) {
                             break;
                         }
@@ -130,7 +139,7 @@ public final class Search implements Command {
 
     private boolean filterSongByName(final Song song, final String searchedSong) {
         if (searchedSong != null) {
-            return song.getName().startsWith(searchedSong);
+            return song.getName().toLowerCase().startsWith(searchedSong.toLowerCase());
         } else {
             return true;
         }

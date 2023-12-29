@@ -3,7 +3,7 @@ package commandmanager.input.commands;
 import commandmanager.input.Input;
 import commandmanager.output.Output;
 import data.Database;
-import data.entities.audio.audioCollections.Playlist;
+import data.entities.files.audioCollections.Playlist;
 import utils.AppUtils;
 
 import java.util.ArrayList;

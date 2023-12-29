@@ -1,8 +1,8 @@
 package data.entities.pages;
 
-import data.entities.audio.audioCollections.Podcast;
-import data.entities.audio.audioFiles.AudioFile;
-import data.entities.audio.audioFiles.Episode;
+import data.entities.files.audioCollections.Podcast;
+import data.entities.files.audioFiles.AudioFile;
+import data.entities.files.audioFiles.Episode;
 import data.entities.content.Announcement;
 import data.entities.users.Host;
 import data.entities.users.User;

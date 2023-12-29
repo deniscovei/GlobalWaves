@@ -5,8 +5,8 @@ import commandmanager.input.Input;
 import commandmanager.output.Output;
 import data.Database;
 import data.entities.users.Listener;
-import data.entities.audioPlayer.Player;
-import data.entities.audio.audioFiles.AudioFile;
+import data.entities.player.Player;
+import data.entities.files.audioFiles.AudioFile;
 import utils.AppUtils;
 
 import java.util.Objects;

@@ -8,6 +8,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.node.ArrayNode;
+import commandmanager.input.commands.EndProgram;
 import data.Database;
 import fileio.input.LibraryInput;
 
@@ -82,7 +83,7 @@ public final class Main {
         if (!Database.instantiated()) {
             Database.getInstance().upload(library);
         } else {
-            Database.getInstance().flush();
+            Database.getInstance().flush(library);
         }
 
         ArrayNode outputs = objectMapper.createArrayNode();
@@ -92,9 +93,13 @@ public final class Main {
                 .readValue(new File(inputPath), new TypeReference<>() {
                 });
 
+        System.out.println("Input file: " + filePathInput);
         for (Input input : inputs) {
             outputs.add(objectMapper.valueToTree(input.action()));
         }
+
+        outputs.add(objectMapper.valueToTree(new EndProgram()
+                .action(new Input("endProgram"))));
 
         ObjectWriter objectWriter = objectMapper.writerWithDefaultPrettyPrinter();
         objectWriter.writeValue(new File(filePathOutput), outputs);

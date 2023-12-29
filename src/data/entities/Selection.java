@@ -1,7 +1,7 @@
 package data.entities;
 
 import data.Database;
-import data.entities.audio.File;
+import data.entities.files.File;
 import data.entities.pages.Page;
 import lombok.Getter;
 import lombok.Setter;

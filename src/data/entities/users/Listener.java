@@ -4,12 +4,12 @@ import commandmanager.input.attributes.Stats;
 import data.Database;
 import data.entities.SearchBar;
 import data.entities.Selection;
-import data.entities.audio.File;
-import data.entities.audio.audioCollections.Playlist;
-import data.entities.audio.audioFiles.AudioFile;
-import data.entities.audioPlayer.Playable;
-import data.entities.audioPlayer.Player;
-import data.entities.audio.audioFiles.Song;
+import data.entities.files.File;
+import data.entities.files.audioCollections.Playlist;
+import data.entities.files.audioFiles.AudioFile;
+import data.entities.player.Playable;
+import data.entities.player.Player;
+import data.entities.files.audioFiles.Song;
 import data.entities.pages.HomePage;
 import data.entities.pages.LikedContentPage;
 import fileio.input.UserInput;
@@ -20,8 +20,7 @@ import utils.AppUtils.UserType;
 import utils.AppUtils.PageType;
 import utils.AppUtils.FileType;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * The type Listener.
@@ -40,6 +39,33 @@ public class Listener extends User {
     private boolean deleted = false;
     private int lastConnectedTimestamp = 0;
 
+    @Getter
+    @Setter
+    public class ListenerTops implements User.Tops {
+        private Map<String, Integer> topArtists = new HashMap<>();
+        private Map<String, Integer> topGenres = new HashMap<>();
+        private Map<String, Integer> topSongs = new HashMap<>();
+        private Map<String, Integer> topAlbums = new HashMap<>();
+        private Map<String, Integer> topEpisodes = new HashMap<>();
+
+        public ListenerTops() {
+
+        }
+
+        public ListenerTops(ListenerTops listenerTops) {
+            this.topArtists = sortMap(listenerTops.getTopArtists());
+            this.topGenres = sortMap(listenerTops.getTopGenres());
+            this.topSongs = sortMap(listenerTops.getTopSongs());
+            this.topAlbums = sortMap(listenerTops.getTopAlbums());
+            this.topEpisodes = sortMap(listenerTops.getTopEpisodes());
+        }
+
+        @Override
+        public Tops clone() {
+            return new ListenerTops(this);
+        }
+    }
+
     /**
      * Instantiates a new Listener.
      *
@@ -49,6 +75,7 @@ public class Listener extends User {
      */
     public Listener(final String username, final int age, final String city) {
         super(username, age, city);
+        tops = new ListenerTops();
         setUserType(UserType.LISTENER);
         setCurrentPage(new HomePage(this));
     }
@@ -68,6 +95,7 @@ public class Listener extends User {
      * @param newSelection the new selection
      */
     public void select(final Selection newSelection) {
+        getPlayer().setListener(this);
         if (newSelection.getSelectionType() == AppUtils.SelectionType.FILE) {
             getPlayer().select(newSelection.getSelectedFile());
         } else {
@@ -185,10 +213,10 @@ public class Listener extends User {
             setLastConnectedTimestamp(timestamp);
         } else if (getPlayer().getCurrentPlayerFileIndex() != -1) {
             Playable currentPlayingFile =
-                getPlayer().getPlayerFiles().get(getPlayer().getCurrentPlayerFileIndex());
+                    getPlayer().getPlayerFiles().get(getPlayer().getCurrentPlayerFileIndex());
 
             currentPlayingFile.setOffset(currentPlayingFile.getOffset() - timestamp
-                + getLastConnectedTimestamp());
+                    + getLastConnectedTimestamp());
         }
 
         setOnline(!isOnline());
@@ -207,7 +235,7 @@ public class Listener extends User {
             getStats().setPaused(getPlayer().isPaused());
             getStats().setRemainedTime(getPlayer().getRemainedTime(currentPlayingFile, timestamp));
             getStats().setRepeat(AppUtils.repeatStateToString(getPlayer().getRepeatState(),
-                getLoadedFile().getFileType()));
+                    getLoadedFile().getFileType()));
             getStats().setShuffle(getPlayer().isShuffleActivated());
         } else {
             getStats().setName("");
@@ -250,7 +278,7 @@ public class Listener extends User {
                 File loadedFile = listener.getPlayer().getLoadedFile();
 
                 if (loadedFile != null && loadedFile.getFileType() == FileType.PLAYLIST
-                    && ((Playlist) loadedFile).getOwner().equals(getUsername())) {
+                        && ((Playlist) loadedFile).getOwner().equals(getUsername())) {
                     return true;
                 }
             }

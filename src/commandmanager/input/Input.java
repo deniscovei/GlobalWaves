@@ -4,6 +4,7 @@ import commandmanager.IoEntry;
 import commandmanager.input.attributes.Filters;
 import commandmanager.input.commands.Command;
 import commandmanager.output.Output;
+import data.Database;
 import fileio.input.EpisodeInput;
 import fileio.input.SongInput;
 import lombok.Getter;
@@ -36,6 +37,9 @@ public final class Input extends IoEntry {
     private List<EpisodeInput> episodes = new ArrayList<>();
     private String nextPage = null;
 
+    private String recommendationType = null;
+
+
     /**
      * Instantiates a new Input.
      */
@@ -54,12 +58,17 @@ public final class Input extends IoEntry {
         this.username = username;
     }
 
+    public Input(final String command) {
+        this.command = command;
+    }
+
     /**
      * This method calls the action method of the command strategy that matches the command.
      *
      * @return the output of the command strategy
      */
     public Output action() {
+        Database.getInstance().simulateTime(getTimestamp());
         return queryHandler(getCommand());
     }
 
@@ -80,9 +89,10 @@ public final class Input extends IoEntry {
 
             return strategy.action(this);
         } catch (Exception e) {
-            System.out.println("Error: Command \"" + input + "\" not found or failed.");
+            System.out.println("Error: Command \"" + getCommand()
+                        + "\" not found or failed at timestamp " + getTimestamp());
 
-            e.printStackTrace();
+            //e.printStackTrace();
 
             return null;
         }

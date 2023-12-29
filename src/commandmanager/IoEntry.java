@@ -16,7 +16,7 @@ public abstract class IoEntry {
     /**
      * The Timestamp.
      */
-    protected int timestamp = 0;
+    protected Integer timestamp = null;
 
     /**
      * Instantiates a new Io entry.

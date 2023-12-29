@@ -7,6 +7,7 @@ import commandmanager.input.Input;
 import lombok.Getter;
 import lombok.Setter;
 import java.util.List;
+import java.util.Map;
 
 /**
  * The type Output.
@@ -15,11 +16,16 @@ import java.util.List;
 @Getter
 @JsonPropertyOrder({ "command", "user", "timestamp", "message", "results", "stats"})
 public final class Output extends IoEntry {
-    private final String user;
+    private String user;
     private String message = null;
     private List<String> results = null;
-    private List<?> result = null;
+    Object result = null;
     private Stats stats = null;
+
+    public Output(final String command, final Object result) {
+        this.command = command;
+        this.result = result;
+    }
 
     /**
      * Instantiates a new Output.
@@ -72,7 +78,7 @@ public final class Output extends IoEntry {
      * @param result         the result
      * @param magicParameter the magic parameter
      */
-    public Output(final Input input, final List<?> result, final Object magicParameter) {
+    public Output(final Input input, final Object result, final Object magicParameter) {
         this(input);
         this.result = result;
     }

@@ -1,9 +1,9 @@
 package data;
 
-import data.entities.audio.audioCollections.Album;
-import data.entities.audio.audioCollections.Playlist;
-import data.entities.audio.audioCollections.Podcast;
-import data.entities.audio.audioFiles.Song;
+import data.entities.files.audioCollections.Album;
+import data.entities.files.audioCollections.Playlist;
+import data.entities.files.audioCollections.Podcast;
+import data.entities.files.audioFiles.Song;
 import data.entities.users.Artist;
 import data.entities.users.Host;
 import data.entities.users.Listener;
@@ -161,22 +161,6 @@ public final class Database {
     }
 
     /**
-     * removes all the playlists from the database
-     */
-    public void removePlaylists() {
-        getPlaylists().clear();
-    }
-
-    /**
-     * removes all the songs' likes from the database
-     */
-    public void removeLikes() {
-        for (Song song : getSongs()) {
-            song.getUsersWhoLiked().clear();
-        }
-    }
-
-    /**
      * removes all the likes of the given user from the database
      *
      * @param listener the listener
@@ -209,25 +193,13 @@ public final class Database {
     /**
      * deletes added data
      */
-    public void flush() {
-        // delete the data of the users
-        for (User user : getUsers()) {
-            if (user.getUserType().equals(UserType.LISTENER)) {
-                ((Listener) user).deleteData();
-            }
-        }
-        // delete previously created albums
-        removeAlbums();
-        // delete previously created playlists
-        removePlaylists();
-        // delete liked songs
-        removeLikes();
-        // delete added users
-        getUsers().removeIf(User::isAdded);
-        // delete added songs
-        getSongs().removeIf(Song::isAdded);
-        // delete added podcasts
-        getPodcasts().removeIf(Podcast::isAdded);
+    public void flush(final LibraryInput library) {
+        users.clear();
+        songs.clear();
+        podcasts.clear();
+        playlists.clear();
+        albums.clear();
+        upload(library);
     }
 
     /**
@@ -454,5 +426,17 @@ public final class Database {
         }
 
         return result;
+    }
+
+    public void simulateTime(int timestamp) {
+        for (User user : getUsers()) {
+            if (user.getUserType() == UserType.LISTENER) {
+                Listener listener = (Listener) user;
+
+                if (listener.hasLoadedAFile()) {
+                    listener.getPlayer().simulateTime(timestamp);
+                }
+            }
+        }
     }
 }

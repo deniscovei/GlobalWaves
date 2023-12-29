@@ -2,8 +2,8 @@ package commandmanager.input.commands;
 
 import commandmanager.input.Input;
 import commandmanager.output.Output;
-import data.entities.audio.File;
-import data.entities.audio.audioCollections.AudioCollection;
+import data.entities.files.File;
+import data.entities.files.audioCollections.AudioCollection;
 import data.entities.users.Listener;
 import utils.AppUtils;
 import data.Database;
@@ -33,6 +33,7 @@ public final class Load implements Command {
                 && ((AudioCollection) selection).getAudioFiles().isEmpty()) {
                 message = "You can't load an empty audio collection!";
             } else {
+                //System.out.print("TIME " + input.getTimestamp() + " ");
                 user.loadAudioFile(input.getTimestamp());
                 message = "Playback loaded successfully.";
             }

@@ -1,7 +1,7 @@
 package data.entities.pages;
 
-import data.entities.audio.audioCollections.Playlist;
-import data.entities.audio.audioFiles.Song;
+import data.entities.files.audioCollections.Playlist;
+import data.entities.files.audioFiles.Song;
 import data.entities.users.Listener;
 import data.entities.users.User;
 import utils.AppUtils.PageType;

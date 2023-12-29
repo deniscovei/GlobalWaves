@@ -1,7 +1,7 @@
 package data.entities.users;
 
 import data.Database;
-import data.entities.audio.audioCollections.Podcast;
+import data.entities.files.audioCollections.Podcast;
 import data.entities.content.Announcement;
 import data.entities.pages.HostPage;
 import lombok.Getter;
@@ -9,9 +9,7 @@ import lombok.Setter;
 import utils.AppUtils.FileType;
 import utils.AppUtils.UserType;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 /**
  * The type Host.
@@ -22,6 +20,30 @@ public class Host extends User {
     private List<Podcast> podcasts = new ArrayList<>();
     private List<Announcement> announcements = new ArrayList<>();
 
+    @Getter
+    @Setter
+    public class HostTops implements User.Tops {
+        private Map<String, Integer> topEpisodes = new HashMap<>();
+        private Set<String> topFans = new HashSet<>();
+
+        public HostTops() {
+
+        }
+
+        public HostTops(HostTops hostTops) {
+            this.topEpisodes = sortMap(hostTops.getTopEpisodes());
+        }
+
+        public int getListeners() {
+            return getTopFans().size();
+        }
+
+        @Override
+        public Tops clone() {
+            return new HostTops(this);
+        }
+    }
+
     /**
      * Instantiates a new Host.
      *
@@ -31,6 +53,7 @@ public class Host extends User {
      */
     public Host(final String username, final int age, final String city) {
         super(username, age, city);
+        tops = new HostTops();
         setUserType(UserType.HOST);
         setCurrentPage(new HostPage(this));
     }

@@ -3,7 +3,7 @@ package commandmanager.input.commands;
 import commandmanager.input.Input;
 import commandmanager.output.Output;
 import data.Database;
-import data.entities.audio.audioCollections.Podcast;
+import data.entities.files.audioCollections.Podcast;
 import data.entities.users.Host;
 import data.entities.users.User;
 import utils.AppUtils.UserType;

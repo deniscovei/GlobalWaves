@@ -1,9 +1,15 @@
 package data.entities.users;
 
+import data.Database;
 import data.entities.pages.Page;
 import lombok.Getter;
 import lombok.Setter;
+import utils.AppUtils;
 import utils.AppUtils.UserType;
+
+import java.util.*;
+
+import static utils.AppUtils.RES_COUNT_MAX;
 
 /**
  * The type User.
@@ -11,12 +17,39 @@ import utils.AppUtils.UserType;
 @Setter
 @Getter
 public abstract class User {
-    private String username = null;
+    protected String username = null;
     private int age = 0;
     private String city = null;
     private UserType userType = null;
     private Page currentPage = null;
     private boolean added = false;
+
+    public interface Tops {
+        Tops clone();
+
+        default Map<String, Integer> sortMap(Map<String, Integer> unsortedMap) {
+            List<Map.Entry<String, Integer>> list = new LinkedList<>(unsortedMap.entrySet());
+
+            list.sort(Comparator
+                    .comparing(Map.Entry<String, Integer>::getValue).reversed()
+                    .thenComparing(Map.Entry::getKey));
+
+            LinkedHashMap<String, Integer> sortedMap = new LinkedHashMap<>();
+            int count = 0;
+
+            for (Map.Entry<String, Integer> entry : list) {
+                sortedMap.put(entry.getKey(), entry.getValue());
+
+                if (++count == RES_COUNT_MAX) {
+                    break;
+                }
+            }
+
+            return sortedMap;
+        }
+    }
+
+    protected Tops tops;
 
     /**
      * Instantiates a new User.

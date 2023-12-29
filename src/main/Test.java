@@ -27,7 +27,7 @@ public final class Test {
         if (inputDir != null) {
             Arrays.sort(inputDir);
 
-            String testNo = "02";
+            String testNo = "03";
             for (File file : inputDir) {
                 if (file.getName().contains(testNo)) {
                     Main.action(file.getName(), CheckerConstants.OUT_FILE);

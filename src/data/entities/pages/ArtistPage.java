@@ -1,6 +1,6 @@
 package data.entities.pages;
 
-import data.entities.audio.audioCollections.Album;
+import data.entities.files.audioCollections.Album;
 import data.entities.content.Event;
 import data.entities.content.Merchandise;
 import data.entities.users.Artist;
