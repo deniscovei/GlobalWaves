@@ -1,12 +1,14 @@
 package data.entities.files.audioFiles;
 
 import data.Database;
+import data.entities.files.audioCollections.Album;
 import data.entities.users.Artist;
 import data.entities.users.Listener;
 import data.entities.users.User;
 import fileio.input.SongInput;
 import lombok.Getter;
 import lombok.Setter;
+import utils.AppUtils;
 import utils.AppUtils.FileType;
 
 import java.util.ArrayList;
@@ -91,8 +93,9 @@ public final class Song extends AudioFile {
     static int count;
 
     public void listen(final Listener listener) {
-        //System.out.println(++count + " Song: " + getName() + " from album " + getAlbum() + " "
-         //+ listener.getUsername() + " " + getDuration());
+        if (getAlbum().equals("Greatest Hits"))
+            System.out.println(++count + " Song: " + getName() + " from album " + getAlbum() + " "
+                    + listener.getUsername() + " " + getArtist() + " " + getDuration());
         Listener.ListenerTops tops = (Listener.ListenerTops) listener.getTops();
 
         tops.getTopAlbums().compute(getAlbum(), (album, count) -> (count == null) ? 1 : count + 1);
@@ -101,7 +104,31 @@ public final class Song extends AudioFile {
         tops.getTopGenres().compute(getGenre(), (genre, count) -> (count == null) ? 1 : count + 1);
         tops.getTopSongs().compute(getName(), (song, count) -> (count == null) ? 1 : count + 1);
 
-        Artist artist = (Artist) Database.getInstance().findUser(getArtist());
+        Artist artist = null;
+        for (User user : Database.getInstance().getUsers()) {
+            if (user.getUserType() == AppUtils.UserType.ARTIST) {
+                Artist currArtist = (Artist) user;
+
+                if (currArtist.getUsername().equals(getArtist())) {
+                    for (Album currAlbum : currArtist.getAlbums()) {
+                        if (currAlbum.getName().equals(getAlbum())) {
+                            artist = currArtist;
+                            break;
+                        }
+                    }
+                }
+
+                if (artist != null) {
+                    break;
+                }
+
+//                if (artist.getUsername().equals(getArtist()) && artist.getAlbums().contains()) {
+//                    artist.listen(listener);
+//                }
+            }
+        }
+
+        //Artist artist = (Artist) Database.getInstance().findUser(getArtist());
 
         if (artist == null) {
             artist = new Artist(getArtist());

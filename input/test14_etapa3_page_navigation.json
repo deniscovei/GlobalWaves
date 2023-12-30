@@ -174,13 +174,13 @@
     "command": "addUser",
     "timestamp": 10,
     "type": "host",
-    "username": "TED",
+    "username": "TED-X",
     "age": 70,
     "city": "Los Angeles"
   },
   {
     "command": "addPodcast",
-    "username": "TED",
+    "username": "TED-X",
     "timestamp": 15,
     "name": "Auditory Adventures",
     "episodes": [
@@ -505,8 +505,8 @@
     "timestamp": 45,
     "type": "podcast",
     "filters": {
-      "name": "TED Talks Daily",
-      "owner": "TED"
+      "name": "Auditory Adventures",
+      "owner": "TED-X"
     }
   },
   {

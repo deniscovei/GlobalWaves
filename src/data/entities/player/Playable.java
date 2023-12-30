@@ -29,7 +29,6 @@ public final class Playable {
     private int pauseTimestamp = -1;
     private int offset = 0;
     private int repeatState = AppUtils.NO_REPEAT;
-    private boolean audioCollectionCounted = false;
     private boolean shuffleActivated = false;
     private List<Integer> orderedIndexes = new ArrayList<>();
     private List<Integer> shuffledIndexes = new ArrayList<>();
@@ -113,7 +112,7 @@ public final class Playable {
         if (getLoadedFile().getFileType().equals(AppUtils.FileType.SONG)) {
             AudioFile currAudioFile = (AudioFile) getLoadedFile();
 
-            if (getRemainedTime(currAudioFile, timestamp) >= 0) {
+            if (getRemainedTime(currAudioFile, timestamp) > 0) {
                 return currAudioFile;
             } else {
                 switch (getRepeatState()) {
@@ -128,10 +127,11 @@ public final class Playable {
                             currAudioFile.listen(getListener());
                         }
                         return currAudioFile;
-                    //case AppUtils.NO_REPEAT:
+                    case AppUtils.NO_REPEAT:
                         //currAudioFile.listen(getListener());
-                      //  return currAudioFile;
+                        return currAudioFile;
                     default: // NO REPEAT
+                        //currAudioFile.listen(getListener());
                         return null;
                 }
             }
@@ -140,23 +140,20 @@ public final class Playable {
             AudioFile currentPlayingFile = audioCollection.getAudioFiles().
                     get(getCurrentPlayingFileId());
 
-            if (getRemainedTime(currentPlayingFile, timestamp) >= 0) {
+            if (getRemainedTime(currentPlayingFile, timestamp) > 0) {
                 return currentPlayingFile;
             }
 
             prepareIndexes();
             AudioFile currentFile;
-            boolean cond = false;
+            boolean collectionCounted = false;
 
             for (int id = getCurrentPlayingFileId(); id < audioCollection.getAudioFiles().size();
                  id = nextId(id)) {
                 currentFile = audioCollection.getAudioFiles().get(id);
 
-//                System.out.println("-" + isAudioCollectionCounted() + "-");
-                if (!cond) {
-                //if (!isAudioCollectionCounted()) {
-                    cond = true;
-                    setAudioCollectionCounted(true);
+                if (!collectionCounted) {
+                    collectionCounted = true;
                 } else {
                     currentFile.listen(getListener());
                 }
@@ -167,8 +164,6 @@ public final class Playable {
                     setCurrentPlayingFileId(id);
                     return currentPlayingFile;
                 }
-
-                //currentFile.listen(getListener());
             }
 
             return null;

@@ -258,9 +258,14 @@ public final class Database {
      * @return the album
      */
     public Album findAlbum(final String albumName) {
-        for (Album album : getAlbums()) {
-            if (album.getName().equals(albumName)) {
-                return album;
+        for (User user : getUsers()) {
+            if (user.getUserType() == UserType.ARTIST) {
+                Artist artist = (Artist) user;
+                for (Album album : artist.getAlbums()) {
+                    if (album.getName().equals(albumName)) {
+                        return album;
+                    }
+                }
             }
         }
         return null;
