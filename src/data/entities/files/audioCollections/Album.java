@@ -4,7 +4,6 @@ import data.Database;
 import data.entities.files.File;
 import data.entities.files.audioFiles.AudioFile;
 import data.entities.files.audioFiles.Song;
-import data.entities.users.Artist;
 import data.entities.users.Listener;
 import data.entities.users.User;
 import fileio.input.SongInput;
@@ -112,7 +111,6 @@ public class Album extends AudioCollection {
     }
 
     public void listen(final Listener listener) {
-        //System.out.print("Album " + getName() + " ");
         getAudioFiles().get(0).listen(listener);
     }
 }

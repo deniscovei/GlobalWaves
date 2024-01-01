@@ -8,7 +8,7 @@ import data.entities.files.audioCollections.Playlist;
 import data.entities.files.audioCollections.Podcast;
 import data.entities.files.audioFiles.Song;
 import commandmanager.output.Output;
-import data.entities.users.Artist;
+import data.entities.users.contentCreator.Artist;
 import data.entities.users.Listener;
 import data.entities.users.User;
 import utils.AppUtils;

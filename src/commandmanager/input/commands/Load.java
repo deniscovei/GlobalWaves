@@ -5,6 +5,7 @@ import commandmanager.output.Output;
 import data.entities.files.File;
 import data.entities.files.audioCollections.Album;
 import data.entities.files.audioCollections.AudioCollection;
+import data.entities.files.audioCollections.Podcast;
 import data.entities.files.audioFiles.Song;
 import data.entities.users.Listener;
 import utils.AppUtils;
@@ -35,18 +36,19 @@ public final class Load implements Command {
                     && ((AudioCollection) selection).getAudioFiles().isEmpty()) {
                 message = "You can't load an empty audio collection!";
             } else {
-                if (selection.getFileType() == AppUtils.FileType.ALBUM
-                        && ((Album) selection).getOwner().equals("Elton John")
-                        && selection.getName().equals("Greatest Hits")) {
-                    System.out.print(selection.getFileType() + " " + ((Album) selection).getOwner()
-                            + " TIME " + input.getTimestamp() + " ");
-                } else if (selection.getFileType() == AppUtils.FileType.SONG
-                        && ((Song) selection).getArtist().equals("Elton John")
-                        && ((Song) selection).getAlbum().equals("Greatest Hits")) {
-                    System.out.print(selection.getFileType() + " " + ((Song) selection).getArtist() +
-                            " TIME " + input.getTimestamp() + " ");
-                }
+//                if (selection.getFileType() == AppUtils.FileType.ALBUM) {
+//                    System.out.print(selection.getFileType() + " " + ((Album) selection).getOwner()
+//                            + " TIME " + input.getTimestamp() + " ");
+//                } else if (selection.getFileType() == AppUtils.FileType.SONG) {
+//                    System.out.print(selection.getFileType() + " " + ((Song) selection).getArtist() +
+//                            " TIME " + input.getTimestamp() + " ");
+//                } else if (selection.getFileType() == AppUtils.FileType.PODCAST) {
+//                    System.out.print(selection.getFileType() + " " + ((Podcast) selection).getOwner() +
+//                            " TIME " + input.getTimestamp() + " ");
+//                }
                 user.loadAudioFile(input.getTimestamp());
+                user.getLoadedFile().listen(user);
+                //getLoadedFile().listen(getListener());
                 message = "Playback loaded successfully.";
             }
         }

@@ -18,26 +18,12 @@ public final class AppUtils {
      * The enum File type.
      */
     public enum FileType {
-        /**
-         * Song file type.
-         */
         SONG,
-        /**
-         * Episode file type.
-         */
         EPISODE,
-        /**
-         * Podcast file type.
-         */
         PODCAST,
-        /**
-         * Playlist file type.
-         */
         PLAYLIST,
-        /**
-         * Album file type.
-         */
-        ALBUM
+        ALBUM,
+        AD
     }
 
     /**

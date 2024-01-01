@@ -1,11 +1,12 @@
 package data;
 
+import data.entities.content.Merchandise;
 import data.entities.files.audioCollections.Album;
 import data.entities.files.audioCollections.Playlist;
 import data.entities.files.audioCollections.Podcast;
 import data.entities.files.audioFiles.Song;
-import data.entities.users.Artist;
-import data.entities.users.Host;
+import data.entities.users.contentCreator.Artist;
+import data.entities.users.contentCreator.Host;
 import data.entities.users.Listener;
 import data.entities.users.User;
 import fileio.input.LibraryInput;
@@ -31,6 +32,7 @@ public final class Database {
     private final List<Podcast> podcasts = new ArrayList<>();
     private final List<Playlist> playlists = new ArrayList<>();
     private final List<Album> albums = new ArrayList<>();
+    private Song ad;
 
     private Database() {
     }
@@ -66,6 +68,32 @@ public final class Database {
         for (User user : getUsers()) {
             if (user.getUsername().equals(username)) {
                 return user;
+            }
+        }
+        return null;
+    }
+
+    public Merchandise findMerchandise(final String merchName) {
+        for (User user : getUsers()) {
+            if (user.getUserType() == UserType.ARTIST) {
+                Artist artist = (Artist) user;
+                for (Merchandise merch : artist.getMerchandise()) {
+                    if (merch.getName().equals(merchName)) {
+                        return merch;
+                    }
+                }
+            }
+        }
+        return null;
+    }
+
+    public Merchandise findMerchandise(final User pageCreator, final String merchName) {
+        if (pageCreator.getUserType() == UserType.ARTIST) {
+            Artist artist = (Artist) pageCreator;
+            for (Merchandise merch : artist.getMerchandise()) {
+                if (merch.getName().equals(merchName)) {
+                    return merch;
+                }
             }
         }
         return null;
@@ -153,6 +181,11 @@ public final class Database {
             addUser(new Listener(user));
         }
         for (SongInput song : library.getSongs()) {
+            if (song.getName().equals("Ad Break")) {
+                setAd(new Song(song));
+                continue;
+            }
+
             addSong(new Song(song));
         }
         for (PodcastInput podcast : library.getPodcasts()) {

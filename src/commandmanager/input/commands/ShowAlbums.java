@@ -3,7 +3,7 @@ package commandmanager.input.commands;
 import commandmanager.input.Input;
 import commandmanager.output.Output;
 import data.Database;
-import data.entities.users.Artist;
+import data.entities.users.contentCreator.Artist;
 import fileio.output.AlbumOutput;
 
 import java.util.ArrayList;

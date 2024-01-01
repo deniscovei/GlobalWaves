@@ -6,7 +6,7 @@ import data.Database;
 import data.entities.files.audioCollections.Album;
 import data.entities.files.audioFiles.AudioFile;
 import data.entities.files.audioFiles.Song;
-import data.entities.users.Artist;
+import data.entities.users.contentCreator.Artist;
 import data.entities.users.User;
 import fileio.input.SongInput;
 import utils.AppUtils;

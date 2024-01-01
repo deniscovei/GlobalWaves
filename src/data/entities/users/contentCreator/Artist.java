@@ -1,4 +1,4 @@
-package data.entities.users;
+package data.entities.users.contentCreator;
 
 import data.Database;
 import data.entities.files.audioCollections.Album;
@@ -7,9 +7,11 @@ import data.entities.files.audioFiles.Song;
 import data.entities.content.Event;
 import data.entities.content.Merchandise;
 import data.entities.pages.ArtistPage;
+import data.entities.users.Listener;
+import data.entities.users.User;
+import data.entities.users.contentCreator.ContentCreator;
 import lombok.Getter;
 import lombok.Setter;
-import utils.AppUtils;
 import utils.AppUtils.UserType;
 import utils.AppUtils.FileType;
 
@@ -23,16 +25,18 @@ import static utils.AppUtils.RES_COUNT_MAX;
  */
 @Getter
 @Setter
-public class Artist extends User {
+public class Artist extends ContentCreator {
     private List<Album> albums = new ArrayList<>();
     private List<Event> events = new ArrayList<>();
     private List<Merchandise> merchandise = new ArrayList<>();
-    private double songRevenue = 0;
-    private double merchRevenue = 0;
+    private Map<Listener, Integer> listens = new HashMap<>();
+    private Map<Song, Double> revenuePerSong = new HashMap<>();
+    private double songRevenue = 0.0;
+    private double merchRevenue = 0.0;
 
     @Getter
     @Setter
-    public class ArtistTops implements User.Tops {
+    public class ArtistTops implements Tops {
         private Map<String, Integer> topAlbums = new HashMap<>();
         private Map<String, Integer> topSongs = new HashMap<>();
         private List<String> topFans = new ArrayList<>();

@@ -3,7 +3,7 @@ package utils;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
-import data.entities.users.Host;
+import data.entities.users.contentCreator.Host;
 
 import java.io.IOException;
 

@@ -4,7 +4,7 @@ import commandmanager.input.Input;
 import commandmanager.output.Output;
 import data.Database;
 import data.entities.content.Merchandise;
-import data.entities.users.Artist;
+import data.entities.users.contentCreator.Artist;
 import data.entities.users.User;
 import utils.AppUtils;
 

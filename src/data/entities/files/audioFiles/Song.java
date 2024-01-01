@@ -2,7 +2,7 @@ package data.entities.files.audioFiles;
 
 import data.Database;
 import data.entities.files.audioCollections.Album;
-import data.entities.users.Artist;
+import data.entities.users.contentCreator.Artist;
 import data.entities.users.Listener;
 import data.entities.users.User;
 import fileio.input.SongInput;
@@ -20,14 +20,14 @@ import java.util.Objects;
  */
 @Setter
 @Getter
-public final class Song extends AudioFile {
-    private String album = null;
-    private final List<String> tags = new ArrayList<>();
-    private String lyrics = null;
-    private String genre = null;
-    private Integer releaseYear = null;
-    private String artist = null;
-    private final List<User> usersWhoLiked = new ArrayList<>();
+public class Song extends AudioFile {
+    protected String album = null;
+    protected final List<String> tags = new ArrayList<>();
+    protected String lyrics = null;
+    protected String genre = null;
+    protected Integer releaseYear = null;
+    protected String artist = null;
+    protected final List<User> usersWhoLiked = new ArrayList<>();
 
     /**
      * Instantiates a new Song.
@@ -93,14 +93,13 @@ public final class Song extends AudioFile {
     static int count;
 
     public void listen(final Listener listener) {
-        if (getAlbum().equals("Greatest Hits"))
-            System.out.println(++count + " Song: " + getName() + " from album " + getAlbum() + " "
-                    + listener.getUsername() + " " + getArtist() + " " + getDuration());
+//        System.out.println(++count + " Song: " + getName() + " from album " + getAlbum() + " "
+//            + listener.getUsername() + " " + getArtist() + " " + getDuration());
         Listener.ListenerTops tops = (Listener.ListenerTops) listener.getTops();
 
         tops.getTopAlbums().compute(getAlbum(), (album, count) -> (count == null) ? 1 : count + 1);
         tops.getTopArtists().compute(getArtist(), (artist, count) ->
-                (count == null) ? 1 : count + 1);
+            (count == null) ? 1 : count + 1);
         tops.getTopGenres().compute(getGenre(), (genre, count) -> (count == null) ? 1 : count + 1);
         tops.getTopSongs().compute(getName(), (song, count) -> (count == null) ? 1 : count + 1);
 
@@ -122,13 +121,8 @@ public final class Song extends AudioFile {
                     break;
                 }
 
-//                if (artist.getUsername().equals(getArtist()) && artist.getAlbums().contains()) {
-//                    artist.listen(listener);
-//                }
             }
         }
-
-        //Artist artist = (Artist) Database.getInstance().findUser(getArtist());
 
         if (artist == null) {
             artist = new Artist(getArtist());
@@ -138,12 +132,32 @@ public final class Song extends AudioFile {
         Artist.ArtistTops artistTops = (Artist.ArtistTops) Objects.requireNonNull(artist).getTops();
 
         artistTops.getTopAlbums()
-                .compute(getAlbum(), (album, count) -> (count == null) ? 1 : count + 1);
+            .compute(getAlbum(), (album, count) -> (count == null) ? 1 : count + 1);
         artistTops.getTopSongs()
-                .compute(getName(), (song, count) -> (count == null) ? 1 : count + 1);
+            .compute(getName(), (song, count) -> (count == null) ? 1 : count + 1);
         if (!artistTops.getTopFans().contains(listener.getUsername())) {
             artistTops.getTopFans().add(listener.getUsername());
             artistTops.setListeners(artistTops.getListeners() + 1);
         }
+
+        if (listener.isPremium()) {
+            listener.setPremiumListens(listener.getPremiumListens() + 1);
+
+            if (!listener.getListensPerSong().containsKey(this)) {
+                listener.getListensPerSong().put(this, 1);
+            } else {
+                listener.getListensPerSong().put(this,
+                    listener.getListensPerSong().get(this) + 1);
+            }
+
+            if (!artist.getListens().containsKey(listener)) {
+                artist.getListens().put(listener, 1);
+            } else {
+                artist.getListens().put(listener, artist.getListens().get(listener) + 1);
+            }
+        }
+
+        listener.setTotalListens(listener.getTotalListens() + 1);
+        listener.getHistory().add(this);
     }
 }

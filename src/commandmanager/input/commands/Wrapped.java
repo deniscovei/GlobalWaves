@@ -3,11 +3,10 @@ package commandmanager.input.commands;
 import commandmanager.input.Input;
 import commandmanager.output.Output;
 import data.Database;
-import data.entities.users.Artist;
-import data.entities.users.Host;
+import data.entities.users.contentCreator.Artist;
+import data.entities.users.contentCreator.Host;
 import data.entities.users.Listener;
 import data.entities.users.User;
-import utils.AppUtils;
 
 import java.util.Objects;
 
@@ -19,13 +18,13 @@ public class Wrapped implements Command {
         switch (Objects.requireNonNull(user).getUserType()) {
             case ARTIST:
                 if (((Artist.ArtistTops) user.getTops()).getListeners() == 0) {
-                    return new Output(input, "No data to show for user "
+                    return new Output(input, "No data to show for artist "
                             + input.getUsername() + ".");
                 }
                 break;
             case HOST:
                 if (((Host.HostTops) user.getTops()).getListeners() == 0) {
-                    return new Output(input, "No data to show for user "
+                    return new Output(input, "No data to show for host "
                             + input.getUsername() + ".");
                 }
                 break;

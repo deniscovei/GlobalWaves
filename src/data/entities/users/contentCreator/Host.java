@@ -1,9 +1,13 @@
-package data.entities.users;
+package data.entities.users.contentCreator;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import data.Database;
 import data.entities.files.audioCollections.Podcast;
 import data.entities.content.Announcement;
 import data.entities.pages.HostPage;
+import data.entities.users.Listener;
+import data.entities.users.User;
+import data.entities.users.contentCreator.ContentCreator;
 import lombok.Getter;
 import lombok.Setter;
 import utils.AppUtils.FileType;
@@ -16,14 +20,15 @@ import java.util.*;
  */
 @Getter
 @Setter
-public class Host extends User {
+public class Host extends ContentCreator {
     private List<Podcast> podcasts = new ArrayList<>();
     private List<Announcement> announcements = new ArrayList<>();
 
     @Getter
     @Setter
-    public class HostTops implements User.Tops {
+    public class HostTops implements Tops {
         private Map<String, Integer> topEpisodes = new HashMap<>();
+        @JsonIgnore
         private Set<String> topFans = new HashSet<>();
 
         public HostTops() {
@@ -32,6 +37,7 @@ public class Host extends User {
 
         public HostTops(HostTops hostTops) {
             this.topEpisodes = sortMap(hostTops.getTopEpisodes());
+            this.topFans = hostTops.getTopFans();
         }
 
         public int getListeners() {
@@ -53,7 +59,14 @@ public class Host extends User {
      */
     public Host(final String username, final int age, final String city) {
         super(username, age, city);
-        tops = new HostTops();
+        this.tops = new HostTops();
+        setUserType(UserType.HOST);
+        setCurrentPage(new HostPage(this));
+    }
+
+    public Host(String hostName) {
+        this.username = hostName;
+        this.tops = new HostTops();
         setUserType(UserType.HOST);
         setCurrentPage(new HostPage(this));
     }

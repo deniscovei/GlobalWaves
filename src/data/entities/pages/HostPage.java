@@ -4,7 +4,7 @@ import data.entities.files.audioCollections.Podcast;
 import data.entities.files.audioFiles.AudioFile;
 import data.entities.files.audioFiles.Episode;
 import data.entities.content.Announcement;
-import data.entities.users.Host;
+import data.entities.users.contentCreator.Host;
 import data.entities.users.User;
 import utils.AppUtils.PageType;
 

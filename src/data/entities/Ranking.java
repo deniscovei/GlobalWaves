@@ -11,8 +11,10 @@ public class Ranking {
     int ranking = 0;
     String mostProfitableSong = "N/A";
 
-    public Ranking(final double merchRevenue, final double songRevenue) {
+    public Ranking(final double merchRevenue, final double songRevenue,
+                   final String mostProfitableSong) {
         this.merchRevenue = merchRevenue;
         this.songRevenue = songRevenue;
+        this.mostProfitableSong = mostProfitableSong;
     }
 }

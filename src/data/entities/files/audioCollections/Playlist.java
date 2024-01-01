@@ -2,8 +2,6 @@ package data.entities.files.audioCollections;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import data.Database;
-import data.entities.users.Artist;
 import data.entities.users.Listener;
 import utils.AudioFileListSerializer;
 import data.entities.files.audioFiles.AudioFile;
@@ -15,7 +13,6 @@ import utils.AppUtils.FileType;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * The type Playlist.

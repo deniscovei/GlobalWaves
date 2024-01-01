@@ -2,7 +2,7 @@ package fileio.output;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import data.entities.files.audioFiles.AudioFile;
-import data.entities.users.Host;
+import data.entities.users.contentCreator.Host;
 
 import java.util.ArrayList;
 import java.util.List;

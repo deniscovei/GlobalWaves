@@ -4,7 +4,7 @@ import commandmanager.input.Input;
 import commandmanager.output.Output;
 import data.Database;
 import data.entities.content.Announcement;
-import data.entities.users.Host;
+import data.entities.users.contentCreator.Host;
 import utils.AppUtils;
 
 public final class RemoveAnnouncement implements Command {

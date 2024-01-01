@@ -4,14 +4,18 @@ import commandmanager.input.attributes.Stats;
 import data.Database;
 import data.entities.SearchBar;
 import data.entities.Selection;
+import data.entities.content.Merchandise;
 import data.entities.files.File;
 import data.entities.files.audioCollections.Playlist;
+import data.entities.files.audioFiles.Ad;
 import data.entities.files.audioFiles.AudioFile;
 import data.entities.player.Playable;
 import data.entities.player.Player;
 import data.entities.files.audioFiles.Song;
 import data.entities.pages.HomePage;
 import data.entities.pages.LikedContentPage;
+import data.entities.users.contentCreator.Artist;
+import data.entities.users.contentCreator.ContentCreator;
 import fileio.input.UserInput;
 import lombok.Getter;
 import lombok.Setter;
@@ -33,10 +37,18 @@ public class Listener extends User {
     private Player player = new Player();
     private Selection selection = null;
     private List<Song> likedSongs = new ArrayList<>();
+    private List<String> merches = new ArrayList<>();
     private String previousCommand = null;
     private boolean online = true;
     private Stats stats = new Stats();
+    private Map<Song, Integer> listensPerSong = new HashMap<>();
+    private List<File> history = new ArrayList<>();
+    private List<ContentCreator> subscribtions = new ArrayList<>();
+    private int premiumListens = 0;
+    private int totalListens = 0;
+    private Ad ad = null;
     private boolean deleted = false;
+    private boolean premium = false;
     private int lastConnectedTimestamp = 0;
 
     @Getter
@@ -124,6 +136,14 @@ public class Listener extends User {
      * @param timestamp the timestamp
      */
     public void loadAudioFile(final int timestamp) {
+//        if (hasLoadedAFile())
+//            System.out.println(getPlayer().getCurrentPlayingFile(timestamp).getName() + " at " +
+//                "timestamp " + timestamp);
+//        if (!getHistory().isEmpty() && hasLoadedAFile() && getPlayer().hasFinished(timestamp)
+//            && getHistory().get(getHistory().size() - 1).getFileType() == FileType.AD) {
+//            getHistory().remove(getHistory().size() - 1);
+//        }
+
         getPlayer().setShuffleActivated(false);
         getPlayer().setLoadedFile(getSelection().getSelectedFile());
         getPlayer().play(timestamp);
@@ -171,18 +191,12 @@ public class Listener extends User {
         getLikedSongs().remove(song);
     }
 
-    /**
-     * deletes the user's data
-     */
-    public void deleteData() {
-        setOnline(true);
-        setPlayer(new Player());
-        setSelection(null);
-        getPlayer().setLoadedFile(null);
-        getLikedSongs().clear();
-        getSearchBar().flush();
-        setDeleted(false);
-        setCurrentPage(new HomePage(this));
+    public void subscribe(final ContentCreator contentCreator) {
+        getSubscribtions().add(contentCreator);
+    }
+
+    public void unsubscribe(final ContentCreator contentCreator) {
+        getSubscribtions().remove(contentCreator);
     }
 
     /**
@@ -213,10 +227,10 @@ public class Listener extends User {
             setLastConnectedTimestamp(timestamp);
         } else if (getPlayer().getCurrentPlayerFileIndex() != -1) {
             Playable currentPlayingFile =
-                    getPlayer().getPlayerFiles().get(getPlayer().getCurrentPlayerFileIndex());
+                getPlayer().getPlayerFiles().get(getPlayer().getCurrentPlayerFileIndex());
 
             currentPlayingFile.setOffset(currentPlayingFile.getOffset() - timestamp
-                    + getLastConnectedTimestamp());
+                + getLastConnectedTimestamp());
         }
 
         setOnline(!isOnline());
@@ -235,7 +249,7 @@ public class Listener extends User {
             getStats().setPaused(getPlayer().isPaused());
             getStats().setRemainedTime(getPlayer().getRemainedTime(currentPlayingFile, timestamp));
             getStats().setRepeat(AppUtils.repeatStateToString(getPlayer().getRepeatState(),
-                    getLoadedFile().getFileType()));
+                getLoadedFile().getFileType()));
             getStats().setShuffle(getPlayer().isShuffleActivated());
         } else {
             getStats().setName("");
@@ -278,7 +292,7 @@ public class Listener extends User {
                 File loadedFile = listener.getPlayer().getLoadedFile();
 
                 if (loadedFile != null && loadedFile.getFileType() == FileType.PLAYLIST
-                        && ((Playlist) loadedFile).getOwner().equals(getUsername())) {
+                    && ((Playlist) loadedFile).getOwner().equals(getUsername())) {
                     return true;
                 }
             }
@@ -303,5 +317,32 @@ public class Listener extends User {
             default:
                 break;
         }
+    }
+
+    public void buyMerch(Artist artist, Merchandise merch) {
+        getMerches().add(merch.getName());
+        artist.setMerchRevenue(artist.getMerchRevenue() + merch.getPrice());
+    }
+
+    public void pushAd(final Ad ad) {
+        setAd(ad);
+    }
+
+    public Ad popAd() {
+        Ad ad = getAd();
+        setAd(null);
+        return ad;
+    }
+
+    public boolean hasPushedAd() {
+        return getAd() != null;
+    }
+
+    public void buyPremiumSubscription() {
+        setPremium(true);
+    }
+
+    public void cancelPremiumSubscription() {
+        setPremium(false);
     }
 }

@@ -4,7 +4,7 @@ import commandmanager.input.Input;
 import commandmanager.output.Output;
 import data.Database;
 import data.entities.files.audioCollections.Podcast;
-import data.entities.users.Host;
+import data.entities.users.contentCreator.Host;
 import data.entities.users.User;
 import utils.AppUtils.UserType;
 
