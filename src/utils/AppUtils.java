@@ -1,8 +1,6 @@
 package utils;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.function.Function;
 
 /**
@@ -44,24 +42,30 @@ public final class AppUtils {
         HOST
     }
 
+    public enum RecommendationType {
+        RANDOM_SONG,
+        RANDOM_PLAYLIST,
+        FANS_PLAYLIST
+    }
+
     /**
      * The enum Page type.
      */
     public enum PageType {
         /**
-         * Home page page type.
+         * Home page type.
          */
         HOME_PAGE,
         /**
-         * Liked content page page type.
+         * Liked content page type.
          */
         LIKED_CONTENT_PAGE,
         /**
-         * Artist page page type.
+         * Artist page type.
          */
         ARTIST_PAGE,
         /**
-         * Host page page type.
+         * Host page type.
          */
         HOST_PAGE
 
@@ -296,5 +300,35 @@ public final class AppUtils {
             case "Host" -> PageType.HOST_PAGE;
             default -> null;
         };
+    }
+
+    public static RecommendationType stringToRecommendationType(final String recommendationType) {
+        return switch (recommendationType) {
+            case "random_song" -> RecommendationType.RANDOM_SONG;
+            case "random_playlist" -> RecommendationType.RANDOM_PLAYLIST;
+            case "fans_playlist" -> RecommendationType.FANS_PLAYLIST;
+            default -> null;
+        };
+    }
+
+    public static Map<String, Integer> sortMap(Map<String, Integer> unsortedMap, int resCountMax) {
+        List<Map.Entry<String, Integer>> list = new LinkedList<>(unsortedMap.entrySet());
+
+        list.sort(Comparator
+            .comparing(Map.Entry<String, Integer>::getValue).reversed()
+            .thenComparing(Map.Entry::getKey));
+
+        LinkedHashMap<String, Integer> sortedMap = new LinkedHashMap<>();
+        int count = 0;
+
+        for (Map.Entry<String, Integer> entry : list) {
+            sortedMap.put(entry.getKey(), entry.getValue());
+
+            if (++count == resCountMax) {
+                break;
+            }
+        }
+
+        return sortedMap;
     }
 }

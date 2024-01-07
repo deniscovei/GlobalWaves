@@ -2650,7 +2650,7 @@
   "command" : "removeAlbum",
   "user" : "Taylor Swift",
   "timestamp" : 1885,
-  "message" : "Album 1989 was removed successfully."
+  "message" : "Taylor Swift deleted the album successfully."
 }, {
   "command" : "addMerch",
   "user" : "Bob Marley",
@@ -2661,7 +2661,12 @@
   "user" : "bob35",
   "timestamp" : 1918,
   "message" : "Ad inserted successfully."
-}, null, {
+}, {
+  "command" : "loadRecommendations",
+  "user" : "frank21",
+  "timestamp" : 1931,
+  "message" : "No recommendations available."
+}, {
   "command" : "search",
   "user" : "bob35",
   "timestamp" : 1938,
@@ -2682,7 +2687,12 @@
   "user" : "Aretha Franklin",
   "timestamp" : 1942,
   "message" : "Aretha Franklin has added new merchandise successfully."
-}, null, {
+}, {
+  "command" : "getNotifications",
+  "user" : "frank21",
+  "timestamp" : 1947,
+  "notifications" : [ ]
+}, {
   "command" : "addMerch",
   "user" : "Fleetwood Mac",
   "timestamp" : 1975,
@@ -2860,7 +2870,7 @@
   "command" : "removeAlbum",
   "user" : "Fleetwood Mac",
   "timestamp" : 2185,
-  "message" : "Album Fleetwood Mac was removed successfully."
+  "message" : "Fleetwood Mac deleted the album successfully."
 }, {
   "command" : "search",
   "user" : "david27",
@@ -3008,7 +3018,7 @@
   "command" : "removeAlbum",
   "user" : "Michael Jackson",
   "timestamp" : 2343,
-  "message" : "Album Dangerous was removed successfully."
+  "message" : "Michael Jackson deleted the album successfully."
 }, {
   "command" : "search",
   "user" : "emily30",
@@ -3853,7 +3863,18 @@
   "user" : "grace25",
   "timestamp" : 3440,
   "message" : "Playback loaded successfully."
-}, null, {
+}, {
+  "command" : "getNotifications",
+  "user" : "carol19",
+  "timestamp" : 3461,
+  "notifications" : [ {
+    "name" : "New Merchandise",
+    "description" : "New Merchandise from Aretha Franklin."
+  }, {
+    "name" : "New Event",
+    "description" : "New Event from Aretha Franklin."
+  } ]
+}, {
   "command" : "search",
   "user" : "david27",
   "timestamp" : 3462,
@@ -3873,7 +3894,7 @@
   "command" : "removeAlbum",
   "user" : "Fleetwood Mac",
   "timestamp" : 3476,
-  "message" : "Album Rumours was removed successfully."
+  "message" : "Fleetwood Mac deleted the album successfully."
 }, {
   "command" : "adBreak",
   "user" : "bob35",
@@ -4123,7 +4144,12 @@
   "user" : "bob35",
   "timestamp" : 3749,
   "result" : [ ]
-}, null, {
+}, {
+  "command" : "getNotifications",
+  "user" : "carol19",
+  "timestamp" : 3770,
+  "notifications" : [ ]
+}, {
   "command" : "addMerch",
   "user" : "The Beatles",
   "timestamp" : 3776,
@@ -4370,7 +4396,7 @@
   "command" : "removeAlbum",
   "user" : "Fleetwood Mac",
   "timestamp" : 4058,
-  "message" : "Album Fleetwood Mac was removed successfully."
+  "message" : "Fleetwood Mac deleted the album successfully."
 }, {
   "command" : "removeAlbum",
   "user" : "Rihanna",
@@ -4614,7 +4640,15 @@
   "user" : "grace25",
   "timestamp" : 4330,
   "message" : "Playback loaded successfully."
-}, null, {
+}, {
+  "command" : "getNotifications",
+  "user" : "irene33",
+  "timestamp" : 4372,
+  "notifications" : [ {
+    "name" : "New Merchandise",
+    "description" : "New Merchandise from The Beatles."
+  } ]
+}, {
   "command" : "search",
   "user" : "carol19",
   "timestamp" : 4394,
@@ -4698,7 +4732,7 @@
   "command" : "removeAlbum",
   "user" : "Eminem",
   "timestamp" : 4443,
-  "message" : "Album The Eminem Show was removed successfully."
+  "message" : "Eminem deleted the album successfully."
 }, {
   "command" : "search",
   "user" : "bob35",
@@ -4747,7 +4781,12 @@
   "user" : "david27",
   "timestamp" : 4514,
   "message" : "Playback loaded successfully."
-}, null, {
+}, {
+  "command" : "getNotifications",
+  "user" : "bob35",
+  "timestamp" : 4551,
+  "notifications" : [ ]
+}, {
   "command" : "search",
   "user" : "frank21",
   "timestamp" : 4553,
@@ -4978,7 +5017,7 @@
   "command" : "removeAlbum",
   "user" : "Eminem",
   "timestamp" : 4863,
-  "message" : "Album The Eminem Show was removed successfully."
+  "message" : "Eminem deleted the album successfully."
 }, {
   "command" : "addMerch",
   "user" : "Eminem",
@@ -5099,7 +5138,7 @@
   "command" : "removeAlbum",
   "user" : "ABBA",
   "timestamp" : 5111,
-  "message" : "Album Voulez-Vous was removed successfully."
+  "message" : "ABBA deleted the album successfully."
 }, {
   "command" : "search",
   "user" : "frank21",
@@ -6090,7 +6129,7 @@
   "command" : "removeAlbum",
   "user" : "ABBA",
   "timestamp" : 6410,
-  "message" : "Album ABBA Gold was removed successfully."
+  "message" : "ABBA deleted the album successfully."
 }, {
   "command" : "adBreak",
   "user" : "emily30",
@@ -6849,7 +6888,18 @@
   "user" : "carol19",
   "timestamp" : 7327,
   "message" : "Playback loaded successfully."
-}, null, {
+}, {
+  "command" : "getNotifications",
+  "user" : "irene33",
+  "timestamp" : 7347,
+  "notifications" : [ {
+    "name" : "New Merchandise",
+    "description" : "New Merchandise from Eric Clapton."
+  }, {
+    "name" : "New Merchandise",
+    "description" : "New Merchandise from The Beatles."
+  } ]
+}, {
   "command" : "adBreak",
   "user" : "emily30",
   "timestamp" : 7352,
@@ -7054,7 +7104,7 @@
   "command" : "removeAlbum",
   "user" : "James Brown",
   "timestamp" : 7585,
-  "message" : "Album 20 All-Time Greatest Hits! was removed successfully."
+  "message" : "James Brown deleted the album successfully."
 }, {
   "command" : "search",
   "user" : "emily30",
@@ -7361,7 +7411,7 @@
   "command" : "removeAlbum",
   "user" : "Madonna",
   "timestamp" : 7860,
-  "message" : "Album Confessions on a Dance Floor was removed successfully."
+  "message" : "Madonna deleted the album successfully."
 }, {
   "command" : "addAlbum",
   "user" : "The Beatles",
@@ -7658,7 +7708,7 @@
   "command" : "removeAlbum",
   "user" : "The Beach Boys",
   "timestamp" : 8089,
-  "message" : "Album Pet Sounds was removed successfully."
+  "message" : "The Beach Boys deleted the album successfully."
 }, {
   "command" : "search",
   "user" : "irene33",
@@ -7707,7 +7757,12 @@
   "user" : "jack29",
   "timestamp" : 8141,
   "message" : "Playback loaded successfully."
-}, null, {
+}, {
+  "command" : "loadRecommendations",
+  "user" : "emily30",
+  "timestamp" : 8153,
+  "message" : "No recommendations available."
+}, {
   "command" : "adBreak",
   "user" : "bob35",
   "timestamp" : 8154,
@@ -7971,11 +8026,28 @@
   "user" : "carol19",
   "timestamp" : 8347,
   "result" : [ "Imagine Dragons Album" ]
-}, null, {
+}, {
+  "command" : "getNotifications",
+  "user" : "jack29",
+  "timestamp" : 8348,
+  "notifications" : [ {
+    "name" : "New Album",
+    "description" : "New Album from James Brown."
+  }, {
+    "name" : "New Event",
+    "description" : "New Event from James Brown."
+  }, {
+    "name" : "New Merchandise",
+    "description" : "New Merchandise from Whitney Houston."
+  }, {
+    "name" : "New Album",
+    "description" : "New Album from James Brown."
+  } ]
+}, {
   "command" : "removeAlbum",
   "user" : "ABBA",
   "timestamp" : 8354,
-  "message" : "Album Arrival was removed successfully."
+  "message" : "ABBA deleted the album successfully."
 }, {
   "command" : "buyPremium",
   "user" : "carol19",
@@ -8122,7 +8194,7 @@
   "command" : "removeAlbum",
   "user" : "Imagine Dragons",
   "timestamp" : 8478,
-  "message" : "Album Night Visions (Deluxe) was removed successfully."
+  "message" : "Imagine Dragons deleted the album successfully."
 }, {
   "command" : "search",
   "user" : "bob35",
@@ -8498,7 +8570,7 @@
   "command" : "removeAlbum",
   "user" : "ABBA",
   "timestamp" : 8805,
-  "message" : "Album Super Trouper was removed successfully."
+  "message" : "ABBA deleted the album successfully."
 }, {
   "command" : "adBreak",
   "user" : "irene33",
@@ -8582,7 +8654,7 @@
   "command" : "removeAlbum",
   "user" : "Madonna",
   "timestamp" : 8887,
-  "message" : "Album Like a Prayer was removed successfully."
+  "message" : "Madonna deleted the album successfully."
 }, {
   "command" : "search",
   "user" : "henry26",
@@ -8800,7 +8872,36 @@
   "user" : "emily30",
   "timestamp" : 9048,
   "message" : "Playback loaded successfully."
-}, null, {
+}, {
+  "command" : "getNotifications",
+  "user" : "emily30",
+  "timestamp" : 9049,
+  "notifications" : [ {
+    "name" : "New Merchandise",
+    "description" : "New Merchandise from Fleetwood Mac."
+  }, {
+    "name" : "New Album",
+    "description" : "New Album from Fleetwood Mac."
+  }, {
+    "name" : "New Album",
+    "description" : "New Album from Fleetwood Mac."
+  }, {
+    "name" : "New Album",
+    "description" : "New Album from Imagine Dragons."
+  }, {
+    "name" : "New Album",
+    "description" : "New Album from Fleetwood Mac."
+  }, {
+    "name" : "New Merchandise",
+    "description" : "New Merchandise from Imagine Dragons."
+  }, {
+    "name" : "New Merchandise",
+    "description" : "New Merchandise from Fleetwood Mac."
+  }, {
+    "name" : "New Album",
+    "description" : "New Album from Imagine Dragons."
+  } ]
+}, {
   "command" : "search",
   "user" : "david27",
   "timestamp" : 9053,
@@ -9023,7 +9124,12 @@
   "user" : "emily30",
   "timestamp" : 9343,
   "message" : "Playback loaded successfully."
-}, null, {
+}, {
+  "command" : "loadRecommendations",
+  "user" : "bob35",
+  "timestamp" : 9366,
+  "message" : "No recommendations available."
+}, {
   "command" : "search",
   "user" : "jack29",
   "timestamp" : 9407,
@@ -9043,7 +9149,7 @@
   "command" : "removeAlbum",
   "user" : "Fleetwood Mac",
   "timestamp" : 9408,
-  "message" : "Album Fleetwood Mac was removed successfully."
+  "message" : "Fleetwood Mac deleted the album successfully."
 }, {
   "command" : "search",
   "user" : "david27",
@@ -9092,7 +9198,30 @@
   "user" : "irene33",
   "timestamp" : 9453,
   "message" : "Playback loaded successfully."
-}, null, {
+}, {
+  "command" : "getNotifications",
+  "user" : "david27",
+  "timestamp" : 9458,
+  "notifications" : [ {
+    "name" : "New Merchandise",
+    "description" : "New Merchandise from Madonna."
+  }, {
+    "name" : "New Album",
+    "description" : "New Album from The Beach Boys."
+  }, {
+    "name" : "New Album",
+    "description" : "New Album from Madonna."
+  }, {
+    "name" : "New Album",
+    "description" : "New Album from The Beach Boys."
+  }, {
+    "name" : "New Merchandise",
+    "description" : "New Merchandise from The Beach Boys."
+  }, {
+    "name" : "New Album",
+    "description" : "New Album from Madonna."
+  } ]
+}, {
   "command" : "adBreak",
   "user" : "jack29",
   "timestamp" : 9466,
@@ -9159,7 +9288,7 @@
   "command" : "removeAlbum",
   "user" : "Bob Dylan",
   "timestamp" : 9516,
-  "message" : "Album The Freewheelin' Bob Dylan was removed successfully."
+  "message" : "Bob Dylan deleted the album successfully."
 }, {
   "command" : "search",
   "user" : "alice22",
@@ -9218,7 +9347,15 @@
   "user" : "bob35",
   "timestamp" : 9566,
   "message" : "Playback loaded successfully."
-}, null, {
+}, {
+  "command" : "getNotifications",
+  "user" : "emily30",
+  "timestamp" : 9566,
+  "notifications" : [ {
+    "name" : "New Album",
+    "description" : "New Album from Fleetwood Mac."
+  } ]
+}, {
   "command" : "buyPremium",
   "user" : "emily30",
   "timestamp" : 9573,
@@ -9635,7 +9772,7 @@
   "command" : "removeAlbum",
   "user" : "The Police",
   "timestamp" : 9899,
-  "message" : "Album Synchronicity was removed successfully."
+  "message" : "The Police deleted the album successfully."
 }, {
   "command" : "search",
   "user" : "irene33",
@@ -9652,7 +9789,12 @@
   "user" : "irene33",
   "timestamp" : 9914,
   "message" : "Playback loaded successfully."
-}, null, {
+}, {
+  "command" : "loadRecommendations",
+  "user" : "jack29",
+  "timestamp" : 9921,
+  "message" : "No recommendations available."
+}, {
   "command" : "search",
   "user" : "henry26",
   "timestamp" : 9927,
@@ -10470,7 +10612,12 @@
   "user" : "frank21",
   "timestamp" : 10579,
   "message" : "Playback loaded successfully."
-}, null, {
+}, {
+  "command" : "updateRecommendations",
+  "user" : "frank21",
+  "timestamp" : 10594,
+  "message" : "No new recommendations were found"
+}, {
   "command" : "search",
   "user" : "emily30",
   "timestamp" : 10624,
@@ -11102,7 +11249,12 @@
   "user" : "emily30",
   "timestamp" : 11637,
   "message" : "emily30 bought the subscription successfully."
-}, null, {
+}, {
+  "command" : "loadRecommendations",
+  "user" : "emily30",
+  "timestamp" : 11637,
+  "message" : "No recommendations available."
+}, {
   "command" : "search",
   "user" : "bob35",
   "timestamp" : 11642,
@@ -11559,7 +11711,12 @@
   "user" : "david27",
   "timestamp" : 12050,
   "message" : "Playback loaded successfully."
-}, null, {
+}, {
+  "command" : "updateRecommendations",
+  "user" : "grace25",
+  "timestamp" : 12068,
+  "message" : "No new recommendations were found"
+}, {
   "command" : "search",
   "user" : "carol19",
   "timestamp" : 12104,
@@ -12932,7 +13089,12 @@
   "user" : "jack29",
   "timestamp" : 13487,
   "message" : "Playback loaded successfully."
-}, null, {
+}, {
+  "command" : "loadRecommendations",
+  "user" : "henry26",
+  "timestamp" : 13511,
+  "message" : "No recommendations available."
+}, {
   "command" : "search",
   "user" : "carol19",
   "timestamp" : 13570,
@@ -16592,7 +16754,12 @@
   "user" : "grace25",
   "timestamp" : 18347,
   "message" : "Playback loaded successfully."
-}, null, {
+}, {
+  "command" : "loadRecommendations",
+  "user" : "bob35",
+  "timestamp" : 18347,
+  "message" : "No recommendations available."
+}, {
   "command" : "search",
   "user" : "henry26",
   "timestamp" : 18362,
@@ -16863,7 +17030,12 @@
   "user" : "emily30",
   "timestamp" : 18658,
   "message" : "Playback loaded successfully."
-}, null, {
+}, {
+  "command" : "loadRecommendations",
+  "user" : "alice22",
+  "timestamp" : 18667,
+  "message" : "No recommendations available."
+}, {
   "command" : "search",
   "user" : "grace25",
   "timestamp" : 18674,
@@ -17412,7 +17584,12 @@
   "user" : "alice22",
   "timestamp" : 19176,
   "message" : "Playback loaded successfully."
-}, null, {
+}, {
+  "command" : "updateRecommendations",
+  "user" : "irene33",
+  "timestamp" : 19187,
+  "message" : "No new recommendations were found"
+}, {
   "command" : "search",
   "user" : "emily30",
   "timestamp" : 19198,
@@ -18332,7 +18509,12 @@
   "user" : "henry26",
   "timestamp" : 20149,
   "message" : "Playback loaded successfully."
-}, null, {
+}, {
+  "command" : "updateRecommendations",
+  "user" : "grace25",
+  "timestamp" : 20180,
+  "message" : "The recommendations for user grace25 have been updated successfully."
+}, {
   "command" : "search",
   "user" : "carol19",
   "timestamp" : 20194,
@@ -19463,7 +19645,12 @@
   "user" : "carol19",
   "timestamp" : 21380,
   "message" : "Playback loaded successfully."
-}, null, {
+}, {
+  "command" : "loadRecommendations",
+  "user" : "emily30",
+  "timestamp" : 21382,
+  "message" : "No recommendations available."
+}, {
   "command" : "search",
   "user" : "bob35",
   "timestamp" : 21390,
@@ -22528,7 +22715,12 @@
   "user" : "grace25",
   "timestamp" : 27887,
   "message" : "Playback loaded successfully."
-}, null, {
+}, {
+  "command" : "updateRecommendations",
+  "user" : "grace25",
+  "timestamp" : 27888,
+  "message" : "No new recommendations were found"
+}, {
   "command" : "search",
   "user" : "frank21",
   "timestamp" : 27923,
@@ -23206,7 +23398,12 @@
   "user" : "henry26",
   "timestamp" : 29708,
   "message" : "Playback loaded successfully."
-}, null, {
+}, {
+  "command" : "loadRecommendations",
+  "user" : "david27",
+  "timestamp" : 29741,
+  "message" : "No recommendations available."
+}, {
   "command" : "cancelPremium",
   "user" : "grace25",
   "timestamp" : 29755,
@@ -23536,7 +23733,12 @@
   "user" : "david27",
   "timestamp" : 31040,
   "message" : "Playback loaded successfully."
-}, null, {
+}, {
+  "command" : "updateRecommendations",
+  "user" : "henry26",
+  "timestamp" : 31063,
+  "message" : "No new recommendations were found"
+}, {
   "command" : "search",
   "user" : "david27",
   "timestamp" : 31124,

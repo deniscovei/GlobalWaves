@@ -71,7 +71,38 @@ public final class HomePage extends Page {
             }
         }
 
+        result.append("]\n\nSong recommendations:\n\t[");
+
+        for (Song song : listener.getSongRecommendations()) {
+            result.append(song.getName());
+
+            if (++resCount == AppUtils.RES_COUNT_MAX) {
+                break;
+            }
+
+            if (song != listener.getSongRecommendations()
+                .get(listener.getSongRecommendations().size() - 1)) {
+                result.append(", ");
+            }
+        }
+
+        result.append("]\n\nPlaylists recommendations:\n\t[");
+
+        for (Playlist playlist : listener.getPlaylistsRecommendations()) {
+            result.append(playlist.getName());
+
+            if (++resCount == AppUtils.RES_COUNT_MAX) {
+                break;
+            }
+
+            if (playlist != listener.getPlaylistsRecommendations()
+                .get(listener.getPlaylistsRecommendations().size() - 1)) {
+                result.append(", ");
+            }
+        }
+
         result.append("]");
+
         return result.toString();
     }
 }

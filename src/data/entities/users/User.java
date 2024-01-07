@@ -1,6 +1,7 @@
 package data.entities.users;
 
 import data.Database;
+import data.entities.Notification;
 import data.entities.pages.Page;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,30 +24,10 @@ public abstract class User {
     private UserType userType = null;
     private Page currentPage = null;
     private boolean added = false;
+    protected List<Notification> notifications = new ArrayList<>();
 
     public interface Tops {
         Tops clone();
-
-        default Map<String, Integer> sortMap(Map<String, Integer> unsortedMap) {
-            List<Map.Entry<String, Integer>> list = new LinkedList<>(unsortedMap.entrySet());
-
-            list.sort(Comparator
-                    .comparing(Map.Entry<String, Integer>::getValue).reversed()
-                    .thenComparing(Map.Entry::getKey));
-
-            LinkedHashMap<String, Integer> sortedMap = new LinkedHashMap<>();
-            int count = 0;
-
-            for (Map.Entry<String, Integer> entry : list) {
-                sortedMap.put(entry.getKey(), entry.getValue());
-
-                if (++count == RES_COUNT_MAX) {
-                    break;
-                }
-            }
-
-            return sortedMap;
-        }
     }
 
     protected Tops tops;
@@ -82,6 +63,10 @@ public abstract class User {
                    final UserType userType) {
         this(username, age, city);
         this.userType = userType;
+    }
+
+    public void clearNotifications() {
+        getNotifications().clear();
     }
 
     /**

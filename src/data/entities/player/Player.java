@@ -80,6 +80,10 @@ public final class Player {
         getPlayerFiles().get(getCurrentPlayerFileIndex()).play(timestamp);
     }
 
+    public int getCurrTimeOfFile(final int timestamp) {
+        return getPlayerFiles().get(getCurrentPlayerFileIndex()).getCurrTimeOfFile(timestamp);
+    }
+
     /**
      * returns the remained time of an audio file
      *

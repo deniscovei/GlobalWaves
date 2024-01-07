@@ -323,7 +323,12 @@
   "user" : "Fleetwood Mac",
   "timestamp" : 1533,
   "message" : "Fleetwood Mac has added new merchandise successfully."
-}, null, {
+}, {
+  "command" : "getNotifications",
+  "user" : "david27",
+  "timestamp" : 2778,
+  "notifications" : [ ]
+}, {
   "command" : "removeAlbum",
   "user" : "Chuck Berry",
   "timestamp" : 2910,
@@ -337,8 +342,16 @@
   "command" : "removeAlbum",
   "user" : "Fleetwood Mac",
   "timestamp" : 3530,
-  "message" : "Album Rumours was removed successfully."
-}, null, {
+  "message" : "Fleetwood Mac deleted the album successfully."
+}, {
+  "command" : "getNotifications",
+  "user" : "david27",
+  "timestamp" : 3629,
+  "notifications" : [ {
+    "name" : "New Album",
+    "description" : "New Album from Chuck Berry."
+  } ]
+}, {
   "command" : "addAlbum",
   "user" : "Fleetwood Mac",
   "timestamp" : 3680,
@@ -383,7 +396,24 @@
   "user" : "Fleetwood Mac",
   "timestamp" : 8078,
   "message" : "Fleetwood Mac has added new merchandise successfully."
-}, null, {
+}, {
+  "command" : "getNotifications",
+  "user" : "david27",
+  "timestamp" : 8095,
+  "notifications" : [ {
+    "name" : "New Album",
+    "description" : "New Album from Chuck Berry."
+  }, {
+    "name" : "New Merchandise",
+    "description" : "New Merchandise from Elton John."
+  }, {
+    "name" : "New Album",
+    "description" : "New Album from David Bowie."
+  }, {
+    "name" : "New Album",
+    "description" : "New Album from David Bowie."
+  } ]
+}, {
   "command" : "endProgram",
   "result" : { }
 } ]

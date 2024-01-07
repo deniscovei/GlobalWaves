@@ -21,7 +21,7 @@ public final class ChangePage implements Command {
             if (pageType == null) {
                 message = input.getUsername() + " is trying to access a non-existent page.";
             } else {
-                user.goToNextPage(pageType);
+                user.changePage(pageType, input.getTimestamp());
                 message = input.getUsername() + " accessed " + input.getNextPage()
                     + " successfully.";
             }

@@ -36,9 +36,7 @@ public final class Input extends IoEntry {
     private int price = 0;
     private List<EpisodeInput> episodes = new ArrayList<>();
     private String nextPage = null;
-
     private String recommendationType = null;
-
 
     /**
      * Instantiates a new Input.
@@ -92,7 +90,7 @@ public final class Input extends IoEntry {
             System.out.println("Error: Command \"" + getCommand()
                         + "\" not found or failed at timestamp " + getTimestamp());
 
-            //e.printStackTrace();
+            e.printStackTrace();
 
             return null;
         }

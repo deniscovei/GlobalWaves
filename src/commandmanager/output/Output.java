@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import commandmanager.IoEntry;
 import commandmanager.input.attributes.Stats;
 import commandmanager.input.Input;
+import data.entities.Notification;
 import lombok.Getter;
 import lombok.Setter;
 import java.util.List;
@@ -21,6 +22,7 @@ public final class Output extends IoEntry {
     private List<String> results = null;
     Object result = null;
     private Stats stats = null;
+    private List<Notification> notifications = null;
 
     public Output(final String command, final Object result) {
         this.command = command;
@@ -92,5 +94,10 @@ public final class Output extends IoEntry {
     public Output(final Input input, final Stats stats) {
         this(input);
         this.stats = stats;
+    }
+
+    public Output(final Input input, final List<Notification> notifications, final Stats stats) {
+        this(input);
+        this.notifications = notifications;
     }
 }

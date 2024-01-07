@@ -1,6 +1,7 @@
 package data.entities.users.contentCreator;
 
 import data.Database;
+import data.entities.Notification;
 import data.entities.files.audioCollections.Album;
 import data.entities.files.audioFiles.AudioFile;
 import data.entities.files.audioFiles.Song;
@@ -12,6 +13,7 @@ import data.entities.users.User;
 import data.entities.users.contentCreator.ContentCreator;
 import lombok.Getter;
 import lombok.Setter;
+import utils.AppUtils;
 import utils.AppUtils.UserType;
 import utils.AppUtils.FileType;
 
@@ -19,6 +21,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 import static utils.AppUtils.RES_COUNT_MAX;
+import static utils.AppUtils.sortMap;
 
 /**
  * The type Artist.
@@ -47,21 +50,21 @@ public class Artist extends ContentCreator {
         }
 
         public ArtistTops(ArtistTops artistTops) {
-            this.topAlbums = sortMap(artistTops.getTopAlbums());
-            this.topSongs = sortMap(artistTops.getTopSongs());
+            this.topAlbums = sortMap(artistTops.getTopAlbums(), RES_COUNT_MAX);
+            this.topSongs = sortMap(artistTops.getTopSongs(), RES_COUNT_MAX);
             //this.topFans = new ArrayList<>(artistTops.getTopFans());
             //this.topFans = sortList(artistTops.getTopFans());
             this.topFans = sortList(artistTops.getTopFans()).stream()
-                    .limit(RES_COUNT_MAX)
-                    .collect(Collectors.toList());
+                .limit(RES_COUNT_MAX)
+                .collect(Collectors.toList());
             this.listeners = artistTops.getListeners();
         }
 
         List<String> sortList(List<String> topFans) {
             topFans.sort(Comparator.<String, Integer>comparing(
-                            fanName -> ((Listener.ListenerTops) Database.getInstance().findUser(fanName).getTops())
-                                    .getTopArtists().get(getUsername())).reversed()
-                    .thenComparing(Comparator.naturalOrder()));
+                    fanName -> ((Listener.ListenerTops) Database.getInstance().findUser(fanName).getTops())
+                        .getTopArtists().get(getUsername())).reversed()
+                .thenComparing(Comparator.naturalOrder()));
 
             return topFans;
         }
@@ -115,6 +118,10 @@ public class Artist extends ContentCreator {
      */
     public void addAlbum(final Album album) {
         getAlbums().add(album);
+        for (Listener listener : getSubscribers()) {
+            listener.getNotifications().add(new Notification("New Album",
+                "New Album from " + getUsername() + "."));
+        }
     }
 
     /**
@@ -139,6 +146,10 @@ public class Artist extends ContentCreator {
      */
     public void addEvent(final Event event) {
         getEvents().add(event);
+        for (Listener listener : getSubscribers()) {
+            listener.getNotifications().add(new Notification("New Event",
+                "New Event from " + getUsername() + "."));
+        }
     }
 
     /**
@@ -163,6 +174,10 @@ public class Artist extends ContentCreator {
      */
     public void addMerchandise(final Merchandise newMerchandise) {
         getMerchandise().add(newMerchandise);
+        for (Listener listener : getSubscribers()) {
+            listener.getNotifications().add(new Notification("New Merchandise",
+                "New Merchandise from " + getUsername() + "."));
+        }
     }
 
     /**
@@ -203,6 +218,14 @@ public class Artist extends ContentCreator {
     public void removeAlbum(final Album album) {
         getAlbums().remove(album);
         Database.getInstance().removeAlbum(album);
+//        for (Listener listener : getSubscribers()) {
+//            for (Notification notification : getNotifications()) {
+//                if (notification.getDescription().equals("New Album from " + getUsername())) {
+//                    listener.getNotifications().remove(notification);
+//                    break;
+//                }
+//            }
+//        }
     }
 
     /**

@@ -46,7 +46,7 @@ public final class Load implements Command {
 //                    System.out.print(selection.getFileType() + " " + ((Podcast) selection).getOwner() +
 //                            " TIME " + input.getTimestamp() + " ");
 //                }
-                user.loadAudioFile(input.getTimestamp());
+                user.loadAudioFile(input.getTimestamp(), false);
                 user.getLoadedFile().listen(user);
                 //getLoadedFile().listen(getListener());
                 message = "Playback loaded successfully.";

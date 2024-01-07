@@ -2,6 +2,7 @@ package data.entities.users.contentCreator;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import data.Database;
+import data.entities.Notification;
 import data.entities.files.audioCollections.Podcast;
 import data.entities.content.Announcement;
 import data.entities.pages.HostPage;
@@ -14,6 +15,9 @@ import utils.AppUtils.FileType;
 import utils.AppUtils.UserType;
 
 import java.util.*;
+
+import static utils.AppUtils.RES_COUNT_MAX;
+import static utils.AppUtils.sortMap;
 
 /**
  * The type Host.
@@ -36,7 +40,7 @@ public class Host extends ContentCreator {
         }
 
         public HostTops(HostTops hostTops) {
-            this.topEpisodes = sortMap(hostTops.getTopEpisodes());
+            this.topEpisodes = sortMap(hostTops.getTopEpisodes(), RES_COUNT_MAX);
             this.topFans = hostTops.getTopFans();
         }
 
@@ -77,7 +81,11 @@ public class Host extends ContentCreator {
      * @param announcement the announcement
      */
     public void addAnnouncement(final Announcement announcement) {
-        announcements.add(announcement);
+        getAnnouncements().add(announcement);
+        for (Listener listener : getSubscribers()) {
+            listener.getNotifications().add(new Notification("New Announcement",
+                "New Announcement from " + getUsername() + "."));
+        }
     }
 
     /**
@@ -87,7 +95,7 @@ public class Host extends ContentCreator {
      * @return the announcement
      */
     public Announcement findAnnouncement(final String name) {
-        for (Announcement announcement : announcements) {
+        for (Announcement announcement : getAnnouncements()) {
             if (announcement.getName().equals(name)) {
                 return announcement;
             }
@@ -117,6 +125,10 @@ public class Host extends ContentCreator {
      */
     public void addPodcast(final Podcast podcast) {
         podcasts.add(podcast);
+        for (Listener listener : getSubscribers()) {
+            listener.getNotifications().add(new Notification("New Podcast",
+                "New Podcast from " + getUsername() + "."));
+        }
     }
 
     /**

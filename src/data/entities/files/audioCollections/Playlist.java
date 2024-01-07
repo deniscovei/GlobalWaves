@@ -93,6 +93,10 @@ public final class Playlist extends AudioCollection {
         getAudioFiles().add(song);
     }
 
+    public void addAllSongs(final List<Song> songs) {
+        getAudioFiles().addAll(songs);
+    }
+
     /**
      * removes a follower from the playlist
      *

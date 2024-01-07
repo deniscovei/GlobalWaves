@@ -7,15 +7,16 @@ import data.entities.Selection;
 import data.entities.content.Merchandise;
 import data.entities.files.File;
 import data.entities.files.audioCollections.Playlist;
+import data.entities.files.audioCollections.Podcast;
 import data.entities.files.audioFiles.Ad;
 import data.entities.files.audioFiles.AudioFile;
+import data.entities.pages.*;
 import data.entities.player.Playable;
 import data.entities.player.Player;
 import data.entities.files.audioFiles.Song;
-import data.entities.pages.HomePage;
-import data.entities.pages.LikedContentPage;
 import data.entities.users.contentCreator.Artist;
 import data.entities.users.contentCreator.ContentCreator;
+import data.entities.users.contentCreator.Host;
 import fileio.input.UserInput;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,8 +24,10 @@ import utils.AppUtils;
 import utils.AppUtils.UserType;
 import utils.AppUtils.PageType;
 import utils.AppUtils.FileType;
-
+import utils.AppUtils.RecommendationType;
 import java.util.*;
+import static utils.AppUtils.RES_COUNT_MAX;
+import static utils.AppUtils.sortMap;
 
 /**
  * The type Listener.
@@ -43,13 +46,18 @@ public class Listener extends User {
     private Stats stats = new Stats();
     private Map<Song, Integer> listensPerSong = new HashMap<>();
     private List<File> history = new ArrayList<>();
-    private List<ContentCreator> subscribtions = new ArrayList<>();
+    private List<ContentCreator> subscriptions = new ArrayList<>();
     private int premiumListens = 0;
     private int totalListens = 0;
     private Ad ad = null;
     private boolean deleted = false;
     private boolean premium = false;
     private int lastConnectedTimestamp = 0;
+    private List<Song> songRecommendations = new ArrayList<>();
+    private List<Playlist> playlistsRecommendations = new ArrayList<>();
+    private File lastRecommendation = null;
+    private int currentPageId = 0;
+    private List <Page> pageHistory = new ArrayList<>();
 
     @Getter
     @Setter
@@ -65,11 +73,11 @@ public class Listener extends User {
         }
 
         public ListenerTops(ListenerTops listenerTops) {
-            this.topArtists = sortMap(listenerTops.getTopArtists());
-            this.topGenres = sortMap(listenerTops.getTopGenres());
-            this.topSongs = sortMap(listenerTops.getTopSongs());
-            this.topAlbums = sortMap(listenerTops.getTopAlbums());
-            this.topEpisodes = sortMap(listenerTops.getTopEpisodes());
+            this.topArtists = sortMap(listenerTops.getTopArtists(), RES_COUNT_MAX);
+            this.topGenres = sortMap(listenerTops.getTopGenres(), RES_COUNT_MAX);
+            this.topSongs = sortMap(listenerTops.getTopSongs(), RES_COUNT_MAX);
+            this.topAlbums = sortMap(listenerTops.getTopAlbums(), RES_COUNT_MAX);
+            this.topEpisodes = sortMap(listenerTops.getTopEpisodes(), RES_COUNT_MAX);
         }
 
         @Override
@@ -118,6 +126,12 @@ public class Listener extends User {
         setPerformedSearch(false);
     }
 
+    public void select(final File file) {
+        getPlayer().setListener(this);
+        getPlayer().select(file);
+        setPerformedSearch(false);
+    }
+
     /**
      * gets the selected file
      *
@@ -135,7 +149,7 @@ public class Listener extends User {
      *
      * @param timestamp the timestamp
      */
-    public void loadAudioFile(final int timestamp) {
+    public void loadAudioFile(final int timestamp, final boolean loadFromRecommendations) {
 //        if (hasLoadedAFile())
 //            System.out.println(getPlayer().getCurrentPlayingFile(timestamp).getName() + " at " +
 //                "timestamp " + timestamp);
@@ -145,9 +159,17 @@ public class Listener extends User {
 //        }
 
         getPlayer().setShuffleActivated(false);
-        getPlayer().setLoadedFile(getSelection().getSelectedFile());
-        getPlayer().play(timestamp);
+
+        if (loadFromRecommendations) {
+            select(getLastRecommendation());
+            getPlayer().setLoadedFile(getLastRecommendation());
+        } else {
+            getPlayer().setLoadedFile(getSelection().getSelectedFile());
+        }
+
         setSelection(null);
+
+        getPlayer().play(timestamp);
     }
 
     /**
@@ -192,11 +214,11 @@ public class Listener extends User {
     }
 
     public void subscribe(final ContentCreator contentCreator) {
-        getSubscribtions().add(contentCreator);
+        getSubscriptions().add(contentCreator);
     }
 
     public void unsubscribe(final ContentCreator contentCreator) {
-        getSubscribtions().remove(contentCreator);
+        getSubscriptions().remove(contentCreator);
     }
 
     /**
@@ -306,7 +328,14 @@ public class Listener extends User {
      *
      * @param pageType the page type
      */
-    public void goToNextPage(final PageType pageType) {
+    public void changePage(final PageType pageType, final int timestamp) {
+        int lastId = getPageHistory().size() - 1;
+
+        while (lastId > getCurrentPageId()) {
+            getPageHistory().remove(lastId);
+            lastId--;
+        }
+
         switch (pageType) {
             case HOME_PAGE:
                 setCurrentPage(new HomePage(this));
@@ -314,9 +343,42 @@ public class Listener extends User {
             case LIKED_CONTENT_PAGE:
                 setCurrentPage(new LikedContentPage(this));
                 break;
+            case HOST_PAGE:
+                Podcast podcast = (Podcast) getPlayer().getLoadedFile();
+                Host host = (Host) Database.getInstance().findUser(podcast.getOwner());
+                setCurrentPage(new HostPage(host));
+                break;
+            case ARTIST_PAGE:
+                Song song = (Song) getPlayer().getCurrentPlayingFile(timestamp);
+                Artist artist = (Artist) Database.getInstance().findUser(song.getArtist());
+                setCurrentPage(new ArtistPage(artist));
+                break;
             default:
                 break;
         }
+
+        getPageHistory().add(getCurrentPage());
+        setCurrentPageId(getPageHistory().size() - 1);
+    }
+
+    public boolean goToNextPage() {
+        if (getCurrentPageId() == getPageHistory().size() - 1) {
+            return false;
+        }
+
+        setCurrentPageId(getCurrentPageId() + 1);
+        setCurrentPage(getPageHistory().get(getCurrentPageId()));
+        return true;
+    }
+
+    public boolean goToPreviousPage() {
+        if (getCurrentPageId() == 0) {
+            return false;
+        }
+
+        setCurrentPageId(getCurrentPageId() - 1);
+        setCurrentPage(getPageHistory().get(getCurrentPageId()));
+        return true;
     }
 
     public void buyMerch(Artist artist, Merchandise merch) {
@@ -344,5 +406,136 @@ public class Listener extends User {
 
     public void cancelPremiumSubscription() {
         setPremium(false);
+    }
+
+    public boolean updateRecommendations(RecommendationType recommendationType,
+                                         final int timestamp) {
+        return switch (recommendationType) {
+            case RANDOM_SONG -> updateRandomSongRecommendation(timestamp);
+            case RANDOM_PLAYLIST -> updateRandomPlaylistRecommendation(timestamp);
+            case FANS_PLAYLIST -> updateFansPlaylistRecommendation(timestamp);
+        };
+    }
+
+    private boolean updateRandomSongRecommendation(final int timestamp) {
+        if (!hasLoadedAFile() || getPlayer().hasFinished(timestamp)
+            || getPlayer().getCurrTimeOfFile(timestamp) < 30) {
+            return false;
+        }
+
+        List<Song> songs = Database.getInstance().getSongs();
+        List<Song> recommendedSongs = new ArrayList<>();
+        String genre = ((Song) getPlayer().getCurrentPlayingFile(timestamp)).getGenre();
+
+            int count = 0;
+        for (Song song : songs) {
+            if (song.getGenre().equals(genre)) {
+                recommendedSongs.add(song);
+            }
+        }
+
+        if (recommendedSongs.isEmpty()) {
+            return false;
+        }
+
+        Random random = new Random(getPlayer().getCurrTimeOfFile(timestamp));
+        int index = random.nextInt(recommendedSongs.size());
+        getSongRecommendations().add(recommendedSongs.get(index));
+        setLastRecommendation(recommendedSongs.get(index));
+
+        return true;
+    }
+
+    private boolean updateRandomPlaylistRecommendation(final int timestamp) {
+        Map<String, Integer> topGenres = new HashMap<>();
+
+        for (Song song : getLikedSongs()) {
+            topGenres.put(song.getGenre(), topGenres.getOrDefault(song.getGenre(), 0) + 1);
+        }
+
+        List<Playlist> playlists = Database.getInstance().getPlaylists();
+
+        for (Playlist playlist : playlists) {
+            if (!playlist.getOwner().equals(getUsername())
+                && !playlist.getFollowerNames().contains(getUsername())) {
+                continue;
+            }
+
+            for (AudioFile audioFile : playlist.getAudioFiles()) {
+                Song song = (Song) audioFile;
+                topGenres.put(song.getGenre(), topGenres.getOrDefault(song.getGenre(), 0) + 1);
+            }
+        }
+
+        sortMap(topGenres, 3);
+
+        Playlist playlist = new Playlist(getUsername() + "'s recommendations",
+            getUsername(), timestamp);
+
+        int count = 0;
+        int[] resCount = {5, 3, 2};
+
+        for (String genre : topGenres.keySet()) {
+            List<Song> songs = Database.getInstance().getSongs();
+            List<Song> genreSongs = new ArrayList<>();
+
+            for (Song song : songs) {
+                if (song.getGenre().equals(genre)) {
+                    genreSongs.add(song);
+                }
+            }
+
+            playlist.addAllSongs(genreSongs.stream()
+                .sorted(Comparator
+                    .<Song, Integer>comparing(song -> song.getUsersWhoLiked().size())
+                    .reversed())
+                .limit(resCount[count++])
+                .toList());
+        }
+
+        if (playlist.getAudioFiles().isEmpty()) {
+            return false;
+        }
+
+        getPlaylistsRecommendations().add(playlist);
+        setLastRecommendation(playlist);
+        Database.getInstance().addPlaylist(playlist);
+
+        return true;
+    }
+
+    private boolean updateFansPlaylistRecommendation(final int timestamp) {
+        String artistName = ((Song) getPlayer().getCurrentPlayingFile(timestamp)).getArtist();
+        Artist artist = (Artist) Database.getInstance().findUser(artistName);
+        Artist.ArtistTops artistTops = (Artist.ArtistTops) artist.getTops().clone();
+        List<String> topFans = artistTops.getTopFans();
+
+        Playlist playlist = new Playlist(artistName + " Fan Club recommendations",
+            getUsername(), timestamp);
+
+        for (String fanName : topFans) {
+            Listener listener = (Listener) Database.getInstance().findUser(fanName);
+
+            if (listener.getLikedSongs().isEmpty()) {
+                continue;
+            }
+
+            playlist.addAllSongs(listener.getLikedSongs().stream()
+                .sorted(Comparator
+                    .<Song, Integer>comparing(song -> song.getUsersWhoLiked().size())
+                    .reversed())
+                .limit(RES_COUNT_MAX)
+                .toList());
+        }
+
+        if (playlist.getAudioFiles().isEmpty()) {
+            return false;
+        }
+
+        getPlaylistsRecommendations().add(playlist);
+        setLastRecommendation(playlist);
+        Database.getInstance().addPlaylist(playlist);
+
+        return true;
     }
 }

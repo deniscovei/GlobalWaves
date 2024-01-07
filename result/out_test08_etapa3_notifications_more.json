@@ -673,7 +673,18 @@
   "user" : "Michael Jackson",
   "timestamp" : 3718,
   "message" : "Michael Jackson has added new merchandise successfully."
-}, null, {
+}, {
+  "command" : "getNotifications",
+  "user" : "jack29",
+  "timestamp" : 3726,
+  "notifications" : [ {
+    "name" : "New Album",
+    "description" : "New Album from Madonna."
+  }, {
+    "name" : "New Merchandise",
+    "description" : "New Merchandise from Madonna."
+  } ]
+}, {
   "command" : "removeAlbum",
   "user" : "Eric Clapton",
   "timestamp" : 3979,
@@ -692,7 +703,7 @@
   "command" : "removeAlbum",
   "user" : "Bob Dylan",
   "timestamp" : 4191,
-  "message" : "Album Bringing It All Back Home was removed successfully."
+  "message" : "Bob Dylan deleted the album successfully."
 }, {
   "command" : "addAlbum",
   "user" : "Bob Dylan",
@@ -723,7 +734,38 @@
   "user" : "Joni Mitchell",
   "timestamp" : 4764,
   "message" : "Joni Mitchell has added new album successfully."
-}, null, null, {
+}, {
+  "command" : "getNotifications",
+  "user" : "henry26",
+  "timestamp" : 4811,
+  "notifications" : [ {
+    "name" : "New Event",
+    "description" : "New Event from Rihanna."
+  }, {
+    "name" : "New Album",
+    "description" : "New Album from Bob Dylan."
+  }, {
+    "name" : "New Album",
+    "description" : "New Album from Bob Dylan."
+  }, {
+    "name" : "New Merchandise",
+    "description" : "New Merchandise from Fleetwood Mac."
+  }, {
+    "name" : "New Album",
+    "description" : "New Album from Bob Dylan."
+  }, {
+    "name" : "New Album",
+    "description" : "New Album from Joni Mitchell."
+  } ]
+}, {
+  "command" : "getNotifications",
+  "user" : "jack29",
+  "timestamp" : 5034,
+  "notifications" : [ {
+    "name" : "New Merchandise",
+    "description" : "New Merchandise from Madonna."
+  } ]
+}, {
   "command" : "addMerch",
   "user" : "The Doors",
   "timestamp" : 5131,
@@ -752,7 +794,7 @@
   "command" : "removeAlbum",
   "user" : "Bob Dylan",
   "timestamp" : 6378,
-  "message" : "Album Bringing It All Back Home was removed successfully."
+  "message" : "Bob Dylan deleted the album successfully."
 }, {
   "command" : "addMerch",
   "user" : "Fleetwood Mac",
@@ -768,7 +810,64 @@
   "user" : "Bob Dylan",
   "timestamp" : 6528,
   "message" : "Bob Dylan has added new album successfully."
-}, null, null, null, {
+}, {
+  "command" : "getNotifications",
+  "user" : "carol19",
+  "timestamp" : 6546,
+  "notifications" : [ {
+    "name" : "New Album",
+    "description" : "New Album from Bob Dylan."
+  }, {
+    "name" : "New Album",
+    "description" : "New Album from Bob Dylan."
+  }, {
+    "name" : "New Album",
+    "description" : "New Album from The Doors."
+  }, {
+    "name" : "New Album",
+    "description" : "New Album from Eric Clapton."
+  }, {
+    "name" : "New Album",
+    "description" : "New Album from Bob Dylan."
+  }, {
+    "name" : "New Merchandise",
+    "description" : "New Merchandise from The Doors."
+  }, {
+    "name" : "New Album",
+    "description" : "New Album from Bob Dylan."
+  } ]
+}, {
+  "command" : "getNotifications",
+  "user" : "grace25",
+  "timestamp" : 6631,
+  "notifications" : [ {
+    "name" : "New Merchandise",
+    "description" : "New Merchandise from Aretha Franklin."
+  }, {
+    "name" : "New Album",
+    "description" : "New Album from Aretha Franklin."
+  }, {
+    "name" : "New Album",
+    "description" : "New Album from Aretha Franklin."
+  }, {
+    "name" : "New Album",
+    "description" : "New Album from James Brown."
+  }, {
+    "name" : "New Album",
+    "description" : "New Album from Frank Sinatra."
+  }, {
+    "name" : "New Merchandise",
+    "description" : "New Merchandise from James Brown."
+  }, {
+    "name" : "New Event",
+    "description" : "New Event from Aretha Franklin."
+  } ]
+}, {
+  "command" : "getNotifications",
+  "user" : "grace25",
+  "timestamp" : 7090,
+  "notifications" : [ ]
+}, {
   "command" : "addEvent",
   "user" : "Bob Dylan",
   "timestamp" : 7124,
@@ -798,7 +897,12 @@
   "user" : "Jay-Z",
   "timestamp" : 7371,
   "message" : "Jay-Z doesn't have an album with the given name."
-}, null, {
+}, {
+  "command" : "getNotifications",
+  "user" : "grace25",
+  "timestamp" : 7397,
+  "notifications" : [ ]
+}, {
   "command" : "addAlbum",
   "user" : "Jay-Z",
   "timestamp" : 7439,
@@ -813,7 +917,48 @@
   "user" : "Pink Floyd",
   "timestamp" : 7587,
   "message" : "Pink Floyd has added new merchandise successfully."
-}, null, {
+}, {
+  "command" : "getNotifications",
+  "user" : "alice22",
+  "timestamp" : 7756,
+  "notifications" : [ {
+    "name" : "New Merchandise",
+    "description" : "New Merchandise from Nothing But Thieves."
+  }, {
+    "name" : "New Album",
+    "description" : "New Album from Madonna."
+  }, {
+    "name" : "New Album",
+    "description" : "New Album from The Who."
+  }, {
+    "name" : "New Merchandise",
+    "description" : "New Merchandise from The Police."
+  }, {
+    "name" : "New Album",
+    "description" : "New Album from The Police."
+  }, {
+    "name" : "New Merchandise",
+    "description" : "New Merchandise from Madonna."
+  }, {
+    "name" : "New Merchandise",
+    "description" : "New Merchandise from Madonna."
+  }, {
+    "name" : "New Album",
+    "description" : "New Album from The Who."
+  }, {
+    "name" : "New Album",
+    "description" : "New Album from The Who."
+  }, {
+    "name" : "New Album",
+    "description" : "New Album from Madonna."
+  }, {
+    "name" : "New Album",
+    "description" : "New Album from Jay-Z."
+  }, {
+    "name" : "New Album",
+    "description" : "New Album from Jay-Z."
+  } ]
+}, {
   "command" : "removeAlbum",
   "user" : "Chuck Berry",
   "timestamp" : 7873,
@@ -832,7 +977,7 @@
   "command" : "removeAlbum",
   "user" : "The Police",
   "timestamp" : 8045,
-  "message" : "Album Synchronicity was removed successfully."
+  "message" : "The Police deleted the album successfully."
 }, {
   "command" : "addAlbum",
   "user" : "Pink Floyd",
@@ -842,7 +987,7 @@
   "command" : "removeAlbum",
   "user" : "Frank Sinatra",
   "timestamp" : 8161,
-  "message" : "Album Sinatra Reprise: The Very Good Years was removed successfully."
+  "message" : "Frank Sinatra deleted the album successfully."
 }, {
   "command" : "addAlbum",
   "user" : "The Police",
@@ -867,8 +1012,16 @@
   "command" : "removeAlbum",
   "user" : "The Police",
   "timestamp" : 8687,
-  "message" : "Album Synchronicity was removed successfully."
-}, null, {
+  "message" : "The Police deleted the album successfully."
+}, {
+  "command" : "getNotifications",
+  "user" : "jack29",
+  "timestamp" : 8769,
+  "notifications" : [ {
+    "name" : "New Album",
+    "description" : "New Album from Madonna."
+  } ]
+}, {
   "command" : "addAlbum",
   "user" : "The Police",
   "timestamp" : 8837,
@@ -877,7 +1030,7 @@
   "command" : "removeAlbum",
   "user" : "Fleetwood Mac",
   "timestamp" : 8983,
-  "message" : "Album Rumours was removed successfully."
+  "message" : "Fleetwood Mac deleted the album successfully."
 }, {
   "command" : "addEvent",
   "user" : "Madonna",
@@ -888,11 +1041,25 @@
   "user" : "Fleetwood Mac",
   "timestamp" : 9133,
   "message" : "Fleetwood Mac has added new album successfully."
-}, null, {
+}, {
+  "command" : "getNotifications",
+  "user" : "alice22",
+  "timestamp" : 9133,
+  "notifications" : [ {
+    "name" : "New Album",
+    "description" : "New Album from The Police."
+  }, {
+    "name" : "New Album",
+    "description" : "New Album from The Police."
+  }, {
+    "name" : "New Event",
+    "description" : "New Event from Madonna."
+  } ]
+}, {
   "command" : "removeAlbum",
   "user" : "Aretha Franklin",
   "timestamp" : 9361,
-  "message" : "Album I Never Loved a Man the Way I Love You was removed successfully."
+  "message" : "Aretha Franklin deleted the album successfully."
 }, {
   "command" : "addMerch",
   "user" : "Michael Jackson",
@@ -917,7 +1084,7 @@
   "command" : "removeAlbum",
   "user" : "Bob Dylan",
   "timestamp" : 9926,
-  "message" : "Album Bringing It All Back Home was removed successfully."
+  "message" : "Bob Dylan deleted the album successfully."
 }, {
   "command" : "addEvent",
   "user" : "Eric Clapton",

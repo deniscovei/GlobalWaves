@@ -1,244 +1,206 @@
 [ {
-  "command" : "addUser",
-  "user" : "Jad Abumrad and Robert Krulwich",
+  "command" : "addAlbum",
+  "user" : "Pink Floyd",
   "timestamp" : 1,
-  "message" : "The username Jad Abumrad and Robert Krulwich has been added successfully."
+  "message" : "The username Pink Floyd doesn't exist."
 }, {
   "command" : "addUser",
-  "user" : "Joe Rogan",
-  "timestamp" : 1,
-  "message" : "The username Joe Rogan has been added successfully."
-}, {
-  "command" : "addUser",
-  "user" : "Guy Raz",
-  "timestamp" : 1,
-  "message" : "The username Guy Raz has been added successfully."
-}, {
-  "command" : "search",
-  "user" : "alice22",
+  "user" : "TED-X",
   "timestamp" : 10,
-  "message" : "Search returned 1 results",
-  "results" : [ "TED Radio Hour" ]
+  "message" : "The username TED-X has been added successfully."
 }, {
-  "command" : "select",
-  "user" : "alice22",
+  "command" : "addPodcast",
+  "user" : "TED-X",
   "timestamp" : 15,
-  "message" : "Successfully selected TED Radio Hour."
+  "message" : "TED-X has added new podcast successfully."
 }, {
-  "command" : "load",
-  "user" : "alice22",
+  "command" : "addUser",
+  "user" : "Queen",
   "timestamp" : 20,
-  "message" : "Playback loaded successfully."
+  "message" : "The username Queen has been added successfully."
 }, {
-  "command" : "status",
-  "user" : "alice22",
-  "timestamp" : 59,
-  "stats" : {
-    "name" : "The Power of Design",
-    "remainedTime" : 3065,
-    "repeat" : "No Repeat",
-    "shuffle" : false,
-    "paused" : false
-  }
+  "command" : "addAlbum",
+  "user" : "Queen",
+  "timestamp" : 25,
+  "message" : "Queen has added new album successfully."
+}, {
+  "command" : "addUser",
+  "user" : "ghiu",
+  "timestamp" : 40,
+  "message" : "The username ghiu has been added successfully."
 }, {
   "command" : "search",
-  "user" : "alice22",
+  "user" : "ghiu",
+  "timestamp" : 45,
+  "message" : "Search returned 1 results",
+  "results" : [ "Auditory Adventures" ]
+}, {
+  "command" : "select",
+  "user" : "ghiu",
+  "timestamp" : 50,
+  "message" : "Successfully selected Auditory Adventures."
+}, {
+  "command" : "load",
+  "user" : "ghiu",
+  "timestamp" : 55,
+  "message" : "Playback loaded successfully."
+}, {
+  "command" : "changePage",
+  "user" : "ghiu",
   "timestamp" : 60,
-  "message" : "Search returned 1 results",
-  "results" : [ "The Joe Rogan Experience" ]
+  "message" : "ghiu accessed LikedContent successfully."
 }, {
-  "command" : "select",
-  "user" : "alice22",
+  "command" : "printCurrentPage",
+  "user" : "ghiu",
   "timestamp" : 65,
-  "message" : "Successfully selected The Joe Rogan Experience."
-}, {
-  "command" : "load",
-  "user" : "alice22",
-  "timestamp" : 70,
-  "message" : "Playback loaded successfully."
-}, {
-  "command" : "search",
-  "user" : "alice22",
-  "timestamp" : 75,
-  "message" : "Search returned 1 results",
-  "results" : [ "TED Radio Hour" ]
-}, {
-  "command" : "select",
-  "user" : "alice22",
-  "timestamp" : 80,
-  "message" : "Successfully selected TED Radio Hour."
-}, {
-  "command" : "load",
-  "user" : "alice22",
-  "timestamp" : 85,
-  "message" : "Playback loaded successfully."
+  "message" : "Liked songs:\n\t[]\n\nFollowed playlists:\n\t[]"
 }, {
   "command" : "status",
-  "user" : "alice22",
-  "timestamp" : 86,
+  "user" : "ghiu",
+  "timestamp" : 70,
   "stats" : {
-    "name" : "The Power of Design",
-    "remainedTime" : 3063,
+    "name" : "Exploring Sonic Landscapes",
+    "remainedTime" : 2685,
     "repeat" : "No Repeat",
     "shuffle" : false,
     "paused" : false
   }
 }, {
-  "command" : "playPause",
-  "user" : "alice22",
-  "timestamp" : 3200,
-  "message" : "Playback paused successfully."
+  "command" : "changePage",
+  "user" : "ghiu",
+  "timestamp" : 75,
+  "message" : "ghiu accessed Host successfully."
 }, {
-  "command" : "status",
-  "user" : "alice22",
-  "timestamp" : 3201,
-  "stats" : {
-    "name" : "The Science of Us",
-    "remainedTime" : 3081,
-    "repeat" : "No Repeat",
-    "shuffle" : false,
-    "paused" : true
-  }
-}, {
-  "command" : "createPlaylist",
-  "user" : "alice22",
-  "timestamp" : 3210,
-  "message" : "Playlist created successfully."
+  "command" : "printCurrentPage",
+  "user" : "ghiu",
+  "timestamp" : 85,
+  "message" : "Podcasts:\n\t[Auditory Adventures:\n\t[Exploring Sonic Landscapes - Journey through the world's most unique auditory experiences., The Future of Music Technology - A look into the innovations shaping the future of music production and listening., Cultural Beats - An exploration of how different cultures influence music genres.]\n]\n\nAnnouncements:\n\t[]"
 }, {
   "command" : "search",
-  "user" : "alice22",
-  "timestamp" : 3215,
+  "user" : "ghiu",
+  "timestamp" : 90,
   "message" : "Search returned 1 results",
-  "results" : [ "The New Yorker: Fiction" ]
+  "results" : [ "Bohemian Rhapsody" ]
 }, {
   "command" : "select",
-  "user" : "alice22",
-  "timestamp" : 3220,
-  "message" : "Successfully selected The New Yorker: Fiction."
+  "user" : "ghiu",
+  "timestamp" : 100,
+  "message" : "Successfully selected Bohemian Rhapsody."
 }, {
   "command" : "load",
-  "user" : "alice22",
-  "timestamp" : 3225,
+  "user" : "ghiu",
+  "timestamp" : 105,
   "message" : "Playback loaded successfully."
 }, {
-  "command" : "search",
-  "user" : "alice22",
-  "timestamp" : 3235,
-  "message" : "Search returned 1 results",
-  "results" : [ "Radiolab" ]
+  "command" : "status",
+  "user" : "ghiu",
+  "timestamp" : 115,
+  "stats" : {
+    "name" : "Bohemian Rhapsody",
+    "remainedTime" : 340,
+    "repeat" : "No Repeat",
+    "shuffle" : false,
+    "paused" : false
+  }
 }, {
-  "command" : "select",
-  "user" : "alice22",
-  "timestamp" : 3240,
-  "message" : "Successfully selected Radiolab."
+  "command" : "like",
+  "user" : "ghiu",
+  "timestamp" : 130,
+  "message" : "Like registered successfully."
 }, {
-  "command" : "load",
-  "user" : "alice22",
-  "timestamp" : 3245,
+  "command" : "updateRecommendations",
+  "user" : "ghiu",
+  "timestamp" : 152,
+  "message" : "The recommendations for user ghiu have been updated successfully."
+}, {
+  "command" : "loadRecommendations",
+  "user" : "ghiu",
+  "timestamp" : 155,
   "message" : "Playback loaded successfully."
 }, {
-  "command" : "addRemoveInPlaylist",
-  "user" : "alice22",
-  "timestamp" : 3250,
-  "message" : "The loaded source is not a song."
-}, {
-  "command" : "search",
-  "user" : "alice22",
-  "timestamp" : 3255,
-  "message" : "Search returned 0 results",
-  "results" : [ ]
-}, {
-  "command" : "select",
-  "user" : "alice22",
-  "timestamp" : 3260,
-  "message" : "The selected ID is too high."
-}, {
-  "command" : "load",
-  "user" : "alice22",
-  "timestamp" : 3265,
-  "message" : "Please select a source before attempting to load."
-}, {
   "command" : "status",
-  "user" : "alice22",
-  "timestamp" : 3270,
+  "user" : "ghiu",
+  "timestamp" : 165,
   "stats" : {
-    "name" : "",
-    "remainedTime" : 0,
+    "name" : "Seven Seas of Rhye",
+    "remainedTime" : 175,
     "repeat" : "No Repeat",
     "shuffle" : false,
-    "paused" : true
+    "paused" : false
   }
 }, {
-  "command" : "status",
-  "user" : "alice22",
-  "timestamp" : 3448,
-  "stats" : {
-    "name" : "",
-    "remainedTime" : 0,
-    "repeat" : "No Repeat",
-    "shuffle" : false,
-    "paused" : true
-  }
+  "command" : "changePage",
+  "user" : "ghiu",
+  "timestamp" : 175,
+  "message" : "ghiu accessed Artist successfully."
 }, {
-  "command" : "status",
-  "user" : "alice22",
-  "timestamp" : 4000,
-  "stats" : {
-    "name" : "",
-    "remainedTime" : 0,
-    "repeat" : "No Repeat",
-    "shuffle" : false,
-    "paused" : true
-  }
+  "command" : "like",
+  "user" : "ghiu",
+  "timestamp" : 195,
+  "message" : "Like registered successfully."
 }, {
-  "command" : "wrapped",
-  "user" : "alice22",
-  "timestamp" : 4000,
-  "result" : {
-    "topArtists" : { },
-    "topGenres" : { },
-    "topSongs" : { },
-    "topAlbums" : { },
-    "topEpisodes" : {
-      "The Power of Design" : 2,
-      "Elon Musk Returns" : 1,
-      "Ghosts" : 1,
-      "Salman Rushdie Reads Gabriel Garcia Marquez" : 1,
-      "The Science of Us" : 1
-    }
-  }
+  "command" : "changePage",
+  "user" : "ghiu",
+  "timestamp" : 200,
+  "message" : "ghiu accessed Home successfully."
 }, {
-  "command" : "wrapped",
-  "user" : "Guy Raz",
-  "timestamp" : 4000,
-  "result" : {
-    "topEpisodes" : {
-      "The Power of Design" : 2,
-      "The Science of Us" : 1
-    },
-    "listeners" : 1
-  }
+  "command" : "printCurrentPage",
+  "user" : "ghiu",
+  "timestamp" : 205,
+  "message" : "Liked songs:\n\t[Bohemian Rhapsody, Seven Seas of Rhye]\n\nFollowed playlists:\n\t[]\n\nSong recommendations:\n\t[Seven Seas of Rhye]\n\nPlaylists recommendations:\n\t[]"
 }, {
-  "command" : "wrapped",
-  "user" : "Jad Abumrad and Robert Krulwich",
-  "timestamp" : 4000,
-  "result" : {
-    "topEpisodes" : {
-      "Ghosts" : 1
-    },
-    "listeners" : 1
-  }
+  "command" : "previousPage",
+  "user" : "ghiu",
+  "timestamp" : 210,
+  "message" : "The user ghiu has navigated successfully to the previous page."
 }, {
-  "command" : "wrapped",
-  "user" : "Joe Rogan",
-  "timestamp" : 4000,
-  "result" : {
-    "topEpisodes" : {
-      "Elon Musk Returns" : 1
-    },
-    "listeners" : 1
-  }
+  "command" : "previousPage",
+  "user" : "ghiu",
+  "timestamp" : 215,
+  "message" : "The user ghiu has navigated successfully to the previous page."
+}, {
+  "command" : "previousPage",
+  "user" : "ghiu",
+  "timestamp" : 220,
+  "message" : "The user ghiu has navigated successfully to the previous page."
+}, {
+  "command" : "nextPage",
+  "user" : "ghiu",
+  "timestamp" : 235,
+  "message" : "The user ghiu has navigated successfully to the next page."
+}, {
+  "command" : "printCurrentPage",
+  "user" : "ghiu",
+  "timestamp" : 240,
+  "message" : "Podcasts:\n\t[Auditory Adventures:\n\t[Exploring Sonic Landscapes - Journey through the world's most unique auditory experiences., The Future of Music Technology - A look into the innovations shaping the future of music production and listening., Cultural Beats - An exploration of how different cultures influence music genres.]\n]\n\nAnnouncements:\n\t[]"
+}, {
+  "command" : "changePage",
+  "user" : "ghiu",
+  "timestamp" : 245,
+  "message" : "ghiu accessed Home successfully."
+}, {
+  "command" : "nextPage",
+  "user" : "ghiu",
+  "timestamp" : 255,
+  "message" : "There are no pages left to go forward."
+}, {
+  "command" : "printCurrentPage",
+  "user" : "ghiu",
+  "timestamp" : 265,
+  "message" : "Liked songs:\n\t[Bohemian Rhapsody, Seven Seas of Rhye]\n\nFollowed playlists:\n\t[]\n\nSong recommendations:\n\t[Seven Seas of Rhye]\n\nPlaylists recommendations:\n\t[]"
+}, {
+  "command" : "nextPage",
+  "user" : "ghiu",
+  "timestamp" : 275,
+  "message" : "There are no pages left to go forward."
 }, {
   "command" : "endProgram",
-  "result" : { }
+  "result" : {
+    "Queen" : {
+      "merchRevenue" : 0.0,
+      "songRevenue" : 0.0,
+      "ranking" : 1,
+      "mostProfitableSong" : "N/A"
+    }
+  }
 } ]
