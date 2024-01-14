@@ -93,6 +93,11 @@ public final class Playlist extends AudioCollection {
         getAudioFiles().add(song);
     }
 
+    /**
+     * Add all songs.
+     *
+     * @param songs the songs
+     */
     public void addAllSongs(final List<Song> songs) {
         getAudioFiles().addAll(songs);
     }

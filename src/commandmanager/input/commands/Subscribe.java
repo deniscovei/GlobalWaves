@@ -7,7 +7,7 @@ import data.entities.users.contentCreator.ContentCreator;
 import data.entities.users.Listener;
 import utils.AppUtils;
 
-public class Subscribe implements Command {
+public final class Subscribe implements Command {
     @Override
     public Output action(final Input input) {
         Listener user = (Listener) Database.getInstance().findUser(input.getUsername());
@@ -15,8 +15,8 @@ public class Subscribe implements Command {
 
         if (user == null) {
             message = "The username " + input.getUsername() + " doesn't exist.";
-        } else if (user.getCurrentPage().getPageType() != AppUtils.PageType.ARTIST_PAGE &&
-            user.getCurrentPage().getPageType() != AppUtils.PageType.HOST_PAGE)  {
+        } else if (user.getCurrentPage().getPageType() != AppUtils.PageType.ARTIST_PAGE
+            && user.getCurrentPage().getPageType() != AppUtils.PageType.HOST_PAGE) {
             message = "To subscribe you need to be on the page of an artist or host.";
         } else {
             ContentCreator pageCreator = (ContentCreator) user.getCurrentPage().getCreator();
@@ -35,6 +35,11 @@ public class Subscribe implements Command {
             message += pageCreator.getUsername() + " successfully.";
         }
 
-        return new Output(input, message);
+        return new Output.Builder()
+            .command(input.getCommand())
+            .timestamp(input.getTimestamp())
+            .user(input.getUsername())
+            .message(message)
+            .build();
     }
 }

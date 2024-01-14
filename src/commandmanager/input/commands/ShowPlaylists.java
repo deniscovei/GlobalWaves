@@ -14,6 +14,12 @@ public final class ShowPlaylists implements Command {
     @Override
     public Output action(final Input input) {
         List<Playlist> result = Database.getInstance().getOwnedPlaylists(input.getUsername());
-        return new Output(input, result, null);
+
+        return new Output.Builder()
+            .command(input.getCommand())
+            .timestamp(input.getTimestamp())
+            .user(input.getUsername())
+            .result(result)
+            .build();
     }
 }

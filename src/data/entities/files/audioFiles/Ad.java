@@ -8,10 +8,10 @@ import utils.AppUtils.FileType;
 
 @Getter
 @Setter
-public class Ad extends Song {
-    int price;
+public final class Ad extends Song {
+    private int price;
 
-    public Ad(int price) {
+    public Ad(final int price) {
         Song ad = Database.getInstance().getAd();
         this.fileType = FileType.AD;
         this.name = ad.getName();
@@ -26,10 +26,7 @@ public class Ad extends Song {
     }
 
     @Override
-    public void listen(Listener listener) {
-        //System.out.println("Ad: " + getName() + " from album " + getAlbum() + " "
-          //  + listener.getUsername() + " " + getArtist() + " " + getDuration());
-        //listener.setTotalListens(listener.getTotalListens() + 1);
+    public void listen(final Listener listener) {
         listener.getHistory().add(this);
     }
 }

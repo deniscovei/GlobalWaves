@@ -5,11 +5,11 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Ranking {
-    double merchRevenue = 0;
-    double songRevenue = 0;
-    int ranking = 0;
-    String mostProfitableSong = "N/A";
+public final class Ranking {
+    private double merchRevenue = 0;
+    private double songRevenue = 0;
+    private int ranking = 0;
+    private String mostProfitableSong = "N/A";
 
     public Ranking(final double merchRevenue, final double songRevenue,
                    final String mostProfitableSong) {

@@ -20,6 +20,11 @@ public final class ShowAlbums implements Command {
             result.add(new AlbumOutput(artist, i));
         }
 
-        return new Output(input, result, null);
+        return new Output.Builder()
+            .command(input.getCommand())
+            .timestamp(input.getTimestamp())
+            .user(input.getUsername())
+            .result(result)
+            .build();
     }
 }

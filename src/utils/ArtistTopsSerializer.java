@@ -7,10 +7,10 @@ import data.entities.users.contentCreator.Artist;
 
 import java.io.IOException;
 
-public class ArtistTopsSerializer extends JsonSerializer<Artist.ArtistTops> {
+public final class ArtistTopsSerializer extends JsonSerializer<Artist.ArtistTops> {
     @Override
-    public void serialize(Artist.ArtistTops artistTops, JsonGenerator jsonGenerator,
-                          SerializerProvider serializerProvider) throws IOException {
+    public void serialize(final Artist.ArtistTops artistTops, final JsonGenerator jsonGenerator,
+                          final SerializerProvider serializerProvider) throws IOException {
         jsonGenerator.writeStartObject();
         jsonGenerator.writeObjectField("topAlbums", artistTops.getTopAlbums());
         jsonGenerator.writeObjectField("topSongs", artistTops.getTopSongs());

@@ -36,7 +36,12 @@ public final class Playable {
     private List<Integer> shuffledIndexes = new ArrayList<>();
     private List<Integer> indexes = new ArrayList<>();
 
-    public Playable(Listener listener) {
+    /**
+     * Instantiates a new Playable.
+     *
+     * @param listener the listener
+     */
+    public Playable(final Listener listener) {
         this.listener = listener;
     }
 
@@ -91,6 +96,11 @@ public final class Playable {
         return getRemainedTime(currentPlayingFile, timestamp) < 0;
     }
 
+    /**
+     * Simulate time.
+     *
+     * @param timestamp the timestamp
+     */
     public void simulateTime(final int timestamp) {
         AudioFile currentPlayingFile = getCurrentPlayingFile(timestamp);
 
@@ -165,9 +175,9 @@ public final class Playable {
             boolean collectionCounted = false;
             setAd(getListener().getAd());
 
-            for (int id = getCurrentPlayingFileId(); id < audioCollection.getAudioFiles().size(); ) {
-                AudioFile currentFile = (getAd() != null ?
-                    getAd() : audioCollection.getAudioFiles().get(id));
+            for (int id = getCurrentPlayingFileId(); id < audioCollection.getAudioFiles().size();) {
+                AudioFile currentFile = (getAd() != null
+                    ? getAd() : audioCollection.getAudioFiles().get(id));
 
                 if (!collectionCounted) {
                     collectionCounted = true;

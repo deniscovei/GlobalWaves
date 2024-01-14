@@ -1,16 +1,13 @@
 package data.entities.users;
 
-import data.Database;
 import data.entities.Notification;
 import data.entities.pages.Page;
 import lombok.Getter;
 import lombok.Setter;
-import utils.AppUtils;
 import utils.AppUtils.UserType;
 
-import java.util.*;
-
-import static utils.AppUtils.RES_COUNT_MAX;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * The type User.

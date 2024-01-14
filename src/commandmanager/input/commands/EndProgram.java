@@ -12,9 +12,17 @@ import data.entities.users.Listener;
 import data.entities.users.User;
 import utils.AppUtils;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Stack;
+import java.util.List;
+import java.util.LinkedList;
 
-public class EndProgram implements Command {
+import static utils.AppUtils.CREDIT;
+import static utils.AppUtils.ONE_HUNDRED;
+
+public final class EndProgram implements Command {
     @Override
     public Output action(final Input input) {
         Map<String, Ranking> rankings = new HashMap<>();
@@ -26,9 +34,7 @@ public class EndProgram implements Command {
 
                 for (File file : listener.getHistory()) {
                     if (file.getFileType() == AppUtils.FileType.AD) {
-//                        System.out.println("Ad");
                         int adPrice = ((Ad) file).getPrice();
-                        //int noPayedSongs = listener.getTotalListens();
                         int noPayedSongs = songStack.size();
 
                         while (!songStack.isEmpty()) {
@@ -36,15 +42,11 @@ public class EndProgram implements Command {
                             Artist artist = (Artist) Database.getInstance()
                                 .findUser(song.getArtist());
                             if (artist != null) {
-                                //System.out.println(song.getName() + " " + adPrice + " "
-                                  //  + noPayedSongs + " " + artist.getUsername());
                                 artist.setSongRevenue(artist.getSongRevenue()
                                     + 1.0 * adPrice / noPayedSongs);
                             }
                         }
                     } else {
-                        //System.out.println("Song " + file.getName() + " " + ((Song) file)
-                        // .getArtist());
                         songStack.push(file);
                     }
                 }
@@ -58,40 +60,33 @@ public class EndProgram implements Command {
                     continue;
                 }
 
-//                System.out.println(artist.getUsername());
                 for (Map.Entry<Listener, Integer> listen : artist.getListens().entrySet()) {
-                    //if (listen.getKey().isPremium()) {
                     artist.setSongRevenue(artist.getSongRevenue()
-                        + 1000000.0 * listen.getValue() / listen.getKey().getPremiumListens());
+                        + CREDIT * listen.getValue() / listen.getKey().getPremiumListens());
 
-                    for (Map.Entry<Song, Integer> songListen :
-                        listen.getKey().getListensPerSong().entrySet()) {
+                    for (Map.Entry<Song, Integer> songListen
+                        : listen.getKey().getListensPerSong().entrySet()) {
                         if (!songListen.getKey().getArtist().equals(artist.getUsername())) {
                             continue;
                         }
 
                         if (!artist.getRevenuePerSong().containsKey(songListen.getKey())) {
                             artist.getRevenuePerSong().put(songListen.getKey(),
-                                1000000.0 * songListen.getValue()
+                                CREDIT * songListen.getValue()
                                     / listen.getKey().getPremiumListens());
                         } else {
                             artist.getRevenuePerSong().put(songListen.getKey(),
                                 artist.getRevenuePerSong().get(songListen.getKey())
-                                    + 1000000.0 * songListen.getValue()
+                                    + CREDIT * songListen.getValue()
                                     / listen.getKey().getPremiumListens());
                         }
                     }
 
-//                    System.out.println(listen.getValue() + " " + listen.getKey().getPremiumListens()
-//                        + " = " + artist.getSongRevenue());
-                    //}
                 }
 
                 Song mostProfitableSong = null;
-                for (Map.Entry<Song, Double> songRevenue :
-                    artist.getRevenuePerSong().entrySet()) {
-//                    System.out.println(songRevenue.getKey().getName() + " "
-//                        + songRevenue.getValue());
+                for (Map.Entry<Song, Double> songRevenue
+                    : artist.getRevenuePerSong().entrySet()) {
                     if (mostProfitableSong == null
                         || Double.compare(songRevenue.getValue(),
                         artist.getRevenuePerSong().get(mostProfitableSong)) > 0
@@ -103,21 +98,13 @@ public class EndProgram implements Command {
                     }
                 }
 
-                artist.setSongRevenue(Math.round(artist.getSongRevenue() * 100.0) / 100.0);
+                artist.setSongRevenue(Math.round(artist.getSongRevenue() * ONE_HUNDRED)
+                    / ONE_HUNDRED);
 
                 rankings.put(artist.getUsername(),
                     new Ranking(artist.getMerchRevenue(), artist.getSongRevenue(),
                         mostProfitableSong == null ? "N/A" : mostProfitableSong.getName()));
             }
-
-//            if (user.getUserType() == AppUtils.UserType.HOST) {
-//                Host host = (Host) user;
-//                Host.HostTops hostTops = (Host.HostTops) user.getTops();
-//
-//                if (hostTops.getListeners() == 0) {
-//                    continue;
-//                }
-//            }
         }
 
         rankings = sortMap(rankings);
@@ -130,10 +117,13 @@ public class EndProgram implements Command {
             entry.getValue().setRanking(rank++);
         }
 
-        return new Output(input.getCommand(), rankings);
+        return new Output.Builder()
+            .command(input.getCommand())
+            .result(rankings)
+            .build();
     }
 
-    Map<String, Ranking> sortMap(Map<String, Ranking> unsortedMap) {
+    Map<String, Ranking> sortMap(final Map<String, Ranking> unsortedMap) {
         List<Map.Entry<String, Ranking>> list = new LinkedList<>(unsortedMap.entrySet());
 
         list.sort((o1, o2) -> {
@@ -142,8 +132,8 @@ public class EndProgram implements Command {
                 return o1.getKey().compareTo(o2.getKey());
             }
 
-            return Double.compare(o2.getValue().getMerchRevenue() + o2.getValue().getSongRevenue()
-                , o1.getValue().getMerchRevenue() + o1.getValue().getSongRevenue());
+            return Double.compare(o2.getValue().getMerchRevenue() + o2.getValue().getSongRevenue(),
+                o1.getValue().getMerchRevenue() + o1.getValue().getSongRevenue());
         });
 
         LinkedHashMap<String, Ranking> sortedMap = new LinkedHashMap<>();

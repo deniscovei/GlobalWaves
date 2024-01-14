@@ -29,7 +29,12 @@ public final class AddEvent implements Command {
             message = input.getUsername() + " has added new event successfully.";
         }
 
-        return new Output(input, message);
+        return new Output.Builder()
+                .command(input.getCommand())
+                .timestamp(input.getTimestamp())
+                .user(input.getUsername())
+                .message(message)
+                .build();
     }
 
     private boolean validDate(final String date) {

@@ -6,7 +6,7 @@ import data.Database;
 import data.entities.files.audioFiles.Ad;
 import data.entities.users.Listener;
 
-public class AdBreak implements Command {
+public final class AdBreak implements Command {
     @Override
     public Output action(final Input input) {
         Listener user = (Listener) Database.getInstance().findUser(input.getUsername());
@@ -21,6 +21,11 @@ public class AdBreak implements Command {
             message = "Ad inserted successfully.";
         }
 
-        return new Output(input, message);
+        return new Output.Builder()
+                .command(input.getCommand())
+                .timestamp(input.getTimestamp())
+                .user(input.getUsername())
+                .message(message)
+                .build();
     }
 }

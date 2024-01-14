@@ -15,19 +15,26 @@ public final class CreatePlaylist implements Command {
     @Override
     public Output action(final Input input) {
         Listener user = (Listener) Database.getInstance().findUser(input.getUsername());
+        String message;
 
         if (!Objects.requireNonNull(user).isOnline()) {
-            return new Output(input, user.getUsername() + " is offline.");
-        }
-
-        if (Database.getInstance().findPlaylist(input.getPlaylistName()) != null) {
-            return new Output(input, "A playlist with the same name already exists.");
+            message = user.getUsername() + " is offline.";
+        } else if (Database.getInstance().findPlaylist(input.getPlaylistName()) != null) {
+            message = "A playlist with the same name already exists.";
+        } else {
+            message = "Playlist created successfully.";
         }
 
         Playlist playlist = new Playlist(input.getPlaylistName(),
                 Objects.requireNonNull(user).getUsername(),
                 input.getTimestamp());
         Database.getInstance().addPlaylist(playlist);
-        return new Output(input, "Playlist created successfully.");
+
+        return new Output.Builder()
+            .command(input.getCommand())
+            .timestamp(input.getTimestamp())
+            .user(input.getUsername())
+            .message(message)
+            .build();
     }
 }

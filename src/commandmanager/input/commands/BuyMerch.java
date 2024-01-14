@@ -9,7 +9,7 @@ import data.entities.users.Listener;
 import data.entities.users.User;
 import utils.AppUtils;
 
-public class BuyMerch implements Command {
+public final class BuyMerch implements Command {
     @Override
     public Output action(final Input input) {
         Listener user = (Listener) Database.getInstance().findUser(input.getUsername());
@@ -32,6 +32,11 @@ public class BuyMerch implements Command {
             }
         }
 
-        return new Output(input, message);
+        return new Output.Builder()
+            .command(input.getCommand())
+            .timestamp(input.getTimestamp())
+            .user(input.getUsername())
+            .message(message)
+            .build();
     }
 }

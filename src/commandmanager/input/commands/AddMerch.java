@@ -28,6 +28,11 @@ public final class AddMerch implements Command {
             message = input.getUsername() + " has added new merchandise successfully.";
         }
 
-        return new Output(input, message);
+        return new Output.Builder()
+            .command(input.getCommand())
+            .timestamp(input.getTimestamp())
+            .user(input.getUsername())
+            .message(message)
+            .build();
     }
 }

@@ -25,8 +25,19 @@ import utils.AppUtils.UserType;
 import utils.AppUtils.PageType;
 import utils.AppUtils.FileType;
 import utils.AppUtils.RecommendationType;
-import java.util.*;
+
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
+
 import static utils.AppUtils.RES_COUNT_MAX;
+import static utils.AppUtils.THIRTY;
+import static utils.AppUtils.FIVE;
+import static utils.AppUtils.THREE;
+import static utils.AppUtils.TWO;
 import static utils.AppUtils.sortMap;
 
 /**
@@ -34,7 +45,7 @@ import static utils.AppUtils.sortMap;
  */
 @Getter
 @Setter
-public class Listener extends User {
+public final class Listener extends User {
     private boolean performedSearch = false;
     private SearchBar searchBar = new SearchBar();
     private Player player = new Player();
@@ -57,22 +68,33 @@ public class Listener extends User {
     private List<Playlist> playlistsRecommendations = new ArrayList<>();
     private File lastRecommendation = null;
     private int currentPageId = 0;
-    private List <Page> pageHistory = new ArrayList<>();
+    private List<Page> pageHistory = new ArrayList<>();
 
+    /**
+     * The type Listener tops.
+     */
     @Getter
     @Setter
-    public class ListenerTops implements User.Tops {
+    public final class ListenerTops implements User.Tops {
         private Map<String, Integer> topArtists = new HashMap<>();
         private Map<String, Integer> topGenres = new HashMap<>();
         private Map<String, Integer> topSongs = new HashMap<>();
         private Map<String, Integer> topAlbums = new HashMap<>();
         private Map<String, Integer> topEpisodes = new HashMap<>();
 
+        /**
+         * Instantiates a new Listener tops.
+         */
         public ListenerTops() {
 
         }
 
-        public ListenerTops(ListenerTops listenerTops) {
+        /**
+         * Instantiates a new Listener tops.
+         *
+         * @param listenerTops the listener tops
+         */
+        public ListenerTops(final ListenerTops listenerTops) {
             this.topArtists = sortMap(listenerTops.getTopArtists(), RES_COUNT_MAX);
             this.topGenres = sortMap(listenerTops.getTopGenres(), RES_COUNT_MAX);
             this.topSongs = sortMap(listenerTops.getTopSongs(), RES_COUNT_MAX);
@@ -126,6 +148,11 @@ public class Listener extends User {
         setPerformedSearch(false);
     }
 
+    /**
+     * Select.
+     *
+     * @param file the file
+     */
     public void select(final File file) {
         getPlayer().setListener(this);
         getPlayer().select(file);
@@ -147,7 +174,8 @@ public class Listener extends User {
     /**
      * loads an audio file
      *
-     * @param timestamp the timestamp
+     * @param timestamp               the timestamp
+     * @param loadFromRecommendations the load from recommendations
      */
     public void loadAudioFile(final int timestamp, final boolean loadFromRecommendations) {
 //        if (hasLoadedAFile())
@@ -213,10 +241,20 @@ public class Listener extends User {
         getLikedSongs().remove(song);
     }
 
+    /**
+     * Subscribe.
+     *
+     * @param contentCreator the content creator
+     */
     public void subscribe(final ContentCreator contentCreator) {
         getSubscriptions().add(contentCreator);
     }
 
+    /**
+     * Unsubscribe.
+     *
+     * @param contentCreator the content creator
+     */
     public void unsubscribe(final ContentCreator contentCreator) {
         getSubscriptions().remove(contentCreator);
     }
@@ -326,7 +364,8 @@ public class Listener extends User {
     /**
      * goes to the next page
      *
-     * @param pageType the page type
+     * @param pageType  the page type
+     * @param timestamp the timestamp
      */
     public void changePage(final PageType pageType, final int timestamp) {
         int lastId = getPageHistory().size() - 1;
@@ -361,6 +400,11 @@ public class Listener extends User {
         setCurrentPageId(getPageHistory().size() - 1);
     }
 
+    /**
+     * Go to next page boolean.
+     *
+     * @return the boolean
+     */
     public boolean goToNextPage() {
         if (getCurrentPageId() == getPageHistory().size() - 1) {
             return false;
@@ -371,6 +415,11 @@ public class Listener extends User {
         return true;
     }
 
+    /**
+     * Go to previous page boolean.
+     *
+     * @return the boolean
+     */
     public boolean goToPreviousPage() {
         if (getCurrentPageId() == 0) {
             return false;
@@ -381,34 +430,68 @@ public class Listener extends User {
         return true;
     }
 
-    public void buyMerch(Artist artist, Merchandise merch) {
+    /**
+     * Buy merch.
+     *
+     * @param artist the artist
+     * @param merch  the merch
+     */
+    public void buyMerch(final Artist artist, final Merchandise merch) {
         getMerches().add(merch.getName());
         artist.setMerchRevenue(artist.getMerchRevenue() + merch.getPrice());
     }
 
+    /**
+     * Push ad.
+     *
+     * @param ad the ad
+     */
     public void pushAd(final Ad ad) {
         setAd(ad);
     }
 
+    /**
+     * Pop ad ad.
+     *
+     * @return the ad
+     */
     public Ad popAd() {
         Ad ad = getAd();
         setAd(null);
         return ad;
     }
 
+    /**
+     * Has pushed ad boolean.
+     *
+     * @return the boolean
+     */
     public boolean hasPushedAd() {
         return getAd() != null;
     }
 
+    /**
+     * Buy premium subscription.
+     */
     public void buyPremiumSubscription() {
         setPremium(true);
     }
 
+    /**
+     * Cancel premium subscription.
+     */
     public void cancelPremiumSubscription() {
         setPremium(false);
     }
 
-    public boolean updateRecommendations(RecommendationType recommendationType,
+    /**
+     * Update recommendations boolean.
+     *
+     * @param recommendationType the recommendation type
+     * @param timestamp          the timestamp
+     * @return the boolean
+     */
+    public boolean updateRecommendations(final RecommendationType recommendationType,
                                          final int timestamp) {
         return switch (recommendationType) {
             case RANDOM_SONG -> updateRandomSongRecommendation(timestamp);
@@ -419,7 +502,7 @@ public class Listener extends User {
 
     private boolean updateRandomSongRecommendation(final int timestamp) {
         if (!hasLoadedAFile() || getPlayer().hasFinished(timestamp)
-            || getPlayer().getCurrTimeOfFile(timestamp) < 30) {
+            || getPlayer().getCurrTimeOfFile(timestamp) < THIRTY) {
             return false;
         }
 
@@ -427,7 +510,6 @@ public class Listener extends User {
         List<Song> recommendedSongs = new ArrayList<>();
         String genre = ((Song) getPlayer().getCurrentPlayingFile(timestamp)).getGenre();
 
-            int count = 0;
         for (Song song : songs) {
             if (song.getGenre().equals(genre)) {
                 recommendedSongs.add(song);
@@ -467,13 +549,13 @@ public class Listener extends User {
             }
         }
 
-        sortMap(topGenres, 3);
+        sortMap(topGenres, THREE);
 
         Playlist playlist = new Playlist(getUsername() + "'s recommendations",
             getUsername(), timestamp);
 
         int count = 0;
-        int[] resCount = {5, 3, 2};
+        int[] resCount = {FIVE, THREE, TWO};
 
         for (String genre : topGenres.keySet()) {
             List<Song> songs = Database.getInstance().getSongs();

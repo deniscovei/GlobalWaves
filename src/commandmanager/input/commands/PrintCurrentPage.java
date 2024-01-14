@@ -13,12 +13,20 @@ public final class PrintCurrentPage implements Command {
     @Override
     public Output action(final Input input) {
         User user = Database.getInstance().findUser(input.getUsername());
+        String message;
 
         if (Objects.requireNonNull(user).getUserType().equals(UserType.LISTENER)
             && !((Listener) user).isOnline()) {
-            return new Output(input, user.getUsername() + " is offline.");
+            message = user.getUsername() + " is offline.";
+        } else {
+            message = user.getCurrentPage().getFormat();
         }
 
-        return new Output(input, user.getCurrentPage().getFormat());
+        return new Output.Builder()
+            .command(input.getCommand())
+            .timestamp(input.getTimestamp())
+            .user(input.getUsername())
+            .message(message)
+            .build();
     }
 }

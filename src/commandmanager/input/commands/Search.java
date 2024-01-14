@@ -32,7 +32,13 @@ public final class Search implements Command {
         searchResults.clear();
 
         if (!Objects.requireNonNull(user).isOnline()) {
-            return new Output(input, user.getUsername() + " is offline.", searchResults);
+            return new Output.Builder()
+                .command(input.getCommand())
+                .timestamp(input.getTimestamp())
+                .user(input.getUsername())
+                .message(user.getUsername() + " is offline.")
+                .results(searchResults)
+                .build();
         }
 
         user.unloadAudioFile(input.getTimestamp());
@@ -75,9 +81,9 @@ public final class Search implements Command {
                 break;
             case "album":
                 user.getSearchBar().setSearchType(SearchType.ALBUM);
-                for (User _user : Database.getInstance().getUsers()) {
-                    if (_user.getUserType().equals(UserType.ARTIST)) {
-                        Artist artist = (Artist) _user;
+                for (User currUser : Database.getInstance().getUsers()) {
+                    if (currUser.getUserType().equals(UserType.ARTIST)) {
+                        Artist artist = (Artist) currUser;
                         for (Album album : artist.getAlbums()) {
                             if (checkAlbumFilters(album, input.getFilters())) {
                                 searchResults.add(album.getName());
@@ -122,8 +128,13 @@ public final class Search implements Command {
                 break;
         }
 
-        return new Output(input, "Search returned " + searchResults.size()
-            + " results", searchResults);
+        return new Output.Builder()
+            .command(input.getCommand())
+            .timestamp(input.getTimestamp())
+            .user(input.getUsername())
+            .message("Search returned " + searchResults.size() + " results")
+            .results(searchResults)
+            .build();
     }
 
     private boolean checkSongFilters(final Song song, final Filters filters) {

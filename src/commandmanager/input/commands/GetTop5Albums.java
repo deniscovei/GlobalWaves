@@ -25,6 +25,11 @@ public final class GetTop5Albums implements Command {
             result.add(albums.get(i).getName());
         }
 
-        return new Output(input, result, null);
+        return new Output.Builder()
+            .command(input.getCommand())
+            .timestamp(input.getTimestamp())
+            .user(input.getUsername())
+            .result(result)
+            .build();
     }
 }

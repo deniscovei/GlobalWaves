@@ -15,14 +15,11 @@ public final class Shuffle implements Command {
     @Override
     public Output action(final Input input) {
         Listener user = (Listener) Database.getInstance().findUser(input.getUsername());
-
-        if (!Objects.requireNonNull(user).isOnline()) {
-            return new Output(input, user.getUsername() + " is offline.");
-        }
-
         String message;
 
-        if (!Objects.requireNonNull(user).hasLoadedAFile()
+        if (!Objects.requireNonNull(user).isOnline()) {
+            message = user.getUsername() + " is offline.";
+        } else if (!Objects.requireNonNull(user).hasLoadedAFile()
                 || user.getPlayer().hasFinished(input.getTimestamp())) {
             message = "Please load a source before using the shuffle function.";
         } else if (user.getLoadedFile().getFileType() != FileType.PLAYLIST
@@ -38,6 +35,11 @@ public final class Shuffle implements Command {
             }
         }
 
-        return new Output(input, message);
+        return new Output.Builder()
+            .command(input.getCommand())
+            .timestamp(input.getTimestamp())
+            .user(input.getUsername())
+            .message(message)
+            .build();
     }
 }

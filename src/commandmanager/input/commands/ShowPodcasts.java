@@ -20,6 +20,11 @@ public final class ShowPodcasts implements Command {
             result.add(new PodcastOutput(host, i));
         }
 
-        return new Output(input, result, null);
+        return new Output.Builder()
+            .command(input.getCommand())
+            .timestamp(input.getTimestamp())
+            .user(input.getUsername())
+            .result(result)
+            .build();
     }
 }

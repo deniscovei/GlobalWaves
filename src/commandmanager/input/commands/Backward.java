@@ -28,6 +28,11 @@ public final class Backward implements Command {
             message = "Rewound successfully.";
         }
 
-        return new Output(input, message);
+        return new Output.Builder()
+            .command(input.getCommand())
+            .timestamp(input.getTimestamp())
+            .user(input.getUsername())
+            .message(message)
+            .build();
     }
 }

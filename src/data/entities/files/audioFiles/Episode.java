@@ -34,11 +34,10 @@ public final class Episode extends AudioFile {
     }
 
     public void listen(final Listener listener) {
-        //System.out.println("Listener " + listener.getUsername() + " listened to episode " +
-        // getName());
         Listener.ListenerTops tops = (Listener.ListenerTops) listener.getTops();
 
-        tops.getTopEpisodes().compute(getName(), (episode, count) -> (count == null) ? 1 : count + 1);
+        tops.getTopEpisodes().compute(getName(), (episode, count)
+            -> (count == null) ? 1 : count + 1);
 
         Host host = null;
 
@@ -59,28 +58,9 @@ public final class Episode extends AudioFile {
 
         Host.HostTops hostTops = (Host.HostTops) Objects.requireNonNull(host).getTops();
 
-        hostTops.getTopEpisodes().compute(getName(), (episode, count) -> (count == null) ? 1 : count + 1);
+        hostTops.getTopEpisodes().compute(getName(), (episode, count)
+            -> (count == null) ? 1 : count + 1);
 
         hostTops.getTopFans().add(listener.getUsername());
-
-//        if (listener.isPremium()) {
-//            listener.setPremiumListens(listener.getPremiumListens() + 1);
-//
-//            if (!listener.getListensPerSong().containsKey(this)) {
-//                listener.getListensPerSong().put(this, 1);
-//            } else {
-//                listener.getListensPerSong().put(this,
-//                    listener.getListensPerSong().get(this) + 1);
-//            }
-//
-//            if (!host.getListens().containsKey(listener)) {
-//                host.getListens().put(listener, 1);
-//            } else {
-//                host.getListens().put(listener, host.getListens().get(listener) + 1);
-//            }
-//        }
-
-//        listener.setTotalListens(listener.getTotalListens() + 1);
-//        listener.getHistory().add(this);
     }
 }

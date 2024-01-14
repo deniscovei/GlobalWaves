@@ -5,7 +5,7 @@ import commandmanager.output.Output;
 import data.Database;
 import data.entities.users.Listener;
 
-public class CancelPremium implements Command {
+public final class CancelPremium implements Command {
     @Override
     public Output action(final Input input) {
         Listener user = (Listener) Database.getInstance().findUser(input.getUsername());
@@ -20,6 +20,11 @@ public class CancelPremium implements Command {
             message = input.getUsername() + " cancelled the subscription successfully.";
         }
 
-        return new Output(input, message);
+        return new Output.Builder()
+            .command(input.getCommand())
+            .timestamp(input.getTimestamp())
+            .user(input.getUsername())
+            .message(message)
+            .build();
     }
 }

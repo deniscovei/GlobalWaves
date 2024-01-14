@@ -18,38 +18,45 @@ public final class Select implements Command {
     @Override
     public Output action(final Input input) {
         Listener user = (Listener) Database.getInstance().findUser(input.getUsername());
-
-        if (!Objects.requireNonNull(user).isOnline()) {
-            return new Output(input, user.getUsername() + " is offline.");
-        }
-
-        int itemNumber = input.getItemNumber();
-        List<String> searchResults = Objects.requireNonNull(user).getSearchBar().getSearchResults();
         String message;
 
-        if (!user.havePerformedSearch()) {
-            message = "Please conduct a search before making a selection.";
-        } else if (itemNumber > searchResults.size()) {
-            message = "The selected ID is too high.";
+        if (!Objects.requireNonNull(user).isOnline()) {
+            message = user.getUsername() + " is offline.";
         } else {
-            try {
-                SearchType searchType = user.getSearchBar().getSearchType();
-                Selection selection = new Selection(searchType, searchResults.get(itemNumber - 1));
-                user.select(selection);
+            int itemNumber = input.getItemNumber();
+            List<String> searchResults = Objects.requireNonNull(user).getSearchBar()
+                .getSearchResults();
 
-                message = "Successfully selected " + searchResults.get(itemNumber - 1);
+            if (!user.havePerformedSearch()) {
+                message = "Please conduct a search before making a selection.";
+            } else if (itemNumber > searchResults.size()) {
+                message = "The selected ID is too high.";
+            } else {
+                try {
+                    SearchType searchType = user.getSearchBar().getSearchType();
+                    Selection selection = new Selection(searchType,
+                        searchResults.get(itemNumber - 1));
+                    user.select(selection);
 
-                if (Objects.requireNonNull(selection.getSelectionType())
-                    == AppUtils.SelectionType.PAGE) {
-                    message += "'s page.";
-                } else {
-                    message += ".";
+                    message = "Successfully selected " + searchResults.get(itemNumber - 1);
+
+                    if (Objects.requireNonNull(selection.getSelectionType())
+                        == AppUtils.SelectionType.PAGE) {
+                        message += "'s page.";
+                    } else {
+                        message += ".";
+                    }
+                } catch (IndexOutOfBoundsException e) {
+                    message = "The selected ID is too low.";
                 }
-            } catch (IndexOutOfBoundsException e) {
-                message = "The selected ID is too low.";
             }
         }
 
-        return new Output(input, message);
+        return new Output.Builder()
+            .command(input.getCommand())
+            .timestamp(input.getTimestamp())
+            .user(input.getUsername())
+            .message(message)
+            .build();
     }
 }

@@ -7,7 +7,7 @@ import data.entities.users.Listener;
 import data.entities.users.User;
 import utils.AppUtils;
 
-public class UpdateRecommendations implements Command {
+public final class UpdateRecommendations implements Command {
     @Override
     public Output action(final Input input) {
         User user = Database.getInstance().findUser(input.getUsername());
@@ -31,6 +31,11 @@ public class UpdateRecommendations implements Command {
             }
         }
 
-        return new Output(input, message);
+        return new Output.Builder()
+            .command(input.getCommand())
+            .timestamp(input.getTimestamp())
+            .user(input.getUsername())
+            .message(message)
+            .build();
     }
 }

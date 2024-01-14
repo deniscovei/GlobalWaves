@@ -1,26 +1,53 @@
 package utils;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.Comparator;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
 import java.util.function.Function;
 
 /**
  * The type App utils.
  */
 public final class AppUtils {
-    /**
-     * The constant RES_COUNT_MAX.
-     */
     public static final int RES_COUNT_MAX = 5;
+    public static final double CREDIT = 1000000.0;
+    public static final double ONE_HUNDRED = 100.0;
+    public static final int TWO = 2;
+    public static final int THREE = 3;
+    public static final int FIVE = 5;
+    public static final int THIRTY = 30;
 
     /**
      * The enum File type.
      */
     public enum FileType {
+        /**
+         * Song file type.
+         */
         SONG,
+        /**
+         * Episode file type.
+         */
         EPISODE,
+        /**
+         * Podcast file type.
+         */
         PODCAST,
+        /**
+         * Playlist file type.
+         */
         PLAYLIST,
+        /**
+         * Album file type.
+         */
         ALBUM,
+        /**
+         * Ad file type.
+         */
         AD
     }
 
@@ -42,9 +69,21 @@ public final class AppUtils {
         HOST
     }
 
+    /**
+     * The enum Recommendation type.
+     */
     public enum RecommendationType {
+        /**
+         * Random song recommendation type.
+         */
         RANDOM_SONG,
+        /**
+         * Random playlist recommendation type.
+         */
         RANDOM_PLAYLIST,
+        /**
+         * Fans playlist recommendation type.
+         */
         FANS_PLAYLIST
     }
 
@@ -302,6 +341,12 @@ public final class AppUtils {
         };
     }
 
+    /**
+     * String to recommendation type.
+     *
+     * @param recommendationType the recommendation type
+     * @return the recommendation type
+     */
     public static RecommendationType stringToRecommendationType(final String recommendationType) {
         return switch (recommendationType) {
             case "random_song" -> RecommendationType.RANDOM_SONG;
@@ -311,7 +356,15 @@ public final class AppUtils {
         };
     }
 
-    public static Map<String, Integer> sortMap(Map<String, Integer> unsortedMap, int resCountMax) {
+    /**
+     * Sort map by value and restrict the number of results to resCountMax.
+     *
+     * @param unsortedMap the unsorted map
+     * @param resCountMax the res count max
+     * @return the map
+     */
+    public static Map<String, Integer> sortMap(final Map<String, Integer> unsortedMap,
+                                               final int resCountMax) {
         List<Map.Entry<String, Integer>> list = new LinkedList<>(unsortedMap.entrySet());
 
         list.sort(Comparator

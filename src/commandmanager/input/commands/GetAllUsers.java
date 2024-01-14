@@ -32,6 +32,11 @@ public final class GetAllUsers implements Command {
         result.addAll(artists);
         result.addAll(hosts);
 
-        return new Output(input, result, null);
+        return new Output.Builder()
+            .command(input.getCommand())
+            .timestamp(input.getTimestamp())
+            .user(input.getUsername())
+            .result(result)
+            .build();
     }
 }

@@ -73,6 +73,12 @@ public final class Database {
         return null;
     }
 
+    /**
+     * Find merchandise merchandise.
+     *
+     * @param merchName the merch name
+     * @return the merchandise
+     */
     public Merchandise findMerchandise(final String merchName) {
         for (User user : getUsers()) {
             if (user.getUserType() == UserType.ARTIST) {
@@ -87,6 +93,13 @@ public final class Database {
         return null;
     }
 
+    /**
+     * Find merchandise merchandise.
+     *
+     * @param pageCreator the page creator
+     * @param merchName   the merch name
+     * @return the merchandise
+     */
     public Merchandise findMerchandise(final User pageCreator, final String merchName) {
         if (pageCreator.getUserType() == UserType.ARTIST) {
             Artist artist = (Artist) pageCreator;
@@ -225,6 +238,8 @@ public final class Database {
 
     /**
      * deletes added data
+     *
+     * @param library the library
      */
     public void flush(final LibraryInput library) {
         users.clear();
@@ -466,7 +481,12 @@ public final class Database {
         return result;
     }
 
-    public void simulateTime(int timestamp) {
+    /**
+     * Simulate time.
+     *
+     * @param timestamp the timestamp
+     */
+    public void simulateTime(final int timestamp) {
         for (User user : getUsers()) {
             if (user.getUserType() == UserType.LISTENER) {
                 Listener listener = (Listener) user;

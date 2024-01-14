@@ -5,15 +5,25 @@ import commandmanager.output.Output;
 import data.Database;
 import data.entities.users.Listener;
 
-public class SeeMerch implements Command {
+public final class SeeMerch implements Command {
     @Override
     public Output action(final Input input) {
         Listener user = (Listener) Database.getInstance().findUser(input.getUsername());
 
         if (user == null) {
-            return new Output(input, "The username " + input.getUsername() + " doesn't exist.");
+            return new Output.Builder()
+                .command(input.getCommand())
+                .timestamp(input.getTimestamp())
+                .user(input.getUsername())
+                .message("The username " + input.getUsername() + " doesn't exist.")
+                .build();
         } else {
-            return new Output(input, user.getMerches(), null);
+            return new Output.Builder()
+                .command(input.getCommand())
+                .timestamp(input.getTimestamp())
+                .user(input.getUsername())
+                .result(user.getMerches())
+                .build();
         }
     }
 }

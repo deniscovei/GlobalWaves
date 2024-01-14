@@ -30,7 +30,7 @@ public class Host extends ContentCreator {
 
     @Getter
     @Setter
-    public class HostTops implements Tops {
+    public final class HostTops implements Tops {
         private Map<String, Integer> topEpisodes = new HashMap<>();
         @JsonIgnore
         private Set<String> topFans = new HashSet<>();

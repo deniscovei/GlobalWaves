@@ -22,9 +22,9 @@ import java.util.concurrent.Executors;
  */
 @Getter
 @Setter
-public class Album extends AudioCollection {
-    private int releaseYear = 0;
-    private String description = null;
+public final class Album extends AudioCollection {
+    private int releaseYear;
+    private String description;
 
     /**
      * Instantiates a new Album.

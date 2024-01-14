@@ -39,7 +39,7 @@ public class Artist extends ContentCreator {
 
     @Getter
     @Setter
-    public class ArtistTops implements Tops {
+    public final class ArtistTops implements Tops {
         private Map<String, Integer> topAlbums = new HashMap<>();
         private Map<String, Integer> topSongs = new HashMap<>();
         private List<String> topFans = new ArrayList<>();
@@ -49,18 +49,16 @@ public class Artist extends ContentCreator {
 
         }
 
-        public ArtistTops(ArtistTops artistTops) {
+        public ArtistTops(final ArtistTops artistTops) {
             this.topAlbums = sortMap(artistTops.getTopAlbums(), RES_COUNT_MAX);
             this.topSongs = sortMap(artistTops.getTopSongs(), RES_COUNT_MAX);
-            //this.topFans = new ArrayList<>(artistTops.getTopFans());
-            //this.topFans = sortList(artistTops.getTopFans());
             this.topFans = sortList(artistTops.getTopFans()).stream()
                 .limit(RES_COUNT_MAX)
                 .collect(Collectors.toList());
             this.listeners = artistTops.getListeners();
         }
 
-        List<String> sortList(List<String> topFans) {
+        List<String> sortList(final List<String> topFans) {
             topFans.sort(Comparator.<String, Integer>comparing(
                     fanName -> ((Listener.ListenerTops) Database.getInstance().findUser(fanName).getTops())
                         .getTopArtists().get(getUsername())).reversed()

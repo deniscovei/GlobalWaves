@@ -21,12 +21,33 @@ import java.util.Objects;
 @Setter
 @Getter
 public class Song extends AudioFile {
+    /**
+     * The Album.
+     */
     protected String album = null;
+    /**
+     * The Tags.
+     */
     protected final List<String> tags = new ArrayList<>();
+    /**
+     * The Lyrics.
+     */
     protected String lyrics = null;
+    /**
+     * The Genre.
+     */
     protected String genre = null;
+    /**
+     * The Release year.
+     */
     protected Integer releaseYear = null;
+    /**
+     * The Artist.
+     */
     protected String artist = null;
+    /**
+     * The Users who liked.
+     */
     protected final List<User> usersWhoLiked = new ArrayList<>();
 
     /**
@@ -90,18 +111,17 @@ public class Song extends AudioFile {
         return getUsersWhoLiked().size();
     }
 
-    static int count;
-
     public void listen(final Listener listener) {
-//        System.out.println(++count + " Song: " + getName() + " from album " + getAlbum() + " "
-//            + listener.getUsername() + " " + getArtist() + " " + getDuration());
         Listener.ListenerTops tops = (Listener.ListenerTops) listener.getTops();
 
-        tops.getTopAlbums().compute(getAlbum(), (album, count) -> (count == null) ? 1 : count + 1);
-        tops.getTopArtists().compute(getArtist(), (artist, count) ->
-            (count == null) ? 1 : count + 1);
-        tops.getTopGenres().compute(getGenre(), (genre, count) -> (count == null) ? 1 : count + 1);
-        tops.getTopSongs().compute(getName(), (song, count) -> (count == null) ? 1 : count + 1);
+        tops.getTopAlbums().compute(getAlbum(), (topAlbum, count)
+            -> (count == null) ? 1 : count + 1);
+        tops.getTopArtists().compute(getArtist(), (topArtist, count)
+            -> (count == null) ? 1 : count + 1);
+        tops.getTopGenres().compute(getGenre(), (topGenre, count)
+            -> (count == null) ? 1 : count + 1);
+        tops.getTopSongs().compute(getName(), (topSong, count)
+            -> (count == null) ? 1 : count + 1);
 
         Artist artist = null;
         for (User user : Database.getInstance().getUsers()) {
@@ -132,9 +152,9 @@ public class Song extends AudioFile {
         Artist.ArtistTops artistTops = (Artist.ArtistTops) Objects.requireNonNull(artist).getTops();
 
         artistTops.getTopAlbums()
-            .compute(getAlbum(), (album, count) -> (count == null) ? 1 : count + 1);
+            .compute(getAlbum(), (topAlbum, count) -> (count == null) ? 1 : count + 1);
         artistTops.getTopSongs()
-            .compute(getName(), (song, count) -> (count == null) ? 1 : count + 1);
+            .compute(getName(), (topSong, count) -> (count == null) ? 1 : count + 1);
         if (!artistTops.getTopFans().contains(listener.getUsername())) {
             artistTops.getTopFans().add(listener.getUsername());
             artistTops.setListeners(artistTops.getListeners() + 1);

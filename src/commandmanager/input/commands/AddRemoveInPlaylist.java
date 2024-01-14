@@ -18,37 +18,43 @@ public final class AddRemoveInPlaylist implements Command {
     @Override
     public Output action(final Input input) {
         Listener user = (Listener) Database.getInstance().findUser(input.getUsername());
-
-        if (!Objects.requireNonNull(user).isOnline()) {
-            return new Output(input, user.getUsername() + " is offline.");
-        }
-
-        Playlist playlist = Database.getInstance().findPlaylist(input.getPlaylistId(),
-                input.getUsername());
         String message;
 
-        if (!user.hasLoadedAFile()) {
-            message = "Please load a source before adding to or removing from the playlist.";
-        } else if (playlist == null) {
-            message = "The specified playlist does not exist.";
+        if (!Objects.requireNonNull(user).isOnline()) {
+            message = user.getUsername() + " is offline.";
         } else {
-            File loadedFile = user.getLoadedFile();
-            FileType fileType = loadedFile.getFileType();
-            if (fileType != FileType.SONG && fileType != FileType.ALBUM) {
-                message = "The loaded source is not a song.";
-            } else {
-                Song song = (fileType == FileType.SONG ? (Song) loadedFile
-                    : (Song) user.getPlayer().getCurrentPlayingFile(input.getTimestamp()));
+            Playlist playlist = Database.getInstance().findPlaylist(input.getPlaylistId(),
+                input.getUsername());
 
-                if (playlist.getSongs().contains(song)) {
-                    playlist.removeSong(song);
-                    message = "Successfully removed from playlist.";
+            if (!user.hasLoadedAFile()) {
+                message = "Please load a source before adding to or removing from the playlist.";
+            } else if (playlist == null) {
+                message = "The specified playlist does not exist.";
+            } else {
+                File loadedFile = user.getLoadedFile();
+                FileType fileType = loadedFile.getFileType();
+                if (fileType != FileType.SONG && fileType != FileType.ALBUM) {
+                    message = "The loaded source is not a song.";
                 } else {
-                    message = "Successfully added to playlist.";
-                    playlist.addSong(song);
+                    Song song = (fileType == FileType.SONG ? (Song) loadedFile
+                        : (Song) user.getPlayer().getCurrentPlayingFile(input.getTimestamp()));
+
+                    if (playlist.getSongs().contains(song)) {
+                        playlist.removeSong(song);
+                        message = "Successfully removed from playlist.";
+                    } else {
+                        message = "Successfully added to playlist.";
+                        playlist.addSong(song);
+                    }
                 }
             }
         }
-        return new Output(input, message);
+
+        return new Output.Builder()
+            .command(input.getCommand())
+            .timestamp(input.getTimestamp())
+            .user(input.getUsername())
+            .message(message)
+            .build();
     }
 }

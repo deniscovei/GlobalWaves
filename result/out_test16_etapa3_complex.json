@@ -19662,7 +19662,12 @@
   "user" : "irene33",
   "timestamp" : 20712,
   "message" : "Playback loaded successfully."
-}, null, {
+}, {
+  "command" : "loadRecommendations",
+  "user" : "henry26",
+  "timestamp" : 20718,
+  "message" : "Playback loaded successfully."
+}, {
   "command" : "search",
   "user" : "bob35",
   "timestamp" : 20747,
@@ -21219,7 +21224,12 @@
   "user" : "alice22",
   "timestamp" : 22716,
   "message" : "Playback loaded successfully."
-}, null, {
+}, {
+  "command" : "loadRecommendations",
+  "user" : "grace25",
+  "timestamp" : 22734,
+  "message" : "Playback loaded successfully."
+}, {
   "command" : "search",
   "user" : "carol19",
   "timestamp" : 22761,
@@ -23882,13 +23892,13 @@
       "Adele" : 18,
       "Johnny Cash" : 18,
       "Bob Dylan" : 16,
-      "ABBA" : 14
+      "Joni Mitchell" : 15
     },
     "topGenres" : {
       "soul" : 32,
       "classic rock" : 28,
+      "folk" : 23,
       "rock" : 23,
-      "folk" : 22,
       "country" : 18
     },
     "topSongs" : {
@@ -23896,7 +23906,7 @@
       "A Case of You" : 3,
       "Arrival" : 3,
       "Goodbye Yellow Brick Road" : 3,
-      "All Day Sucker" : 2
+      "Woodstock" : 3
     },
     "topAlbums" : {
       "Aftermath" : 16,
@@ -26614,43 +26624,43 @@
   "result" : {
     "Stevie Wonder" : {
       "merchRevenue" : 0.0,
-      "songRevenue" : 1022068.07,
+      "songRevenue" : 1021379.37,
       "ranking" : 1,
       "mostProfitableSong" : "He's Misstra Know It All"
     },
     "The Beach Boys" : {
       "merchRevenue" : 0.0,
-      "songRevenue" : 1008687.57,
+      "songRevenue" : 1008618.7,
       "ranking" : 2,
       "mostProfitableSong" : "Pet Sounds"
     },
     "The Beatles" : {
       "merchRevenue" : 0.0,
-      "songRevenue" : 948056.3,
+      "songRevenue" : 945203.99,
       "ranking" : 3,
       "mostProfitableSong" : "You Never Give Me Your Money - Remastered 2009"
     },
     "Bob Dylan" : {
       "merchRevenue" : 0.0,
-      "songRevenue" : 877290.78,
+      "songRevenue" : 876395.47,
       "ranking" : 4,
       "mostProfitableSong" : "Girl From the North Country"
     },
     "Joni Mitchell" : {
       "merchRevenue" : 0.0,
-      "songRevenue" : 869577.21,
+      "songRevenue" : 868629.69,
       "ranking" : 5,
       "mostProfitableSong" : "Woodstock"
     },
     "Johnny Cash" : {
       "merchRevenue" : 0.0,
-      "songRevenue" : 863725.62,
+      "songRevenue" : 862785.98,
       "ranking" : 6,
       "mostProfitableSong" : "The Man Comes Around (Early Take)"
     },
     "The Rolling Stones" : {
       "merchRevenue" : 0.0,
-      "songRevenue" : 688077.99,
+      "songRevenue" : 687525.7,
       "ranking" : 7,
       "mostProfitableSong" : "Live With Me"
     },
@@ -26662,7 +26672,7 @@
     },
     "ABBA" : {
       "merchRevenue" : 0.0,
-      "songRevenue" : 627953.07,
+      "songRevenue" : 627264.37,
       "ranking" : 9,
       "mostProfitableSong" : "Money, Money, Money"
     },
@@ -26674,25 +26684,25 @@
     },
     "Nirvana" : {
       "merchRevenue" : 0.0,
-      "songRevenue" : 523172.42,
+      "songRevenue" : 522621.46,
       "ranking" : 11,
       "mostProfitableSong" : "Where Did You Sleep Last Night (Live Version)"
     },
     "Radiohead" : {
       "merchRevenue" : 0.0,
-      "songRevenue" : 487524.58,
+      "songRevenue" : 495796.35,
       "ranking" : 12,
       "mostProfitableSong" : "Weird Fishes/Arpeggi"
     },
     "Rihanna" : {
       "merchRevenue" : 0.0,
-      "songRevenue" : 457190.53,
+      "songRevenue" : 456776.31,
       "ranking" : 13,
       "mostProfitableSong" : "If I Never See Your Face Again"
     },
     "Adele" : {
       "merchRevenue" : 0.0,
-      "songRevenue" : 426048.47,
+      "songRevenue" : 425635.24,
       "ranking" : 14,
       "mostProfitableSong" : "Melt My Heart to Stone"
     },

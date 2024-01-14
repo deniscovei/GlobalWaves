@@ -31,6 +31,11 @@ public final class Repeat implements Command {
             message = "Repeat mode changed to " + repeatStateLowerCase + ".";
         }
 
-        return new Output(input, message);
+        return new Output.Builder()
+            .command(input.getCommand())
+            .timestamp(input.getTimestamp())
+            .user(input.getUsername())
+            .message(message)
+            .build();
     }
 }

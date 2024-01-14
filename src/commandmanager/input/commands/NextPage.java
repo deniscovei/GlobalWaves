@@ -5,7 +5,7 @@ import commandmanager.output.Output;
 import data.Database;
 import data.entities.users.Listener;
 
-public class NextPage implements Command {
+public final class NextPage implements Command {
     @Override
     public Output action(final Input input) {
         Listener user = (Listener) Database.getInstance().findUser(input.getUsername());
@@ -18,6 +18,11 @@ public class NextPage implements Command {
             message = "There are no pages left to go forward.";
         }
 
-        return new Output(input, message);
+        return new Output.Builder()
+            .command(input.getCommand())
+            .timestamp(input.getTimestamp())
+            .user(input.getUsername())
+            .message(message)
+            .build();
     }
 }

@@ -9,13 +9,18 @@ import data.entities.users.User;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GetNotifications implements Command {
+public final class GetNotifications implements Command {
     @Override
     public Output action(final Input input) {
         User user = Database.getInstance().findUser(input.getUsername());
         List<Notification> notifications = new ArrayList<>(user.getNotifications());
         user.clearNotifications();
 
-        return new Output(input, notifications, null);
+        return new Output.Builder()
+            .command(input.getCommand())
+            .timestamp(input.getTimestamp())
+            .user(input.getUsername())
+            .notifications(notifications)
+            .build();
     }
 }

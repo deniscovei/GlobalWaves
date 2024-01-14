@@ -1,8 +1,8 @@
 # GlobalWaves
 ## Denis Covei - 322CA
 
-I used four design patterns in this project: **Command**, **Singleton**, **Template** and 
-**Decorator**.
+I used five design patterns in this project: **Command**, **Singleton**, 
+**Builder**, **Template** and **Prototype**.
 
 * <span style="color:green">*Command*</span> - command interface for the commands, containing the 
   action 
@@ -12,8 +12,9 @@ podcasts, playlists and songs; the library is loaded here at runtime, and then f
 database is reset to its initial state.
 * <span style="color:#ADDFFF">*AudioFileListSerializer*</span> - JSON serializer for songs
 
-I have an abstract class <span style="color:#ADDFFF">*User*</span> that is extended by artists, 
-hosts and listeners.
+I have an abstract class <span style="color:#ADDFFF">*User*</span> that is extended by content 
+createors and listeners. The <span style="color:#ADDFFF">*ContentCreator*</span> is extended by
+artists and hosts, using the **Template** pattern.
 
 Each listener has a <span style="color:#ADDFFF">*Player*</span> field, in which the loaded track is
 stored.
@@ -34,13 +35,14 @@ user, with the available options for that user.
 We have two types of files:
 <span style="color:blueviolet">*AudioCollection*</span> and
 <span style="color:blueviolet">*AudioFile*</span> extending the
-<span style="color:green">*File*</span> abstract class, using **Decorator** pattern. The
+<span style="color:green">*File*</span> abstract class. The
 <span style="color:blueviolet">*AudioCollection*</span> is also extended by
 <span style="color:#ADDFFF">*Playlist*</span>, <span style="color:#ADDFFF">*Album*</span> and
 <span style="color:#ADDFFF">*Podcast*</span>. The
 <span style="color:blueviolet">*AudioFile*</span> is
 extended by <span style="color:#ADDFFF">*Song*</span> and
-<span style="color:#ADDFFF">*Episode*</span>.
+<span style="color:#ADDFFF">*Episode*</span>. Song is also extended by
+<span style="color:#ADDFFF">*Ad*</span>.
 
 **Playlists** are created by listeners, and can contain songs from different artists. They can be
 public or private. They can be listened by listeners, and they can be added to the library of a
@@ -63,11 +65,20 @@ added to the library of a listener.
 There are four types of **pages**: <span style="color:#ADDFFF">*HomePage*</span>,
 <span style="color:#ADDFFF">*LikedContentPage*</span>, 
 <span style="color:#ADDFFF">*ArtistPage*</span> and <span style="color:#ADDFFF">*HostPage*</span>.
-These extend the <span style="color:green">*Page*</span> abstract class, using **Template** design
-pattern. Each page has a method for getting the content of the page.
+These extend the <span style="color:green">*Page*</span> abstract class. Each page has a method 
+for getting the content of the page.
 
 I added parallelism in the application, by using **threads**. I calculate the number of likes of 
 a songs on an album by using all the processors of the machine.
+
+The **Builder** design pattern is used for creating the outputs. I have an internal class
+<span style="color:#ADDFFF">*Builder*</span> that is used for building the output by fields.
+
+The **Prototype** design pattern is used user tops, as I have a <span style="color:#ADDFFF">*Top*</span>
+class that is extended by <span style="color:#ADDFFF">*ArtistTops*</span>, 
+<span style="color:#ADDFFF">*HostTops*</span> and <span style="color:#ADDFFF">*ListenerTops*</span>.
+Each of these classes has a clone method that returns a clone of the object with sorted fields
+restricted to a size of five elements.
 
 Encountered problems:
 * I had some problems with parsing JSON files. I had to write a custom serializer for the songs,

@@ -93,7 +93,6 @@ public final class Main {
                 .readValue(new File(inputPath), new TypeReference<>() {
                 });
 
-        System.out.println("Input file: " + filePathInput);
         for (Input input : inputs) {
             outputs.add(objectMapper.valueToTree(input.action()));
         }
