@@ -1,5 +1,5 @@
 # GlobalWaves
-## Denis Covei - 322CA
+## Denis Covei
 
 I used five design patterns in this project: **Command**, **Singleton**, 
 **Builder**, **Template** and **Prototype**.
